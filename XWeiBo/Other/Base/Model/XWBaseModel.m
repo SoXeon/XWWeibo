@@ -48,5 +48,13 @@
     }
 }
 
-
+- (NSDate *)createdTime
+{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"EEE MMM dd HH:mm:ss zzzz yyyy";
+    fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSDate *date = [fmt dateFromString:_createdAt];
+    
+    return date;
+}
 @end

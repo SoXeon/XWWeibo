@@ -24,11 +24,14 @@
 #import "CommentViewController.h"
 #import "UIViewController+MaryPopin.h"
 
-@interface XWHomeTableViewController () <MJRefreshBaseViewDelegate, SWTableViewCellDelegate>
+#import "ACTimeScroller.h"
+
+@interface XWHomeTableViewController () <MJRefreshBaseViewDelegate, SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_statusFrames;
     MJRefreshHeaderView *_header;
     MJRefreshFooterView *_footer;
+    ACTimeScroller *_timeScroller;
 }
 
 @property (nonatomic, assign) CGPoint cellPoint;
@@ -55,6 +58,7 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kTableBorderWidth, 0);
     
+    _timeScroller = [[ACTimeScroller alloc] initWithDelegate:self];
 }
 
 
@@ -243,7 +247,7 @@
     }
     
     cell.cellFrame = _statusFrames[indexPath.row];
-    return cell;
+     return cell;
 }
 
 
@@ -408,6 +412,35 @@
 {
     [_header free];
     [_footer free];
+}
+
+#pragma mark - ACTimeScrollerDelegate Methods
+- (UITableView *)tableViewForTimeScroller:(ACTimeScroller *)timeScroller
+{
+    return [self tableView];
+}
+
+- (NSDate *)timeScroller:(ACTimeScroller *)timeScroller dateForCell:(XWStatusCell *)cell
+{
+    
+    return cell.cellFrame.status.createdTime;
+}
+
+#pragma mark UIScrollviewDelegate Methods
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    [_timeScroller scrollViewWillBeginDragging];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [_timeScroller scrollViewDidScroll];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    [_timeScroller scrollViewDidEndDecelerating];
 }
 
 @end

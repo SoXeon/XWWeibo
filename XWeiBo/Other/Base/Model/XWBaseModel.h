@@ -12,6 +12,7 @@
 @property (nonatomic, assign) long long ID;
 @property (nonatomic, copy) NSString *createdAt;
 @property (nonatomic, copy) NSString *idstr;
+@property (nonatomic, strong) NSDate *createdTime;
 
 - (id)initWithDict:(NSDictionary *)dict;
 

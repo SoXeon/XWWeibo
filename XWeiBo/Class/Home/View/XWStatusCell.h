@@ -7,7 +7,8 @@
 //
 
 #import "XWBaseStatusCell.h"
-@class XWStatusCellFrame;
+#import "XWStatusCellFrame.h"
+
 @interface XWStatusCell : XWBaseStatusCell
 @property (nonatomic, strong) XWStatusCellFrame *statusFrame;
 @end

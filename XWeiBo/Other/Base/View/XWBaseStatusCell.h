@@ -7,7 +7,7 @@
 //
 
 #import "XWBaseWordCell.h"
-@class XWBaseStatusCellFrame;
+#import "XWBaseStatusCellFrame.h"
 
 @interface XWBaseStatusCell : XWBaseWordCell
 {

@@ -184,6 +184,13 @@
 		E2F072961A30627600BDE434 /* XWStatusParam.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F072951A30627600BDE434 /* XWStatusParam.m */; };
 		E2F072991A3062D000BDE434 /* XWStatusResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F072981A3062D000BDE434 /* XWStatusResult.m */; };
 		E2F0729C1A3064E400BDE434 /* XWSingleStatusParam.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F0729B1A3064E400BDE434 /* XWSingleStatusParam.m */; };
+		E2F243391ACD6A06002F6003 /* ACTimeScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F243311ACD6A06002F6003 /* ACTimeScroller.m */; };
+		E2F2433A1ACD6A06002F6003 /* timescroll_hourhand.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F243331ACD6A06002F6003 /* timescroll_hourhand.png */; };
+		E2F2433B1ACD6A06002F6003 /* timescroll_hourhand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F243341ACD6A06002F6003 /* timescroll_hourhand@2x.png */; };
+		E2F2433C1ACD6A06002F6003 /* timescroll_minutehand.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F243351ACD6A06002F6003 /* timescroll_minutehand.png */; };
+		E2F2433D1ACD6A06002F6003 /* timescroll_minutehand@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F243361ACD6A06002F6003 /* timescroll_minutehand@2x.png */; };
+		E2F2433E1ACD6A06002F6003 /* timescroll_pointer.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F243371ACD6A06002F6003 /* timescroll_pointer.png */; };
+		E2F2433F1ACD6A06002F6003 /* timescroll_pointer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E2F243381ACD6A06002F6003 /* timescroll_pointer@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -545,6 +552,14 @@
 		E2F072981A3062D000BDE434 /* XWStatusResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWStatusResult.m; sourceTree = "<group>"; };
 		E2F0729A1A3064E400BDE434 /* XWSingleStatusParam.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSingleStatusParam.h; sourceTree = "<group>"; };
 		E2F0729B1A3064E400BDE434 /* XWSingleStatusParam.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSingleStatusParam.m; sourceTree = "<group>"; };
+		E2F243301ACD6A06002F6003 /* ACTimeScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTimeScroller.h; sourceTree = "<group>"; };
+		E2F243311ACD6A06002F6003 /* ACTimeScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTimeScroller.m; sourceTree = "<group>"; };
+		E2F243331ACD6A06002F6003 /* timescroll_hourhand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timescroll_hourhand.png; sourceTree = "<group>"; };
+		E2F243341ACD6A06002F6003 /* timescroll_hourhand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timescroll_hourhand@2x.png"; sourceTree = "<group>"; };
+		E2F243351ACD6A06002F6003 /* timescroll_minutehand.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timescroll_minutehand.png; sourceTree = "<group>"; };
+		E2F243361ACD6A06002F6003 /* timescroll_minutehand@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timescroll_minutehand@2x.png"; sourceTree = "<group>"; };
+		E2F243371ACD6A06002F6003 /* timescroll_pointer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = timescroll_pointer.png; sourceTree = "<group>"; };
+		E2F243381ACD6A06002F6003 /* timescroll_pointer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "timescroll_pointer@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1083,6 +1098,8 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E2F2432F1ACD6A06002F6003 /* ACTimeScroller */,
+				E2F243321ACD6A06002F6003 /* Assets */,
 				E2C2AFD71A91A97600C23EA2 /* MJRefresh */,
 				E2C2AFAA1A8E1B7A00C23EA2 /* SLPagingView */,
 				E2C2AF9C1A8BB57B00C23EA2 /* MaryPopin */,
@@ -1432,6 +1449,28 @@
 			path = Status;
 			sourceTree = "<group>";
 		};
+		E2F2432F1ACD6A06002F6003 /* ACTimeScroller */ = {
+			isa = PBXGroup;
+			children = (
+				E2F243301ACD6A06002F6003 /* ACTimeScroller.h */,
+				E2F243311ACD6A06002F6003 /* ACTimeScroller.m */,
+			);
+			path = ACTimeScroller;
+			sourceTree = "<group>";
+		};
+		E2F243321ACD6A06002F6003 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				E2F243331ACD6A06002F6003 /* timescroll_hourhand.png */,
+				E2F243341ACD6A06002F6003 /* timescroll_hourhand@2x.png */,
+				E2F243351ACD6A06002F6003 /* timescroll_minutehand.png */,
+				E2F243361ACD6A06002F6003 /* timescroll_minutehand@2x.png */,
+				E2F243371ACD6A06002F6003 /* timescroll_pointer.png */,
+				E2F243381ACD6A06002F6003 /* timescroll_pointer@2x.png */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1517,16 +1556,22 @@
 				E2F072441A30295100BDE434 /* More.plist in Resources */,
 				E2C2AFE21A91A97600C23EA2 /* MJRefresh.bundle in Resources */,
 				E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */,
+				E2F2433F1ACD6A06002F6003 /* timescroll_pointer@2x.png in Resources */,
 				E2C2AF9B1A8BB0A800C23EA2 /* RepostViewController.xib in Resources */,
+				E2F2433C1ACD6A06002F6003 /* timescroll_minutehand.png in Resources */,
 				E2EF80F11A309E5D003E9D9B /* IWProfileHeaderView.xib in Resources */,
 				E2F070CB1A2D6BCD00BDE434 /* Images.xcassets in Resources */,
 				E2EF80CB1A308811003E9D9B /* MJPhotoBrowser.bundle in Resources */,
 				E2EF80EC1A309AB1003E9D9B /* IWFriendshipCell.xib in Resources */,
+				E2F2433A1ACD6A06002F6003 /* timescroll_hourhand.png in Resources */,
+				E2F2433E1ACD6A06002F6003 /* timescroll_pointer.png in Resources */,
 				E2F072421A2F5DBE00BDE434 /* DetailHeader.xib in Resources */,
 				E2F072521A304F6B00BDE434 /* IWComposeDock.xib in Resources */,
 				E2F071211A2D775900BDE434 /* Info.plist in Resources */,
+				E2F2433B1ACD6A06002F6003 /* timescroll_hourhand@2x.png in Resources */,
 				E2C2AFB41A8E1B7A00C23EA2 /* .gitignore in Resources */,
 				E25ED15C1A30691F00C5A023 /* MBProgressHUD.bundle in Resources */,
+				E2F2433D1ACD6A06002F6003 /* timescroll_minutehand@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1700,6 +1745,7 @@
 				E2F071F11A2EF92A00BDE434 /* XWStatus.m in Sources */,
 				E2F0728F1A3061F300BDE434 /* XWUnreadParam.m in Sources */,
 				E2F072091A2F185100BDE434 /* XWBaseStatusCell.m in Sources */,
+				E2F243391ACD6A06002F6003 /* ACTimeScroller.m in Sources */,
 				E2EF80E41A309999003E9D9B /* IWMoreBtn.m in Sources */,
 				E21CE1771A381B460031D6B8 /* AFPropertyListRequestOperation.m in Sources */,
 				E2F071281A2D7DF500BDE434 /* UIImage+DP.m in Sources */,
