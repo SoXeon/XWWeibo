@@ -1,0 +1,5 @@
+#define kAppKey @"237699949"
+#define kRedirectURI @"http://weibo.com/2679315393/profile"
+#define kAppSecret @"eb5112ce8a91727fb1575814baa68ab6"
+#define kBaseURL @"https://api.weibo.com"
+#define kAuthorizeURL @"https://api.weibo.com/oauth2/authorize"

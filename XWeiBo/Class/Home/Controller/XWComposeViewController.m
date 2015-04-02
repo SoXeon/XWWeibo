@@ -1,0 +1,261 @@
+//
+//  XWComposeViewController.m
+//  XWeiBo
+//
+//  Created by DP on 14/12/4.
+//  Copyright (c) 2014年 戴鹏. All rights reserved.
+//
+
+#import "XWComposeViewController.h"
+#import "IWComposeDock.h"
+#import "XWPlaceholderTextView.h"
+#import "MBProgressHUD+Add.h"
+#import "XWStatusTool.h"
+#import "XWUpdateParam.h"
+#import "XWUploadParam.h"
+#import "XWAccountTool.h"
+#import "AFHTTPClient.h"
+#import "AFHTTPRequestOperation.h"
+
+
+@interface XWComposeViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
+{
+    IWComposeDock *_dock;
+    XWPlaceholderTextView *_textView;
+}
+
+@property (nonatomic, weak) UIImageView *imageView;
+@end
+
+@implementation XWComposeViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    // 1.设置导航栏的内容
+    [self setupNavBar];
+    
+    // 2.添加文本输入控件
+    [self setupTextView];
+    
+    // 3.添加工具条
+    [self setupDock];
+    
+    [self setupImageView];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addCamera) name:@"cameraClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addAlbum) name:@"albumClick" object:nil];
+}
+
+- (void)setupImageView
+{
+    UIImageView *imageView = [[UIImageView alloc] init];
+    imageView.frame = CGRectMake(5, 100, 80, 80);
+    [_textView addSubview:imageView];
+    self.imageView = imageView;
+}
+
+- (void)addCamera
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
+
+}
+
+- (void)addAlbum
+{
+    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+    ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    ipc.delegate = self;
+    [self presentViewController:ipc animated:YES completion:nil];
+    
+}
+
+#pragma mark 图片选择控制器代理
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    self.imageView.image = image;
+    
+}
+
+- (void)setupDock
+{
+    IWComposeDock *dock = [IWComposeDock dock];
+    CGRect dockF = dock.frame;
+    dockF.origin.y = self.view.frame.size.height - dockF.size.height;
+    dock.frame = dockF;
+    [self.view addSubview:dock];
+    _dock = dock;
+}
+
+
+- (void)setupTextView
+{
+    if (iOS7) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    // 1.添加输入控件
+    CGRect frame = self.view.bounds;
+    frame.size.height = 200;
+    XWPlaceholderTextView *textView = [[XWPlaceholderTextView alloc] initWithFrame:frame];
+    textView.font = [UIFont systemFontOfSize:15];
+    textView.placeholder = @"分享新鲜事";
+    [textView becomeFirstResponder];
+    [self.view addSubview:textView];
+    self.view.backgroundColor = textView.backgroundColor;
+    _textView = textView;
+    
+    // 2.监听键盘通知
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
+    [center addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:textView];
+}
+
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark 显示键盘就会调用
+- (void)keyboardWillShow:(NSNotification *)note
+{
+    // 1.取出键盘的高度
+    CGFloat keyboardH = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    
+    // 2.键盘的动画时间
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    // 3.动画
+    [UIView animateWithDuration:duration animations:^{
+        _dock.transform = CGAffineTransformMakeTranslation(0, -keyboardH);
+    }];
+}
+
+
+#pragma mark 隐藏键盘就会调用
+- (void)keyboardWillHide:(NSNotification *)note
+{
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    [UIView animateWithDuration:duration animations:^{
+        _dock.transform = CGAffineTransformIdentity;
+    }];
+}
+
+
+#pragma mark TextView文字改了
+- (void)textDidChange:(NSNotification *)note
+{
+    self.navigationItem.rightBarButtonItem.enabled = _textView.text.length != 0;
+}
+
+
+#pragma mark - 导航栏相关
+- (void)setupNavBar
+{
+    // 1.标题
+    self.title = @"发微博";
+    self.view.backgroundColor = XWColor(232, 232, 232);
+    
+    // 2.取消
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStyleBordered target:self action:@selector(cancel)];
+    
+    // 3.发送
+    if (iOS7) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"发送" style:UIBarButtonItemStyleBordered target:self action:@selector(send)];
+    } else {
+        UIButton *blueBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+        blueBtn.bounds = CGRectMake(0, 0, 50, 30);
+        blueBtn.titleLabel.font = [UIFont systemFontOfSize:13];
+        [blueBtn setBackgroundImage:[UIImage resizedImage:@"navigationbar_button_send_background"] forState:UIControlStateNormal];
+        [blueBtn setBackgroundImage:[UIImage resizedImage:@"navigationbar_button_send_background_pushed"] forState:UIControlStateHighlighted];
+        [blueBtn setBackgroundImage:[UIImage resizedImage:@"navigationbar_button_send_background_disabled"] forState:UIControlStateDisabled];
+        [blueBtn setTitle:@"发送" forState:UIControlStateNormal];
+        [blueBtn addTarget:self action:@selector(send) forControlEvents:UIControlEventTouchUpInside];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:blueBtn];
+    }
+    self.navigationItem.rightBarButtonItem.enabled = NO;
+}
+
+- (void)cancel
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)send
+{
+    // 1.退出键盘
+    [_textView resignFirstResponder];
+    
+    // 2.弹框
+    [MBProgressHUD showMessage:@"正在发送" toView:self.view.window];
+    
+    if (self.imageView.image) {
+        [self sendWithImage];
+    } else {
+        [self setWithoutImage];
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
+
+- (void)sendWithImage
+{
+    NSURL *url = [NSURL URLWithString:@"https://upload.api.weibo.com/"];
+    AFHTTPClient *client = [[AFHTTPClient alloc]initWithBaseURL:url];
+    
+    
+    XWAccountTool *newTool = [[XWAccountTool alloc] init];
+    
+    // 2.封装请求参数
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"status"] = _textView.text;
+    params[@"access_token"] = newTool.currentAccount.accessToken;
+    
+    NSURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:@"2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        // 必须在这里说明要上传哪些文件
+        NSData *data = UIImageJPEGRepresentation(self.imageView.image, 0.5);
+        [formData appendPartWithFileData:data name:@"pic" fileName:@"" mimeType:@"image/jpeg"];
+    }];
+    
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+
+    }];
+    
+    [client.operationQueue addOperation:op];
+
+}
+
+- (void)setWithoutImage
+{
+    // 3.发送请求
+    XWUpdateParam *param = [[XWUpdateParam alloc] init];
+    param.status = _textView.text;
+    [XWStatusTool updateWithParam:param success:^(XWStatus *status) {
+        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+        [self cancel];
+    } failure:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+    }];
+}
+
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+@end

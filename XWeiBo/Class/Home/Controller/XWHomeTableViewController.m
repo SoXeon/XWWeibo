@@ -1,0 +1,413 @@
+//
+//  XWHomeTableViewController.m
+//  XWeiBo
+//
+//  Created by DP on 14/12/2.
+//  Copyright (c) 2014年 戴鹏. All rights reserved.
+//
+
+#import "XWHomeTableViewController.h"
+#import "XWBadgeButton.h"
+#import "UIBarButtonItem+DP.h"
+#import "XWTitleButton.h"
+#import "XWAccountTool.h"
+#import "XWStatusTool.h"
+#import "XWStatus.h"
+#import "XWUser.h"
+#import "XWStatusCellFrame.h"
+#import "XWStatusCell.h"
+#import "MJRefresh.h"
+#import "UIImage+DP.h"
+#import "XWStatusDetailController.h"
+
+#import "RepostViewController.h"
+#import "CommentViewController.h"
+#import "UIViewController+MaryPopin.h"
+
+@interface XWHomeTableViewController () <MJRefreshBaseViewDelegate, SWTableViewCellDelegate>
+{
+    NSMutableArray *_statusFrames;
+    MJRefreshHeaderView *_header;
+    MJRefreshFooterView *_footer;
+}
+
+@property (nonatomic, assign) CGPoint cellPoint;
+@property (nonatomic, assign) CGFloat cellOriginY;
+@end
+
+@implementation XWHomeTableViewController
+
+
+- (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    
+    [self buildUI];
+    
+    [self setupNavItem];
+    
+    [self addRefreshViews];
+}
+
+- (void)buildUI
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kTableBorderWidth, 0);
+    
+}
+
+
+- (void)addRefreshViews
+{
+    _statusFrames = [NSMutableArray array];
+    
+    // 1.下拉刷新
+    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
+    header.scrollView = self.tableView;
+    header.delegate = self;
+    _header = header;
+    [_header beginRefreshing];
+    
+    // 2.上拉加载更多
+    MJRefreshFooterView *footer = [MJRefreshFooterView footer];
+    footer.scrollView = self.tableView;
+    footer.delegate = self;
+    _footer = footer;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+}
+
+#pragma mark 刷新代理方法
+- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+{
+    if ([refreshView isKindOfClass:[MJRefreshFooterView class]]) {
+        [self loadMoreData:refreshView];
+    } else {
+        [self loadNewData:refreshView];
+    }
+}
+
+#pragma mark 加载最新数据
+- (void)loadNewData:(MJRefreshBaseView *)refreshView
+{
+    // 1.第1条微博的ID
+    XWStatusCellFrame *f = _statusFrames.count?_statusFrames[0]:nil;
+    long long first = [f.status ID];
+    
+    // 2.获取微博数据
+    [XWStatusTool statusesWithSinceId:first maxId:0 success:^(NSArray *statues){
+        // 1.在拿到最新微博数据的同时计算它的frame
+        NSMutableArray *newFrames = [NSMutableArray array];
+        for (XWStatus *s in statues) {
+            XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
+            f.status = s;
+            [newFrames addObject:f];
+        }
+        
+        // 2.将newFrames整体插入到旧数据的前面
+        [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
+        
+        // 3.刷新表格
+        [self.tableView reloadData];
+        
+        // 4.让刷新控件停止刷新状态
+        [refreshView endRefreshing];
+        
+        // 5.顶部展示最新微博的数目
+        [self showNewStatusCount:(int)statues.count];
+    } failure:^(NSError *error) {
+        [refreshView endRefreshing];
+    }];
+}
+
+- (void)loadMoreData:(MJRefreshBaseView *)refreshView
+{
+    // 1.最后1条微博的ID
+    XWStatusCellFrame *f = [_statusFrames lastObject];
+    long long last = [f.status ID];
+    
+    // 2.获取微博数据
+    [XWStatusTool statusesWithSinceId:0 maxId:last - 1 success:^(NSArray *statues){
+        // 1.在拿到最新微博数据的同时计算它的frame
+        NSMutableArray *newFrames = [NSMutableArray array];
+        for (XWStatus *s in statues) {
+            XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
+            f.status = s;
+            [newFrames addObject:f];
+        }
+        
+        // 2.将newFrames整体插入到旧数据的后面
+        [_statusFrames addObjectsFromArray:newFrames];
+        
+        // 3.刷新表格
+        [self.tableView reloadData];
+        
+        // 4.让刷新控件停止刷新状态
+        [refreshView endRefreshing];
+    } failure:^(NSError *error) {
+        [refreshView endRefreshing];
+    }];
+
+}
+
+#pragma mark 展示最新微博的数目
+- (void)showNewStatusCount:(int)count
+{
+    // 1.创建按钮
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.enabled = NO;
+    btn.adjustsImageWhenDisabled = NO;
+    
+    [btn setBackgroundImage:[UIImage resizedImage:@"timeline_new_status_background.png"] forState:UIControlStateNormal];
+    CGFloat w = self.view.frame.size.width;
+    CGFloat h = 35;
+    btn.frame = CGRectMake(0, 66 - h, w, h);
+    NSString *title = count?[NSString stringWithFormat:@"共有%d条新的微博", count]:@"没有新的微博";
+    [btn setTitle:title forState:UIControlStateNormal];
+    [self.navigationController.view insertSubview:btn belowSubview:self.navigationController.navigationBar];
+    
+    // 2.开始执行动画
+    CGFloat duration = 0.5;
+    
+    [UIView animateWithDuration:duration animations:^{ // 下来
+        btn.transform = CGAffineTransformMakeTranslation(0, h);
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:duration delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{// 上去
+            btn.transform = CGAffineTransformIdentity;
+        } completion:^(BOOL finished) {
+            [btn removeFromSuperview];
+        }];
+    }];
+}
+
+
+- (void)setupNavItem
+{
+    // 左边按钮
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
+    
+    // 右边按钮
+    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_pop" highIcon:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+    
+    
+}
+
+- (void)titleClick:(XWTitleButton *)titleButton
+{
+    if (titleButton.currentImage == [UIImage imageWithName:@"navigationbar_arrow_up"]) {
+        [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_down"] forState:UIControlStateNormal];
+        //        titleButton.tag = IWTitleButtonDownTag;
+    } else {
+        [titleButton setImage:[UIImage imageWithName:@"navigationbar_arrow_up"] forState:UIControlStateNormal];
+        //        titleButton.tag = IWTitleButtonUpTag;
+    }
+}
+
+- (void)findFriend
+{
+    XWLog(@"findFriend");
+}
+
+- (void)pop
+{
+    XWLog(@"pop");
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark - Table view data source
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _statusFrames.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *CellIdentifier = @"Cell";
+    XWStatusCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[XWStatusCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        cell.rightUtilityButtons = [self rightButtons];
+        cell.leftUtilityButtons = [self leftButtons];
+        cell.delegate = self;
+    }
+    
+    cell.cellFrame = _statusFrames[indexPath.row];
+    return cell;
+}
+
+
+#pragma mark 自定义手势滑动 转发和评论
+- (NSArray *)leftButtons
+{
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor greenColor] icon:[UIImage imageNamed:@"check.png"]];
+
+    return leftUtilityButtons;
+}
+
+- (NSArray *)rightButtons
+{
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor greenColor] icon:[UIImage imageNamed:@"list.png"]];
+    return rightUtilityButtons;
+}
+
+#pragma mark SWTableViewCell Delegate
+- (void)swipeableTableViewCell:(XWStatusCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+        {
+            [cell hideUtilityButtonsAnimated:NO];
+
+            [self showRepostViewControllerWithStatus:cell.cellFrame];
+        }
+            
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)swipeableTableViewCell:(XWStatusCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index
+{
+    switch (index) {
+        case 0:
+            [cell hideUtilityButtonsAnimated:NO];
+            [self showCommentViewControllerWithStatus:cell.cellFrame];
+
+            break;
+        default:
+            break;
+    }
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell scrollingToState:(SWCellState)state
+{
+    
+    //TODO: 在特定事件触发下，刷新数据
+    switch (state) {
+        case 0:
+            NSLog(@"utility buttons closed");
+            break;
+        case 1:
+            NSLog(@"left utility buttons open");
+            break;
+        case 2:
+            NSLog(@"right utility buttons open");
+            break;
+        default:
+            break;
+    }
+
+}
+
+- (BOOL)swipeableTableViewCellShouldHideUtilityButtonsOnSwipe:(SWTableViewCell *)cell
+{
+    // allow just one cell's utility button to be open at once
+    return YES;
+}
+
+- (BOOL)swipeableTableViewCell:(SWTableViewCell *)cell canSwipeToState:(SWCellState)state
+{
+    switch (state) {
+        case 1:
+            // set to NO to disable all left utility buttons appearing
+            return YES;
+            break;
+        case 2:
+            // set to NO to disable all right utility buttons appearing
+            return YES;
+            break;
+        default:
+            break;
+    }
+    
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAll;
+}
+
+- (void)showRepostViewControllerWithStatus:(XWBaseStatusCellFrame *)cellFrame
+{
+    RepostViewController *repostVC = [[RepostViewController alloc] init];
+    [repostVC setPopinTransitionStyle:BKTPopinTransitionStyleSpringySlide];
+    [repostVC setPopinOptions:BKTPopinDisableAutoDismiss];
+    [repostVC setPopinOptions:BKTPopinIgnoreKeyboardNotification];
+    [repostVC setPreferedPopinContentSize:CGSizeMake(300.0, 240.0)];
+    [repostVC setPopinTransitionDirection:BKTPopinTransitionDirectionLeft];
+    [repostVC setPopinAlignment:BKTPopinAlignementOptionCentered];
+    repostVC.status = cellFrame.status;
+
+    [self presentPopinController:repostVC animated:YES completion:^{
+        [repostVC.repostMessage becomeFirstResponder];
+    }];
+    
+    
+}
+
+- (void)showCommentViewControllerWithStatus:(XWBaseStatusCellFrame *)cellFrame
+{
+    CommentViewController *commentVC = [[CommentViewController alloc] init];
+    [commentVC setPopinTransitionStyle:BKTPopinTransitionStyleSpringySlide];
+    [commentVC setPopinOptions:BKTPopinDisableAutoDismiss];
+    [commentVC setPopinOptions:BKTPopinIgnoreKeyboardNotification];
+    [commentVC setPreferedPopinContentSize:CGSizeMake(300.0, 240.0)];
+    [commentVC setPopinTransitionDirection:BKTPopinTransitionDirectionRight];
+    [commentVC setPopinAlignment:BKTPopinAlignementOptionCentered];
+    commentVC.status = cellFrame.status;
+    
+    [self presentPopinController:commentVC animated:YES completion:^{
+        [commentVC.commentTextView becomeFirstResponder];
+    }];
+    
+}
+
+#pragma mark 返回每一行cell的高度 每次tableView刷新数据的时候都会调用
+// 而且会一次性算出所有cell的高度，比如有100条数据，一次性调用100次
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [_statusFrames[indexPath.row] cellHeight];
+}
+
+
+#warning 现则存在一个BUG，就是从子页面返回，cell的位置会不同程度上移，但是我的页面StatusList中不会出现这种情况
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    XWStatusDetailController *detail = [[XWStatusDetailController alloc] init];
+    XWStatusCellFrame *f = _statusFrames[indexPath.row];
+    detail.status = f.status;
+    
+    CGPoint point = [tableView contentOffset];
+    self.cellPoint = point;
+
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    NSLog(@"ddd%f",cell.frame.origin.y);//获取当前cell在table中的位置
+    
+    self.cellOriginY = cell.frame.origin.y;
+    
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
+- (void)dealloc
+{
+    [_header free];
+    [_footer free];
+}
+
+@end

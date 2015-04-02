@@ -1,0 +1,108 @@
+//
+//  XWWeiBo.pch
+//  XWeiBo
+//
+//  Created by DP on 14/12/2.
+//  Copyright (c) 2014年 戴鹏. All rights reserved.
+//
+
+#ifndef XWeiBo_XWWeiBo_pch
+#define XWeiBo_XWWeiBo_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#endif
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "UIImage+DP.h"
+
+#define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
+
+#define XWColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define XWRColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
+// 3.自定义Log
+#ifdef DEBUG
+#define XWLog(...) NSLog(__VA_ARGS__)
+#else
+#define XWLog(...)
+#endif
+
+
+#endif
+#define XWUserDefaults [NSUserDefaults standardUserDefaults]
+
+/** 导航栏 */
+// 导航栏标题颜色
+#define XWNavigationBarTitleColor XWColor(65, 65, 65)
+// 导航栏标题字体
+#define XWNavigationBarTitleFont [UIFont boldSystemFontOfSize:19]
+
+// 导航栏按钮文字颜色
+#define XWBarButtonTitleColor (iOS7 ? XWColor(239, 113, 0) : XWColor(119, 119, 119))
+#define XWBarButtonTitleDisabledColor XWColor(208, 208, 208)
+
+// 导航栏按钮文字字体
+#define XWBarButtonTitleFont (iOS7 ? [UIFont systemFontOfSize:15] : [UIFont boldSystemFontOfSize:12])
+
+// 3.设置cell的边框宽度
+#define kCellBorderWidth 10
+// 设置tableView的边框宽度
+#define kTableBorderWidth 8
+// 设置每个cell之间的间距
+#define kCellMargin 8
+// 设置微博dock的高度
+#define kStatusDockHeight 30
+// 设置转发微博dock的高度
+#define kRetweetedDockHeight 35
+
+// 4.cell内部子控件的字体设置
+#define kScreenNameFont [UIFont systemFontOfSize:13]
+#define kTimeFont [UIFont systemFontOfSize:11]
+#define kSourceFont kTimeFont
+#define kTextFont [UIFont systemFontOfSize:13]
+#define kRetweetedTextFont [UIFont systemFontOfSize:13]
+#define kRetweetedScreenNameFont [UIFont systemFontOfSize:13]
+
+// 7.图片
+// 会员皇冠图标
+#define kMBIconW 14
+#define kMBIconH 14
+
+// 头像
+#define kIconSmallW 34
+#define kIconSmallH 34
+
+#define kIconDefaultW 50
+#define kIconDefaultH 50
+
+#define kIconBigW 85
+#define kIconBigH 85
+
+// 认证加V图标
+#define kVertifyW 18
+#define kVertifyH 18
+
+// 5.获得RGB颜色
+
+// 6.cell内部子控件的颜色设置
+// 会员昵称颜色
+#define kMBScreenNameColor XWColor(243, 101, 18)
+// 非会员昵称颜色
+#define kScreenNameColor XWColor(93, 93, 93);
+// 被转发微博昵称颜色
+#define kRetweetedScreenNameColor XWColor(63, 104, 161)
+
+// 7.URL
+#define XWBaseURL @"https://api.weibo.com"
+#define XWURLWithPath(path) [NSString stringWithFormat:@"%@/%@", XWBaseURL, path]
+
+//当前设备的屏幕宽高
+#define XWScreenWitdh  [[UIScreen mainScreen] bounds].size.width
+#define XWScreenHeight [[UIScreen mainScreen] bounds].size.height
