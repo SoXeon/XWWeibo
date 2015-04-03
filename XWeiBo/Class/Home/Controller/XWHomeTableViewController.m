@@ -26,11 +26,9 @@
 
 #import "ACTimeScroller.h"
 
-@interface XWHomeTableViewController () <MJRefreshBaseViewDelegate, SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
+@interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_statusFrames;
-    MJRefreshHeaderView *_header;
-    MJRefreshFooterView *_footer;
     ACTimeScroller *_timeScroller;
 }
 
@@ -66,18 +64,26 @@
 {
     _statusFrames = [NSMutableArray array];
     
-    // 1.下拉刷新
-    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
-    header.scrollView = self.tableView;
-    header.delegate = self;
-    _header = header;
-    [_header beginRefreshing];
+    __weak typeof(&*self) weakSelf = self;
+
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        __strong typeof(&*self) strongSelf = weakSelf;
+        
+        if (strongSelf) {
+            [strongSelf loadNewData];
+        }
+    }];
     
-    // 2.上拉加载更多
-    MJRefreshFooterView *footer = [MJRefreshFooterView footer];
-    footer.scrollView = self.tableView;
-    footer.delegate = self;
-    _footer = footer;
+    [self.tableView.header beginRefreshing];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        __strong typeof(&*self) strongSelf = weakSelf;
+
+        if (strongSelf) {
+            [strongSelf loadMoreData];
+        }
+    }];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -86,19 +92,8 @@
     
 }
 
-#pragma mark 刷新代理方法
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    if ([refreshView isKindOfClass:[MJRefreshFooterView class]]) {
-        [self loadMoreData:refreshView];
-    } else {
-        [self loadNewData:refreshView];
-    }
-}
-
 #pragma mark 加载最新数据
-- (void)loadNewData:(MJRefreshBaseView *)refreshView
-{
+- (void)loadNewData{
     // 1.第1条微博的ID
     XWStatusCellFrame *f = _statusFrames.count?_statusFrames[0]:nil;
     long long first = [f.status ID];
@@ -120,16 +115,16 @@
         [self.tableView reloadData];
         
         // 4.让刷新控件停止刷新状态
-        [refreshView endRefreshing];
+        [self.tableView.header endRefreshing];
         
         // 5.顶部展示最新微博的数目
         [self showNewStatusCount:(int)statues.count];
     } failure:^(NSError *error) {
-        [refreshView endRefreshing];
+        [self.tableView.header endRefreshing];
     }];
 }
 
-- (void)loadMoreData:(MJRefreshBaseView *)refreshView
+- (void)loadMoreData
 {
     // 1.最后1条微博的ID
     XWStatusCellFrame *f = [_statusFrames lastObject];
@@ -152,9 +147,9 @@
         [self.tableView reloadData];
         
         // 4.让刷新控件停止刷新状态
-        [refreshView endRefreshing];
+        [self.tableView.footer endRefreshing];
     } failure:^(NSError *error) {
-        [refreshView endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
 
 }
@@ -406,12 +401,6 @@
     self.cellOriginY = cell.frame.origin.y;
     
     [self.navigationController pushViewController:detail animated:YES];
-}
-
-- (void)dealloc
-{
-    [_header free];
-    [_footer free];
 }
 
 #pragma mark - ACTimeScrollerDelegate Methods

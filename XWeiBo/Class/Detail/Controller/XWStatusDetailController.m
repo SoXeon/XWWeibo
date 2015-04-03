@@ -19,21 +19,20 @@
 #import "XWCommentCell.h"
 #import "MJRefresh.h"
 
-@interface XWStatusDetailController() <DetailHeaderDelegate, MJRefreshBaseViewDelegate,UIScrollViewDelegate>
+@interface XWStatusDetailController() <DetailHeaderDelegate, UIScrollViewDelegate>
 {
     XWStatusDetailCellFrame *_detailFrame;
     NSMutableArray *_repostFrames; // 转发frame数据
     NSMutableArray *_commentFrames; // 评论frame数据
     
-    DetailHeader *_detailHeader;
-    
-    MJRefreshHeaderView *_header;
-    MJRefreshFooterView *_footer;
     
     BOOL _commentLastPage; // 评论数据是否为最后一页
     BOOL _repostLastPage; // 转发数据是否为最后一页
 
 }
+
+@property (nonatomic, strong)DetailHeader *detailHeader;
+
 
 @end
 
@@ -68,19 +67,37 @@
 
 - (void)addRefreshViews
 {
-    // 添加下拉刷新
-    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
-    header.scrollView = self.tableView;
-    header.delegate = self;
-    _header = header;
+    __weak typeof(&*self) weakSelf = self;
     
-    // 添加上拉加载更多
-    MJRefreshFooterView *footer = [MJRefreshFooterView footer];
-    footer.scrollView = self.tableView;
-    footer.delegate = self;
-    footer.hidden = YES;
-    _footer = footer;
+   [self.tableView addLegendHeaderWithRefreshingBlock:^{
+       
 
+       
+       __strong typeof(&*self) strongSelf = weakSelf;
+       
+       if (strongSelf) {
+           [strongSelf loadNewStatus];
+           
+       }
+
+   }];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
+        
+        if (strongSelf) {
+            
+        }
+        // 上拉加载更多
+        if (strongSelf.detailHeader.currentBtnType == kDetailHeaderBtnTypeRepost) {
+            [strongSelf loadMoreRepost]; // 加载更多的转发
+        } else { // 加载更多的评论
+            [strongSelf loadMoreComment];
+        }
+        
+    }];
+    
 }
 
 #pragma mark 获得当前需要使用的数组
@@ -99,9 +116,9 @@
 {
     // 1.判断上拉加载更多控件要不要显示
     if (_detailHeader.currentBtnType == kDetailHeaderBtnTypeComment) {
-        _footer.hidden = _commentLastPage;
+        self.tableView.header.hidden = _commentLastPage;
     } else {
-        _footer.hidden = _repostLastPage;
+        self.tableView.footer.hidden = _repostLastPage;
     }
     return 2;
 }
@@ -206,21 +223,6 @@
     }
 }
 
-#pragma mark - 刷新代理方法
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    if ([refreshView isKindOfClass:[MJRefreshFooterView class]]) {
-        // 上拉加载更多
-        if (_detailHeader.currentBtnType == kDetailHeaderBtnTypeRepost) {
-            [self loadMoreRepost]; // 加载更多的转发
-        } else { // 加载更多的评论
-            [self loadMoreComment];
-        }
-    } else {
-        [self loadNewStatus];
-    }
-}
-
 #pragma mark 解析模型数据为frame数据
 - (NSMutableArray *)framesWithModels:(NSArray *)models class:(Class)class
 {
@@ -243,9 +245,9 @@
         // 刷新表格
         [self.tableView reloadData];
         
-        [_header endRefreshing];
+        [self.tableView.header endRefreshing];
     } failure:^(NSError *r){
-        [_header endRefreshing];
+        [self.tableView.header endRefreshing];
     }];
 }
 
@@ -311,9 +313,9 @@
         // 3.刷新表格
         [self.tableView reloadData];
         
-        [_footer endRefreshing];
+        [self.tableView.footer endRefreshing];
     } failure:^(NSError *error) {
-        [_footer endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
 }
 
@@ -336,9 +338,9 @@
         // 3.刷新表格
         [self.tableView reloadData];
         
-        [_footer endRefreshing];
+        [self.tableView.footer endRefreshing];
     } failure:^(NSError *error) {
-        [_footer endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
 }
 
@@ -346,12 +348,5 @@
 {
 
 }
-
-- (void)dealloc
-{
-    [_header free];
-    [_footer free];
-}
-
 
 @end

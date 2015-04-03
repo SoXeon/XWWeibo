@@ -15,15 +15,10 @@
 #import "XWStatusTool.h"
 #import "XWStatus.h"
 
-@interface XWMentionsViewController () <MJRefreshBaseViewDelegate>
+@interface XWMentionsViewController ()
 {
     NSMutableArray *_statusFrames;
-    MJRefreshHeaderView *_header;
-    MJRefreshFooterView *_footer;
-
 }
-
-
 
 @end
 
@@ -59,34 +54,35 @@
 - (void)addRefreshViews
 {
     _statusFrames = [NSMutableArray array];
-
-    // 1.下拉刷新
-    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
-    header.scrollView = self.tableView;
-    header.delegate = self;
-    _header = header;
-    [_header beginRefreshing];
     
-    // 2.上拉加载更多
-    MJRefreshFooterView *footer = [MJRefreshFooterView footer];
-    footer.scrollView = self.tableView;
-    footer.delegate = self;
-    _footer = footer;
+    __weak typeof(&*self) weakSelf = self;
+    
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
+        
+        if (strongSelf) {
+            [strongSelf loadNewData];
+        }
+        
+    }];
+    
+    [self.tableView.header beginRefreshing];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
+        
+        if (strongSelf) {
+            [strongSelf loadMoreData];
+        }
+    }];
 
-}
 
-#pragma mark 刷新代理方法
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    if (refreshView == _footer) {
-        [self loadMoreData:refreshView];
-    } else {
-        [self loadNewData:refreshView];
-    }
 }
 
 #pragma mark 加载最新数据
-- (void)loadNewData:(MJRefreshBaseView *)refreshView
+- (void)loadNewData
 {
     // 1.第1条微博的ID
     XWStatusCellFrame *f = _statusFrames.count?_statusFrames[0]:nil;
@@ -110,14 +106,15 @@
             [self.tableView reloadData];
             
             // 4.让刷新控件停止刷新状态
-            [refreshView endRefreshing];
-            
+            [self.tableView.header endRefreshing];
+
         } failure:^(NSError *error) {
-    
+            [self.tableView.header endRefreshing];
+
         }];
 }
 
-- (void)loadMoreData:(MJRefreshBaseView *)refreshView
+- (void)loadMoreData
 {
     // 1.最后1条微博的ID
     XWStatusCellFrame *f = [_statusFrames lastObject];
@@ -139,9 +136,9 @@
         [self.tableView reloadData];
         
         // 4.让刷新控件停止刷新状态
-        [refreshView endRefreshing];
+        [self.tableView.footer endRefreshing];
     } failure:^(NSError *error) {
-        [refreshView endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
 }
 
@@ -187,12 +184,6 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-}
-
-- (void)dealloc
-{
-    [_header free];
-    [_footer free];
 }
 
 @end

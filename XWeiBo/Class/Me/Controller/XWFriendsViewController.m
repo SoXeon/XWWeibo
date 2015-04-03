@@ -10,6 +10,7 @@
 #import "XWUserTool.h"
 #import "XWFriendshipResult.h"
 #import "XWFriendshipParam.h"
+#import "MJRefresh.h"
 
 @implementation XWFriendsViewController
 
@@ -17,15 +18,35 @@
 {
     [super viewDidLoad];
     self.title = @"全部关注";
+    
+    [self addRefreshView];
 }
 
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
+- (void)addRefreshView
 {
-    if (refreshView == _header) {
-        [self loadNewFriends];
-    } else {
-        [self loadMoreFriends];
-    }
+    __weak typeof(&*self) weakSelf = self;
+    
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
+        
+        if (strongSelf) {
+            [strongSelf loadNewFriends];
+        }
+        
+    }];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
+        
+        if (strongSelf) {
+            [strongSelf loadNewFriends];
+        }
+    }];
+    
+    [self.tableView.header beginRefreshing];
+
 }
 
 - (void)loadNewFriends
@@ -43,9 +64,9 @@
         [self.tableView reloadData];
         
         // 4.刷新控件
-        [_header endRefreshing];
+        [self.tableView.header endRefreshing];
     } failure:^(NSError *error){
-        [_header endRefreshing];
+        [self.tableView.header endRefreshing];
     }];
 }
 
@@ -62,9 +83,9 @@
         [self.tableView reloadData];
         
         // 3.刷新控件
-        [_footer endRefreshing];
+        [self.tableView.footer endRefreshing];
     } failure:^(NSError *error){
-        [_footer endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
 }
 

@@ -6,10 +6,10 @@
 //  Copyright (c) 2014年 戴鹏. All rights reserved.
 //
 
-#import "XWBaseRefreshViewController.h"
+#import <UIKit/UIKit.h>
 #import "SWTableViewCell.h"
 
-@interface XWBaseStatusListViewController : XWBaseRefreshViewController <SWTableViewCellDelegate>
+@interface XWBaseStatusListViewController : UITableViewController <SWTableViewCellDelegate>
 {
     NSMutableArray *_statusFrames;
 }

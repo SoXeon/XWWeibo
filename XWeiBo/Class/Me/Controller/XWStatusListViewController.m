@@ -37,17 +37,29 @@
     self.title = @"全部微博";
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self loadNewStatuses];
+    
+    
+    __weak typeof(&*self) weakSelf = self;
 
-}
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        __strong typeof(&*self) strongSelf = weakSelf;
 
+        if (strongSelf) {
+            [strongSelf loadNewStatuses];
+        }
+    }];
+    
+    [self.tableView.header beginRefreshing];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
 
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    if (refreshView == _header) {
-        [self loadNewStatuses];
-    } else {
-        [self loadMoreStatuses];
-    }
+        if (strongSelf) {
+            [strongSelf loadMoreStatuses];
+        }
+    }];
+
 }
 
 - (void)loadNewStatuses
@@ -73,10 +85,10 @@
                                           [newFrames addObjectsFromArray:_statusFrames];
                                           _statusFrames = newFrames;
                                           [self.tableView reloadData];
-                                          [_header endRefreshing];
+                                          [self.tableView.header endRefreshing];
         
     } failure:^(NSError *error) {
-        [_header endRefreshing];
+        [self.tableView.header endRefreshing];
     }];
 }
 
@@ -103,18 +115,18 @@
                                           [newFrames addObjectsFromArray:_statusFrames];
                                           _statusFrames = newFrames;
                                           [self.tableView reloadData];
-                                          [_footer endRefreshing];
+                                          [self.tableView.footer endRefreshing];
                                           
                                       } failure:^(NSError *error) {
-                                          [_footer endRefreshing];
+                                          [self.tableView.footer endRefreshing];
                                       }];}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (_result.total_number == _statusFrames.count) {
-        _footer.hidden = YES;
+        self.tableView.footer.hidden = YES;
     } else {
-        _footer.hidden = NO;
+        self.tableView.footer.hidden = NO;
     }
     return [super tableView:tableView numberOfRowsInSection:section];
 }

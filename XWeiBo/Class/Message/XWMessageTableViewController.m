@@ -18,12 +18,9 @@
 #import "UIImage+DP.h"
 #import "XWStatus.h"
 
-@interface XWMessageTableViewController ()
-<MJRefreshBaseViewDelegate, XWCommentsCellDelegate>
+@interface XWMessageTableViewController () < XWCommentsCellDelegate>
 {
     NSMutableArray *_commentsFrames;
-    MJRefreshHeaderView *_header;
-    MJRefreshFooterView *_footer;
 }
 
 @end
@@ -59,33 +56,33 @@
 {
     _commentsFrames = [NSMutableArray array];
     
-    // 1.下拉刷新
-    MJRefreshHeaderView *header = [MJRefreshHeaderView header];
-    header.scrollView = self.tableView;
-    header.delegate = self;
-    _header = header;
-    [_header beginRefreshing];
+    __weak typeof(&*self) weakSelf = self;
     
-    // 2.上拉加载更多
-    MJRefreshFooterView *footer = [MJRefreshFooterView footer];
-    footer.scrollView = self.tableView;
-    footer.delegate = self;
-    _footer = footer;
+    [self.tableView addLegendHeaderWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
 
-}
+        if (strongSelf) {
+            [strongSelf loadNewData];
+        }
+        
+    }];
+    
+    [self.tableView.header beginRefreshing];
+    
+    [self.tableView addLegendFooterWithRefreshingBlock:^{
+        
+        __strong typeof(&*self) strongSelf = weakSelf;
 
-#pragma mark 刷新代理方法
-- (void)refreshViewBeginRefreshing:(MJRefreshBaseView *)refreshView
-{
-    if ([refreshView isKindOfClass:[MJRefreshFooterView class]]) {
-        [self loadMoreData:refreshView];
-    } else {
-        [self loadNewData:refreshView];
-    }
+        if (strongSelf) {
+            [strongSelf loadMoreData];
+        }
+    }];
+
 }
 
 #pragma mark 加载最新数据
-- (void)loadNewData:(MJRefreshBaseView *)refreshView
+- (void)loadNewData
 {
     XWOwnCommentsCellFrame *f = _commentsFrames.count?_commentsFrames[0]:nil;
     long long first = [f.ownComments commentsID];
@@ -103,16 +100,16 @@
         [_commentsFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
         [self.tableView reloadData];
         
-        [refreshView endRefreshing];
+        [self.tableView.header endRefreshing];
         
     } failure:^(NSError *error) {
         
-        [refreshView endRefreshing];
+        [self.tableView.header endRefreshing];
     }];
     
 }
 
-- (void)loadMoreData:(MJRefreshBaseView *)refreshView
+- (void)loadMoreData
 {
     
     XWOwnCommentsCellFrame *f = [_commentsFrames lastObject];
@@ -131,9 +128,9 @@
         [_commentsFrames addObjectsFromArray:newFrames];
         [self.tableView reloadData];
 
-        [refreshView endRefreshing];
+        [self.tableView.footer endRefreshing];
     } failure:^(NSError *error) {
-        [refreshView endRefreshing];
+        [self.tableView.footer endRefreshing];
     }];
 }
 
@@ -176,12 +173,6 @@
     XWNavigationController *nav = [[XWNavigationController alloc] initWithRootViewController:compose];
     [self presentViewController:nav animated:YES completion:nil];
 
-}
-
-- (void)dealloc
-{
-    [_header free];
-    [_footer free];
 }
 
 @end

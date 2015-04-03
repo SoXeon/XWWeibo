@@ -34,11 +34,11 @@
 #pragma mark - Table view data source
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (_result.total_number == _friendships.count || _result.next_cursor == 0) {
-        _footer.hidden = YES;
-    } else {
-        _footer.hidden = NO;
-    }
+//    if (_result.total_number == _friendships.count || _result.next_cursor == 0) {
+//        _footer.hidden = YES;
+//    } else {
+//        _footer.hidden = NO;
+//    }
     return _friendships.count;
 }
 
