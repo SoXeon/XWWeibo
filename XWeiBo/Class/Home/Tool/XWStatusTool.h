@@ -62,6 +62,13 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
                            success:(HttpSuccessBlock)success
                            failure:(HttpFailureBlock)failure;
 
+// 获取用户Images
++ (void)fetchUserImagesWithUID:(long long)UID
+                      WithPage:(NSUInteger)page
+                        Success:(HttpSuccessBlock)success
+                        failure:(HttpFailureBlock)failure;
+
+
 // 抓取某条微博的评论数据
 + (void)commentsWithSinceId:(long long)sinceId
                       maxId:(long long)maxId

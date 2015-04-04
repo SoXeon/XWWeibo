@@ -87,14 +87,14 @@
         __strong typeof(&*self) strongSelf = weakSelf;
         
         if (strongSelf) {
-            
+            // 上拉加载更多
+            if (strongSelf.detailHeader.currentBtnType == kDetailHeaderBtnTypeRepost) {
+                [strongSelf loadMoreRepost]; // 加载更多的转发
+            } else { // 加载更多的评论
+                [strongSelf loadMoreComment];
+            }
         }
-        // 上拉加载更多
-        if (strongSelf.detailHeader.currentBtnType == kDetailHeaderBtnTypeRepost) {
-            [strongSelf loadMoreRepost]; // 加载更多的转发
-        } else { // 加载更多的评论
-            [strongSelf loadMoreComment];
-        }
+        
         
     }];
     

@@ -74,6 +74,30 @@
                                                              }];
 }
 
+
++ (void)fetchUserImagesWithUID:(long long)UID
+                      WithPage:(NSUInteger)page
+                       Success:(HttpSuccessBlock)success
+                       failure:(HttpFailureBlock)failure
+{
+    [HttpTool getWithpath:@"2/place/users/photos.json"
+                   params:@{
+                            @"uid" : @(UID)
+                           }success:^(id JSON) {
+                                                                     
+                        if (success == nil) {
+                                        return;
+                        }
+                                                                     
+                                                                     if (success) {
+                                                                         success(JSON);
+                                                                     }
+                                                                     
+                                                                 } failure:^(NSError *error) {
+                                                                     failure(error);
+                                                                 }];
+}
+
 + (void)ownCommentsWithSinceId:(long long)sinceId
                          maxId:(long long)maxId
                        success:(OwnCommentsSuccessBlock)success
