@@ -122,6 +122,14 @@
     } failure:^(NSError *error) {
         [self.tableView.header endRefreshing];
     }];
+    
+    //TODO:MLGB的API限制，我先去实现其他功能区
+    NSDictionary *paramsDict = @{@"source": kAppKey, @"uid": [XWAccountTool sharedXWAccountTool].currentAccount.uid};
+    
+    [WBHttpRequest requestWithAccessToken:[XWAccountTool sharedXWAccountTool].currentAccount.accessToken url:@"https://api.weibo.com/2/place/users/photos.json" httpMethod:@"GET" params:paramsDict queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+        
+    }];
+    
 }
 
 - (void)loadMoreData
