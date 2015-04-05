@@ -264,6 +264,7 @@
                                                            }];
 }
 
+
 + (void)userStatusesWithParam:(XWSingleStatusParam *)param success:(StatusesSuccess)success failure:(HttpFailureBlock)failure
 {
     [self getWithPath:@"2/statuses/user_timeline.json" param:param success:success failure:failure resultClass:[XWStatusResult class]];

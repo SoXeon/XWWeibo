@@ -10,4 +10,14 @@
 
 @implementation XWUnreadResult
 
+- (int)totalCount
+{
+    return self.totalMessageCount + self.status + self.follower;
+}
+
+- (int)totalMessageCount
+{
+    return self.cmt + self.dm + self.mention_status + self.mention_cmt;
+}
+
 @end

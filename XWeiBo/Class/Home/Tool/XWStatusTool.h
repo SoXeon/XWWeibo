@@ -108,4 +108,8 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
                             success:(StatusSuccessBlock)success
                             failure:(HttpFailureBlock)failure;
 
+/*获取用户提醒数字*/
++ (void)unreadCountWithParam:(XWUnreadParam *)param
+                     success:(UnreadSuccess)success
+                     failure:(HttpFailureBlock)failure;
 @end

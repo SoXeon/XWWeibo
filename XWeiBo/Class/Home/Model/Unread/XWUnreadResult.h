@@ -34,5 +34,9 @@
 /** int	相册消息未读数 */
 @property (nonatomic, assign) int photo;
 
-@property (nonatomic, assign, readonly) int totalCount;
+
+- (int)totalMessageCount;
+
+- (int)totalCount;
+
 @end

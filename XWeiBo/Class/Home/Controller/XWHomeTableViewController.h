@@ -10,4 +10,6 @@
 
 @interface XWHomeTableViewController : UITableViewController
 
+- (void)refreshContent:(BOOL)FromSelf;
+
 @end

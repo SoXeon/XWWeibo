@@ -162,9 +162,26 @@
 
 }
 
+- (void)refreshContent:(BOOL)FromSelf
+{
+    if (self.tabBarItem.badgeValue) {
+        [self.tableView.header beginRefreshing];
+
+    } else if (FromSelf){
+        NSIndexPath *firstRow = [NSIndexPath indexPathForRow:0 inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:firstRow atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+}
+
 #pragma mark 展示最新微博的数目
 - (void)showNewStatusCount:(int)count
 {
+    [UIApplication sharedApplication].applicationIconBadgeNumber -= self.tabBarItem.badgeValue.intValue;
+    
+    
+    self.tabBarItem.badgeValue = nil;
+    
     // 1.创建按钮
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.enabled = NO;

@@ -21,13 +21,20 @@
 #import "XWMentionsViewController.h"
 #import "XWMessageTableViewController.h"
 
+#import "XWStatusTool.h"
+#import "XWUnreadParam.h"
+#import "XWUnreadResult.h"
 @interface XWTabBarController () <XWTabBarDelegate>
 
 @property (nonatomic, weak) XWTabBar *customTabBar;
 
 //Message页面的两个tableView
-@property (nonatomic, strong) XWMessageTableViewController *commentsTableViewController;
-@property (nonatomic, strong) XWMentionsViewController *mentionsTableViewController;
+@property (nonatomic, weak) XWMessageTableViewController *commentsTableViewController;
+@property (nonatomic, weak) XWMentionsViewController *mentionsTableViewController;
+
+@property (nonatomic, weak) XWHomeTableViewController *homeVC;
+@property (nonatomic, weak) XWMeViewController *meVC;
+@property (nonatomic, weak) XWMessageTableViewController *messageVC;
 
 @end
 
@@ -40,6 +47,44 @@
 
     [self setupAllChildVC];
     
+    //定时器，定期请求未读数
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(getUnreadCount) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+}
+
+- (void)getUnreadCount
+{
+    XWUnreadParam *unreadParam = [XWUnreadParam new];
+    
+    [XWStatusTool unreadCountWithParam:unreadParam success:^(XWUnreadResult *result) {
+
+        //微博未读数
+        if (result.status == 0) {
+            self.homeVC.tabBarItem.badgeValue = nil;
+        } else {
+            self.homeVC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.status];
+        }
+        
+        //me
+        if (result.follower == 0 ) {
+            self.meVC.tabBarItem.badgeValue = nil;
+        } else {
+            self.meVC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.follower];
+        }
+        
+        //message
+        if (result.totalMessageCount == 0) {
+            self.messageVC.tabBarItem.badgeValue = nil;
+        } else {
+            self.messageVC.tabBarItem.badgeValue = [NSString stringWithFormat:@"%d", result.totalMessageCount];
+        }
+        
+        [UIApplication sharedApplication].applicationIconBadgeNumber = result.totalCount;
+
+    } failure:^(NSError *error) {
+        NSLog(@"erorrrni ");
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -66,7 +111,19 @@
 {
 
     self.selectedIndex = to;
-
+    
+    if (to == 0 && from == to) {
+        [self.homeVC refreshContent:YES];
+    } else if (to == 0) {
+        [self.homeVC refreshContent:NO];
+    }
+    
+    if (to == 1 && from == to) {
+        [self.meVC refreshContent:YES];
+    } else if(to == 1) {
+        [self.meVC refreshContent:NO];
+    }
+    
 }
 
 - (void)tabBarDidClickPlusButton:(XWTabBar *)tabBar
@@ -81,13 +138,15 @@
 {
     XWHomeTableViewController *XWHome = [[XWHomeTableViewController alloc]init];
     [self setupChildViewController:XWHome title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
+    self.homeVC = XWHome;
     
     XWMeViewController *XWMe = [[XWMeViewController alloc]init];
     [self setupChildViewController:XWMe title:@"我" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
+    self.meVC = XWMe;
     
     XWMessageTableViewController *message = [[XWMessageTableViewController alloc] init];
     [self setupChildViewController:message title:@"回复" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
-
+    self.messageVC = message;
     
     [self addMessageViewController];
 }

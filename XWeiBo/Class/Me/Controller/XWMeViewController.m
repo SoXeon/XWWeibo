@@ -80,6 +80,20 @@
     
 }
 
+- (void)refreshContent:(BOOL)FromSelf
+{
+    if (self.tabBarItem.badgeValue) {
+
+        //TODO:RefreshContent will instead of ImageList
+        
+    } else if (FromSelf){
+        NSIndexPath *firstRow = [NSIndexPath indexPathForRow:0 inSection:0];
+        
+        [self.tableView scrollToRowAtIndexPath:firstRow atScrollPosition:UITableViewScrollPositionTop animated:YES];
+    }
+ 
+}
+
 - (void)viewDidAppear:(BOOL)animated {}
 - (void)viewWillAppear:(BOOL)animated
 {
