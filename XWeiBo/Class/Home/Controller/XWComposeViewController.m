@@ -16,7 +16,7 @@
 #import "XWAccountTool.h"
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
-
+#import "XWEmotionKeyboard.h"
 
 @interface XWComposeViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -25,9 +25,22 @@
 }
 
 @property (nonatomic, weak) UIImageView *imageView;
+@property (nonatomic, assign, getter=isChangingKeyboard) BOOL changingKeyboard;
+@property (nonatomic, strong) XWEmotionKeyboard *keyboard;
 @end
 
 @implementation XWComposeViewController
+
+- (XWEmotionKeyboard *)keyboard
+{
+    if (!_keyboard) {
+        self.keyboard = [XWEmotionKeyboard keyboard];
+        self.keyboard.backgroundColor = [UIColor blueColor];
+        self.keyboard.width = [UIScreen mainScreen].bounds.size.width;
+        self.keyboard.height = 216;
+    }
+    return _keyboard;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -45,6 +58,7 @@
     
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addCamera) name:@"cameraClick" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addAlbum) name:@"albumClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addEmotion) name:@"emotionClick" object:nil];
 }
 
 - (void)setupImageView
@@ -70,6 +84,32 @@
     ipc.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     ipc.delegate = self;
     [self presentViewController:ipc animated:YES completion:nil];
+    
+}
+
+- (void)addEmotion
+{
+    self.changingKeyboard = YES;
+    
+    if (_textView.inputView) {
+        _textView.inputView = nil;
+        
+        [_dock.emotionBtn setImage:[UIImage imageWithName:@"compose_emoticonbutton_background_os7"] forState:UIControlStateNormal];
+        [_dock.emotionBtn setImage:[UIImage imageWithName:@"compose_emoticonbutton_background_highlighted_os7"] forState:UIControlStateHighlighted];
+    } else {
+        
+        [_dock.emotionBtn setImage:[UIImage imageWithName:@"compose_keyboardbutton_background_os7"] forState:UIControlStateNormal];
+        [_dock.emotionBtn setImage:[UIImage imageWithName:@"compose_keyboardbutton_background_highlighted_os7"] forState:UIControlStateHighlighted];
+        
+        _textView.inputView = self.keyboard;
+
+    }
+    
+    [_textView resignFirstResponder];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_textView becomeFirstResponder];
+    });
     
 }
 
@@ -142,10 +182,17 @@
 #pragma mark 隐藏键盘就会调用
 - (void)keyboardWillHide:(NSNotification *)note
 {
-    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
-    [UIView animateWithDuration:duration animations:^{
-        _dock.transform = CGAffineTransformIdentity;
-    }];
+    if (self.isChangingKeyboard) {
+        self.changingKeyboard = NO;
+        return;
+    } else {
+        CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        [UIView animateWithDuration:duration animations:^{
+            _dock.transform = CGAffineTransformIdentity;
+        }];
+
+    }
+    
 }
 
 

@@ -55,6 +55,9 @@
 		E2C2AFBA1A8F6FFD00C23EA2 /* XWMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AFB91A8F6FFD00C23EA2 /* XWMessageTableViewController.m */; };
 		E2C2AFBD1A8FB11000C23EA2 /* XWMentionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AFBC1A8FB11000C23EA2 /* XWMentionsViewController.m */; };
 		E2C2AFE91A91E1DB00C23EA2 /* XWOwnComment.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AFE81A91E1DB00C23EA2 /* XWOwnComment.m */; };
+		E2CE091D1AD12FA800FE0451 /* XWEmotionKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CE091C1AD12FA800FE0451 /* XWEmotionKeyboard.m */; };
+		E2CE09211AD2DC6C00FE0451 /* XWEmotionListView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CE09201AD2DC6C00FE0451 /* XWEmotionListView.m */; };
+		E2CE09241AD2DF7500FE0451 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CE09231AD2DF7500FE0451 /* UIView+Extension.m */; };
 		E2D4BC981A9DC4C600B02862 /* XWRepeatCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D4BC971A9DC4C600B02862 /* XWRepeatCommentsViewController.m */; };
 		E2D4BC9C1A9DC68000B02862 /* XWCommentDock.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D4BC9B1A9DC68000B02862 /* XWCommentDock.m */; };
 		E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D4BC9D1A9DC6B100B02862 /* XWCommentDock.xib */; };
@@ -312,6 +315,12 @@
 		E2C2AFBC1A8FB11000C23EA2 /* XWMentionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMentionsViewController.m; sourceTree = "<group>"; };
 		E2C2AFE71A91E1DB00C23EA2 /* XWOwnComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnComment.h; sourceTree = "<group>"; };
 		E2C2AFE81A91E1DB00C23EA2 /* XWOwnComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWOwnComment.m; sourceTree = "<group>"; };
+		E2CE091B1AD12FA800FE0451 /* XWEmotionKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionKeyboard.h; sourceTree = "<group>"; };
+		E2CE091C1AD12FA800FE0451 /* XWEmotionKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionKeyboard.m; sourceTree = "<group>"; };
+		E2CE091F1AD2DC6C00FE0451 /* XWEmotionListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionListView.h; sourceTree = "<group>"; };
+		E2CE09201AD2DC6C00FE0451 /* XWEmotionListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionListView.m; sourceTree = "<group>"; };
+		E2CE09221AD2DF7500FE0451 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		E2CE09231AD2DF7500FE0451 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		E2D4BC961A9DC4C600B02862 /* XWRepeatCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRepeatCommentsViewController.h; sourceTree = "<group>"; };
 		E2D4BC971A9DC4C600B02862 /* XWRepeatCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRepeatCommentsViewController.m; sourceTree = "<group>"; };
 		E2D4BC9A1A9DC68000B02862 /* XWCommentDock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentDock.h; sourceTree = "<group>"; };
@@ -771,6 +780,17 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		E2CE091E1AD12FDE00FE0451 /* XWEmotionKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E2CE091B1AD12FA800FE0451 /* XWEmotionKeyboard.h */,
+				E2CE091C1AD12FA800FE0451 /* XWEmotionKeyboard.m */,
+				E2CE091F1AD2DC6C00FE0451 /* XWEmotionListView.h */,
+				E2CE09201AD2DC6C00FE0451 /* XWEmotionListView.m */,
+			);
+			name = XWEmotionKeyboard;
+			sourceTree = "<group>";
+		};
 		E2D4BC991A9DC57C00B02862 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,6 +971,7 @@
 				E2F072501A304F6B00BDE434 /* IWComposeDock.xib */,
 				E2F072531A304FB100BDE434 /* XWPlaceholderTextView.h */,
 				E2F072541A304FB100BDE434 /* XWPlaceholderTextView.m */,
+				E2CE091E1AD12FDE00FE0451 /* XWEmotionKeyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1185,6 +1206,8 @@
 		E2F071251A2D7DB600BDE434 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E2CE09221AD2DF7500FE0451 /* UIView+Extension.h */,
+				E2CE09231AD2DF7500FE0451 /* UIView+Extension.m */,
 				E2F071261A2D7DF500BDE434 /* UIImage+DP.h */,
 				E2F071271A2D7DF500BDE434 /* UIImage+DP.m */,
 				E2F071381A2DA98200BDE434 /* UIBarButtonItem+DP.h */,
@@ -1706,6 +1729,7 @@
 				E215274B1A8B4C71005BECB2 /* SWLongPressGestureRecognizer.m in Sources */,
 				E2F072611A305D6600BDE434 /* XWPageResult.m in Sources */,
 				E2C2AF961A8B95C700C23EA2 /* ZFModalTransitionAnimator.m in Sources */,
+				E2CE091D1AD12FA800FE0451 /* XWEmotionKeyboard.m in Sources */,
 				E2F071691A2DE19A00BDE434 /* XWBgCell.m in Sources */,
 				E2F072031A2F144200BDE434 /* XWBaseWordCell.m in Sources */,
 				E2F071EE1A2EF8E400BDE434 /* XWBaseStatusCellFrame.m in Sources */,
@@ -1735,6 +1759,7 @@
 				E2EF80CD1A308811003E9D9B /* MJPhotoLoadingView.m in Sources */,
 				E251680B1A31774900EB8E6F /* XWFriendsViewController.m in Sources */,
 				E21CE1761A381B460031D6B8 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				E2CE09241AD2DF7500FE0451 /* UIView+Extension.m in Sources */,
 				E2F072231A2F249000BDE434 /* XWCommentCellFrame.m in Sources */,
 				E2F071E51A2EF60F00BDE434 /* XWBaseModel.m in Sources */,
 				E2F072671A305EC300BDE434 /* XWBaseTool.m in Sources */,
@@ -1815,6 +1840,7 @@
 				E2F071EB1A2EF77F00BDE434 /* XWUser.m in Sources */,
 				E25ED15D1A30691F00C5A023 /* MBProgressHUD.m in Sources */,
 				E2F0723A1A2F55A300BDE434 /* XWCommentCell.m in Sources */,
+				E2CE09211AD2DC6C00FE0451 /* XWEmotionListView.m in Sources */,
 				E2F071501A2DDC1100BDE434 /* XWSettingGroup.m in Sources */,
 				E25167FF1A30B4AF00EB8E6F /* UIImageView+DP.m in Sources */,
 				E2F071C71A2E16FE00BDE434 /* SDWebImageDownloader.m in Sources */,

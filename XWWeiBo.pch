@@ -22,6 +22,7 @@
 #import "UIImage+DP.h"
 #import "WeiboSDK.h"
 #import "WeiBocfg.h"
+#import "UIView+Extension.h"
 
 #define iOS7 ([[UIDevice currentDevice].systemVersion doubleValue] >= 7.0)
 
