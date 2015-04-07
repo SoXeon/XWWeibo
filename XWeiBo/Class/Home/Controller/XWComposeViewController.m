@@ -35,7 +35,6 @@
 {
     if (!_keyboard) {
         self.keyboard = [XWEmotionKeyboard keyboard];
-        self.keyboard.backgroundColor = [UIColor blueColor];
         self.keyboard.width = [UIScreen mainScreen].bounds.size.width;
         self.keyboard.height = 216;
     }

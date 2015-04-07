@@ -11,6 +11,7 @@
 
 @implementation NSObject (MJKeyValue)
 #pragma mark - 公共方法
+#pragma mark - 字典转模型
 /**
  *  通过字典来创建一个模型
  *  @param keyValues 字典
@@ -18,9 +19,35 @@
  */
 + (instancetype)objectWithKeyValues:(NSDictionary *)keyValues
 {
+    if (![keyValues isKindOfClass:[NSDictionary class]]) {
+        [NSException raise:@"keyValues is not a NSDictionary - keyValues参数不是一个字典" format:@"keyValues is a %@ - keyValues参数是一个%@", keyValues.class, keyValues.class];
+    }
+    
     id model = [[self alloc] init];
     [model setKeyValues:keyValues];
     return model;
+}
+
+/**
+ *  通过plist来创建一个模型
+ *  @param filename 文件名(仅限于mainBundle中的文件)
+ *  @return 新建的对象
+ */
++ (instancetype)objectWithFilename:(NSString *)filename
+{
+    NSString *file = [[NSBundle mainBundle] pathForResource:filename ofType:nil];
+    return [self objectWithFile:file];
+}
+
+/**
+ *  通过plist来创建一个模型
+ *  @param file 文件全路径
+ *  @return 新建的对象
+ */
++ (instancetype)objectWithFile:(NSString *)file
+{
+    NSDictionary *keyValues = [NSDictionary dictionaryWithContentsOfFile:file];
+    return [self objectWithKeyValues:keyValues];
 }
 
 /**
@@ -29,7 +56,12 @@
  */
 - (void)setKeyValues:(NSDictionary *)keyValues
 {
+    if (![keyValues isKindOfClass:[NSDictionary class]]) {
+        [NSException raise:@"keyValues is not a NSDictionary - keyValues参数不是一个字典" format:@"keyValues is a %@ - keyValues参数是一个%@", keyValues.class, keyValues.class];
+    }
+    
     [self enumerateIvarsWithBlock:^(MJIvar *ivar, BOOL *stop) {
+        // 来自Foundation框架的成员变量，直接返回
         if (ivar.isSrcClassFromFoundation) return;
         
         // 1.取出属性值
@@ -37,13 +69,16 @@
         id value = keyValues[key];
         if (!value) return;
         
-        // 2.获得成员变量类型
-        if (ivar.type.typeClass && !ivar.type.fromFoundation) {
+        // 2.如果是模型属性
+        if (ivar.type.typeClass && !ivar.type.isFromFoundation) {
             value = [ivar.type.typeClass objectWithKeyValues:value];
+        } else if ([self respondsToSelector:@selector(objectClassInArray)]) {
+            // 3.字典数组-->模型数组
+            Class objectClass = self.objectClassInArray[ivar.propertyName];
+            if (objectClass) {
+                value = [objectClass objectArrayWithKeyValuesArray:value];
+            }
         }
-        
-        // 3.处理数组里面有模型的情况
-        value = [self modelArrayWithDictArray:value propertyName:ivar.propertyName];
         
         // 4.赋值
         ivar.value = value;
@@ -65,13 +100,16 @@
         id value = ivar.value;
         if (!value) return;
         
-        // 2.查看对象类型
-        if (ivar.type.typeClass && !ivar.type.fromFoundation) {
+        // 2.如果是模型属性
+        if (ivar.type.typeClass && !ivar.type.isFromFoundation) {
             value = [value keyValues];
+        } else if ([self respondsToSelector:@selector(objectClassInArray)]) {
+            // 3.处理数组里面有模型的情况
+            Class objectClass = self.objectClassInArray[ivar.propertyName];
+            if (objectClass) {
+                value = [objectClass keyValuesArrayWithObjectArray:value];
+            }
         }
-        
-        // 3.数组处理
-        value = [self dictArrayWithModelArray:value propertyName:ivar.propertyName];
         
         // 4.赋值
         NSString *key = [self keyWithPropertyName:ivar.propertyName];
@@ -79,6 +117,79 @@
     }];
     
     return keyValues;
+}
+
+/**
+ *  通过模型数组来创建一个字典数组
+ *  @param objectArray 模型数组
+ *  @return 字典数组
+ */
++ (NSArray *)keyValuesArrayWithObjectArray:(NSArray *)objectArray
+{
+    // 0.判断真实性
+    if (![objectArray isKindOfClass:[NSArray class]]) {
+        [NSException raise:@"objectArray is not a NSArray - objectArray不是一个数组" format:@"objectArray is a %@ - objectArray参数是一个%@", objectArray.class, objectArray.class];
+    }
+    
+    // 1.过滤
+    if (![objectArray isKindOfClass:[NSArray class]]) return objectArray;
+    if (![[objectArray lastObject] isKindOfClass:self]) return objectArray;
+    
+    // 2.创建数组
+    NSMutableArray *keyValuesArray = [NSMutableArray array];
+    for (id object in objectArray) {
+        [keyValuesArray addObject:[object keyValues]];
+    }
+    return keyValuesArray;
+}
+
+#pragma mark - 字典数组转模型数组
+/**
+ *  通过字典数组来创建一个模型数组
+ *  @param keyValuesArray 字典数组
+ *  @return 模型数组
+ */
++ (NSArray *)objectArrayWithKeyValuesArray:(NSArray *)keyValuesArray
+{
+    // 1.判断真实性
+    if (![keyValuesArray isKindOfClass:[NSArray class]]) {
+        [NSException raise:@"keyValuesArray is not a NSArray - keyValuesArray不是一个数组" format:@"keyValuesArray is a %@ - keyValuesArray参数是一个%@", keyValuesArray.class, keyValuesArray.class];
+    }
+    
+    // 2.创建数组
+    NSMutableArray *modelArray = [NSMutableArray array];
+    
+    // 3.遍历
+    for (NSDictionary *keyValues in keyValuesArray) {
+        if (![keyValues isKindOfClass:[NSDictionary class]]) continue;
+        
+        id model = [self objectWithKeyValues:keyValues];
+        [modelArray addObject:model];
+    }
+    
+    return modelArray;
+}
+
+/**
+ *  通过plist来创建一个模型数组
+ *  @param filename 文件名(仅限于mainBundle中的文件)
+ *  @return 模型数组
+ */
++ (NSArray *)objectArrayWithFilename:(NSString *)filename
+{
+    NSString *file = [[NSBundle mainBundle] pathForResource:filename ofType:nil];
+    return [self objectArrayWithFile:file];
+}
+
+/**
+ *  通过plist来创建一个模型数组
+ *  @param file 文件全路径
+ *  @return 模型数组
+ */
++ (NSArray *)objectArrayWithFile:(NSString *)file
+{
+    NSArray *keyValuesArray = [NSArray arrayWithContentsOfFile:file];
+    return [self objectArrayWithKeyValuesArray:keyValuesArray];
 }
 
 #pragma mark - 私有方法
@@ -93,60 +204,12 @@
 {
     NSString *key = nil;
     // 1.查看有没有需要替换的key
-    if ([self respondsToSelector:@selector(replaceKeys)]) {
-        key = self.replaceKeys[propertyName];
+    if ([self respondsToSelector:@selector(replacedKeyFromPropertyName)]) {
+        key = self.replacedKeyFromPropertyName[propertyName];
     }
     // 2.用属性名作为key
     if (!key) key = propertyName;
     
     return key;
-}
-
-/**
- *  根据字典数组产生模型数组
- *
- *  @param dictArray 字典数组
- *
- *  @return 模型数组
- */
-- (NSArray *)modelArrayWithDictArray:(NSArray *)dictArray propertyName:(NSString *)propertyName
-{
-    // 1.过滤
-    if (![dictArray isKindOfClass:[NSArray class]]) return dictArray;
-    if (![self respondsToSelector:@selector(arrayModelClasses)]) return dictArray;
-    
-    // 2.创建数组
-    NSMutableArray *modelArray = [NSMutableArray array];
-    Class modelClass = self.arrayModelClasses[propertyName];
-    for (NSDictionary *dict in dictArray) {
-        id model = [modelClass objectWithKeyValues:dict];
-        [modelArray addObject:model];
-    }
-    
-    return modelArray;
-}
-/**
- *  根据模型数组产生字典数组
- *
- *  @param modelArray 模型数组
- *
- *  @return 字典数组
- */
-- (NSArray *)dictArrayWithModelArray:(NSArray *)modelArray propertyName:(NSString *)propertyName
-{
-    // 1.过滤
-    if (![modelArray isKindOfClass:[NSArray class]]) return modelArray;
-    if (![self respondsToSelector:@selector(arrayModelClasses)]) return modelArray;
-    
-    Class modelClass = self.arrayModelClasses[propertyName];
-    if (![[modelArray lastObject] isKindOfClass:modelClass]) return modelArray;
-    
-    // 2.创建数组
-    NSMutableArray *dictArray = [NSMutableArray array];
-    for (id model in modelArray) {
-        [dictArray addObject:[model keyValues]];
-    }
-    
-    return dictArray;
 }
 @end

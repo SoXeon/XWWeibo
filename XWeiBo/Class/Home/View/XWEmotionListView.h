@@ -10,4 +10,7 @@
 
 @interface XWEmotionListView : UIView
 
+/** 需要展示的所有表情 */
+@property (nonatomic, strong) NSArray *emotions;
+
 @end
