@@ -210,6 +210,8 @@
 		E2F243621ACE6529002F6003 /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F243541ACE6529002F6003 /* UIScrollView+MJExtension.m */; };
 		E2F243631ACE6529002F6003 /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F243561ACE6529002F6003 /* UIScrollView+MJRefresh.m */; };
 		E2F243641ACE6529002F6003 /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F243581ACE6529002F6003 /* UIView+MJExtension.m */; };
+		E2F34FC11AD9050B009A846B /* YSLContainerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F34FBE1AD9050B009A846B /* YSLContainerViewController.m */; };
+		E2F34FC21AD9050B009A846B /* YSLScrollMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F34FC01AD9050B009A846B /* YSLScrollMenuView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -618,6 +620,10 @@
 		E2F243561ACE6529002F6003 /* UIScrollView+MJRefresh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+MJRefresh.m"; sourceTree = "<group>"; };
 		E2F243571ACE6529002F6003 /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		E2F243581ACE6529002F6003 /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
+		E2F34FBD1AD9050B009A846B /* YSLContainerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLContainerViewController.h; sourceTree = "<group>"; };
+		E2F34FBE1AD9050B009A846B /* YSLContainerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLContainerViewController.m; sourceTree = "<group>"; };
+		E2F34FBF1AD9050B009A846B /* YSLScrollMenuView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLScrollMenuView.h; sourceTree = "<group>"; };
+		E2F34FC01AD9050B009A846B /* YSLScrollMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLScrollMenuView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1209,6 +1215,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E2F34FBC1AD9050B009A846B /* YSLContainerViewController */,
 				E2CBAB211AD417C300D812EC /* MJExtension */,
 				E267CEF81ACFA9F800A67888 /* libWeiboSDK */,
 				E2F243401ACE6529002F6003 /* MJRefresh */,
@@ -1590,6 +1597,17 @@
 			path = MJRefresh;
 			sourceTree = "<group>";
 		};
+		E2F34FBC1AD9050B009A846B /* YSLContainerViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E2F34FBD1AD9050B009A846B /* YSLContainerViewController.h */,
+				E2F34FBE1AD9050B009A846B /* YSLContainerViewController.m */,
+				E2F34FBF1AD9050B009A846B /* YSLScrollMenuView.h */,
+				E2F34FC01AD9050B009A846B /* YSLScrollMenuView.m */,
+			);
+			path = YSLContainerViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1729,6 +1747,7 @@
 				E2C2AFB71A8E1B7A00C23EA2 /* SLPagingViewController.m in Sources */,
 				E2F072121A2F1C0B00BDE434 /* XWStatusDock.m in Sources */,
 				E2F071F71A2EFD8F00BDE434 /* XWImageListView.m in Sources */,
+				E2F34FC11AD9050B009A846B /* YSLContainerViewController.m in Sources */,
 				E2F072291A2F24E700BDE434 /* XWStatusDetailCellFrame.m in Sources */,
 				E2F0716C1A2DE6B000BDE434 /* XWSettingCell.m in Sources */,
 				E2F072551A304FB100BDE434 /* XWPlaceholderTextView.m in Sources */,
@@ -1843,6 +1862,7 @@
 				E2F0717E1A2E160F00BDE434 /* XWOAuthViewController.m in Sources */,
 				E2F0717A1A2E125E00BDE434 /* XWAccountTool.m in Sources */,
 				E2EF80D01A308811003E9D9B /* MJPhotoView.m in Sources */,
+				E2F34FC21AD9050B009A846B /* YSLScrollMenuView.m in Sources */,
 				E2F0716F1A2DFDCB00BDE434 /* XWAnyMoreViewController.m in Sources */,
 				E2D4BC981A9DC4C600B02862 /* XWRepeatCommentsViewController.m in Sources */,
 				E2F071141A2D761600BDE434 /* XWMoreViewController.m in Sources */,

@@ -24,17 +24,20 @@
 #import "XWStatusTool.h"
 #import "XWUnreadParam.h"
 #import "XWUnreadResult.h"
-@interface XWTabBarController () <XWTabBarDelegate>
+
+#import "YSLContainerViewController.h"
+
+@interface XWTabBarController () <XWTabBarDelegate, YSLContainerViewControllerDelegate>
 
 @property (nonatomic, weak) XWTabBar *customTabBar;
 
 //Message页面的两个tableView
-@property (nonatomic, weak) XWMessageTableViewController *commentsTableViewController;
-@property (nonatomic, weak) XWMentionsViewController *mentionsTableViewController;
+@property (nonatomic, strong) XWMessageTableViewController *commentsTableViewController;
+@property (nonatomic, strong) XWMentionsViewController *mentionsTableViewController;
 
-@property (nonatomic, weak) XWHomeTableViewController *homeVC;
-@property (nonatomic, weak) XWMeViewController *meVC;
-@property (nonatomic, weak) XWMessageTableViewController *messageVC;
+@property (nonatomic, strong) XWHomeTableViewController *homeVC;
+@property (nonatomic, strong) XWMeViewController *meVC;
+@property (nonatomic, strong) XWMessageTableViewController *messageVC;
 
 @end
 
@@ -144,11 +147,38 @@
     [self setupChildViewController:XWMe title:@"我" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
     self.meVC = XWMe;
     
+    //TODO: 这里还需要另外一个控制器
     XWMessageTableViewController *message = [[XWMessageTableViewController alloc] init];
     [self setupChildViewController:message title:@"回复" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
+    message.title = @"message";
     self.messageVC = message;
     
-    [self addMessageViewController];
+    XWMentionsViewController *mentionVC = [[XWMentionsViewController alloc] init];
+    mentionVC.title = @"metions";
+    self.mentionsTableViewController = mentionVC;
+    
+    UIViewController *revice = [[UIViewController alloc]init];
+    revice.title = @"revice";
+    revice.view.backgroundColor = [UIColor greenColor];
+    
+    UIViewController *containVC = [[UIViewController alloc]init];
+    
+    [self setupChildViewController:containVC
+                             title:@"@我"
+                         imageName:@"tabbar_message_center"
+                 selectedImageName:@"tabbar_message_center_selected"];
+    
+    YSLContainerViewController *yslVC = [[YSLContainerViewController alloc] initWithControllers:@[self.messageVC, self.mentionsTableViewController, revice] topBarHeight:66 parentViewController:containVC];
+    yslVC.delegate = self;
+    yslVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:16];
+    yslVC.menuItemTitleColor = [UIColor whiteColor];
+    yslVC.menuItemSelectedTitleColor = [UIColor redColor];
+    yslVC.menuIndicatorColor = [UIColor yellowColor];
+    yslVC.menuBackGroudColor = [UIColor purpleColor];
+    
+    [containVC.view addSubview:yslVC.view];
+    
+//    [self addMessageViewController];
 }
 
 - (void)addMessageViewController
@@ -178,6 +208,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark YSLContainer Delegate
+- (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
+{
+    [controller viewWillAppear:YES];
 }
 
 
