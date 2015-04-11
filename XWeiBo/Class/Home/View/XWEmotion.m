@@ -7,6 +7,7 @@
 //
 
 #import "XWEmotion.h"
+#import "NSString+Emoji.h"
 
 @implementation XWEmotion
 
@@ -15,5 +16,11 @@
     return [NSString stringWithFormat:@"%@ - %@ - %@", self.chs, self.png, self.code];
 }
 
+- (void)setCode:(NSString *)code
+{
+    _code = [code copy];
+    
+    self.emoji = [NSString emojiWithStringCode:code];
+}
 
 @end

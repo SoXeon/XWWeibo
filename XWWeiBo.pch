@@ -30,6 +30,14 @@
 
 #define XWRColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
+// 随机色
+#define XWRandomColor XWColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+#define kXWEmotionMaxRows 3
+#define kXWEmotionMaxCols 7
+#define kXWEmotionMaxCountPerPage (kXWEmotionMaxRows * kXWEmotionMaxCols - 1)
+
+
 // 3.自定义Log
 #ifdef DEBUG
 #define XWLog(...) NSLog(__VA_ARGS__)

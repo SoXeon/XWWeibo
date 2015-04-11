@@ -25,14 +25,9 @@
     if (self) {
         // 1.添加4个按钮
         [self setupToolbarButton:@"最近" tag:XWEmotionTypeRecent];
-        
-        UIButton *defaultButton = [self setupToolbarButton:@"默认" tag:XWEmotionTypeDefault];
+        [self setupToolbarButton:@"默认" tag:XWEmotionTypeDefault];
         [self setupToolbarButton:@"Emoji" tag:XWEmotionTypeEmoji];
         [self setupToolbarButton:@"浪小花" tag:XWEmotionTypeLXH];
-        
-        // 2.默认选中“默认”按钮
-        [self toolbarButtonClick:defaultButton];
-
 
     }
     return self;
@@ -81,6 +76,15 @@
     if ([self.delegate respondsToSelector:@selector(emotionToolbar:didSelectedButton:)]) {
         [self.delegate emotionToolbar:self didSelectedButton:(int)button.tag];
     }
+}
+
+
+- (void)setDelegate:(id<XWEmotionToobarDelegate>)delegate
+{
+    _delegate = delegate;
+    
+    UIButton *defaultBtn = (UIButton *)[self viewWithTag:XWEmotionTypeDefault];
+    [self toolbarButtonClick:defaultBtn];
 }
 
 

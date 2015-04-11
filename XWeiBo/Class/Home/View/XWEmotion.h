@@ -16,6 +16,9 @@
 @property (nonatomic, copy) NSString *png;
 /** emoji表情的编码 */
 @property (nonatomic, copy) NSString *code;
+@property (nonatomic, copy) NSString *emoji;
 
+/** 表情存放路径 */
+@property (nonatomic, copy) NSString *directory;
 
 @end

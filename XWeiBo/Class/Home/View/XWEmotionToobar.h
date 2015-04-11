@@ -18,7 +18,7 @@ typedef enum {
 }XWemotionType;
 
 @protocol XWEmotionToobarDelegate <NSObject>
-
+@optional
 - (void)emotionToolbar:(XWEmotionToobar *)toolbar didSelectedButton:(XWemotionType)emotionType;
 
 @end

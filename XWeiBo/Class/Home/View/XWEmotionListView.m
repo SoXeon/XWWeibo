@@ -6,16 +6,15 @@
 //  Copyright (c) 2015年 戴鹏. All rights reserved.
 //
 
-#define kXWEmotionMaxRows 3
-#define kXWEmotionMaxCols 7
-#define kXWEmotionMaxCountPerPage 20
 
 #import "XWEmotionListView.h"
+#import "SMPageControl.h"
+#import "XWEmotionGridView.h"
 
-@interface XWEmotionListView()
+@interface XWEmotionListView() <UIScrollViewDelegate>
 
 @property (nonatomic, weak) UIScrollView *scrollView;
-@property (nonatomic, weak) UIPageControl *pageControl;
+@property (nonatomic, weak) SMPageControl *pageControl;
 
 @end
 
@@ -27,12 +26,17 @@
     if (self) {
 
         UIScrollView *scrollView = [[UIScrollView alloc] init];
+        scrollView.showsHorizontalScrollIndicator = NO;
+        scrollView.showsVerticalScrollIndicator = NO;
+        scrollView.scrollEnabled = YES;
+        scrollView.delegate = self;
         self.scrollView = scrollView;
-        self.scrollView.backgroundColor = [UIColor yellowColor];
         [self addSubview:self.scrollView];
         
-        UIPageControl *pageControl = [[UIPageControl alloc] init];
-        self.pageControl.backgroundColor = [UIColor blueColor];
+        SMPageControl *pageControl = [[SMPageControl alloc] init];
+        pageControl.pageIndicatorImage = [UIImage imageWithName:@"compose_keyboard_dot_normal-1"];
+        pageControl.currentPageIndicatorImage = [UIImage imageWithName:@"compose_keyboard_dot_selected-1"];
+        
         self.pageControl = pageControl;
         [self addSubview:self.pageControl];
         
@@ -45,7 +49,28 @@
 {
     _emotions = emotions;
     
-    self.pageControl.numberOfPages = (_emotions.count + kXWEmotionMaxCountPerPage - 1) / kXWEmotionMaxCountPerPage;
+    self.pageControl.numberOfPages = (emotions.count + kXWEmotionMaxCountPerPage - 1) / kXWEmotionMaxCountPerPage;
+    self.pageControl.currentPage = 0;
+    
+    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    for (int i = 0; i<self.pageControl.numberOfPages; i++) {
+        XWEmotionGridView *gridView = [[XWEmotionGridView alloc] init];
+        int loc = i * kXWEmotionMaxCountPerPage;
+        int len = kXWEmotionMaxCountPerPage;
+        if (loc + len > emotions.count) {
+            len = (int)emotions.count - loc;
+        }
+        
+        
+        NSRange emotionRange = NSMakeRange(loc, len);
+        NSArray *gridEmotions = [emotions subarrayWithRange:emotionRange];
+        gridView.emotions = gridEmotions;
+        [self.scrollView addSubview:gridView];
+    }
+    
+    [self setNeedsLayout];
+    
+    self.scrollView.contentOffset = CGPointZero;
 }
 
 - (void)layoutSubviews
@@ -61,7 +86,25 @@
     self.scrollView.width = self.width;
     self.scrollView.height = self.pageControl.y;
     
-    
+    // 3.设置UIScrollView内部控件的尺寸
+    int count = (int)self.pageControl.numberOfPages;
+    CGFloat gridW = self.scrollView.width;
+    CGFloat gridH = self.scrollView.height;
+    self.scrollView.contentSize = CGSizeMake(count * gridW, 0);
+    for (int i = 0; i<count; i++) {
+        UIView *gridView = self.scrollView.subviews[i];
+        gridView.width = gridW;
+        gridView.height = gridH;
+        gridView.x = i * gridW;
+    }
+
 }
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    self.pageControl.currentPage = (int)(scrollView.contentOffset.x / scrollView.width + 0.5);
+}
+
 
 @end

@@ -32,6 +32,7 @@
     if (!_defaultEmotions) {
         NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/default/info.plist" ofType:nil];
         self.defaultEmotions = [XWEmotion objectArrayWithFile:plist];
+        [self.defaultEmotions makeObjectsPerformSelector:@selector(setDirectory:) withObject:@"EmotionIcons/default"];
     }
     return _defaultEmotions;
 }
@@ -42,6 +43,8 @@
     if (!_emojiEmotions) {
         NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/emoji/info.plist" ofType:nil];
         self.emojiEmotions = [XWEmotion objectArrayWithFile:plist];
+        [self.emojiEmotions makeObjectsPerformSelector:@selector(setDirectory:) withObject:@"EmotionIcons/emoji"];
+
     }
     return _emojiEmotions;
 }
@@ -51,6 +54,8 @@
     if (!_lxhEmotions) {
         NSString *plist = [[NSBundle mainBundle] pathForResource:@"EmotionIcons/lxh/info.plist" ofType:nil];
         self.lxhEmotions = [XWEmotion objectArrayWithFile:plist];
+        [self.lxhEmotions makeObjectsPerformSelector:@selector(setDirectory:) withObject:@"EmotionIcons/lxh"];
+
     }
     return _lxhEmotions;
 }
@@ -115,6 +120,5 @@
             break;
     }
     
-    NSLog(@"%lu %@", (unsigned long)self.listView.emotions.count, [self.listView.emotions firstObject]);
 }
 @end
