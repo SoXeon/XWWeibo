@@ -24,12 +24,22 @@
     _emotion = emotion;
     
     if (emotion.code) {
+        [UIView setAnimationsEnabled:NO];
+        
         self.titleLabel.font = [UIFont systemFontOfSize:32];
         [self setTitle:emotion.emoji forState:UIControlStateNormal];
         [self setImage:nil forState:UIControlStateNormal];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [UIView setAnimationsEnabled:YES];
+        });
     } else {
         NSString *icon = [NSString stringWithFormat:@"%@/%@", emotion.directory, emotion.png];
-        [self setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
+        UIImage *image = [UIImage imageWithName:icon];
+        if (iOS7) {
+            image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        }
+        [self setImage:image forState:UIControlStateNormal];
         [self setTitle:nil forState:UIControlStateNormal];
     }
 }

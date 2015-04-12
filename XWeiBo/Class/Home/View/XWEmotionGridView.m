@@ -45,10 +45,44 @@
         UIButton *deleteBtn = [[UIButton alloc] init];
         [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
         [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        [deleteBtn addTarget:self action:@selector(deleteClick) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:deleteBtn];
         self.deleteBtn = deleteBtn;
+        
+        //手势识别
+        UILongPressGestureRecognizer *recognizer = [[UILongPressGestureRecognizer alloc] init];
+        [recognizer addTarget:self action:@selector(longPress:)];
+        [self addGestureRecognizer:recognizer];
     }
     return self;
+}
+
+// 长按手势
+- (void)longPress:(UILongPressGestureRecognizer *)recoginzer
+{
+    CGPoint point = [recoginzer locationInView:recoginzer.view];
+    
+    XWEmotionView *emotionView = [self emotionViewWithPoint:point];
+    
+    if (recoginzer.state == UIGestureRecognizerStateEnded) {
+        [self.popView dismiss];
+        
+        [self selectedEmotion:emotionView.emotion];
+    } else {
+        [self.popView showFromEmotionView:emotionView];
+    }
+}
+
+- (XWEmotionView *)emotionViewWithPoint:(CGPoint)point
+{
+    __block XWEmotionView *foundEmotionView = nil;
+    [self.emotionViews enumerateObjectsUsingBlock:^(XWEmotionView *emotionView, NSUInteger idx, BOOL *stop) {
+        if (CGRectContainsPoint(emotionView.frame, point)) {
+            foundEmotionView = emotionView;
+            *stop = YES;
+        }
+    }];
+    return foundEmotionView;
 }
 
 - (void)setEmotions:(NSArray *)emotions
@@ -88,6 +122,22 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.popView dismiss];
     });
+    
+    [self selectedEmotion:emotionView.emotion];
+}
+
+- (void)selectedEmotion:(XWEmotion *)emotion
+{
+    if (emotion == nil) {
+        return;
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:kXWEmotionDidSelectedNotification object:nil userInfo:@{kXWSelectedEmotion : emotion}];
+}
+
+- (void)deleteClick
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:kXWEmotionDidDeletedNotification object:nil userInfo:nil];
 }
 
 - (void)layoutSubviews

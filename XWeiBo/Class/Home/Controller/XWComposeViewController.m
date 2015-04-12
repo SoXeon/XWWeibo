@@ -17,6 +17,7 @@
 #import "AFHTTPClient.h"
 #import "AFHTTPRequestOperation.h"
 #import "XWEmotionKeyboard.h"
+#import "XWEmotion.h"
 
 @interface XWComposeViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -58,6 +59,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addCamera) name:@"cameraClick" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addAlbum) name:@"albumClick" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addEmotion) name:@"emotionClick" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidSelected:) name:kXWEmotionDidSelectedNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidDeleted:) name:kXWEmotionDidDeletedNotification object:nil];
 }
 
 - (void)setupImageView
@@ -295,6 +298,19 @@
     } failure:^(NSError *error) {
         [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
     }];
+}
+
+
+#pragma mark 表情的选中与删除
+- (void)emotionDidSelected:(NSNotification *)note
+{
+    XWEmotion *emotion = note.userInfo[kXWSelectedEmotion];
+    XWLog(@"%@ %@", emotion.chs, emotion.emoji);
+}
+
+- (void)emotionDidDeleted:(NSNotification *)note
+{
+    XWLog(@"delete one emotion");
 }
 
 

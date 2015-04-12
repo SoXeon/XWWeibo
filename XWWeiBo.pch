@@ -117,3 +117,11 @@
 //当前设备的屏幕宽高
 #define XWScreenWitdh  [[UIScreen mainScreen] bounds].size.width
 #define XWScreenHeight [[UIScreen mainScreen] bounds].size.height
+
+//表情相关
+// 表情选中的通知
+#define kXWEmotionDidSelectedNotification @"XWEmotionDidSelectedNotification"
+// 点击删除按钮的通知
+#define kXWEmotionDidDeletedNotification @"XWEmotionDidDeletedNotification"
+// 通知里面取出表情用的key
+#define kXWSelectedEmotion @"XWSelectedEmotion"
