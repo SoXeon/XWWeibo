@@ -20,6 +20,7 @@
 {
     _code = [code copy];
     
+    if (code == nil) return;
     self.emoji = [NSString emojiWithStringCode:code];
 }
 

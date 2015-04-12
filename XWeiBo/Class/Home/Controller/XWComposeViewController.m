@@ -18,16 +18,17 @@
 #import "AFHTTPRequestOperation.h"
 #import "XWEmotionKeyboard.h"
 #import "XWEmotion.h"
+#import "XWEmotionTextView.h"
 
 @interface XWComposeViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     IWComposeDock *_dock;
-    XWPlaceholderTextView *_textView;
 }
 
 @property (nonatomic, weak) UIImageView *imageView;
 @property (nonatomic, assign, getter=isChangingKeyboard) BOOL changingKeyboard;
 @property (nonatomic, strong) XWEmotionKeyboard *keyboard;
+@property (nonatomic, weak) XWEmotionTextView *textView;
 @end
 
 @implementation XWComposeViewController
@@ -144,7 +145,7 @@
     // 1.添加输入控件
     CGRect frame = self.view.bounds;
     frame.size.height = 200;
-    XWPlaceholderTextView *textView = [[XWPlaceholderTextView alloc] initWithFrame:frame];
+    XWEmotionTextView *textView = [[XWEmotionTextView alloc] initWithFrame:frame];
     textView.font = [UIFont systemFontOfSize:15];
     textView.placeholder = @"分享新鲜事";
     [textView becomeFirstResponder];
@@ -306,11 +307,20 @@
 {
     XWEmotion *emotion = note.userInfo[kXWSelectedEmotion];
     XWLog(@"%@ %@", emotion.chs, emotion.emoji);
+    
+    [self.textView appendEmotion:emotion];
+    
+    [self textViewDidChange:self.textView];
+}
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.navigationItem.rightBarButtonItem.enabled = textView.attributedText.length != 0;
 }
 
 - (void)emotionDidDeleted:(NSNotification *)note
 {
-    XWLog(@"delete one emotion");
+    [self.textView deleteBackward];
 }
 
 
