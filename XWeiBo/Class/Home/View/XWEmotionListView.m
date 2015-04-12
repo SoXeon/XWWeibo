@@ -49,12 +49,22 @@
 {
     _emotions = emotions;
     
-    self.pageControl.numberOfPages = (emotions.count + kXWEmotionMaxCountPerPage - 1) / kXWEmotionMaxCountPerPage;
+    NSInteger totalPages = (NSInteger)(emotions.count + kXWEmotionMaxCountPerPage - 1) / kXWEmotionMaxCountPerPage;
+    int currentGridViewCount =  (int)self.scrollView.subviews.count;
+
+    self.pageControl.numberOfPages = totalPages;
     self.pageControl.currentPage = 0;
     
-    [self.scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
-    for (int i = 0; i<self.pageControl.numberOfPages; i++) {
-        XWEmotionGridView *gridView = [[XWEmotionGridView alloc] init];
+    for (int i = 0; i < totalPages; i++) {
+        XWEmotionGridView *gridView = nil;
+        if (i >= currentGridViewCount) {
+            gridView = [[XWEmotionGridView alloc] init];
+            gridView.backgroundColor = XWRandomColor;
+            [self.scrollView addSubview:gridView];
+        } else {
+            gridView = self.scrollView.subviews[i];
+        }
+        
         int loc = i * kXWEmotionMaxCountPerPage;
         int len = kXWEmotionMaxCountPerPage;
         if (loc + len > emotions.count) {
@@ -65,7 +75,12 @@
         NSRange emotionRange = NSMakeRange(loc, len);
         NSArray *gridEmotions = [emotions subarrayWithRange:emotionRange];
         gridView.emotions = gridEmotions;
-        [self.scrollView addSubview:gridView];
+        gridView.hidden = NO;
+    }
+    
+    for (int i = (int)totalPages; i < currentGridViewCount; i++) {
+        XWEmotionGridView *gridView = self.scrollView.subviews[i];
+        gridView.hidden = YES;
     }
     
     [self setNeedsLayout];

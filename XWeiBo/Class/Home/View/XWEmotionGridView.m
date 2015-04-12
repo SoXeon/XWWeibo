@@ -8,8 +8,37 @@
 
 #import "XWEmotionGridView.h"
 #import "XWEmotion.h"
+#import "XWEmotionView.h"
+
+@interface XWEmotionGridView()
+
+@property (nonatomic, weak) UIButton *deleteBtn;
+@property (nonatomic, strong) NSMutableArray *emotionViews;
+
+@end
 
 @implementation XWEmotionGridView
+
+- (NSMutableArray *)emotionViews
+{
+    if (!_emotionViews) {
+        self.emotionViews = [NSMutableArray array];
+    }
+    return _emotionViews;
+}
+
+- (id)initWithFrame:(CGRect)frame
+{
+    self= [super initWithFrame:frame];
+    if (self) {
+        UIButton *deleteBtn = [[UIButton alloc] init];
+        [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete"] forState:UIControlStateNormal];
+        [deleteBtn setImage:[UIImage imageNamed:@"compose_emotion_delete_highlighted"] forState:UIControlStateHighlighted];
+        [self addSubview:deleteBtn];
+        self.deleteBtn = deleteBtn;
+    }
+    return self;
+}
 
 - (void)setEmotions:(NSArray *)emotions
 {
@@ -17,22 +46,28 @@
     
     //添加新数据
     int count = (int)emotions.count;
+    int currentEmotionViewCount = (int)self.emotionViews.count;
+    
     for (int i = 0; i < count; i++) {
-        UIButton *emotionView = [[UIButton alloc] init];
-        emotionView.adjustsImageWhenHighlighted = NO;
-
-        XWEmotion *emotion = emotions[i];
+        XWEmotionView *emotionView = nil;
         
-        if (emotion.code) {
-            emotionView.titleLabel.font = [UIFont systemFontOfSize:32.0f];
-            [emotionView setTitle:emotion.emoji forState:UIControlStateNormal];
+        if (i >= currentEmotionViewCount) {
+            emotionView = [[XWEmotionView alloc] init];
+            emotionView.backgroundColor = XWRandomColor;
+            [self addSubview:emotionView];
+            [self.emotionViews addObject:emotionView];
         } else {
-            NSString *imageURL = [NSString stringWithFormat:@"%@/%@", emotion.directory, emotion.png];
-            [emotionView setImage:[UIImage imageWithName:imageURL] forState:UIControlStateNormal];
-
+            emotionView = self.emotionViews[i];
         }
         
-         [self addSubview:emotionView];
+        emotionView.emotion = emotions[i];
+        emotionView.hidden = NO;
+        
+    }
+    
+    for (int i = count; i < currentEmotionViewCount; i++) {
+        UIButton *emotionView = self.emotionViews[i];
+        emotionView.hidden = YES;
     }
 }
 
@@ -46,12 +81,17 @@
     CGFloat emotionViewW = (self.width - 2 * leftInset) / kXWEmotionMaxCols;
     CGFloat emotionViewH = (self.height - 0.8 * topInset) / kXWEmotionMaxRows;
     for (int i = 0; i < count; i++) {
-        UIButton *emotionView = self.subviews[i];
+        UIButton *emotionView = self.emotionViews[i];
         emotionView.x = leftInset + (i % kXWEmotionMaxCols) * emotionViewW;
         emotionView.y = topInset + (i / kXWEmotionMaxCols) * emotionViewH;
         emotionView.width = emotionViewW;
         emotionView.height = emotionViewH;
     }
+    
+    self.deleteBtn.width = emotionViewW;
+    self.deleteBtn.height = emotionViewH;
+    self.deleteBtn.x = self.width - leftInset - self.deleteBtn.width;
+    self.deleteBtn.y = self.height - self.deleteBtn.height;
 }
 
 
