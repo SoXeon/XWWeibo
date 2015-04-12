@@ -8,7 +8,7 @@
 
 #import "XWEmotionTextView.h"
 #import "XWEmotion.h"
-#import "RegexKitLite.h"
+#import "XWEmotionAttachment.h"
 
 @implementation XWEmotionTextView
 - (void)appendEmotion:(XWEmotion *)emotion
@@ -20,8 +20,8 @@
         NSMutableAttributedString *attributedText = [[NSMutableAttributedString alloc] initWithAttributedString:self.attributedText];
         
         //带图片表情的富文本
-        NSTextAttachment *attach =[[NSTextAttachment alloc] init];
-        attach.image = [UIImage imageWithName:[NSString stringWithFormat:@"%@/%@", emotion.directory, emotion.png]];
+        XWEmotionAttachment *attach =[[XWEmotionAttachment alloc] init];
+        attach.emotion = emotion;
         attach.bounds = CGRectMake(0, -3, self.font.lineHeight, self.font.lineHeight);
         NSAttributedString *attachString = [NSAttributedString attributedStringWithAttachment:attach];
         
@@ -46,9 +46,9 @@
     
     //遍历富文本中所有内容
     [self.attributedText enumerateAttributesInRange:NSMakeRange(0, self.attributedText.length) options:0 usingBlock:^(NSDictionary *attrs, NSRange range, BOOL *stop) {
-        NSTextAttachment *attach = attrs[@"NSAttachment"];
+        XWEmotionAttachment *attach = attrs[@"NSAttachment"];
         if (attach) {
-            [string appendString:@"[哈哈]"];
+            [string appendString:attach.emotion.chs];
         } else {
             NSString *subStr = [self.attributedText attributedSubstringFromRange:range].string;
             [string appendString:subStr];
