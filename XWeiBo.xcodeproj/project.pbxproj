@@ -64,6 +64,8 @@
 		E2C2FA621ADA408C00474FDC /* XWEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C2FA611ADA408C00474FDC /* XWEmotionPopView.xib */; };
 		E2C2FA651ADA612100474FDC /* XWEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA641ADA612100474FDC /* XWEmotionTool.m */; };
 		E2C2FA681ADA6C4B00474FDC /* XWEmotionTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA671ADA6C4B00474FDC /* XWEmotionTextView.m */; };
+		E2C2FA6A1ADA879900474FDC /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C2FA691ADA879900474FDC /* libicucore.dylib */; };
+		E2C2FA6E1ADA87E200474FDC /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA6D1ADA87E200474FDC /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E2CBAB351AD417C300D812EC /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB231AD417C300D812EC /* MJArgument.m */; };
 		E2CBAB361AD417C300D812EC /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB261AD417C300D812EC /* MJIvar.m */; };
 		E2CBAB371AD417C300D812EC /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB281AD417C300D812EC /* MJMember.m */; };
@@ -344,6 +346,9 @@
 		E2C2FA641ADA612100474FDC /* XWEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionTool.m; sourceTree = "<group>"; };
 		E2C2FA661ADA6C4B00474FDC /* XWEmotionTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionTextView.h; sourceTree = "<group>"; };
 		E2C2FA671ADA6C4B00474FDC /* XWEmotionTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionTextView.m; sourceTree = "<group>"; };
+		E2C2FA691ADA879900474FDC /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		E2C2FA6C1ADA87E200474FDC /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		E2C2FA6D1ADA87E200474FDC /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		E2CBAB221AD417C300D812EC /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		E2CBAB231AD417C300D812EC /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		E2CBAB241AD417C300D812EC /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -654,6 +659,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C2FA6A1ADA879900474FDC /* libicucore.dylib in Frameworks */,
 				E248A0941ACFD7BC00A92B73 /* CoreGraphics.framework in Frameworks */,
 				E248A0921ACFD7B300A92B73 /* SystemConfiguration.framework in Frameworks */,
 				E248A0901ACFD7A500A92B73 /* QuartzCore.framework in Frameworks */,
@@ -826,6 +832,15 @@
 			path = SMPageControl;
 			sourceTree = "<group>";
 		};
+		E2C2FA6B1ADA87E200474FDC /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				E2C2FA6C1ADA87E200474FDC /* RegexKitLite.h */,
+				E2C2FA6D1ADA87E200474FDC /* RegexKitLite.m */,
+			);
+			path = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		E2CBAB211AD417C300D812EC /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -915,6 +930,7 @@
 		E2F070B11A2D6BCD00BDE434 = {
 			isa = PBXGroup;
 			children = (
+				E2C2FA691ADA879900474FDC /* libicucore.dylib */,
 				E29290AD1A8A377E00F0267D /* Reveal.framework */,
 				E248A0931ACFD7BC00A92B73 /* CoreGraphics.framework */,
 				E248A0911ACFD7B300A92B73 /* SystemConfiguration.framework */,
@@ -1258,6 +1274,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E2C2FA6B1ADA87E200474FDC /* RegexKitLite */,
 				E2C2FA511AD9238500474FDC /* SMPageControl */,
 				E2F34FBC1AD9050B009A846B /* YSLContainerViewController */,
 				E2CBAB211AD417C300D812EC /* MJExtension */,
@@ -1787,6 +1804,7 @@
 				E2F0722F1A2F4A8E00BDE434 /* XWDetailCell.m in Sources */,
 				E21CE1741A381B460031D6B8 /* AFImageRequestOperation.m in Sources */,
 				E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */,
+				E2C2FA6E1ADA87E200474FDC /* RegexKitLite.m in Sources */,
 				E2F071821A2E169600BDE434 /* HttpTool.m in Sources */,
 				E2F0713D1A2DB51000BDE434 /* XWNavigationController.m in Sources */,
 				E2CBAB3C1AD417C300D812EC /* NSObject+MJKeyValue.m in Sources */,

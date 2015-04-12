@@ -8,7 +8,6 @@
 
 #import "XWComposeViewController.h"
 #import "IWComposeDock.h"
-#import "XWPlaceholderTextView.h"
 #import "MBProgressHUD+Add.h"
 #import "XWStatusTool.h"
 #import "XWUpdateParam.h"
@@ -147,7 +146,7 @@
     frame.size.height = 200;
     XWEmotionTextView *textView = [[XWEmotionTextView alloc] initWithFrame:frame];
     textView.font = [UIFont systemFontOfSize:15];
-    textView.placeholder = @"分享新鲜事";
+    textView.placeholder = @"分享新鲜事...";
     [textView becomeFirstResponder];
     [self.view addSubview:textView];
     self.view.backgroundColor = textView.backgroundColor;
@@ -203,6 +202,8 @@
 - (void)textDidChange:(NSNotification *)note
 {
     self.navigationItem.rightBarButtonItem.enabled = _textView.text.length != 0;
+    XWLog(@"%@",self.textView.realText);
+
 }
 
 
@@ -311,11 +312,12 @@
     [self.textView appendEmotion:emotion];
     
     [self textViewDidChange:self.textView];
+    
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    self.navigationItem.rightBarButtonItem.enabled = textView.attributedText.length != 0;
+    self.navigationItem.rightBarButtonItem.enabled = textView.hasText;
 }
 
 - (void)emotionDidDeleted:(NSNotification *)note

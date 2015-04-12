@@ -11,5 +11,5 @@
 @interface XWEmotionTextView : XWPlaceholderTextView
 
 - (void)appendEmotion:(XWEmotion *)emotion;
-
+- (NSString *)realText;
 @end
