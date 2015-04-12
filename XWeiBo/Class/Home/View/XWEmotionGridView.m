@@ -10,6 +10,7 @@
 #import "XWEmotion.h"
 #import "XWEmotionView.h"
 #import "XWEmotionPopView.h"
+#import "XWEmotionTool.h"
 
 @interface XWEmotionGridView()
 
@@ -131,6 +132,8 @@
     if (emotion == nil) {
         return;
     }
+    
+    [XWEmotionTool addRecentEmotion:emotion];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:kXWEmotionDidSelectedNotification object:nil userInfo:@{kXWSelectedEmotion : emotion}];
 }

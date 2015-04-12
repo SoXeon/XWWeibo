@@ -62,6 +62,7 @@
 		E2C2FA5D1ADA267900474FDC /* XWEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA5C1ADA267900474FDC /* XWEmotionView.m */; };
 		E2C2FA601ADA407300474FDC /* XWEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA5F1ADA407300474FDC /* XWEmotionPopView.m */; };
 		E2C2FA621ADA408C00474FDC /* XWEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C2FA611ADA408C00474FDC /* XWEmotionPopView.xib */; };
+		E2C2FA651ADA612100474FDC /* XWEmotionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA641ADA612100474FDC /* XWEmotionTool.m */; };
 		E2CBAB351AD417C300D812EC /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB231AD417C300D812EC /* MJArgument.m */; };
 		E2CBAB361AD417C300D812EC /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB261AD417C300D812EC /* MJIvar.m */; };
 		E2CBAB371AD417C300D812EC /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB281AD417C300D812EC /* MJMember.m */; };
@@ -338,6 +339,8 @@
 		E2C2FA5E1ADA407300474FDC /* XWEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionPopView.h; sourceTree = "<group>"; };
 		E2C2FA5F1ADA407300474FDC /* XWEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionPopView.m; sourceTree = "<group>"; };
 		E2C2FA611ADA408C00474FDC /* XWEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWEmotionPopView.xib; sourceTree = "<group>"; };
+		E2C2FA631ADA612100474FDC /* XWEmotionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionTool.h; sourceTree = "<group>"; };
+		E2C2FA641ADA612100474FDC /* XWEmotionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionTool.m; sourceTree = "<group>"; };
 		E2CBAB221AD417C300D812EC /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		E2CBAB231AD417C300D812EC /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		E2CBAB241AD417C300D812EC /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -1491,6 +1494,8 @@
 			children = (
 				E2F072171A2F228F00BDE434 /* XWStatusTool.h */,
 				E2F072181A2F228F00BDE434 /* XWStatusTool.m */,
+				E2C2FA631ADA612100474FDC /* XWEmotionTool.h */,
+				E2C2FA641ADA612100474FDC /* XWEmotionTool.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -1824,6 +1829,7 @@
 				E2F072201A2F245700BDE434 /* XWComment.m in Sources */,
 				E2F071631A2DDF4700BDE434 /* XWSettingCheckGroup.m in Sources */,
 				E2C2AFA31A8C8CDD00C23EA2 /* CommentViewController.m in Sources */,
+				E2C2FA651ADA612100474FDC /* XWEmotionTool.m in Sources */,
 				E2C2AFE91A91E1DB00C23EA2 /* XWOwnComment.m in Sources */,
 				E2EF80CE1A308811003E9D9B /* MJPhotoProgressView.m in Sources */,
 				E21527491A8B4C71005BECB2 /* NSMutableArray+SWUtilityButtons.m in Sources */,
