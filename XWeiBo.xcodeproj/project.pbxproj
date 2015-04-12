@@ -60,6 +60,8 @@
 		E2C2FA571AD9844600474FDC /* XWEmotionGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA561AD9844600474FDC /* XWEmotionGridView.m */; };
 		E2C2FA5A1AD9928D00474FDC /* NSString+Emoji.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA591AD9928D00474FDC /* NSString+Emoji.m */; };
 		E2C2FA5D1ADA267900474FDC /* XWEmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA5C1ADA267900474FDC /* XWEmotionView.m */; };
+		E2C2FA601ADA407300474FDC /* XWEmotionPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA5F1ADA407300474FDC /* XWEmotionPopView.m */; };
+		E2C2FA621ADA408C00474FDC /* XWEmotionPopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C2FA611ADA408C00474FDC /* XWEmotionPopView.xib */; };
 		E2CBAB351AD417C300D812EC /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB231AD417C300D812EC /* MJArgument.m */; };
 		E2CBAB361AD417C300D812EC /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB261AD417C300D812EC /* MJIvar.m */; };
 		E2CBAB371AD417C300D812EC /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB281AD417C300D812EC /* MJMember.m */; };
@@ -333,6 +335,9 @@
 		E2C2FA591AD9928D00474FDC /* NSString+Emoji.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Emoji.m"; sourceTree = "<group>"; };
 		E2C2FA5B1ADA267900474FDC /* XWEmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionView.h; sourceTree = "<group>"; };
 		E2C2FA5C1ADA267900474FDC /* XWEmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionView.m; sourceTree = "<group>"; };
+		E2C2FA5E1ADA407300474FDC /* XWEmotionPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionPopView.h; sourceTree = "<group>"; };
+		E2C2FA5F1ADA407300474FDC /* XWEmotionPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionPopView.m; sourceTree = "<group>"; };
+		E2C2FA611ADA408C00474FDC /* XWEmotionPopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWEmotionPopView.xib; sourceTree = "<group>"; };
 		E2CBAB221AD417C300D812EC /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		E2CBAB231AD417C300D812EC /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		E2CBAB241AD417C300D812EC /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -854,6 +859,9 @@
 				E2C2FA561AD9844600474FDC /* XWEmotionGridView.m */,
 				E2C2FA5B1ADA267900474FDC /* XWEmotionView.h */,
 				E2C2FA5C1ADA267900474FDC /* XWEmotionView.m */,
+				E2C2FA5E1ADA407300474FDC /* XWEmotionPopView.h */,
+				E2C2FA5F1ADA407300474FDC /* XWEmotionPopView.m */,
+				E2C2FA611ADA408C00474FDC /* XWEmotionPopView.xib */,
 				E2CE0AE91AD4103C00FE0451 /* XWEmotionToobar.h */,
 				E2CE0AEA1AD4103C00FE0451 /* XWEmotionToobar.m */,
 				E2CE0AEC1AD412B300FE0451 /* XWEmotion.h */,
@@ -1718,6 +1726,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2C2AFA41A8C8CDD00C23EA2 /* CommentViewController.xib in Resources */,
+				E2C2FA621ADA408C00474FDC /* XWEmotionPopView.xib in Resources */,
 				E2F072441A30295100BDE434 /* More.plist in Resources */,
 				E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */,
 				E2F2433F1ACD6A06002F6003 /* timescroll_pointer@2x.png in Resources */,
@@ -1761,6 +1770,7 @@
 				E2CBAB3D1AD417C300D812EC /* NSObject+MJMember.m in Sources */,
 				E251680E1A31790300EB8E6F /* XWFollowersViewController.m in Sources */,
 				E2F0713A1A2DA98200BDE434 /* UIBarButtonItem+DP.m in Sources */,
+				E2C2FA601ADA407300474FDC /* XWEmotionPopView.m in Sources */,
 				E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */,
 				E2F071431A2DD06800BDE434 /* XWSearchBar.m in Sources */,
 				E2F071401A2DB70F00BDE434 /* XWTitleButton.m in Sources */,

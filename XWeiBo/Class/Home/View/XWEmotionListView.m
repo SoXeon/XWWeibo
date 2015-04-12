@@ -59,7 +59,6 @@
         XWEmotionGridView *gridView = nil;
         if (i >= currentGridViewCount) {
             gridView = [[XWEmotionGridView alloc] init];
-            gridView.backgroundColor = XWRandomColor;
             [self.scrollView addSubview:gridView];
         } else {
             gridView = self.scrollView.subviews[i];

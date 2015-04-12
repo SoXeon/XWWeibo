@@ -9,15 +9,26 @@
 #import "XWEmotionGridView.h"
 #import "XWEmotion.h"
 #import "XWEmotionView.h"
+#import "XWEmotionPopView.h"
 
 @interface XWEmotionGridView()
 
 @property (nonatomic, weak) UIButton *deleteBtn;
 @property (nonatomic, strong) NSMutableArray *emotionViews;
-
+@property (nonatomic, strong) XWEmotionPopView *popView;
 @end
 
 @implementation XWEmotionGridView
+
+- (XWEmotionPopView *)popView
+{
+    if (!_popView) {
+        self.popView = [XWEmotionPopView popView];
+        self.popView.backgroundColor = [UIColor clearColor];
+
+    }
+    return _popView;
+}
 
 - (NSMutableArray *)emotionViews
 {
@@ -53,7 +64,7 @@
         
         if (i >= currentEmotionViewCount) {
             emotionView = [[XWEmotionView alloc] init];
-            emotionView.backgroundColor = XWRandomColor;
+            [emotionView addTarget:self action:@selector(emotionClick:) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:emotionView];
             [self.emotionViews addObject:emotionView];
         } else {
@@ -69,6 +80,14 @@
         UIButton *emotionView = self.emotionViews[i];
         emotionView.hidden = YES;
     }
+}
+
+- (void)emotionClick:(XWEmotionView *)emotionView
+{
+    [self.popView showFromEmotionView:emotionView];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.popView dismiss];
+    });
 }
 
 - (void)layoutSubviews
