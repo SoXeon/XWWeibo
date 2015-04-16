@@ -67,6 +67,7 @@
 		E2C2FA6A1ADA879900474FDC /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E2C2FA691ADA879900474FDC /* libicucore.dylib */; };
 		E2C2FA6E1ADA87E200474FDC /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA6D1ADA87E200474FDC /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E2C2FA711ADA93D500474FDC /* XWEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA701ADA93D500474FDC /* XWEmotionAttachment.m */; };
+		E2C2FA741ADACD2600474FDC /* XWRegexResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA731ADACD2600474FDC /* XWRegexResult.m */; };
 		E2CBAB351AD417C300D812EC /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB231AD417C300D812EC /* MJArgument.m */; };
 		E2CBAB361AD417C300D812EC /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB261AD417C300D812EC /* MJIvar.m */; };
 		E2CBAB371AD417C300D812EC /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB281AD417C300D812EC /* MJMember.m */; };
@@ -352,6 +353,8 @@
 		E2C2FA6D1ADA87E200474FDC /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		E2C2FA6F1ADA93D500474FDC /* XWEmotionAttachment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWEmotionAttachment.h; sourceTree = "<group>"; };
 		E2C2FA701ADA93D500474FDC /* XWEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionAttachment.m; sourceTree = "<group>"; };
+		E2C2FA721ADACD2600474FDC /* XWRegexResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRegexResult.h; sourceTree = "<group>"; };
+		E2C2FA731ADACD2600474FDC /* XWRegexResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRegexResult.m; sourceTree = "<group>"; };
 		E2CBAB221AD417C300D812EC /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		E2CBAB231AD417C300D812EC /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		E2CBAB241AD417C300D812EC /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -1483,6 +1486,8 @@
 				E2F071E41A2EF60F00BDE434 /* XWBaseModel.m */,
 				E2F071E61A2EF72100BDE434 /* XWBaseText.h */,
 				E2F071E71A2EF72100BDE434 /* XWBaseText.m */,
+				E2C2FA721ADACD2600474FDC /* XWRegexResult.h */,
+				E2C2FA731ADACD2600474FDC /* XWRegexResult.m */,
 				E2F071EC1A2EF8E400BDE434 /* XWBaseStatusCellFrame.h */,
 				E2F071ED1A2EF8E400BDE434 /* XWBaseStatusCellFrame.m */,
 				E2F071FB1A2F112D00BDE434 /* XWBaseTextCellFrame.h */,
@@ -1868,6 +1873,7 @@
 				E215274C1A8B4C71005BECB2 /* SWTableViewCell.m in Sources */,
 				E2F071111A2D761600BDE434 /* XWHomeTableViewController.m in Sources */,
 				E2EF80CD1A308811003E9D9B /* MJPhotoLoadingView.m in Sources */,
+				E2C2FA741ADACD2600474FDC /* XWRegexResult.m in Sources */,
 				E251680B1A31774900EB8E6F /* XWFriendsViewController.m in Sources */,
 				E21CE1761A381B460031D6B8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E2CE09241AD2DF7500FE0451 /* UIView+Extension.m in Sources */,

@@ -10,6 +10,7 @@
 #import "IWComposeDock.h"
 #import "MBProgressHUD+Add.h"
 #import "XWStatusTool.h"
+#import "XWUserTool.h"
 #import "XWUpdateParam.h"
 #import "XWUploadParam.h"
 #import "XWAccountTool.h"
@@ -18,6 +19,8 @@
 #import "XWEmotionKeyboard.h"
 #import "XWEmotion.h"
 #import "XWEmotionTextView.h"
+#import "XWUserParam.h"
+#import "XWUser.h"
 
 @interface XWComposeViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
@@ -28,6 +31,7 @@
 @property (nonatomic, assign, getter=isChangingKeyboard) BOOL changingKeyboard;
 @property (nonatomic, strong) XWEmotionKeyboard *keyboard;
 @property (nonatomic, weak) XWEmotionTextView *textView;
+@property (nonatomic, copy) NSString *userName;
 @end
 
 @implementation XWComposeViewController
@@ -210,8 +214,33 @@
 #pragma mark - 导航栏相关
 - (void)setupNavBar
 {
-    // 1.标题
-    self.title = @"发微博";
+    self.userName = [[NSString alloc] init];
+    
+    XWUserParam *userParams = [[XWUserParam alloc] init];
+    
+    
+    
+    [XWUserTool userWithParam:userParams success:^(XWUser *user) {
+        NSString *prefix = @"发微博";
+        NSString *text = [NSString stringWithFormat:@"%@\n%@", prefix, user.name];
+        NSMutableAttributedString *string = [[NSMutableAttributedString alloc] initWithString:text];
+        [string addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15] range:[text rangeOfString:prefix]];
+        [string addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:[text rangeOfString:user.name]];
+        
+        // 创建label
+        UILabel *titleLabel = [[UILabel alloc] init];
+        titleLabel.attributedText = string;
+        titleLabel.numberOfLines = 0;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.width = 100;
+        titleLabel.height = 44;
+        self.navigationItem.titleView = titleLabel;
+    } failure:^(NSError *error) {
+        
+    }];
+    
+    
+    
     self.view.backgroundColor = XWColor(232, 232, 232);
     
     // 2.取消
@@ -293,7 +322,7 @@
 {
     // 3.发送请求
     XWUpdateParam *param = [[XWUpdateParam alloc] init];
-    param.status = _textView.text;
+    param.status = _textView.realText;
     [XWStatusTool updateWithParam:param success:^(XWStatus *status) {
         [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
         [self cancel];

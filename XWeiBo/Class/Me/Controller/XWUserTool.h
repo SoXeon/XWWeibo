@@ -29,4 +29,7 @@ typedef void (^UserSuccess)(XWUser *user);
 //取消关注
 + (void)destoryFriendshipWithParam:(NSDictionary *)param success:(HttpSuccessBlock)success failure:(HttpFailureBlock)failure;
 
+
+
+
 @end

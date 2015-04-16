@@ -11,5 +11,6 @@
 
 @interface XWBaseText : XWBaseModel
 @property (nonatomic, copy) NSString *text;
+@property (nonatomic, copy) NSAttributedString *attributeText;
 @property (nonatomic, strong) XWUser *user;
 @end
