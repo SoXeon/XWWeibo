@@ -26,6 +26,12 @@
 
 #import "ACTimeScroller.h"
 
+#import "XWUserTool.h"
+#import "XWUserParam.h"
+#import "XWUser.h"
+#import "XWIconView.h"
+
+
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_statusFrames;
@@ -34,6 +40,7 @@
 
 @property (nonatomic, assign) CGPoint cellPoint;
 @property (nonatomic, assign) CGFloat cellOriginY;
+@property (nonatomic, strong) XWIconView *userIconView;
 @end
 
 @implementation XWHomeTableViewController
@@ -214,9 +221,27 @@
 {
     // 左边按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
+        
+    XWUserParam *userParam = [[XWUserParam alloc] init];
     
-    // 右边按钮
-    self.navigationItem.rightBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_pop" highIcon:@"navigationbar_pop_highlighted" target:self action:@selector(pop)];
+    [XWUserTool userWithParam:userParam success:^(XWUser *user) {
+        
+        UIImageView *iconImage = [[UIImageView alloc] init];
+        iconImage.frame = CGRectMake(0, 0, 36, 36);
+        iconImage.layer.cornerRadius = 10.0f;
+        iconImage.layer.borderColor = [UIColor whiteColor].CGColor;
+        iconImage.layer.borderWidth = 1.0f;
+        iconImage.clipsToBounds = YES;
+        
+        [HttpTool downloadImage:user.avatar_large place:[UIImage imageNamed:@"avatar_default_small.png"] imageView:iconImage];
+        
+        UIBarButtonItem *mailbutton = [[UIBarButtonItem alloc] initWithCustomView:iconImage];
+        self.navigationItem.rightBarButtonItem= mailbutton;
+        self.navigationItem.title = user.name;
+        
+    } failure:^(NSError *error) {
+        
+    }];
     
     
 }

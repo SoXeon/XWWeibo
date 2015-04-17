@@ -27,7 +27,6 @@ const int XWMBWH = 14;
 
 @interface XWIconView()
 {
-    UIImageView *_icon; // 头像图片
     UIImageView *_vertify; // 认证图标
     
     NSString *_placehoder; // 占位图片

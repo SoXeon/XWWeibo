@@ -18,6 +18,8 @@ typedef enum {
 
 @property (nonatomic, strong) XWUser *user;
 @property (nonatomic, assign) IconType type;
+@property (nonatomic, strong) UIImageView *icon; // 头像图片
+
 
 - (void)setUser:(XWUser *)user type:(IconType)type;
 

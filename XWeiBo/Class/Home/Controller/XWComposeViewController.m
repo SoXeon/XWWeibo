@@ -239,8 +239,6 @@
         
     }];
     
-    
-    
     self.view.backgroundColor = XWColor(232, 232, 232);
     
     // 2.取消
