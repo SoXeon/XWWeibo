@@ -13,7 +13,7 @@
 
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ - %@ - %@", self.chs, self.png, self.code];
+    return [NSString stringWithFormat:@"%@ - %@ - %@ - %@", self.chs, self.png, self.code, self.cht];
 }
 
 - (void)setCode:(NSString *)code
@@ -32,6 +32,7 @@
 {
     if (self = [super init]) {
         self.chs = [decoder decodeObjectForKey:@"chs"];
+        self.cht = [decoder decodeObjectForKey:@"cht"];
         self.png = [decoder decodeObjectForKey:@"png"];
         self.code = [decoder decodeObjectForKey:@"code"];
         self.directory = [decoder decodeObjectForKey:@"directory"];
@@ -46,10 +47,18 @@
 - (void)encodeWithCoder:(NSCoder *)encoder
 {
     [encoder encodeObject:self.chs forKey:@"chs"];
+    [encoder encodeObject:self.cht forKey:@"cht"];
     [encoder encodeObject:self.png forKey:@"png"];
     [encoder encodeObject:self.code forKey:@"code"];
     [encoder encodeObject:self.directory forKey:@"directory"];
 }
 
-
+- (BOOL)isEqual:(XWEmotion *)otherEmotion
+{
+    if (self.code) {
+        return [self.code isEqualToString:otherEmotion.code];
+    } else {
+        return [self.png isEqualToString:otherEmotion.png] && [self.chs isEqualToString:otherEmotion.chs] && [self.cht isEqualToString:otherEmotion.cht];
+    }
+}
 @end

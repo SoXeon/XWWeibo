@@ -157,7 +157,7 @@
     
     // 5.内容
     _text.frame = cellFrame.textFrame;
-    _text.text = s.text;
+    _text.attributedText = s.attributeText;
     
     // 6.配图
     if (s.picUrls.count) {
@@ -180,7 +180,7 @@
         
         // 9.内容
         _retweetedText.frame = cellFrame.retweetedTextFrame;
-        _retweetedText.text = s.retweetedStatus.text;
+        _retweetedText.attributedText = s.retweetedStatus.attributeText;
         
         // 10.配图
         if (s.retweetedStatus.picUrls.count) {

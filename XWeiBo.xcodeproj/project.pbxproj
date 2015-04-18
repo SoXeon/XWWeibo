@@ -78,6 +78,13 @@
 		E2C2FA6E1ADA87E200474FDC /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA6D1ADA87E200474FDC /* RegexKitLite.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E2C2FA711ADA93D500474FDC /* XWEmotionAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA701ADA93D500474FDC /* XWEmotionAttachment.m */; };
 		E2C2FA741ADACD2600474FDC /* XWRegexResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FA731ADACD2600474FDC /* XWRegexResult.m */; };
+		E2CAC7FC1AE100E500F35EF5 /* YALSpringAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7E01AE100E500F35EF5 /* YALSpringAnimation.m */; };
+		E2CAC7FD1AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7E51AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.m */; };
+		E2CAC7FE1AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7E91AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.m */; };
+		E2CAC7FF1AE100E500F35EF5 /* YALAnimatingTabBarConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7EC1AE100E500F35EF5 /* YALAnimatingTabBarConstants.m */; };
+		E2CAC8001AE100E500F35EF5 /* YALFoldingTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7F01AE100E500F35EF5 /* YALFoldingTabBarController.m */; };
+		E2CAC8011AE100E500F35EF5 /* YALTabBarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7F41AE100E500F35EF5 /* YALTabBarItem.m */; };
+		E2CAC8021AE100E500F35EF5 /* YALFoldingTabBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CAC7FB1AE100E500F35EF5 /* YALFoldingTabBar.m */; };
 		E2CBAB351AD417C300D812EC /* MJArgument.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB231AD417C300D812EC /* MJArgument.m */; };
 		E2CBAB361AD417C300D812EC /* MJIvar.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB261AD417C300D812EC /* MJIvar.m */; };
 		E2CBAB371AD417C300D812EC /* MJMember.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAB281AD417C300D812EC /* MJMember.m */; };
@@ -389,6 +396,21 @@
 		E2C2FA701ADA93D500474FDC /* XWEmotionAttachment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWEmotionAttachment.m; sourceTree = "<group>"; };
 		E2C2FA721ADACD2600474FDC /* XWRegexResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWRegexResult.h; sourceTree = "<group>"; };
 		E2C2FA731ADACD2600474FDC /* XWRegexResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWRegexResult.m; sourceTree = "<group>"; };
+		E2CAC7DF1AE100E500F35EF5 /* YALSpringAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALSpringAnimation.h; sourceTree = "<group>"; };
+		E2CAC7E01AE100E500F35EF5 /* YALSpringAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALSpringAnimation.m; sourceTree = "<group>"; };
+		E2CAC7E41AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+YALTabBarViewAnimations.h"; sourceTree = "<group>"; };
+		E2CAC7E51AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+YALTabBarViewAnimations.m"; sourceTree = "<group>"; };
+		E2CAC7E81AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CATransaction+TransactionWithAnimationsAndCompletion.h"; sourceTree = "<group>"; };
+		E2CAC7E91AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CATransaction+TransactionWithAnimationsAndCompletion.m"; sourceTree = "<group>"; };
+		E2CAC7EB1AE100E500F35EF5 /* YALAnimatingTabBarConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALAnimatingTabBarConstants.h; sourceTree = "<group>"; };
+		E2CAC7EC1AE100E500F35EF5 /* YALAnimatingTabBarConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALAnimatingTabBarConstants.m; sourceTree = "<group>"; };
+		E2CAC7EF1AE100E500F35EF5 /* YALFoldingTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALFoldingTabBarController.h; sourceTree = "<group>"; };
+		E2CAC7F01AE100E500F35EF5 /* YALFoldingTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALFoldingTabBarController.m; sourceTree = "<group>"; };
+		E2CAC7F31AE100E500F35EF5 /* YALTabBarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALTabBarItem.h; sourceTree = "<group>"; };
+		E2CAC7F41AE100E500F35EF5 /* YALTabBarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALTabBarItem.m; sourceTree = "<group>"; };
+		E2CAC7F71AE100E500F35EF5 /* YALTabBarInteracting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALTabBarInteracting.h; sourceTree = "<group>"; };
+		E2CAC7FA1AE100E500F35EF5 /* YALFoldingTabBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALFoldingTabBar.h; sourceTree = "<group>"; };
+		E2CAC7FB1AE100E500F35EF5 /* YALFoldingTabBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALFoldingTabBar.m; sourceTree = "<group>"; };
 		E2CBAB221AD417C300D812EC /* MJArgument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJArgument.h; sourceTree = "<group>"; };
 		E2CBAB231AD417C300D812EC /* MJArgument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJArgument.m; sourceTree = "<group>"; };
 		E2CBAB241AD417C300D812EC /* MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtension.h; sourceTree = "<group>"; };
@@ -912,6 +934,156 @@
 			path = RegexKitLite;
 			sourceTree = "<group>";
 		};
+		E2CAC7DC1AE100E500F35EF5 /* FoldingTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7DD1AE100E500F35EF5 /* Animation */,
+				E2CAC7E11AE100E500F35EF5 /* Category */,
+				E2CAC7EA1AE100E500F35EF5 /* Constants */,
+				E2CAC7ED1AE100E500F35EF5 /* Controller */,
+				E2CAC7F11AE100E500F35EF5 /* Model */,
+				E2CAC7F51AE100E500F35EF5 /* Protocol */,
+				E2CAC7F81AE100E500F35EF5 /* View */,
+			);
+			path = FoldingTabBar;
+			sourceTree = "<group>";
+		};
+		E2CAC7DD1AE100E500F35EF5 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7DE1AE100E500F35EF5 /* YALSpringAnimation */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
+		E2CAC7DE1AE100E500F35EF5 /* YALSpringAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7DF1AE100E500F35EF5 /* YALSpringAnimation.h */,
+				E2CAC7E01AE100E500F35EF5 /* YALSpringAnimation.m */,
+			);
+			path = YALSpringAnimation;
+			sourceTree = "<group>";
+		};
+		E2CAC7E11AE100E500F35EF5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7E21AE100E500F35EF5 /* CAAnimation */,
+				E2CAC7E61AE100E500F35EF5 /* CATransaction */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		E2CAC7E21AE100E500F35EF5 /* CAAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7E31AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations */,
+			);
+			path = CAAnimation;
+			sourceTree = "<group>";
+		};
+		E2CAC7E31AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7E41AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.h */,
+				E2CAC7E51AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.m */,
+			);
+			path = "CAAnimation+YALTabBarViewAnimations";
+			sourceTree = "<group>";
+		};
+		E2CAC7E61AE100E500F35EF5 /* CATransaction */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7E71AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion */,
+			);
+			path = CATransaction;
+			sourceTree = "<group>";
+		};
+		E2CAC7E71AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7E81AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.h */,
+				E2CAC7E91AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.m */,
+			);
+			path = "CATransaction+TransactionWithAnimationsAndCompletion";
+			sourceTree = "<group>";
+		};
+		E2CAC7EA1AE100E500F35EF5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7EB1AE100E500F35EF5 /* YALAnimatingTabBarConstants.h */,
+				E2CAC7EC1AE100E500F35EF5 /* YALAnimatingTabBarConstants.m */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		E2CAC7ED1AE100E500F35EF5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7EE1AE100E500F35EF5 /* FoldingTabBarController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E2CAC7EE1AE100E500F35EF5 /* FoldingTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7EF1AE100E500F35EF5 /* YALFoldingTabBarController.h */,
+				E2CAC7F01AE100E500F35EF5 /* YALFoldingTabBarController.m */,
+			);
+			path = FoldingTabBarController;
+			sourceTree = "<group>";
+		};
+		E2CAC7F11AE100E500F35EF5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7F21AE100E500F35EF5 /* TabBarItem */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E2CAC7F21AE100E500F35EF5 /* TabBarItem */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7F31AE100E500F35EF5 /* YALTabBarItem.h */,
+				E2CAC7F41AE100E500F35EF5 /* YALTabBarItem.m */,
+			);
+			path = TabBarItem;
+			sourceTree = "<group>";
+		};
+		E2CAC7F51AE100E500F35EF5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7F61AE100E500F35EF5 /* TabBarInteracting */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		E2CAC7F61AE100E500F35EF5 /* TabBarInteracting */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7F71AE100E500F35EF5 /* YALTabBarInteracting.h */,
+			);
+			path = TabBarInteracting;
+			sourceTree = "<group>";
+		};
+		E2CAC7F81AE100E500F35EF5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7F91AE100E500F35EF5 /* FoldingTabBar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E2CAC7F91AE100E500F35EF5 /* FoldingTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				E2CAC7FA1AE100E500F35EF5 /* YALFoldingTabBar.h */,
+				E2CAC7FB1AE100E500F35EF5 /* YALFoldingTabBar.m */,
+			);
+			path = FoldingTabBar;
+			sourceTree = "<group>";
+		};
 		E2CBAB211AD417C300D812EC /* MJExtension */ = {
 			isa = PBXGroup;
 			children = (
@@ -1347,6 +1519,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E2CAC7DC1AE100E500F35EF5 /* FoldingTabBar */,
 				E214DC1F1AE0FCCC008142A3 /* Masonry */,
 				E2C2FA6B1ADA87E200474FDC /* RegexKitLite */,
 				E2C2FA511AD9238500474FDC /* SMPageControl */,
@@ -1918,6 +2091,7 @@
 				E2F071EE1A2EF8E400BDE434 /* XWBaseStatusCellFrame.m in Sources */,
 				E2F071CB1A2E16FE00BDE434 /* UIButton+WebCache.m in Sources */,
 				E21CE1781A381B460031D6B8 /* AFURLConnectionOperation.m in Sources */,
+				E2CAC7FF1AE100E500F35EF5 /* YALAnimatingTabBarConstants.m in Sources */,
 				E2EF80CA1A308811003E9D9B /* MJPhoto.m in Sources */,
 				E2C2FA571AD9844600474FDC /* XWEmotionGridView.m in Sources */,
 				E214DC3A1AE0FCCC008142A3 /* MASConstraint.m in Sources */,
@@ -1933,6 +2107,7 @@
 				E2F072201A2F245700BDE434 /* XWComment.m in Sources */,
 				E2F071631A2DDF4700BDE434 /* XWSettingCheckGroup.m in Sources */,
 				E214DC401AE0FCCC008142A3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
+				E2CAC7FC1AE100E500F35EF5 /* YALSpringAnimation.m in Sources */,
 				E2C2AFA31A8C8CDD00C23EA2 /* CommentViewController.m in Sources */,
 				E2C2FA651ADA612100474FDC /* XWEmotionTool.m in Sources */,
 				E2C2AFE91A91E1DB00C23EA2 /* XWOwnComment.m in Sources */,
@@ -1971,6 +2146,7 @@
 				E2C2FA541AD9238500474FDC /* SMPageControl.m in Sources */,
 				E2F071C41A2E16FE00BDE434 /* SDImageCache.m in Sources */,
 				E2F0712E1A2D93EA00BDE434 /* XWTabBarButton.m in Sources */,
+				E2CAC8021AE100E500F35EF5 /* YALFoldingTabBar.m in Sources */,
 				E2EF80D81A3096FA003E9D9B /* XWFriendshipParam.m in Sources */,
 				E2F071CA1A2E16FE00BDE434 /* SDWebImagePrefetcher.m in Sources */,
 				E2F071571A2DDD1100BDE434 /* XWSettingArrowItem.m in Sources */,
@@ -2026,6 +2202,7 @@
 				E2F0723D1A2F55D300BDE434 /* XWRepostCell.m in Sources */,
 				E2F071C81A2E16FE00BDE434 /* SDWebImageDownloaderOperation.m in Sources */,
 				E2F243641ACE6529002F6003 /* UIView+MJExtension.m in Sources */,
+				E2CAC8001AE100E500F35EF5 /* YALFoldingTabBarController.m in Sources */,
 				E2CE0AEE1AD412B300FE0451 /* XWEmotion.m in Sources */,
 				E2F071EB1A2EF77F00BDE434 /* XWUser.m in Sources */,
 				E25ED15D1A30691F00C5A023 /* MBProgressHUD.m in Sources */,
@@ -2043,6 +2220,8 @@
 				E2EF80CC1A308811003E9D9B /* MJPhotoBrowser.m in Sources */,
 				E2F0728C1A3061C100BDE434 /* XWUploadParam.m in Sources */,
 				E2F2435A1ACE6529002F6003 /* MJRefreshComponent.m in Sources */,
+				E2CAC7FE1AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.m in Sources */,
+				E2CAC7FD1AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.m in Sources */,
 				E2F071541A2DDCA800BDE434 /* XWSettingItem.m in Sources */,
 				E2F071E81A2EF72100BDE434 /* XWBaseText.m in Sources */,
 				E215274D1A8B4C71005BECB2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
@@ -2051,6 +2230,7 @@
 				E25167FC1A30B48000EB8E6F /* IWIconView.m in Sources */,
 				E2F071F11A2EF92A00BDE434 /* XWStatus.m in Sources */,
 				E2F0728F1A3061F300BDE434 /* XWUnreadParam.m in Sources */,
+				E2CAC8011AE100E500F35EF5 /* YALTabBarItem.m in Sources */,
 				E214DC3C1AE0FCCC008142A3 /* MASLayoutConstraint.m in Sources */,
 				E2F072091A2F185100BDE434 /* XWBaseStatusCell.m in Sources */,
 				E2F243391ACD6A06002F6003 /* ACTimeScroller.m in Sources */,

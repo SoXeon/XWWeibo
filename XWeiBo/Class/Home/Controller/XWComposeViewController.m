@@ -294,7 +294,7 @@
     
     // 2.封装请求参数
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"status"] = _textView.text;
+    params[@"status"] = _textView.realText;
     params[@"access_token"] = newTool.currentAccount.accessToken;
     
     NSURLRequest *request = [client multipartFormRequestWithMethod:@"POST" path:@"2/statuses/upload.json" parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {

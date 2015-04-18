@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "YALFoldingTabBarController.h"
 
 @interface XWTabBarController : UITabBarController
 @property (nonatomic, readonly) UIViewController *selectedController;

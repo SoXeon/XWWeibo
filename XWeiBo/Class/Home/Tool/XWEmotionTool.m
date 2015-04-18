@@ -74,4 +74,34 @@ static NSMutableArray *_recentEmotions;
     [NSKeyedArchiver archiveRootObject:_recentEmotions toFile:kXWRecentFilePath];
 }
 
++ (XWEmotion *)emotionWithDesc:(NSString *)desc
+{
+    if (!desc) {
+        return nil;
+    }
+   __block XWEmotion *foundEmotion = nil;
+    
+    //从默认表情中找
+    [[self defaultEmotions] enumerateObjectsUsingBlock:^(XWEmotion *emotion, NSUInteger idx, BOOL *stop) {
+        if ([desc isEqualToString:emotion.chs] || [desc isEqualToString:emotion.cht]) {
+            foundEmotion = emotion;
+            *stop = YES;
+        }
+    }];
+    
+    if (foundEmotion) {
+        return foundEmotion;
+    }
+    
+    //从浪小花中找
+    [[self lxhEmotions] enumerateObjectsUsingBlock:^(XWEmotion *emotion, NSUInteger idx, BOOL *stop) {
+        if ([desc isEqualToString:emotion.chs] || [desc isEqualToString:emotion.cht]) {
+            foundEmotion = emotion;
+            *stop = YES;
+        }
+    }];
+
+    return foundEmotion;
+}
+
 @end

@@ -78,8 +78,10 @@
 #define kTimeFont [UIFont systemFontOfSize:11]
 #define kSourceFont kTimeFont
 #define kTextFont [UIFont systemFontOfSize:13]
+#define kRichTextFont [UIFont systemFontOfSize:12]
 #define kRetweetedTextFont [UIFont systemFontOfSize:13]
 #define kRetweetedScreenNameFont [UIFont systemFontOfSize:13]
+#define kStatusHighTextColor XWColor(88, 161, 253)
 
 // 7.图片
 // 会员皇冠图标

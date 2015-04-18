@@ -19,4 +19,6 @@
 + (NSArray *)recentEmotions;
 
 + (void)addRecentEmotion:(XWEmotion *)emotion;
+
++ (XWEmotion *)emotionWithDesc:(NSString *)desc;
 @end

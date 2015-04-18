@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 
 @interface XWRegexResult : NSObject
-@property (nonatomic,copy) NSString *string;
-@property (nonatomic,assign) NSRange range;
+// 匹配到的字符串
+@property (nonatomic, copy) NSString *string;
+// 范围
+@property (nonatomic, assign) NSRange range;
+//这个结果是否是表情
+@property (nonatomic, assign, getter = isEmotion) BOOL emotion;
 @end

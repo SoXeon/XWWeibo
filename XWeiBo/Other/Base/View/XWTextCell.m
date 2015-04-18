@@ -71,7 +71,7 @@
     
     // 4.内容
     _text.frame = cellFrame.textFrame;
-    _text.text = baseText.text;
+    _text.attributedText = baseText.attributeText;
     
     // 5.时间
     _time.frame = cellFrame.timeFrame;
