@@ -78,7 +78,7 @@
 {
     __block XWEmotionView *foundEmotionView = nil;
     [self.emotionViews enumerateObjectsUsingBlock:^(XWEmotionView *emotionView, NSUInteger idx, BOOL *stop) {
-        if (CGRectContainsPoint(emotionView.frame, point)) {
+        if (CGRectContainsPoint(emotionView.frame, point)  && emotionView.hidden == NO) {
             foundEmotionView = emotionView;
             *stop = YES;
         }

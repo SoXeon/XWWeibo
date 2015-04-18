@@ -13,7 +13,7 @@
 #import "XWBaseStatusCellFrame.h"
 #import "XWStatus.h"
 #import "XWUser.h"
-//#import "IWIconView.h"
+#import "XWStatusLabel.h"
 
 @interface XWBaseStatusCell()
 {
@@ -21,7 +21,7 @@
     XWImageListView *_image; // 配图
     
     UILabel *_retweetedScreenName; // 被转发微博作者的昵称
-    UILabel *_retweetedText; // 被转发微博的内容
+    XWStatusLabel *_retweetedText; // 被转发微博的内容
     XWImageListView *_retweetedImage; // 被转发微博的配图
 }
 
@@ -106,10 +106,7 @@
     [_retweeted addSubview:_retweetedScreenName];
     
     // 3.被转发微博的内容
-    _retweetedText = [[UILabel alloc] init];
-    _retweetedText.numberOfLines = 0;
-    _retweetedText.font = kRetweetedTextFont;
-    _retweetedText.backgroundColor = [UIColor clearColor];
+    _retweetedText = [[XWStatusLabel alloc] init];
     [_retweeted addSubview:_retweetedText];
     
     // 4.被转发微博的配图

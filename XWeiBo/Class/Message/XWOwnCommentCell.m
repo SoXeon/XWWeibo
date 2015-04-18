@@ -40,7 +40,6 @@
     if (cell == nil) {
         cell = [[XWOwnCommentCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
         cell.tableView = tableView;
-        cell.backgroundColor = [UIColor greenColor];
     }
     return cell;
 }
@@ -156,7 +155,7 @@
     
     //回复内容
     _text.frame = cellFrame.textFrame;
-    _text.text = s.text;
+    _text.attributedText = s.attributeText;
     
     //微博配图
 #warning 没配图就用大号头像替代

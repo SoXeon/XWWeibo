@@ -102,6 +102,7 @@
 		E2D4BC981A9DC4C600B02862 /* XWRepeatCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D4BC971A9DC4C600B02862 /* XWRepeatCommentsViewController.m */; };
 		E2D4BC9C1A9DC68000B02862 /* XWCommentDock.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D4BC9B1A9DC68000B02862 /* XWCommentDock.m */; };
 		E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D4BC9D1A9DC6B100B02862 /* XWCommentDock.xib */; };
+		E2EC95851AE271A0007F8E57 /* XWStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EC95841AE271A0007F8E57 /* XWStatusLabel.m */; };
 		E2EF80CA1A308811003E9D9B /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF80BA1A308811003E9D9B /* MJPhoto.m */; };
 		E2EF80CB1A308811003E9D9B /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2EF80BB1A308811003E9D9B /* MJPhotoBrowser.bundle */; };
 		E2EF80CC1A308811003E9D9B /* MJPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF80BD1A308811003E9D9B /* MJPhotoBrowser.m */; };
@@ -445,6 +446,8 @@
 		E2D4BC9A1A9DC68000B02862 /* XWCommentDock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentDock.h; sourceTree = "<group>"; };
 		E2D4BC9B1A9DC68000B02862 /* XWCommentDock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentDock.m; sourceTree = "<group>"; };
 		E2D4BC9D1A9DC6B100B02862 /* XWCommentDock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWCommentDock.xib; sourceTree = "<group>"; };
+		E2EC95831AE271A0007F8E57 /* XWStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWStatusLabel.h; sourceTree = "<group>"; };
+		E2EC95841AE271A0007F8E57 /* XWStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWStatusLabel.m; sourceTree = "<group>"; };
 		E2EF80B91A308811003E9D9B /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
 		E2EF80BA1A308811003E9D9B /* MJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJPhoto.m; sourceTree = "<group>"; };
 		E2EF80BB1A308811003E9D9B /* MJPhotoBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MJPhotoBrowser.bundle; sourceTree = "<group>"; };
@@ -1315,6 +1318,8 @@
 				E2F0720B1A2F1B1E00BDE434 /* XWStatusCell.m */,
 				E2F072101A2F1C0B00BDE434 /* XWStatusDock.h */,
 				E2F072111A2F1C0B00BDE434 /* XWStatusDock.m */,
+				E2EC95831AE271A0007F8E57 /* XWStatusLabel.h */,
+				E2EC95841AE271A0007F8E57 /* XWStatusLabel.m */,
 				E2F0724E1A304F6B00BDE434 /* IWComposeDock.h */,
 				E2F0724F1A304F6B00BDE434 /* IWComposeDock.m */,
 				E2F072501A304F6B00BDE434 /* IWComposeDock.xib */,
@@ -2233,6 +2238,7 @@
 				E2CAC8011AE100E500F35EF5 /* YALTabBarItem.m in Sources */,
 				E214DC3C1AE0FCCC008142A3 /* MASLayoutConstraint.m in Sources */,
 				E2F072091A2F185100BDE434 /* XWBaseStatusCell.m in Sources */,
+				E2EC95851AE271A0007F8E57 /* XWStatusLabel.m in Sources */,
 				E2F243391ACD6A06002F6003 /* ACTimeScroller.m in Sources */,
 				E2CBAB361AD417C300D812EC /* MJIvar.m in Sources */,
 				E2EF80E41A309999003E9D9B /* IWMoreBtn.m in Sources */,

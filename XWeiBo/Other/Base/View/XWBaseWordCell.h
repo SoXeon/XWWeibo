@@ -7,13 +7,16 @@
 //
 
 #import "XWBaseCell.h"
+#import "XWStatusLabel.h"
+
 @class XWIconView;
 @interface XWBaseWordCell : XWBaseCell
 {
     XWIconView *_icon;
     UILabel *_screenName;
     UIImageView *_mbIcon;
-    UILabel *_text;
+    XWStatusLabel *_text;
     UILabel *_time;
 }
+
 @end

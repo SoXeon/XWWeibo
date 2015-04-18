@@ -47,10 +47,7 @@
     [self.contentView addSubview:_time];
     
     // 4.内容
-    _text = [[UILabel alloc] init];
-    _text.numberOfLines = 0;
-    _text.font = kTextFont;
-    _text.backgroundColor = [UIColor clearColor];
+    _text = [[XWStatusLabel alloc] init];
     [self.contentView addSubview:_text];
 }
 

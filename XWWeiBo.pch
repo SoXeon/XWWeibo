@@ -127,3 +127,8 @@
 #define kXWEmotionDidDeletedNotification @"XWEmotionDidDeletedNotification"
 // 通知里面取出表情用的key
 #define kXWSelectedEmotion @"XWSelectedEmotion"
+
+//富文本
+#define kLink @"link"
+#define kMetionSomeone @"motionSome"
+#define kTopic @"topic"

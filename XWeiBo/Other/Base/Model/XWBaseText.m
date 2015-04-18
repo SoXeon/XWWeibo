@@ -94,18 +94,23 @@
             NSString *trendRegex = @"#[a-zA-Z0-9\\u4e00-\\u9fa5]+#";
             [result.string enumerateStringsMatchedByRegex:trendRegex usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
                 [subStr addAttribute:NSForegroundColorAttributeName value:kStatusHighTextColor range:*capturedRanges];
+                [subStr addAttribute:kTopic value:*capturedStrings range:*capturedRanges];
+
             }];
             
             // 匹配@提到
-            NSString *mentionRegex = @"@[a-zA-Z0-9\\u4e00-\\u9fa5\\-]+ ?";
+            NSString *mentionRegex = @"@[a-zA-Z0-9\\u4e00-\\u9fa5\\-_]+ ?";
             [result.string enumerateStringsMatchedByRegex:mentionRegex usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
                 [subStr addAttribute:NSForegroundColorAttributeName value:kStatusHighTextColor range:*capturedRanges];
+                [subStr addAttribute:kMetionSomeone value:*capturedStrings range:*capturedRanges];
+
             }];
             
             // 匹配超链接
             NSString *httpRegex = @"http(s)?://([a-zA-Z|\\d]+\\.)+[a-zA-Z|\\d]+(/[a-zA-Z|\\d|\\-|\\+|_./?%&=]*)?";
             [result.string enumerateStringsMatchedByRegex:httpRegex usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
                 [subStr addAttribute:NSForegroundColorAttributeName value:kStatusHighTextColor range:*capturedRanges];
+                [subStr addAttribute:kLink value:*capturedStrings range:*capturedRanges];
             }];
             
             
