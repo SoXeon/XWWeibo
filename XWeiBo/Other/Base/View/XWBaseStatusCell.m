@@ -174,7 +174,6 @@
         // 8.昵称
         _retweetedScreenName.frame = cellFrame.retweetedScreenNameFrame;
         _retweetedScreenName.text = [NSString stringWithFormat:@"@%@", s.retweetedStatus.user.screenName];
-        
         // 9.内容
         _retweetedText.frame = cellFrame.retweetedTextFrame;
         _retweetedText.attributedText = s.retweetedStatus.attributeText;

@@ -80,10 +80,6 @@
     [startButton addTarget:self action:@selector(start) forControlEvents:UIControlEventTouchUpInside];
     [imageView addSubview:startButton];
     
-    [startButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [startButton addTarget:self action:@selector(start) forControlEvents:UIControlEventTouchUpInside];
-    [imageView addSubview:startButton];
-    
     // 4.添加checkbox
     UIButton *checkbox = [[UIButton alloc] init];
     checkbox.selected = YES;

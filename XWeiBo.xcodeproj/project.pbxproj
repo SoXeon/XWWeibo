@@ -25,6 +25,7 @@
 		E215274C1A8B4C71005BECB2 /* SWTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E21527441A8B4C71005BECB2 /* SWTableViewCell.m */; };
 		E215274D1A8B4C71005BECB2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E21527461A8B4C71005BECB2 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		E215274E1A8B4C71005BECB2 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = E21527481A8B4C71005BECB2 /* SWUtilityButtonView.m */; };
+		E21C8CAE1AE524D100963A4A /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = E21C8CAD1AE524D100963A4A /* Lantinghei.ttc */; };
 		E21CE1721A381B460031D6B8 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1601A381B460031D6B8 /* AFHTTPClient.m */; };
 		E21CE1731A381B460031D6B8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1621A381B460031D6B8 /* AFHTTPRequestOperation.m */; };
 		E21CE1741A381B460031D6B8 /* AFImageRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1641A381B460031D6B8 /* AFImageRequestOperation.m */; };
@@ -295,6 +296,7 @@
 		E21527461A8B4C71005BECB2 /* SWUtilityButtonTapGestureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonTapGestureRecognizer.m; sourceTree = "<group>"; };
 		E21527471A8B4C71005BECB2 /* SWUtilityButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWUtilityButtonView.h; sourceTree = "<group>"; };
 		E21527481A8B4C71005BECB2 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
+		E21C8CAD1AE524D100963A4A /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		E21CE15F1A381B460031D6B8 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E21CE1601A381B460031D6B8 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		E21CE1611A381B460031D6B8 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -1178,6 +1180,7 @@
 		E2F070B11A2D6BCD00BDE434 = {
 			isa = PBXGroup;
 			children = (
+				E21C8CAD1AE524D100963A4A /* Lantinghei.ttc */,
 				E2C2FA691ADA879900474FDC /* libicucore.dylib */,
 				E29290AD1A8A377E00F0267D /* Reveal.framework */,
 				E248A0931ACFD7BC00A92B73 /* CoreGraphics.framework */,
@@ -2017,6 +2020,7 @@
 				E214DC381AE0FCCC008142A3 /* Info.plist in Resources */,
 				E2F070CB1A2D6BCD00BDE434 /* Images.xcassets in Resources */,
 				E2EF80CB1A308811003E9D9B /* MJPhotoBrowser.bundle in Resources */,
+				E21C8CAE1AE524D100963A4A /* Lantinghei.ttc in Resources */,
 				E2EF80EC1A309AB1003E9D9B /* IWFriendshipCell.xib in Resources */,
 				E2F2433A1ACD6A06002F6003 /* timescroll_hourhand.png in Resources */,
 				E267CF051ACFA9F800A67888 /* WeiboSDK.bundle in Resources */,

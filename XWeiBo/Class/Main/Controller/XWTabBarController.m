@@ -290,7 +290,7 @@
 {
     
     childVC.title = title;
-    
+
     XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:childVC];
     [self addChildViewController:nav];
     
