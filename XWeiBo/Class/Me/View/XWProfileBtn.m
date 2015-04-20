@@ -14,7 +14,7 @@
 {
     [self setBackgroundImage:[UIImage resizedImage:@"userinfo_appsview_background_highlighted"] forState:UIControlStateHighlighted];
     
-    self.titleLabel.font = [UIFont boldSystemFontOfSize:14];
+    self.titleLabel.font = [UIFont fontWithName:kLTFont size:14];
 }
 
 @end

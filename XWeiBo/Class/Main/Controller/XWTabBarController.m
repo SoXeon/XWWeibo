@@ -292,6 +292,7 @@
     childVC.title = title;
 
     XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:childVC];
+    [nav.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:kLTFont size:18], NSFontAttributeName, nil]];
     [self addChildViewController:nav];
     
 }

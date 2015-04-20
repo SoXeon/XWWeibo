@@ -90,9 +90,11 @@
         } else {
             _descLabel.text = @"这个人很懒，什么也没写！";
         }
+        _descLabel.font = kTextFont;
         
         // 3.4.昵称
         _nameLabel.text = user.name;
+        _nameLabel.font = kTextFont;
         CGFloat nameMaxW = self.frame.size.width - _nameLabel.frame.origin.x - 30;
         CGSize nameSize = [user.screenName sizeWithFont:_nameLabel.font constrainedToSize:CGSizeMake(nameMaxW, MAXFLOAT)];
         CGRect nameF = _nameLabel.frame;
