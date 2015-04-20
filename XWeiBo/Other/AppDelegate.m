@@ -28,6 +28,9 @@
     
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     
+    /**
+     *  检查当前Bundle版本，若为最新版本，展示NewGuide界面
+     */
     NSString *key = @"CFBundleVersion";
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -63,6 +66,7 @@
 }
 
 
+#pragma mark WeiBo官方SDK的一堆狗屎玩意儿
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     return [WeiboSDK handleOpenURL:url delegate:self];

@@ -132,3 +132,8 @@
 #define kLink @"link"
 #define kMetionSomeone @"motionSome"
 #define kTopic @"topic"
+
+
+//pushVC通知
+#define kPushVC @"kPushViewController"
+#define kPopVC @"kPopViewController"

@@ -74,8 +74,7 @@
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
     if (self.viewControllers.count) {
-        viewController.hidesBottomBarWhenPushed = YES;
-
+        [[NSNotificationCenter defaultCenter]postNotificationName:kPushVC object:nil];
     }
     [super pushViewController:viewController animated:animated];
 }
@@ -97,6 +96,7 @@
 - (void)back
 {
     [self popViewControllerAnimated:YES];
+    [[NSNotificationCenter defaultCenter]postNotificationName:kPopVC object:nil];
 }
 
 /**

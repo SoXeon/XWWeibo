@@ -13,7 +13,7 @@
 #import "XWMoreViewController.h"
 #import "XWNavigationController.h"
 #import "UIImage+DP.h"
-#import "XWTabBar.h"
+//#import "XWTabBar.h"
 #import "XWComposeViewController.h"
 
 #import "UIColor+SLAddition.h"
@@ -27,9 +27,15 @@
 
 #import "YSLContainerViewController.h"
 
-@interface XWTabBarController () <XWTabBarDelegate, YSLContainerViewControllerDelegate>
+#import "YALFoldingTabBar.h"
+#import "YALTabBarItem.h"
+#import "YALAnimatingTabBarConstants.h"
 
-@property (nonatomic, weak) XWTabBar *customTabBar;
+//XWTabBarDelegate
+
+@interface XWTabBarController () < YSLContainerViewControllerDelegate, YALTabBarViewDelegate, YALTabBarViewDataSource>
+
+@property (nonatomic, weak) YALFoldingTabBar *customTabBar;
 
 //Message页面的两个tableView
 @property (nonatomic, strong) XWMessageTableViewController *commentsTableViewController;
@@ -42,6 +48,17 @@
 @end
 
 @implementation XWTabBarController
+
+- (id)init
+{
+    self = [super init];
+    
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTabBar) name:kPopVC object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenTabBar) name:kPushVC object:nil];
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -86,7 +103,7 @@
         [UIApplication sharedApplication].applicationIconBadgeNumber = result.totalCount;
 
     } failure:^(NSError *error) {
-        NSLog(@"erorrrni ");
+
     }];
 }
 
@@ -94,69 +111,68 @@
 {
     [super viewWillAppear:animated];
     
-    for (UIView *child in self.tabBar.subviews) {
-        if ([child isKindOfClass:[UIControl class]]) {
-            [child removeFromSuperview];
-        }
-    }
+    self.tabBar.hidden = YES;
+    
+}
+
+- (void)hidenTabBar
+{
+    [UIView animateWithDuration:0.35 animations:^{
+        self.customTabBar.alpha = 0.0;
+    }];
+}
+
+- (void)showTabBar
+{
+    [UIView animateWithDuration:0.35 animations:^{
+        self.customTabBar.alpha = 1.0;
+    }];
+
 }
 
 - (void)setupTabbar
 {
-    XWTabBar *customTabBar = [[XWTabBar alloc] init];
-    customTabBar.frame = self.tabBar.bounds;
+    self.tabBar.backgroundColor = [UIColor clearColor];
+    YALFoldingTabBar *customTabBar = [[YALFoldingTabBar alloc] initWithFrame:CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - 5, self.tabBar.frame.size.width, self.tabBar.frame.size.height) state:YALStateCollapsed];
     customTabBar.delegate = self;
-    [self.tabBar addSubview:customTabBar];
+    customTabBar.dataSource = self;
+    customTabBar.tabBarColor =[UIColor colorWithRed:72.0/255.0 green:211.0/255.0 blue:178.0/255.0 alpha:1];
+    customTabBar.selectedTabBarItemIndex = 0;
+    customTabBar.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;
+    customTabBar.offsetForExtraTabBarItems = YALForExtraTabBarItemsDefaultOffset;
+    [self.view addSubview:customTabBar];
     self.customTabBar = customTabBar;
 }
 
-- (void)tabBar:(XWTabBar *)tabBar didSelectedButtonFrom:(int)from to:(int)to
-{
 
-    self.selectedIndex = to;
-    
-    if (to == 0 && from == to) {
-        [self.homeVC refreshContent:YES];
-    } else if (to == 0) {
-        [self.homeVC refreshContent:NO];
-    }
-    
-    if (to == 1 && from == to) {
-        [self.meVC refreshContent:YES];
-    } else if(to == 1) {
-        [self.meVC refreshContent:NO];
-    }
-    
-}
-
-- (void)tabBarDidClickPlusButton:(XWTabBar *)tabBar
-{
-    XWComposeViewController *compose = [[XWComposeViewController alloc] init];
-    XWNavigationController *nav = [[XWNavigationController alloc] initWithRootViewController:compose];
-    [self presentViewController:nav animated:YES completion:nil];
-}
+//- (void)tabBarDidClickPlusButton:(XWTabBar *)tabBar
+//{
+//    XWComposeViewController *compose = [[XWComposeViewController alloc] init];
+//    XWNavigationController *nav = [[XWNavigationController alloc] initWithRootViewController:compose];
+//    [self presentViewController:nav animated:YES completion:nil];
+//}
 
 
 - (void)setupAllChildVC
 {
     XWHomeTableViewController *XWHome = [[XWHomeTableViewController alloc]init];
-    [self setupChildViewController:XWHome title:@"首页" imageName:@"tabbar_home" selectedImageName:@"tabbar_home_selected"];
+    [self setupChildViewController:XWHome title:@"首页"];
     self.homeVC = XWHome;
     
     XWMeViewController *XWMe = [[XWMeViewController alloc]init];
-    [self setupChildViewController:XWMe title:@"我" imageName:@"tabbar_profile" selectedImageName:@"tabbar_profile_selected"];
+    [self setupChildViewController:XWMe title:@"我"];
     self.meVC = XWMe;
-    
-    //TODO: 这里还需要另外一个控制器
-    XWMessageTableViewController *message = [[XWMessageTableViewController alloc] init];
-    [self setupChildViewController:message title:@"回复" imageName:@"tabbar_discover" selectedImageName:@"tabbar_discover_selected"];
-    message.title = @"message";
-    self.messageVC = message;
     
     XWMentionsViewController *mentionVC = [[XWMentionsViewController alloc] init];
     mentionVC.title = @"metions";
     self.mentionsTableViewController = mentionVC;
     
+    XWMessageTableViewController *message = [[XWMessageTableViewController alloc] init];
+    message.title = @"message";
+    self.messageVC = message;
+
+    
+    //TODO: 这里还需要另外一个控制器发出的回复
     UIViewController *revice = [[UIViewController alloc]init];
     revice.title = @"revice";
     revice.view.backgroundColor = [UIColor greenColor];
@@ -164,10 +180,10 @@
     UIViewController *containVC = [[UIViewController alloc]init];
     
     [self setupChildViewController:containVC
-                             title:@"@我"
-                         imageName:@"tabbar_message_center"
-                 selectedImageName:@"tabbar_message_center_selected"];
+                             title:@"消息"];
     
+    
+    //容器包含三个子viewController
     YSLContainerViewController *yslVC = [[YSLContainerViewController alloc] initWithControllers:@[self.messageVC, self.mentionsTableViewController, revice] topBarHeight:66 parentViewController:containVC];
     yslVC.delegate = self;
     yslVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:16];
@@ -177,32 +193,35 @@
     yslVC.menuBackGroudColor = [UIColor purpleColor];
     
     [containVC.view addSubview:yslVC.view];
+
     
-//    [self addMessageViewController];
+    UIViewController *settingVC = [[UIViewController alloc] init];
+    [self setupChildViewController:settingVC title:@"settings"];
+    
 }
 
-- (void)addMessageViewController
-{
-    XWMentionsViewController *mentionVC = [[XWMentionsViewController alloc] init];
-    
-    self.mentionsTableViewController = mentionVC;
-    
-    [self setupChildViewController:self.mentionsTableViewController
-                             title:@"@我"
-                         imageName:@"tabbar_message_center"
-                 selectedImageName:@"tabbar_message_center_selected"];
+//- (void)addMessageViewController
+//{
+//    XWMentionsViewController *mentionVC = [[XWMentionsViewController alloc] init];
+//    
+//    self.mentionsTableViewController = mentionVC;
+//    
+//    [self setupChildViewController:self.mentionsTableViewController
+//                             title:@"@我"
+//                         imageName:@"tabbar_message_center"
+//                 selectedImageName:@"tabbar_message_center_selected"];
+//
+//}
 
-}
-
-- (XWMessageTableViewController *)createCommentsTableView
-{
-    
-    XWMessageTableViewController *messageVC = [[XWMessageTableViewController alloc] init];
-    
-    self.commentsTableViewController = messageVC;
-    
-    return self.commentsTableViewController;
-}
+//- (XWMessageTableViewController *)createCommentsTableView
+//{
+//    
+//    XWMessageTableViewController *messageVC = [[XWMessageTableViewController alloc] init];
+//    
+//    self.commentsTableViewController = messageVC;
+//    
+//    return self.commentsTableViewController;
+//}
 
 
 - (void)didReceiveMemoryWarning {
@@ -210,7 +229,56 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark YSLContainer Delegate
+#pragma mark YALTabBarViewDelegate & DataSource
+- (NSArray *)leftTabBarItemsInTabBarView:(YALFoldingTabBar *)tabBarView
+{
+    YALTabBarItem *homeItem = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"nearby_icon"]
+                                                         leftItemImage:nil
+                                                        rightItemImage:[UIImage imageNamed:@"edit_icon"]];
+    
+    YALTabBarItem *meItem = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"profile_icon"]
+                                                       leftItemImage:nil
+                                                      rightItemImage:nil];
+    
+    return @[homeItem, meItem];
+}
+
+- (NSArray *)rightTabBarItemsInTabBarView:(YALFoldingTabBar *)tabBarView
+{
+    YALTabBarItem *chatItem = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"chats_icon"]
+                                                         leftItemImage:nil
+                                                        rightItemImage:nil];
+    
+    YALTabBarItem *settingItem = [[YALTabBarItem alloc] initWithItemImage:[UIImage imageNamed:@"settings_icon"]
+                                                            leftItemImage:nil
+                                                           rightItemImage:nil];
+    
+    return @[chatItem, settingItem];
+}
+
+- (UIImage *)centerImageInTabBarView:(YALFoldingTabBar *)tabBarView
+{
+    return [UIImage imageNamed:@"plus_icon"];
+}
+
+- (void)itemInTabBarViewPressed:(YALFoldingTabBar *)tabBarView atIndex:(NSUInteger)index
+{
+    self.selectedIndex = index;
+}
+
+- (void)extraRightItemDidPressedInTabBarView:(YALFoldingTabBar *)tabBarView
+{
+    if (tabBarView.selectedTabBarItemIndex == 0) {
+        XWComposeViewController *compose = [[XWComposeViewController alloc] init];
+        XWNavigationController *nav = [[XWNavigationController alloc] initWithRootViewController:compose];
+        [self presentViewController:nav animated:YES completion:nil];
+
+    }
+    
+}
+
+
+#pragma mark YSLContainer Delegate ,模仿Path的时间显示
 - (void)containerViewItemIndex:(NSInteger)index currentController:(UIViewController *)controller
 {
     [controller viewWillAppear:YES];
@@ -218,22 +286,19 @@
 
 
 //初始化一个VC
-- (void)setupChildViewController:(UIViewController *)childVC title:(NSString *)title imageName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName
+- (void)setupChildViewController:(UIViewController *)childVC title:(NSString *)title
 {
     
     childVC.title = title;
-    childVC.tabBarItem.image = [UIImage imageWithName:imageName];
-    
-    if (iOS7) {
-        childVC.tabBarItem.selectedImage = [[UIImage imageWithName:selectedImageName] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    } else {
-        childVC.tabBarItem.selectedImage = [UIImage imageWithName:selectedImageName];
-    }
     
     XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:childVC];
     [self addChildViewController:nav];
     
-    [self.customTabBar addTabBarButtonWithItem:childVC.tabBarItem];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];
 }
 
 @end
