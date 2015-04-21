@@ -10,6 +10,9 @@
 #import "IWFriendshipCell.h"
 @class XWFriendshipParam, XWFriendshipResult;
 
+
+#warning 傻逼微博，又他妈封接口，有意思吗你！！！
+
 @interface XWFriendshipListViewController : UITableViewController <IWFriendshipCellDelegate>
 {
     NSMutableArray *_friendships;

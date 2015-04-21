@@ -117,17 +117,17 @@
 }
 
 - (IBAction)friendsClick {
-    UITabBarController *root = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *nav = (UINavigationController *)root.selectedViewController;
-    XWFriendsViewController *vc = [[XWFriendsViewController alloc] init];
-    [nav pushViewController:vc animated:YES];
+//    UITabBarController *root = (UITabBarController *)self.window.rootViewController;
+//    UINavigationController *nav = (UINavigationController *)root.selectedViewController;
+//    XWFriendsViewController *vc = [[XWFriendsViewController alloc] init];
+//    [nav pushViewController:vc animated:YES];
 }
 
 - (IBAction)fansClick {
-    UITabBarController *root = (UITabBarController *)self.window.rootViewController;
-    UINavigationController *nav = (UINavigationController *)root.selectedViewController;
-    XWFollowersViewController *vc = [[XWFollowersViewController alloc] init];
-    [nav pushViewController:vc animated:YES];
+//    UITabBarController *root = (UITabBarController *)self.window.rootViewController;
+//    UINavigationController *nav = (UINavigationController *)root.selectedViewController;
+//    XWFollowersViewController *vc = [[XWFollowersViewController alloc] init];
+//    [nav pushViewController:vc animated:YES];
 }
 
 @end
