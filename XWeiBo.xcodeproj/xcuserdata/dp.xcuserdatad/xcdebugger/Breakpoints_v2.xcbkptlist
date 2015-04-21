@@ -66,5 +66,53 @@
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XWeiBo/Class/Home/Controller/XWHomeTableViewController.m"
+            timestampString = "451231386.647893"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-loadNewData"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[XWHomeTableViewController loadNewData]_block_invoke_2"
+                  moduleName = "XWeiBo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dp/Desktop/XWeiBo/XWeiBo/Class/Home/Controller/XWHomeTableViewController.m"
+                  timestampString = "451289896.496819"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "52">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__40-[XWHomeTableViewController loadNewData]_block_invoke_3"
+                  moduleName = "XWeiBo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dp/Desktop/XWeiBo/XWeiBo/Class/Home/Controller/XWHomeTableViewController.m"
+                  timestampString = "451289896.49703"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

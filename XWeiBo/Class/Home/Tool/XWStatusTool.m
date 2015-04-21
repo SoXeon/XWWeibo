@@ -189,6 +189,33 @@
     }];
 }
 
++ (void)fetchTagAboutUserWithSuccess:(HttpSuccessBlock)success
+                             failure:(HttpFailureBlock)failure
+{
+    [HttpTool getWithpath:@"2/tags/suggestions.json" params:nil success:^(id JSON) {
+        
+        if (success) {
+            success(JSON);
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
++ (void)fetchFriendGroupWithSuccess:(HttpSuccessBlock)success
+                            failure:(HttpFailureBlock)failure
+{
+    [HttpTool getWithpath:@"2/friendships/groups.json" params:nil success:^(id JSON) {
+        
+        if (success) {
+            success(JSON);
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
 
 + (void)commentsWithSinceId:(long long)sinceId maxId:(long long)maxId statusId:(long long)statusId success:(CommentsSuccessBlock)success failure:(CommentsFailureBlock)failure
 {

@@ -137,6 +137,11 @@
         
     }];
     
+    [XWStatusTool fetchFriendGroupWithSuccess:^(id JSON) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 - (void)loadMoreData

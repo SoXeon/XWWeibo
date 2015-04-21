@@ -112,4 +112,15 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
 + (void)unreadCountWithParam:(XWUnreadParam *)param
                      success:(UnreadSuccess)success
                      failure:(HttpFailureBlock)failure;
+/**
+ *  获取用户标签
+ *
+ *  @param success 返回tag
+ *  @param failure errorInfo
+ */
++ (void)fetchTagAboutUserWithSuccess:(HttpSuccessBlock)success
+                             failure:(HttpFailureBlock)failure;
+
++ (void)fetchFriendGroupWithSuccess:(HttpSuccessBlock)success
+                            failure:(HttpFailureBlock)failure;
 @end

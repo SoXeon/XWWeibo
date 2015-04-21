@@ -96,7 +96,10 @@
 - (void)back
 {
     [self popViewControllerAnimated:YES];
-    [[NSNotificationCenter defaultCenter]postNotificationName:kPopVC object:nil];
+    
+    if(self.childViewControllers.count == 1) {
+        [[NSNotificationCenter defaultCenter]postNotificationName:kPopVC object:nil];
+    }
 }
 
 /**
@@ -109,10 +112,12 @@
     [super viewDidLoad];
     self.delegate = self;
     self.view.backgroundColor = XWColor(232, 232, 232);
-    if (iOS7) {
-        // 重新拥有滑动出栈的功能
-        self.interactivePopGestureRecognizer.delegate = nil;
-    }
+#warning 禁止了手势滑动，以为手势的时候不能相应对应tabbar展示
+//    if (iOS7) {
+//        // 重新拥有滑动出栈的功能
+//        self.interactivePopGestureRecognizer.delegate = nil;
+//
+//    }
 }
 
 @end
