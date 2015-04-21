@@ -134,6 +134,43 @@
     }];
 }
 
++ (void)sendCommentsHistorySince:(long long)sinceId
+                           maxId:(long long)maxId
+                         success:(OwnCommentsSuccessBlock)success
+                         failure:(OwnCommentsFailureBloack)failure
+{
+    [HttpTool getWithpath:@"2/comments/by_me.json"
+                   params:@{
+                            @"count" : @20,
+                            @"since_id" : @(sinceId),
+                            @"max_id" : @(maxId)
+                            }  success:^(id JSON) {
+                                
+                                if (success == nil) return;
+                                
+                                NSMutableArray *ownComments = [NSMutableArray array];
+                                
+                                // 解析json对象
+                                NSArray *array = JSON[@"comments"];
+                                
+                                
+                                for (NSDictionary *dict in array) {
+                                    
+                                    XWOwnComment *s = [[XWOwnComment alloc] initWithDict:dict];
+                                    [ownComments addObject:s];
+                                }
+                                
+                                success(ownComments);
+                                
+                                
+                            } failure:^(NSError *error) {
+                                if (failure == nil) return;
+                                
+                                failure(error);
+                            }];
+
+}
+
 + (void)metionsWithSinceId:(long long)sinceId
                      maxId:(long long)maxId
                    success:(StatusSuccessBlock)success

@@ -13,13 +13,13 @@
 #import "XWMoreViewController.h"
 #import "XWNavigationController.h"
 #import "UIImage+DP.h"
-//#import "XWTabBar.h"
 #import "XWComposeViewController.h"
 
 #import "UIColor+SLAddition.h"
 
 #import "XWMentionsViewController.h"
 #import "XWMessageTableViewController.h"
+#import "XWSendMessageTableViewController.h"
 
 #import "XWStatusTool.h"
 #import "XWUnreadParam.h"
@@ -44,6 +44,7 @@
 @property (nonatomic, strong) XWHomeTableViewController *homeVC;
 @property (nonatomic, strong) XWMeViewController *meVC;
 @property (nonatomic, strong) XWMessageTableViewController *messageVC;
+@property (nonatomic, strong) XWSendMessageTableViewController *sendMessageVC;
 
 @end
 
@@ -171,11 +172,10 @@
     message.title = @"message";
     self.messageVC = message;
 
-    
-    //TODO: 这里还需要另外一个控制器发出的回复
-    UIViewController *revice = [[UIViewController alloc]init];
-    revice.title = @"revice";
-    revice.view.backgroundColor = [UIColor greenColor];
+
+    XWSendMessageTableViewController *recviceVC = [[XWSendMessageTableViewController alloc] init];
+    recviceVC.title = @"revice";
+    self.sendMessageVC = recviceVC;
     
     UIViewController *containVC = [[UIViewController alloc]init];
     
@@ -184,7 +184,7 @@
     
     
     //容器包含三个子viewController
-    YSLContainerViewController *yslVC = [[YSLContainerViewController alloc] initWithControllers:@[self.messageVC, self.mentionsTableViewController, revice] topBarHeight:66 parentViewController:containVC];
+    YSLContainerViewController *yslVC = [[YSLContainerViewController alloc] initWithControllers:@[self.messageVC, self.sendMessageVC, self.mentionsTableViewController] topBarHeight:66 parentViewController:containVC];
     yslVC.delegate = self;
     yslVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:16];
     yslVC.menuItemTitleColor = [UIColor whiteColor];

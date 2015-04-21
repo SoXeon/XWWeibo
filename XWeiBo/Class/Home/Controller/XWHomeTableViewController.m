@@ -137,6 +137,7 @@
         
     }];
     
+#warning fuck SB WeiBo, MLGB的要高级权限才可以用这个接口
     [XWStatusTool fetchFriendGroupWithSuccess:^(id JSON) {
         
     } failure:^(NSError *error) {

@@ -1,14 +1,14 @@
 //
-//  XWMessageTableViewController.m
+//  XWSendMessageTableViewController.m
 //  XWeiBo
 //
-//  Created by DP on 15/2/14.
+//  Created by DP on 15/4/21.
 //  Copyright (c) 2015年 戴鹏. All rights reserved.
-//
+//  user发出的评论
 
-#import "XWMessageTableViewController.h"
-#import "XWRepeatCommentsViewController.h"
+#import "XWSendMessageTableViewController.h"
 #import "XWNavigationController.h"
+#import "XWRepeatCommentsViewController.h"
 #import "XWStatusTool.h"
 #import "XWStatus.h"
 #import "XWOwnComment.h"
@@ -17,30 +17,21 @@
 #import "MJRefresh.h"
 #import "UIImage+DP.h"
 
-@interface XWMessageTableViewController () < XWCommentsCellDelegate>
+@interface XWSendMessageTableViewController() <XWCommentsCellDelegate>
 {
     NSMutableArray *_commentsFrames;
 }
-
 @end
 
-@implementation XWMessageTableViewController
+@implementation XWSendMessageTableViewController
 
-- (id)init
+- (void)viewDidLoad
 {
-    if (self = [super init]) {
-
-    }
-    return self;
-}
-
-- (void)viewDidLoad {
     [super viewDidLoad];
     
     [self buildUI];
     
     [self addRefreshViews];
-
 }
 
 - (void)buildUI
@@ -48,19 +39,18 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kTableBorderWidth, 0);
-    
 }
 
 - (void)addRefreshViews
 {
     _commentsFrames = [NSMutableArray array];
-    
+
     __weak typeof(&*self) weakSelf = self;
     
     [self.tableView addLegendHeaderWithRefreshingBlock:^{
         
         __strong typeof(&*self) strongSelf = weakSelf;
-
+        
         if (strongSelf) {
             [strongSelf loadNewData];
         }
@@ -72,12 +62,11 @@
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         
         __strong typeof(&*self) strongSelf = weakSelf;
-
+        
         if (strongSelf) {
             [strongSelf loadMoreData];
         }
     }];
-
 }
 
 #pragma mark 加载最新数据
@@ -86,7 +75,7 @@
     XWOwnCommentsCellFrame *f = _commentsFrames.count?_commentsFrames[0]:nil;
     long long first = [f.ownComments commentsID];
     
-    [XWStatusTool ownCommentsWithSinceId:first maxId:0 success:^(NSArray *ownComments) {
+    [XWStatusTool sendCommentsHistorySince:first maxId:0 success:^(NSArray *ownComments) {
         
         NSMutableArray *newFrames = [NSMutableArray array];
         for (XWOwnComment *o in ownComments) {
@@ -102,19 +91,17 @@
         [self.tableView.header endRefreshing];
         
     } failure:^(NSError *error) {
-        
         [self.tableView.header endRefreshing];
     }];
-    
 }
 
 - (void)loadMoreData
 {
-    
     XWOwnCommentsCellFrame *f = [_commentsFrames lastObject];
     long long last = [f.ownComments commentsID];
-    
-    [XWStatusTool ownCommentsWithSinceId:0 maxId:last -1 success:^(NSArray *ownComments) {
+
+    [XWStatusTool sendCommentsHistorySince:0 maxId:last - 1 success:^(NSArray *ownComments) {
+        
         NSMutableArray *newFrames = [NSMutableArray array];
         
         for (XWOwnComment *o in ownComments) {
@@ -126,19 +113,17 @@
         
         [_commentsFrames addObjectsFromArray:newFrames];
         [self.tableView reloadData];
-
+        
         [self.tableView.footer endRefreshing];
+
+        
     } failure:^(NSError *error) {
         [self.tableView.footer endRefreshing];
+
     }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - Table view data source
+#pragma mark tableView dataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _commentsFrames.count;
@@ -166,12 +151,11 @@
 #pragma mark commentsCell Delegate
 - (void)commentsCell:(XWOwnCommentCell *)cell didTapCommentsButton:(UIButton *)button
 {
-        
+    
     XWRepeatCommentsViewController *compose = [[XWRepeatCommentsViewController alloc] init];
     compose.ownComment = cell.cellFrame.ownComments;
     XWNavigationController *nav = [[XWNavigationController alloc] initWithRootViewController:compose];
     [self presentViewController:nav animated:YES completion:nil];
-
+    
 }
-
 @end

@@ -35,6 +35,7 @@
 		E21CE1781A381B460031D6B8 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE16D1A381B460031D6B8 /* AFURLConnectionOperation.m */; };
 		E21CE1791A381B460031D6B8 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE16F1A381B460031D6B8 /* AFXMLRequestOperation.m */; };
 		E21CE17A1A381B460031D6B8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1711A381B460031D6B8 /* UIImageView+AFNetworking.m */; };
+		E21D82761AE628F800343E3E /* XWSendMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D82751AE628F800343E3E /* XWSendMessageTableViewController.m */; };
 		E248A08C1ACFD78800A92B73 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08B1ACFD78800A92B73 /* ImageIO.framework */; };
 		E248A08E1ACFD79A00A92B73 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08D1ACFD79A00A92B73 /* Security.framework */; };
 		E248A0901ACFD7A500A92B73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08F1ACFD7A500A92B73 /* QuartzCore.framework */; };
@@ -316,6 +317,8 @@
 		E21CE16F1A381B460031D6B8 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = "<group>"; };
 		E21CE1701A381B460031D6B8 /* UIImageView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+AFNetworking.h"; sourceTree = "<group>"; };
 		E21CE1711A381B460031D6B8 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
+		E21D82741AE628F800343E3E /* XWSendMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSendMessageTableViewController.h; sourceTree = "<group>"; };
+		E21D82751AE628F800343E3E /* XWSendMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSendMessageTableViewController.m; sourceTree = "<group>"; };
 		E248A08B1ACFD78800A92B73 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E248A08D1ACFD79A00A92B73 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E248A08F1ACFD7A500A92B73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -877,6 +880,8 @@
 				E2D4BC991A9DC57C00B02862 /* View */,
 				E2C2AFB81A8F6FFD00C23EA2 /* XWMessageTableViewController.h */,
 				E2C2AFB91A8F6FFD00C23EA2 /* XWMessageTableViewController.m */,
+				E21D82741AE628F800343E3E /* XWSendMessageTableViewController.h */,
+				E21D82751AE628F800343E3E /* XWSendMessageTableViewController.m */,
 				E2D4BC961A9DC4C600B02862 /* XWRepeatCommentsViewController.h */,
 				E2D4BC971A9DC4C600B02862 /* XWRepeatCommentsViewController.m */,
 				E2C2AFBB1A8FB11000C23EA2 /* XWMentionsViewController.h */,
@@ -2166,6 +2171,7 @@
 				E2F072921A30622300BDE434 /* XWUnreadResult.m in Sources */,
 				E2F0714A1A2DD46300BDE434 /* XWNewfeatureViewController.m in Sources */,
 				E2F072961A30627600BDE434 /* XWStatusParam.m in Sources */,
+				E21D82761AE628F800343E3E /* XWSendMessageTableViewController.m in Sources */,
 				E2F0712B1A2D8CC000BDE434 /* XWTabBar.m in Sources */,
 				E21CE1791A381B460031D6B8 /* AFXMLRequestOperation.m in Sources */,
 				E2F243611ACE6529002F6003 /* MJRefreshLegendHeader.m in Sources */,

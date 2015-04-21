@@ -55,6 +55,12 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
                     success:(OwnCommentsSuccessBlock)success
                     failure:(OwnCommentsFailureBloack)failure;
 
+// 获取发售的评论
++ (void)sendCommentsHistorySince:(long long)sinceId
+                           maxId:(long long)maxId
+                         success:(OwnCommentsSuccessBlock)success
+                         failure:(OwnCommentsFailureBloack)failure;
+
 // 回复收到的评论
 + (void)repeatCommentsWithStatusID:(long long)statusID
                         commentsID:(long long)commentsID
