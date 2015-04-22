@@ -110,7 +110,10 @@
             NSString *httpRegex = @"http(s)?://([a-zA-Z|\\d]+\\.)+[a-zA-Z|\\d]+(/[a-zA-Z|\\d|\\-|\\+|_./?%&=]*)?";
             [result.string enumerateStringsMatchedByRegex:httpRegex usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
                 [subStr addAttribute:NSForegroundColorAttributeName value:kStatusHighTextColor range:*capturedRanges];
-                [subStr addAttribute:kLink value:*capturedStrings range:*capturedRanges];
+                [subStr addAttribute:kLinkText value:*capturedStrings range:*capturedRanges];
+                //TODO:分析当前联接（视频，音乐，活动，投票）
+                //响应对应的点击,全都跳转到WebView吧 Modal出来一个
+                NSLog(@"current Link is %@", *capturedStrings);
             }];
             
             

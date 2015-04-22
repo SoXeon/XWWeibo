@@ -74,14 +74,14 @@
 #define kRetweetedDockHeight 35
 
 // 4.cell内部子控件的字体设置
-#define kScreenNameFont [UIFont fontWithName:kLTFont size:13.0f]
-#define kTimeFont  [UIFont fontWithName:kLTFont size:11.0f]
+#define kScreenNameFont [UIFont fontWithName:kLTFont size:15.0f]
+#define kTimeFont  [UIFont fontWithName:kLTFont size:13.0f]
 #define kSourceFont kTimeFont
-#define kTextFont [UIFont fontWithName:kLTFont size:13.0f]
+#define kTextFont [UIFont fontWithName:kLTFont size:15.0f]
 
-#define kRichTextFont [UIFont fontWithName:kLTFont size:12.0f]
-#define kRetweetedTextFont [UIFont fontWithName:kLTFont size:13.0f]
-#define kRetweetedScreenNameFont [UIFont fontWithName:kLTFont size:13.0f]
+#define kRichTextFont [UIFont fontWithName:kLTFont size:14.0f]
+#define kRetweetedTextFont [UIFont fontWithName:kLTFont size:15.0f]
+#define kRetweetedScreenNameFont [UIFont fontWithName:kLTFont size:15.0f]
 #define kStatusHighTextColor XWColor(88, 161, 253)
 
 // 7.图片
@@ -130,13 +130,17 @@
 #define kXWSelectedEmotion @"XWSelectedEmotion"
 
 //富文本
-#define kLink @"link"
+#define kLinkText @"link"
 #define kMetionSomeone @"motionSome"
 #define kTopic @"topic"
-
 
 //pushVC通知
 #define kPushVC @"kPushViewController"
 #define kPopVC @"kPopViewController"
 
+//字体
 #define kLTFont @"FZLTXHK--GBK1-0"
+
+//链接选中的通知
+#define kLinkDidSelectedNotification @"kLinkDidSelectedNotification"
+

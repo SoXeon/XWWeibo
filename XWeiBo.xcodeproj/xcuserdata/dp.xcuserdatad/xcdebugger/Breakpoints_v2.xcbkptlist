@@ -72,13 +72,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "XWeiBo/Other/Base/Model/XWBaseText.m"
-            timestampString = "451319767.089143"
+            filePath = "XWeiBo/Class/Me/View/IWProfileHeaderView.m"
+            timestampString = "451379782.299727"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "-initWithDict:"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-setParam:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

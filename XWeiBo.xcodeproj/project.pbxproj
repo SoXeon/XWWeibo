@@ -54,6 +54,7 @@
 		E25ED15D1A30691F00C5A023 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = E25ED15A1A30691F00C5A023 /* MBProgressHUD.m */; };
 		E267CF051ACFA9F800A67888 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E267CF011ACFA9F800A67888 /* WeiboSDK.bundle */; };
 		E267CF071ACFB73500A67888 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E267CF061ACFB73500A67888 /* libWeiboSDK.a */; };
+		E2816D0B1AE7A73700646035 /* kLink.m in Sources */ = {isa = PBXBuildFile; fileRef = E2816D0A1AE7A73700646035 /* kLink.m */; };
 		E29290AE1A8A377E00F0267D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29290AD1A8A377E00F0267D /* Reveal.framework */; };
 		E2C2AF961A8B95C700C23EA2 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */; };
 		E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF981A8BB0A800C23EA2 /* RepostViewController.m */; };
@@ -355,6 +356,8 @@
 		E267CF021ACFA9F800A67888 /* WeiboSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboSDK.h; sourceTree = "<group>"; };
 		E267CF031ACFA9F800A67888 /* WeiboUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeiboUser.h; sourceTree = "<group>"; };
 		E267CF061ACFB73500A67888 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
+		E2816D091AE7A73700646035 /* kLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kLink.h; sourceTree = "<group>"; };
+		E2816D0A1AE7A73700646035 /* kLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kLink.m; sourceTree = "<group>"; };
 		E29290AD1A8A377E00F0267D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = XWeiBo/Reveal.framework; sourceTree = "<group>"; };
 		E2C2AF941A8B95C700C23EA2 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
@@ -1305,6 +1308,8 @@
 				E2F071F01A2EF92A00BDE434 /* XWStatus.m */,
 				E2F0720D1A2F1B8D00BDE434 /* XWStatusCellFrame.h */,
 				E2F0720E1A2F1B8D00BDE434 /* XWStatusCellFrame.m */,
+				E2816D091AE7A73700646035 /* kLink.h */,
+				E2816D0A1AE7A73700646035 /* kLink.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2155,6 +2160,7 @@
 				E2F0711C1A2D76F600BDE434 /* AppDelegate.m in Sources */,
 				E2EF80D21A308811003E9D9B /* UIImageView+MJWebCache.m in Sources */,
 				E2F0725B1A305C3A00BDE434 /* XWPageParam.m in Sources */,
+				E2816D0B1AE7A73700646035 /* kLink.m in Sources */,
 				E2EF80D11A308811003E9D9B /* SDWebImageManager+MJ.m in Sources */,
 				E2F071C51A2E16FE00BDE434 /* SDWebImageCompat.m in Sources */,
 				E2C2FA541AD9238500474FDC /* SMPageControl.m in Sources */,
