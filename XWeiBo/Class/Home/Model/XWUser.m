@@ -21,10 +21,12 @@
         self.verifiedType = [dict[@"verified_type"] intValue];
         self.mbrank = [dict[@"mbrank"] intValue];
         self.mbtype = [dict[@"mbtype"] intValue];
+        self.desc = dict[@"desc"];
     }
     return self;
 }
 
+#warning 个人简介无法获取，但是其他内容都可以获取
 - (NSDictionary *)replaceKeys
 {
     return @{@"desc" : @"description"};

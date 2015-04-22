@@ -109,29 +109,29 @@ const int IWMBWH = 14;
     // 认证
     NSString *imageName = nil;
     
-//    if (user.verified_type != -1) {
-//        switch (user.verified_type) {
-//            case kVerifiedTypeNone:
-//                _verifiedView.hidden = YES;
-//                return;
-//                
-//            case kVerifiedTypeDaren:
-//                imageName = @"avatar_grassroot.png";
-//                break;
-//                
-//            case kVerifiedTypePersonal:
-//                imageName = @"avatar_vip.png";
-//                break;
-//                
-//            default:
-//                imageName = @"avatar_enterprise_vip.png";
-//                break;
-//        }
-//
-//    }
-//    
-//    _verifiedView.hidden = NO;
-//    _verifiedView.image = [UIImage imageWithName:imageName];
+    if (user.verified_type != -1) {
+        switch (user.verified_type) {
+            case kVerifiedTypeNone:
+                _verifiedView.hidden = YES;
+                return;
+                
+            case kVerifiedTypeDaren:
+                imageName = @"avatar_grassroot.png";
+                break;
+                
+            case kVerifiedTypePersonal:
+                imageName = @"avatar_vip.png";
+                break;
+                
+            default:
+                imageName = @"avatar_enterprise_vip.png";
+                break;
+        }
+
+    }
+    
+    _verifiedView.hidden = NO;
+    _verifiedView.image = [UIImage imageWithName:imageName];
 }
 
 - (void)setUser:(XWUser *)user iconType:(IWIconType)iconType
