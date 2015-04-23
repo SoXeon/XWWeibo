@@ -31,6 +31,8 @@
 #import "XWUser.h"
 #import "XWIconView.h"
 
+#import "kLink.h"
+
 
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
@@ -45,6 +47,19 @@
 
 @implementation XWHomeTableViewController
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popToWebViewController:) name:kLinkDidSelectedNotification object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
     
@@ -55,6 +70,14 @@
     [self setupNavItem];
     
     [self addRefreshViews];
+}
+
+- (void)popToWebViewController:(NSNotification *)notification
+{
+    
+    NSString *webUrl = notification.userInfo[kLinkText];
+
+    NSLog(@"webURL %@", webUrl);
 }
 
 - (void)buildUI
