@@ -195,8 +195,15 @@
     [containVC.view addSubview:yslVC.view];
 
     
-    UIViewController *settingVC = [[UIViewController alloc] init];
-    [self setupChildViewController:settingVC title:@"settings"];
+//    UIViewController *settingVC = [[UIViewController alloc] init];
+//    [self setupChildViewController:settingVC title:@"settings"];
+    
+//    XWMoreViewController *more = [[XWMoreViewController alloc] init];
+//    more.view.backgroundColor = [UIColor whiteColor];
+//    [self setupChildViewController:more title:@"setting"];
+    
+    XWSquareViewController *quare = [[XWSquareViewController alloc] init];
+    [self setupChildViewController:quare title:@"setting"];
     
 }
 

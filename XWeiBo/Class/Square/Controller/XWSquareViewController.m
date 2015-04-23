@@ -15,6 +15,8 @@
 
 @interface XWSquareViewController ()
 
+@property (nonatomic, strong) UIButton *logoutBtn;
+
 @end
 
 @implementation XWSquareViewController
@@ -37,20 +39,17 @@
 {
     XWSettingGroup *group = [self addGroup];
     
-    XWSettingArrowItem *hot = [XWSettingArrowItem itemWithIcon:@"hot_status" title:@"热门微博" destVcClass:nil];
-    hot.subtitle = @"笑话，娱乐，呵呵嗒";
-    XWSettingArrowItem *find = [XWSettingArrowItem itemWithIcon:@"find_people" title:@"找好友" destVcClass:nil];
-    find.subtitle = @"两块钱买不了吃亏，买不了上当";
-    group.items = @[hot, find];
+    XWSettingArrowItem *hot = [XWSettingArrowItem itemWithIcon:@"hot_status" title:@"消息通知" destVcClass:nil];
+    group.items = @[hot];
 }
 
 - (void)setupGroup1
 {
     XWSettingGroup *group = [self addGroup];
     
-    XWSettingArrowItem *gameCenter = [XWSettingArrowItem itemWithIcon:@"game_center" title:@"游戏中心" destVcClass:nil];
-    XWSettingArrowItem *near = [XWSettingArrowItem itemWithIcon:@"near" title:@"周边" destVcClass:nil];
-    XWSettingArrowItem *app = [XWSettingArrowItem itemWithIcon:@"app" title:@"应用" destVcClass:nil];
+    XWSettingArrowItem *gameCenter = [XWSettingArrowItem itemWithIcon:@"game_center" title:@"显示设置" destVcClass:nil];
+    XWSettingArrowItem *near = [XWSettingArrowItem itemWithIcon:@"near" title:@"阅读设置" destVcClass:nil];
+    XWSettingArrowItem *app = [XWSettingArrowItem itemWithIcon:@"app" title:@"音效设置" destVcClass:nil];
 
     group.items = @[gameCenter, near, app];
 }
@@ -59,13 +58,36 @@
 {
     XWSettingGroup *group = [self addGroup];
     
-    XWSettingArrowItem *video = [XWSettingArrowItem itemWithIcon:@"video" title:@"视频" destVcClass:nil];
-    XWSettingArrowItem *music = [XWSettingArrowItem itemWithIcon:@"music" title:@"音乐" destVcClass:nil];
-    XWSettingArrowItem *movie = [XWSettingArrowItem itemWithIcon:@"movie" title:@"电影" destVcClass:nil];
-    XWSettingArrowItem *cast = [XWSettingArrowItem itemWithIcon:@"cast" title:@"播客" destVcClass:nil];
-    XWSettingArrowItem *more = [XWSettingArrowItem itemWithIcon:@"more" title:@"更多" destVcClass:[XWAnyMoreViewController class]];
+    XWSettingArrowItem *video = [XWSettingArrowItem itemWithIcon:@"video" title:@"图片上传与保存" destVcClass:nil];
+    XWSettingArrowItem *music = [XWSettingArrowItem itemWithIcon:@"music" title:@"存储与稍后读" destVcClass:nil];
+    XWSettingArrowItem *movie = [XWSettingArrowItem itemWithIcon:@"movie" title:@"关于XWeiBo" destVcClass:nil];
     
-    group.items = @[video, music, movie, cast, more];
+    group.items = @[video, music, movie];
+}
+
+- (void)addBottomLogoutBtn
+{
+    CGRect footerRect = CGRectZero;
+    footerRect.size.height = 50;
+    footerRect.size.width = self.tableView.bounds.size.width;
+    
+    UIView *footerView = [[UIView alloc] initWithFrame:footerRect];
+    
+    CGRect btnRect = CGRectMake(10, 10, self.tableView.bounds.size.width - 20, 40);
+    
+    self.logoutBtn = [[UIButton alloc] initWithFrame:btnRect];
+    [self.logoutBtn setBackgroundColor:[UIColor redColor]];
+    [self.logoutBtn addTarget:self action:@selector(logoutAction) forControlEvents:UIControlEventTouchUpInside];
+    [self.logoutBtn setTitle:@"退出登录" forState:UIControlStateNormal];
+    self.logoutBtn.titleLabel.textAlignment = NSTextAlignmentCenter;
+    [footerView addSubview:self.logoutBtn];
+    
+    self.tableView.tableFooterView = footerView;
+}
+
+- (void)logoutAction
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
