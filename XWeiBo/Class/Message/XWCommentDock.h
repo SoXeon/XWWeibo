@@ -15,4 +15,9 @@
 - (IBAction)clickTopicAction:(id)sender;
 - (IBAction)clickEmjoyAction:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *repeatOther;
+@property (weak, nonatomic) IBOutlet UIButton *topic;
+@property (weak, nonatomic) IBOutlet UIButton *emjoy;
+
+
 @end

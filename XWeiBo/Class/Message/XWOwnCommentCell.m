@@ -13,6 +13,7 @@
 #import "XWStatus.h"
 #import "XWUser.h"
 #import "XWOwnCommentsCellFrame.h"
+#import "XWStatusLabel.h"
 
 @interface XWOwnCommentCell()
 {
@@ -20,7 +21,7 @@
     XWImageListView *_image;//配图
     
     UILabel *_statusScreenName;
-    UILabel *_statusText;
+    XWStatusLabel *_statusText;
     
     
 }
@@ -98,10 +99,7 @@
     _statusScreenName.backgroundColor = [UIColor clearColor];
     [self.contentView addSubview:_statusScreenName];
     
-    _statusText = [[UILabel alloc] init];
-    _statusText.numberOfLines = 0;
-    _statusText.font = kRetweetedTextFont;
-    _statusText.backgroundColor = [UIColor clearColor];
+    _statusText = [[XWStatusLabel alloc] init];
     [self.contentView addSubview:_statusText];
 }
 
@@ -157,6 +155,8 @@
     _text.frame = cellFrame.textFrame;
     _text.attributedText = s.attributeText;
     
+#warning 富文本后，有些显示完整，有些则不行，API频次限制，明天fix
+    
     //微博配图
 #warning 没配图就用大号头像替代
     _image.frame = cellFrame.statusImageFrame;
@@ -184,7 +184,7 @@
     _statusScreenName.frame = cellFrame.statusScreenNameFrame;
     
     //微博内容
-    _statusText.text = s.status.text;
+    _statusText.attributedText = s.status.attributeText;
     _statusText.frame = cellFrame.statusTextFrame;
     
 

@@ -119,7 +119,7 @@ const int XWMBWH = 14;
     }
     
     // 2.设置frame
-    _icon.frame = (CGRect){CGPointZero, iconSize};
+    _icon.frame = (CGRect){CGPointZero, iconSize};    
     _vertify.bounds = CGRectMake(0, 0, kVertifyW, kVertifyH);
     _vertify.center = CGPointMake(iconSize.width, iconSize.height);
     

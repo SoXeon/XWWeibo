@@ -11,16 +11,33 @@
 #import "XWPlaceholderTextView.h"
 #import "MBProgressHUD+Add.h"
 #import "XWStatusTool.h"
+#import "XWEmotionKeyboard.h"
+#import "XWEmotion.h"
+#import "XWEmotionTextView.h"
 
 @interface XWRepeatCommentsViewController ()
 {
     XWCommentDock *_dock;
-    XWPlaceholderTextView *_textView;
 }
+
+@property (nonatomic, assign, getter=isChangingKeyboard) BOOL changingKeyboard;
+@property (nonatomic, strong) XWEmotionKeyboard *keyboard;
+@property (nonatomic, weak) XWEmotionTextView *textView;
+
 
 @end
 
 @implementation XWRepeatCommentsViewController
+
+- (XWEmotionKeyboard *)keyboard
+{
+    if (!_keyboard) {
+        self.keyboard = [XWEmotionKeyboard keyboard];
+        self.keyboard.width = [UIScreen mainScreen].bounds.size.width;
+        self.keyboard.height = 216;
+    }
+    return _keyboard;
+}
 
 - (id)init
 {
@@ -59,7 +76,7 @@
     // 1.添加输入控件
     CGRect frame = self.view.bounds;
     frame.size.height = 200;
-    XWPlaceholderTextView *textView = [[XWPlaceholderTextView alloc] initWithFrame:frame];
+    XWEmotionTextView *textView = [[XWEmotionTextView alloc] initWithFrame:frame];
     textView.font = [UIFont systemFontOfSize:15];
     textView.placeholder = @"回复小伙伴...";
     [textView becomeFirstResponder];
@@ -72,6 +89,62 @@
     [center addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [center addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:textView];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addEmotion) name:@"emotionClick" object:nil];
+    
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidSelected:) name:kXWEmotionDidSelectedNotification object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidDeleted:) name:kXWEmotionDidDeletedNotification object:nil];
+}
+
+#pragma mark 表情的选中与删除
+- (void)emotionDidSelected:(NSNotification *)note
+{
+    XWEmotion *emotion = note.userInfo[kXWSelectedEmotion];
+    XWLog(@"%@ %@", emotion.chs, emotion.emoji);
+    
+    [self.textView appendEmotion:emotion];
+    
+    [self textViewDidChange:self.textView];
+    
+}
+
+- (void)emotionDidDeleted:(NSNotification *)note
+{
+    [self.textView deleteBackward];
+}
+
+
+- (void)textViewDidChange:(UITextView *)textView
+{
+    self.navigationItem.rightBarButtonItem.enabled = textView.hasText;
+}
+
+
+
+- (void)addEmotion
+{
+    self.changingKeyboard = YES;
+    
+    if (_textView.inputView) {
+        _textView.inputView = nil;
+        
+        [_dock.emjoy setImage:[UIImage imageWithName:@"compose_emoticonbutton_background_os7"] forState:UIControlStateNormal];
+        [_dock.emjoy setImage:[UIImage imageWithName:@"compose_emoticonbutton_background_highlighted_os7"] forState:UIControlStateHighlighted];
+    } else {
+        
+        [_dock.emjoy setImage:[UIImage imageWithName:@"compose_keyboardbutton_background_os7"] forState:UIControlStateNormal];
+        [_dock.emjoy setImage:[UIImage imageWithName:@"compose_keyboardbutton_background_highlighted_os7"] forState:UIControlStateHighlighted];
+        
+        _textView.inputView = self.keyboard;
+        
+    }
+    
+    [_textView resignFirstResponder];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_textView becomeFirstResponder];
+    });
+
 }
 
 - (void)dealloc
@@ -106,7 +179,7 @@
 #pragma mark TextView文字改了
 - (void)textDidChange:(NSNotification *)note
 {
-    self.navigationItem.rightBarButtonItem.enabled = _textView.text.length != 0;
+    self.navigationItem.rightBarButtonItem.enabled = _textView.realText.length != 0;
 }
 
 - (void)setupNavBar
@@ -128,7 +201,7 @@
 {
     [_textView resignFirstResponder];
 
-    [XWStatusTool repeatCommentsWithStatusID:_ownComment.status.ID commentsID:_ownComment.commentsID commentContent:_textView.text success:^(id JSON) {
+    [XWStatusTool repeatCommentsWithStatusID:_ownComment.status.ID commentsID:_ownComment.commentsID commentContent:_textView.realText success:^(id JSON) {
         
         [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
         [self cancel];

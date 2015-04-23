@@ -91,14 +91,14 @@
 #define kMBIconH 14
 
 // 头像
-#define kIconSmallW 34
-#define kIconSmallH 34
+#define kIconSmallW 36
+#define kIconSmallH 36
 
-#define kIconDefaultW 50
-#define kIconDefaultH 50
+#define kIconDefaultW 52
+#define kIconDefaultH 52
 
-#define kIconBigW 85
-#define kIconBigH 85
+#define kIconBigW 87
+#define kIconBigH 87
 
 // 认证加V图标
 #define kVertifyW 18

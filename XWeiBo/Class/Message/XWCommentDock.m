@@ -10,9 +10,6 @@
 
 @interface XWCommentDock()
 
-@property (weak, nonatomic) IBOutlet UIButton *repeatOther;
-@property (weak, nonatomic) IBOutlet UIButton *topic;
-@property (weak, nonatomic) IBOutlet UIButton *emjoy;
 
 
 @end
@@ -48,6 +45,8 @@
 }
 
 - (IBAction)clickEmjoyAction:(id)sender {
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"emotionClick" object:nil];
 }
 
 
