@@ -32,6 +32,8 @@
     [self setupGroup0];
     [self setupGroup1];
     [self setupGroup2];
+    
+    [self addBottomLogoutBtn];
 
 }
 
@@ -73,7 +75,7 @@
     
     UIView *footerView = [[UIView alloc] initWithFrame:footerRect];
     
-    CGRect btnRect = CGRectMake(10, 10, self.tableView.bounds.size.width - 20, 40);
+    CGRect btnRect = CGRectMake(8, 10, self.tableView.bounds.size.width - 16, 40);
     
     self.logoutBtn = [[UIButton alloc] initWithFrame:btnRect];
     [self.logoutBtn setBackgroundColor:[UIColor redColor]];
