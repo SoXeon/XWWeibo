@@ -32,6 +32,7 @@
 #import "XWIconView.h"
 
 #import "kLink.h"
+#import "TOWebViewController.h"
 
 
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
@@ -78,6 +79,15 @@
     NSString *webUrl = notification.userInfo[kLinkText];
 
     NSLog(@"webURL %@", webUrl);
+    
+    NSURL *url = [NSURL URLWithString:webUrl];
+    
+    //TODO: you change theme about webview
+    TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
+    
+    [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:^{
+        
+    }];
 }
 
 - (void)buildUI
