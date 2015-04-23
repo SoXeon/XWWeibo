@@ -35,6 +35,8 @@
 #import "TOWebViewController.h"
 
 
+
+
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_statusFrames;
@@ -44,6 +46,7 @@
 @property (nonatomic, assign) CGPoint cellPoint;
 @property (nonatomic, assign) CGFloat cellOriginY;
 @property (nonatomic, strong) XWIconView *userIconView;
+@property (nonatomic, assign) BOOL isSelectedLink;
 @end
 
 @implementation XWHomeTableViewController
@@ -53,6 +56,7 @@
     self = [super init];
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popToWebViewController:) name:kLinkDidSelectedNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableCellSelected) name:kLinkWillSelectedNotification object:nil];
     }
     return self;
 }
@@ -82,12 +86,18 @@
     
     NSURL *url = [NSURL URLWithString:webUrl];
     
+    self.isSelectedLink = NO;
+    
     //TODO: you change theme about webview
     TOWebViewController *webViewController = [[TOWebViewController alloc] initWithURL:url];
     
     [self presentViewController:[[UINavigationController alloc] initWithRootViewController:webViewController] animated:YES completion:^{
-        
     }];
+}
+
+- (void)disableCellSelected
+{
+    self.isSelectedLink = YES;
 }
 
 - (void)buildUI
@@ -334,7 +344,6 @@
      return cell;
 }
 
-
 #pragma mark 自定义手势滑动 转发和评论
 - (NSArray *)leftButtons
 {
@@ -476,6 +485,9 @@
 #warning 现则存在一个BUG，就是从子页面返回，cell的位置会不同程度上移，但是我的页面StatusList中不会出现这种情况
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (self.isSelectedLink) {
+        return;
+    }
     XWStatusDetailController *detail = [[XWStatusDetailController alloc] init];
     XWStatusCellFrame *f = _statusFrames[indexPath.row];
     detail.status = f.status;

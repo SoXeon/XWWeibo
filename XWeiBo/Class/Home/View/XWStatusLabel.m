@@ -96,6 +96,9 @@
     CGPoint point = [touch locationInView:touch.view];
     kLink *touchingLink = [self touchingLinkWithPoint:point];
     [self showLinkBackground:touchingLink];
+    if (touchingLink) {
+        [[NSNotificationCenter defaultCenter] postNotificationName:kLinkWillSelectedNotification object:nil userInfo:@{kLinkText : touchingLink.text}];
+    }
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event

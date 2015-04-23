@@ -101,6 +101,7 @@
         CGFloat oldW = nameF.size.width;
         nameF.size.width = nameSize.width;
         _nameLabel.frame = nameF;
+        [_nameLabel sizeToFit];
         
         // 3.5.性别
         CGRect sexF = _sexView.frame;
