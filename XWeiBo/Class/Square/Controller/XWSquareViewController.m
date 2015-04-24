@@ -14,6 +14,8 @@
 #import "XWMessageManagementController.h"
 #import "XWMusicSettingViewController.h"
 #import "XWImageSettingsViewController.h"
+#import "XWReadingSettingViewController.h"
+
 
 @interface XWSquareViewController ()
 
@@ -48,7 +50,7 @@
     XWSettingGroup *group = [self addGroup];
     
     XWSettingArrowItem *gameCenter = [XWSettingArrowItem itemWithIcon:@"game_center" title:@"显示设置" destVcClass:nil];
-    XWSettingArrowItem *near = [XWSettingArrowItem itemWithIcon:@"near" title:@"阅读设置" destVcClass:nil];
+    XWSettingArrowItem *near = [XWSettingArrowItem itemWithIcon:@"near" title:@"阅读设置" destVcClass:[XWReadingSettingViewController class]];
     XWSettingArrowItem *app = [XWSettingArrowItem itemWithIcon:@"app" title:@"音效设置" destVcClass:[XWMusicSettingViewController class]];
 
     group.items = @[gameCenter, near, app];
@@ -59,10 +61,9 @@
     XWSettingGroup *group = [self addGroup];
     
     XWSettingArrowItem *video = [XWSettingArrowItem itemWithIcon:@"video" title:@"图片上传与保存" destVcClass:[XWImageSettingsViewController class]];
-    XWSettingArrowItem *music = [XWSettingArrowItem itemWithIcon:@"music" title:@"存储与稍后读" destVcClass:nil];
     XWSettingArrowItem *movie = [XWSettingArrowItem itemWithIcon:@"movie" title:@"关于XWeiBo" destVcClass:nil];
     
-    group.items = @[video, music, movie];
+    group.items = @[video, movie];
 }
 
 - (void)setupGroup3

@@ -99,7 +99,7 @@
         subtitleLabel.backgroundColor = [UIColor clearColor];
         subtitleLabel.textColor = [UIColor lightGrayColor];
         subtitleLabel.highlightedTextColor = subtitleLabel.textColor;
-        subtitleLabel.font = [UIFont systemFontOfSize:12];
+        subtitleLabel.font = kTimeFont;
         [self.contentView addSubview:subtitleLabel];
         self.subtitleLabel = subtitleLabel;
         
@@ -107,13 +107,13 @@
         self.textLabel.backgroundColor = [UIColor clearColor];
         self.textLabel.textColor = [UIColor blackColor];
         self.textLabel.highlightedTextColor = self.textLabel.textColor;
-        self.textLabel.font = [UIFont boldSystemFontOfSize:15];
+        self.textLabel.font = kTextFont;
         
         // 最右边的详情文字
         self.detailTextLabel.backgroundColor = [UIColor clearColor];
         self.detailTextLabel.textColor = [UIColor lightGrayColor];
         self.detailTextLabel.highlightedTextColor = self.detailTextLabel.textColor;
-        self.detailTextLabel.font = [UIFont systemFontOfSize:13];
+        self.detailTextLabel.font = kTimeFont;
         
         self.backgroundColor = [UIColor clearColor];
     }

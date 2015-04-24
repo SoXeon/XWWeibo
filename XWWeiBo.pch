@@ -49,6 +49,8 @@
 #endif
 #define XWUserDefaults [NSUserDefaults standardUserDefaults]
 #define XWUserImageQuality @"imageQuality"
+#define XWUserWuFengReading @"wufengReading"
+#define XWUserReadingDirection @"readDirection"
 
 /** 导航栏 */
 // 导航栏标题颜色

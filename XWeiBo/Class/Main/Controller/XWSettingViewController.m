@@ -114,12 +114,5 @@
         }
     }
     
-    if ([item isKindOfClass:[XWSettingCheckItem class]]) {
-        XWSettingCheckGroup *checkGroup = (XWSettingCheckGroup *)group;
-        checkGroup.checkedIndex = (int)indexPath.row;
-        [XWUserDefaults setInteger:(int)indexPath.row forKey:XWUserImageQuality];
-        
-        [tableView reloadData];
     }
-}
 @end

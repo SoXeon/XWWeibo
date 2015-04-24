@@ -58,5 +58,23 @@
     
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    XWSettingGroup *group = self.groups[indexPath.section];
+    XWSettingItem *item = group.items[indexPath.row];
+
+    
+    if ([item isKindOfClass:[XWSettingCheckItem class]]) {
+        XWSettingCheckGroup *checkGroup = (XWSettingCheckGroup *)group;
+        checkGroup.checkedIndex = (int)indexPath.row;
+        [XWUserDefaults setInteger:(int)indexPath.row forKey:XWUserImageQuality];
+
+        [tableView reloadData];
+    }
+
+}
+
 
 @end
