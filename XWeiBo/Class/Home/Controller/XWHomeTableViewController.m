@@ -176,16 +176,16 @@
     //TODO:MLGB的API限制，我先去实现其他功能区
     NSDictionary *paramsDict = @{@"source": kAppKey, @"uid": [XWAccountTool sharedXWAccountTool].currentAccount.uid};
     
-    [WBHttpRequest requestWithAccessToken:[XWAccountTool sharedXWAccountTool].currentAccount.accessToken url:@"https://api.weibo.com/2/place/users/photos.json" httpMethod:@"GET" params:paramsDict queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
-        
-    }];
-    
-#warning fuck SB WeiBo, MLGB的要高级权限才可以用这个接口
-    [XWStatusTool fetchFriendGroupWithSuccess:^(id JSON) {
-        
-    } failure:^(NSError *error) {
-        
-    }];
+//    [WBHttpRequest requestWithAccessToken:[XWAccountTool sharedXWAccountTool].currentAccount.accessToken url:@"https://api.weibo.com/2/place/users/photos.json" httpMethod:@"GET" params:paramsDict queue:nil withCompletionHandler:^(WBHttpRequest *httpRequest, id result, NSError *error) {
+//        
+//    }];
+//    
+//#warning fuck SB WeiBo, MLGB的要高级权限才可以用这个接口
+//    [XWStatusTool fetchFriendGroupWithSuccess:^(id JSON) {
+//        
+//    } failure:^(NSError *error) {
+//        
+//    }];
 }
 
 - (void)loadMoreData

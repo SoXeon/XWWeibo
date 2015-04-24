@@ -51,7 +51,7 @@
 #define XWUserImageQuality @"imageQuality"
 #define XWUserWuFengReading @"wufengReading"
 #define XWUserReadingDirection @"readDirection"
-
+#define XWUserThemeColor @"themeColor"
 /** 导航栏 */
 // 导航栏标题颜色
 #define XWNavigationBarTitleColor XWColor(65, 65, 65)
@@ -148,3 +148,6 @@
 //链接选中的通知
 #define kLinkDidSelectedNotification @"kLinkDidSelectedNotification"
 #define kLinkWillSelectedNotification @"kLinkWillSelectedNotification"
+
+//全局主题颜色变换
+#define themeChangeNotification @"themeDidChangeNotification"

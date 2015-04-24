@@ -23,8 +23,6 @@ typedef NS_ENUM(NSUInteger, YALAnimatingState) {
 @property (nonatomic, assign) YALAnimatingState animatingState;
 @property (nonatomic, assign) BOOL isFinishedCenterButtonAnimation;
 
-@property (nonatomic, strong) UIButton *centerButton;
-@property (nonatomic, strong) UIView *mainView;
 
 @property (nonatomic, assign) BOOL isAnimated;
 
@@ -40,9 +38,6 @@ typedef NS_ENUM(NSUInteger, YALAnimatingState) {
 @property (nonatomic, strong) NSArray *leftButtonsArray;
 @property (nonatomic, strong) NSArray *rightButtonsArray;
 
-//extra buttons 'tabBarItems' for each 'tabBarItem'
-@property (nonatomic, strong) UIButton *extraLeftButton;
-@property (nonatomic, strong) UIButton *extraRightButton;
 
 //model representation of tabBarItems. also contains info for extraBarItems: image, color, etc
 @property (nonatomic, strong) NSDictionary *leftTabBarItems;
@@ -72,6 +67,7 @@ typedef NS_ENUM(NSUInteger, YALAnimatingState) {
     [super layoutSubviews];
     
     [self setupUI];
+    
 }
 
 #pragma mark - Private
@@ -656,5 +652,4 @@ typedef NS_ENUM(NSUInteger, YALAnimatingState) {
         layer;
     });
 }
-
 @end

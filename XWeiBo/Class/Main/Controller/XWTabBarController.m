@@ -57,6 +57,7 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showTabBar) name:kPopVC object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(hidenTabBar) name:kPushVC object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTheme) name:themeChangeNotification object:nil];
     }
     return self;
 }
@@ -137,7 +138,16 @@
     YALFoldingTabBar *customTabBar = [[YALFoldingTabBar alloc] initWithFrame:CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - 5, self.tabBar.frame.size.width, self.tabBar.frame.size.height) state:YALStateCollapsed];
     customTabBar.delegate = self;
     customTabBar.dataSource = self;
-    customTabBar.tabBarColor =[UIColor colorWithRed:72.0/255.0 green:211.0/255.0 blue:178.0/255.0 alpha:1];
+    
+    NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+
+    if (color) {
+        customTabBar.tabBarColor = color;
+    } else {
+        customTabBar.tabBarColor =[UIColor colorWithRed:72.0/255.0 green:211.0/255.0 blue:178.0/255.0 alpha:1];
+    }
+    
     customTabBar.selectedTabBarItemIndex = 0;
     customTabBar.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;
     customTabBar.offsetForExtraTabBarItems = YALForExtraTabBarItemsDefaultOffset;
@@ -145,6 +155,18 @@
     self.customTabBar = customTabBar;
 }
 
+
+- (void)changeTheme
+{
+    
+    NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+
+    
+    self.customTabBar.mainView.backgroundColor = color;
+    self.customTabBar.extraLeftButton.backgroundColor = color;
+    self.customTabBar.extraRightButton.backgroundColor = color;
+}
 
 //- (void)tabBarDidClickPlusButton:(XWTabBar *)tabBar
 //{

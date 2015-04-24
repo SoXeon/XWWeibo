@@ -14,6 +14,8 @@
 #import "UIImageView+WebCache.h"
 #import "WeiBocfg.h"
 
+#import "MAThemeKit.h"
+
 @interface AppDelegate ()
 
 @end
@@ -27,6 +29,13 @@
     [WeiboSDK registerApp:kAppKey];
     
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
+    
+    NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+    
+    if (color) {
+        [MAThemeKit customizeNavigationBarColor:color textColor:color buttonColor:color];
+    }
     
     /**
      *  检查当前Bundle版本，若为最新版本，展示NewGuide界面

@@ -21,6 +21,8 @@
     [self setupNavBarTheme];
     
     [self setupBarButtonItemTheme];
+    
+    
 }
 
 

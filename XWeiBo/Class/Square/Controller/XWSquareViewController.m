@@ -15,7 +15,7 @@
 #import "XWMusicSettingViewController.h"
 #import "XWImageSettingsViewController.h"
 #import "XWReadingSettingViewController.h"
-
+#import "XWColorChoiceViewController.h"
 
 @interface XWSquareViewController ()
 
@@ -49,7 +49,7 @@
 {
     XWSettingGroup *group = [self addGroup];
     
-    XWSettingArrowItem *gameCenter = [XWSettingArrowItem itemWithIcon:@"game_center" title:@"显示设置" destVcClass:nil];
+    XWSettingArrowItem *gameCenter = [XWSettingArrowItem itemWithIcon:@"game_center" title:@"显示设置" destVcClass:[XWColorChoiceViewController class]];
     XWSettingArrowItem *near = [XWSettingArrowItem itemWithIcon:@"near" title:@"阅读设置" destVcClass:[XWReadingSettingViewController class]];
     XWSettingArrowItem *app = [XWSettingArrowItem itemWithIcon:@"app" title:@"音效设置" destVcClass:[XWMusicSettingViewController class]];
 
@@ -97,7 +97,7 @@
 
 - (void)logoutAction
 {
-    
+
 }
 
 - (void)didReceiveMemoryWarning {

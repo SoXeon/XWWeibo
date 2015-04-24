@@ -59,6 +59,16 @@
 		E28512831AE9FBE900E985A6 /* XWMusicSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512821AE9FBE900E985A6 /* XWMusicSettingViewController.m */; };
 		E28512861AEA19B200E985A6 /* XWImageSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */; };
 		E28512891AEA27C600E985A6 /* XWReadingSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512881AEA27C600E985A6 /* XWReadingSettingViewController.m */; };
+		E28512A31AEA4C9400E985A6 /* HRBrightnessCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512941AEA4C9400E985A6 /* HRBrightnessCursor.m */; };
+		E28512A41AEA4C9400E985A6 /* HRBrightnessSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512961AEA4C9400E985A6 /* HRBrightnessSlider.m */; };
+		E28512A51AEA4C9400E985A6 /* HRColorCursor.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512981AEA4C9400E985A6 /* HRColorCursor.m */; };
+		E28512A61AEA4C9400E985A6 /* HRColorInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = E285129A1AEA4C9400E985A6 /* HRColorInfoView.m */; };
+		E28512A71AEA4C9400E985A6 /* HRColorMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = E285129C1AEA4C9400E985A6 /* HRColorMapView.m */; };
+		E28512A81AEA4C9400E985A6 /* HRColorPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = E285129E1AEA4C9400E985A6 /* HRColorPickerView.m */; };
+		E28512A91AEA4C9400E985A6 /* HRHSVColorUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512A01AEA4C9400E985A6 /* HRHSVColorUtil.m */; };
+		E28512AA1AEA4C9400E985A6 /* UIImage+CoreGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512A21AEA4C9400E985A6 /* UIImage+CoreGraphics.m */; };
+		E28512AD1AEA4D3500E985A6 /* XWColorChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512AC1AEA4D3500E985A6 /* XWColorChoiceViewController.m */; };
+		E28512B11AEA508700E985A6 /* MAThemeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512B01AEA508700E985A6 /* MAThemeKit.m */; };
 		E29290AE1A8A377E00F0267D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29290AD1A8A377E00F0267D /* Reveal.framework */; };
 		E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E295936C1AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings */; };
 		E29593811AE8A62F00F71006 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E29593771AE8A62F00F71006 /* TOActivityChrome.m */; };
@@ -375,6 +385,26 @@
 		E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWImageSettingsViewController.m; sourceTree = "<group>"; };
 		E28512871AEA27C600E985A6 /* XWReadingSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWReadingSettingViewController.h; sourceTree = "<group>"; };
 		E28512881AEA27C600E985A6 /* XWReadingSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWReadingSettingViewController.m; sourceTree = "<group>"; };
+		E28512931AEA4C9400E985A6 /* HRBrightnessCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRBrightnessCursor.h; sourceTree = "<group>"; };
+		E28512941AEA4C9400E985A6 /* HRBrightnessCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRBrightnessCursor.m; sourceTree = "<group>"; };
+		E28512951AEA4C9400E985A6 /* HRBrightnessSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRBrightnessSlider.h; sourceTree = "<group>"; };
+		E28512961AEA4C9400E985A6 /* HRBrightnessSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRBrightnessSlider.m; sourceTree = "<group>"; };
+		E28512971AEA4C9400E985A6 /* HRColorCursor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorCursor.h; sourceTree = "<group>"; };
+		E28512981AEA4C9400E985A6 /* HRColorCursor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorCursor.m; sourceTree = "<group>"; };
+		E28512991AEA4C9400E985A6 /* HRColorInfoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorInfoView.h; sourceTree = "<group>"; };
+		E285129A1AEA4C9400E985A6 /* HRColorInfoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorInfoView.m; sourceTree = "<group>"; };
+		E285129B1AEA4C9400E985A6 /* HRColorMapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorMapView.h; sourceTree = "<group>"; };
+		E285129C1AEA4C9400E985A6 /* HRColorMapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorMapView.m; sourceTree = "<group>"; };
+		E285129D1AEA4C9400E985A6 /* HRColorPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRColorPickerView.h; sourceTree = "<group>"; };
+		E285129E1AEA4C9400E985A6 /* HRColorPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRColorPickerView.m; sourceTree = "<group>"; };
+		E285129F1AEA4C9400E985A6 /* HRHSVColorUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HRHSVColorUtil.h; sourceTree = "<group>"; };
+		E28512A01AEA4C9400E985A6 /* HRHSVColorUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HRHSVColorUtil.m; sourceTree = "<group>"; };
+		E28512A11AEA4C9400E985A6 /* UIImage+CoreGraphics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CoreGraphics.h"; sourceTree = "<group>"; };
+		E28512A21AEA4C9400E985A6 /* UIImage+CoreGraphics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CoreGraphics.m"; sourceTree = "<group>"; };
+		E28512AB1AEA4D3500E985A6 /* XWColorChoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWColorChoiceViewController.h; sourceTree = "<group>"; };
+		E28512AC1AEA4D3500E985A6 /* XWColorChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWColorChoiceViewController.m; sourceTree = "<group>"; };
+		E28512AF1AEA508700E985A6 /* MAThemeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAThemeKit.h; sourceTree = "<group>"; };
+		E28512B01AEA508700E985A6 /* MAThemeKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAThemeKit.m; sourceTree = "<group>"; };
 		E29290AD1A8A377E00F0267D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = XWeiBo/Reveal.framework; sourceTree = "<group>"; };
 		E295936D1AE8A62F00F71006 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E295936E1AE8A62F00F71006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = en.lproj/ru.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -893,6 +923,38 @@
 				E267CF031ACFA9F800A67888 /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		E28512921AEA4C9400E985A6 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				E28512931AEA4C9400E985A6 /* HRBrightnessCursor.h */,
+				E28512941AEA4C9400E985A6 /* HRBrightnessCursor.m */,
+				E28512951AEA4C9400E985A6 /* HRBrightnessSlider.h */,
+				E28512961AEA4C9400E985A6 /* HRBrightnessSlider.m */,
+				E28512971AEA4C9400E985A6 /* HRColorCursor.h */,
+				E28512981AEA4C9400E985A6 /* HRColorCursor.m */,
+				E28512991AEA4C9400E985A6 /* HRColorInfoView.h */,
+				E285129A1AEA4C9400E985A6 /* HRColorInfoView.m */,
+				E285129B1AEA4C9400E985A6 /* HRColorMapView.h */,
+				E285129C1AEA4C9400E985A6 /* HRColorMapView.m */,
+				E285129D1AEA4C9400E985A6 /* HRColorPickerView.h */,
+				E285129E1AEA4C9400E985A6 /* HRColorPickerView.m */,
+				E285129F1AEA4C9400E985A6 /* HRHSVColorUtil.h */,
+				E28512A01AEA4C9400E985A6 /* HRHSVColorUtil.m */,
+				E28512A11AEA4C9400E985A6 /* UIImage+CoreGraphics.h */,
+				E28512A21AEA4C9400E985A6 /* UIImage+CoreGraphics.m */,
+			);
+			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		E28512AE1AEA508700E985A6 /* ThemeKit */ = {
+			isa = PBXGroup;
+			children = (
+				E28512AF1AEA508700E985A6 /* MAThemeKit.h */,
+				E28512B01AEA508700E985A6 /* MAThemeKit.m */,
+			);
+			path = ThemeKit;
 			sourceTree = "<group>";
 		};
 		E295936B1AE8A62F00F71006 /* TOWebViewController */ = {
@@ -1574,6 +1636,8 @@
 				E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */,
 				E28512871AEA27C600E985A6 /* XWReadingSettingViewController.h */,
 				E28512881AEA27C600E985A6 /* XWReadingSettingViewController.m */,
+				E28512AB1AEA4D3500E985A6 /* XWColorChoiceViewController.h */,
+				E28512AC1AEA4D3500E985A6 /* XWColorChoiceViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1597,6 +1661,8 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E28512AE1AEA508700E985A6 /* ThemeKit */,
+				E28512921AEA4C9400E985A6 /* ColorPicker */,
 				E295936B1AE8A62F00F71006 /* TOWebViewController */,
 				E2CAC7DC1AE100E500F35EF5 /* FoldingTabBar */,
 				E214DC1F1AE0FCCC008142A3 /* Masonry */,
@@ -2143,6 +2209,7 @@
 				E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */,
 				E2F071431A2DD06800BDE434 /* XWSearchBar.m in Sources */,
 				E2F071401A2DB70F00BDE434 /* XWTitleButton.m in Sources */,
+				E28512A91AEA4C9400E985A6 /* HRHSVColorUtil.m in Sources */,
 				E214DC3B1AE0FCCC008142A3 /* MASConstraintMaker.m in Sources */,
 				E2F0722F1A2F4A8E00BDE434 /* XWDetailCell.m in Sources */,
 				E21CE1741A381B460031D6B8 /* AFImageRequestOperation.m in Sources */,
@@ -2179,6 +2246,7 @@
 				E2C2AF961A8B95C700C23EA2 /* ZFModalTransitionAnimator.m in Sources */,
 				E2CE091D1AD12FA800FE0451 /* XWEmotionKeyboard.m in Sources */,
 				E2CBAB3A1AD417C300D812EC /* MJTypeEncoding.m in Sources */,
+				E28512A71AEA4C9400E985A6 /* HRColorMapView.m in Sources */,
 				E2F071691A2DE19A00BDE434 /* XWBgCell.m in Sources */,
 				E2F072031A2F144200BDE434 /* XWBaseWordCell.m in Sources */,
 				E2F071EE1A2EF8E400BDE434 /* XWBaseStatusCellFrame.m in Sources */,
@@ -2254,6 +2322,7 @@
 				E2F0714A1A2DD46300BDE434 /* XWNewfeatureViewController.m in Sources */,
 				E2F072961A30627600BDE434 /* XWStatusParam.m in Sources */,
 				E29593821AE8A62F00F71006 /* TOActivitySafari.m in Sources */,
+				E28512A51AEA4C9400E985A6 /* HRColorCursor.m in Sources */,
 				E21D82761AE628F800343E3E /* XWSendMessageTableViewController.m in Sources */,
 				E2F0712B1A2D8CC000BDE434 /* XWTabBar.m in Sources */,
 				E29593831AE8A62F00F71006 /* TOWebViewController.m in Sources */,
@@ -2261,7 +2330,9 @@
 				E21CE1791A381B460031D6B8 /* AFXMLRequestOperation.m in Sources */,
 				E2F243611ACE6529002F6003 /* MJRefreshLegendHeader.m in Sources */,
 				E2F071FD1A2F112D00BDE434 /* XWBaseTextCellFrame.m in Sources */,
+				E28512AA1AEA4C9400E985A6 /* UIImage+CoreGraphics.m in Sources */,
 				E2F072151A2F1CBB00BDE434 /* NSString+DP.m in Sources */,
+				E28512A41AEA4C9400E985A6 /* HRBrightnessSlider.m in Sources */,
 				E21CE1721A381B460031D6B8 /* AFHTTPClient.m in Sources */,
 				E2CBAB381AD417C300D812EC /* MJMethod.m in Sources */,
 				E2F0715D1A2DDE3F00BDE434 /* XWSettingSwitchItem.m in Sources */,
@@ -2272,12 +2343,15 @@
 				E25ED15B1A30691F00C5A023 /* MBProgressHUD+Add.m in Sources */,
 				E2C2AF9F1A8BB57B00C23EA2 /* UIViewController+MaryPopin.m in Sources */,
 				E2F071CE1A2E16FE00BDE434 /* UIImage+WebP.m in Sources */,
+				E28512A81AEA4C9400E985A6 /* HRColorPickerView.m in Sources */,
 				E25168051A30B87B00EB8E6F /* XWBaseStatusListViewController.m in Sources */,
+				E28512A31AEA4C9400E985A6 /* HRBrightnessCursor.m in Sources */,
 				E2F071F41A2EFAE700BDE434 /* XWIconView.m in Sources */,
 				E2F0715A1A2DDDDE00BDE434 /* XWSettingValueItem.m in Sources */,
 				E2F071CD1A2E16FE00BDE434 /* UIImage+MultiFormat.m in Sources */,
 				E215274E1A8B4C71005BECB2 /* SWUtilityButtonView.m in Sources */,
 				E2F243631ACE6529002F6003 /* UIScrollView+MJRefresh.m in Sources */,
+				E28512A61AEA4C9400E985A6 /* HRColorInfoView.m in Sources */,
 				E2F072891A30618E00BDE434 /* XWUpdateParam.m in Sources */,
 				E2EF80CF1A308811003E9D9B /* MJPhotoToolbar.m in Sources */,
 				E2F071CC1A2E16FE00BDE434 /* UIImage+GIF.m in Sources */,
@@ -2307,6 +2381,7 @@
 				E2F071EB1A2EF77F00BDE434 /* XWUser.m in Sources */,
 				E25ED15D1A30691F00C5A023 /* MBProgressHUD.m in Sources */,
 				E2F0723A1A2F55A300BDE434 /* XWCommentCell.m in Sources */,
+				E28512AD1AEA4D3500E985A6 /* XWColorChoiceViewController.m in Sources */,
 				E2CE09211AD2DC6C00FE0451 /* XWEmotionListView.m in Sources */,
 				E2C2FA5D1ADA267900474FDC /* XWEmotionView.m in Sources */,
 				E2F071501A2DDC1100BDE434 /* XWSettingGroup.m in Sources */,
@@ -2336,6 +2411,7 @@
 				E2F072091A2F185100BDE434 /* XWBaseStatusCell.m in Sources */,
 				E2EC95851AE271A0007F8E57 /* XWStatusLabel.m in Sources */,
 				E2F243391ACD6A06002F6003 /* ACTimeScroller.m in Sources */,
+				E28512B11AEA508700E985A6 /* MAThemeKit.m in Sources */,
 				E2CBAB361AD417C300D812EC /* MJIvar.m in Sources */,
 				E2EF80E41A309999003E9D9B /* IWMoreBtn.m in Sources */,
 				E21CE1771A381B460031D6B8 /* AFPropertyListRequestOperation.m in Sources */,
