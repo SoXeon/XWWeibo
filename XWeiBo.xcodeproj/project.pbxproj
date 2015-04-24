@@ -55,6 +55,9 @@
 		E267CF051ACFA9F800A67888 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E267CF011ACFA9F800A67888 /* WeiboSDK.bundle */; };
 		E267CF071ACFB73500A67888 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E267CF061ACFB73500A67888 /* libWeiboSDK.a */; };
 		E2816D0B1AE7A73700646035 /* kLink.m in Sources */ = {isa = PBXBuildFile; fileRef = E2816D0A1AE7A73700646035 /* kLink.m */; };
+		E28512801AE9EF0000E985A6 /* XWMessageManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = E285127F1AE9EF0000E985A6 /* XWMessageManagementController.m */; };
+		E28512831AE9FBE900E985A6 /* XWMusicSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512821AE9FBE900E985A6 /* XWMusicSettingViewController.m */; };
+		E28512861AEA19B200E985A6 /* XWImageSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */; };
 		E29290AE1A8A377E00F0267D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29290AD1A8A377E00F0267D /* Reveal.framework */; };
 		E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E295936C1AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings */; };
 		E29593811AE8A62F00F71006 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E29593771AE8A62F00F71006 /* TOActivityChrome.m */; };
@@ -363,6 +366,12 @@
 		E267CF061ACFB73500A67888 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E2816D091AE7A73700646035 /* kLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kLink.h; sourceTree = "<group>"; };
 		E2816D0A1AE7A73700646035 /* kLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kLink.m; sourceTree = "<group>"; };
+		E285127E1AE9EF0000E985A6 /* XWMessageManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMessageManagementController.h; sourceTree = "<group>"; };
+		E285127F1AE9EF0000E985A6 /* XWMessageManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMessageManagementController.m; sourceTree = "<group>"; };
+		E28512811AE9FBE900E985A6 /* XWMusicSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMusicSettingViewController.h; sourceTree = "<group>"; };
+		E28512821AE9FBE900E985A6 /* XWMusicSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMusicSettingViewController.m; sourceTree = "<group>"; };
+		E28512841AEA19B200E985A6 /* XWImageSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWImageSettingsViewController.h; sourceTree = "<group>"; };
+		E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWImageSettingsViewController.m; sourceTree = "<group>"; };
 		E29290AD1A8A377E00F0267D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = XWeiBo/Reveal.framework; sourceTree = "<group>"; };
 		E295936D1AE8A62F00F71006 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E295936E1AE8A62F00F71006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = en.lproj/ru.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -1554,6 +1563,12 @@
 				E2F0710E1A2D761600BDE434 /* XWSquareViewController.m */,
 				E2F0716D1A2DFDCB00BDE434 /* XWAnyMoreViewController.h */,
 				E2F0716E1A2DFDCB00BDE434 /* XWAnyMoreViewController.m */,
+				E285127E1AE9EF0000E985A6 /* XWMessageManagementController.h */,
+				E285127F1AE9EF0000E985A6 /* XWMessageManagementController.m */,
+				E28512811AE9FBE900E985A6 /* XWMusicSettingViewController.h */,
+				E28512821AE9FBE900E985A6 /* XWMusicSettingViewController.m */,
+				E28512841AEA19B200E985A6 /* XWImageSettingsViewController.h */,
+				E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2185,6 +2200,7 @@
 				E2C2AFE91A91E1DB00C23EA2 /* XWOwnComment.m in Sources */,
 				E2EF80CE1A308811003E9D9B /* MJPhotoProgressView.m in Sources */,
 				E21527491A8B4C71005BECB2 /* NSMutableArray+SWUtilityButtons.m in Sources */,
+				E28512831AE9FBE900E985A6 /* XWMusicSettingViewController.m in Sources */,
 				E2F0724A1A303D4200BDE434 /* XWAccountsTableViewController.m in Sources */,
 				E2F072191A2F228F00BDE434 /* XWStatusTool.m in Sources */,
 				E2F071FA1A2EFE0B00BDE434 /* XWImageItemView.m in Sources */,
@@ -2218,6 +2234,7 @@
 				E2F071C51A2E16FE00BDE434 /* SDWebImageCompat.m in Sources */,
 				E2C2FA541AD9238500474FDC /* SMPageControl.m in Sources */,
 				E2F071C41A2E16FE00BDE434 /* SDImageCache.m in Sources */,
+				E28512861AEA19B200E985A6 /* XWImageSettingsViewController.m in Sources */,
 				E2F0712E1A2D93EA00BDE434 /* XWTabBarButton.m in Sources */,
 				E2CAC8021AE100E500F35EF5 /* YALFoldingTabBar.m in Sources */,
 				E2EF80D81A3096FA003E9D9B /* XWFriendshipParam.m in Sources */,
@@ -2287,6 +2304,7 @@
 				E2CE09211AD2DC6C00FE0451 /* XWEmotionListView.m in Sources */,
 				E2C2FA5D1ADA267900474FDC /* XWEmotionView.m in Sources */,
 				E2F071501A2DDC1100BDE434 /* XWSettingGroup.m in Sources */,
+				E28512801AE9EF0000E985A6 /* XWMessageManagementController.m in Sources */,
 				E25167FF1A30B4AF00EB8E6F /* UIImageView+DP.m in Sources */,
 				E2F071C71A2E16FE00BDE434 /* SDWebImageDownloader.m in Sources */,
 				E2F0725E1A305C8100BDE434 /* XWBaseResult.m in Sources */,

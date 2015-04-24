@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class XWSettingGroup;
+@class XWSettingCheckGroup;
+
 @interface XWSettingViewController : UITableViewController
 @property (strong, nonatomic) NSMutableArray *groups;
 
 - (XWSettingGroup *)addGroup;
-
+- (XWSettingCheckGroup *)addCheckGroup;
 @end

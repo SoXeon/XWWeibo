@@ -30,6 +30,13 @@
     return group;
 }
 
+- (XWSettingCheckGroup *)addCheckGroup
+{
+    XWSettingCheckGroup *group = [XWSettingCheckGroup group];
+    [self.groups addObject:group];
+    return group;
+}
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     return [super initWithStyle:UITableViewStyleGrouped];
@@ -110,6 +117,8 @@
     if ([item isKindOfClass:[XWSettingCheckItem class]]) {
         XWSettingCheckGroup *checkGroup = (XWSettingCheckGroup *)group;
         checkGroup.checkedIndex = (int)indexPath.row;
+        [XWUserDefaults setInteger:(int)indexPath.row forKey:XWUserImageQuality];
+        
         [tableView reloadData];
     }
 }

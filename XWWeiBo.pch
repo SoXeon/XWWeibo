@@ -48,6 +48,7 @@
 
 #endif
 #define XWUserDefaults [NSUserDefaults standardUserDefaults]
+#define XWUserImageQuality @"imageQuality"
 
 /** 导航栏 */
 // 导航栏标题颜色

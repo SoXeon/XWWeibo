@@ -7,11 +7,13 @@
 //
 
 #import "XWSquareViewController.h"
-#import "XWSearchBar.h"
 #import "XWSettingArrowItem.h"
+#import "XWSettingLabelItem.h"
 #import "XWSettingGroup.h"
-#import "XWAnyMoreViewController.h"
 
+#import "XWMessageManagementController.h"
+#import "XWMusicSettingViewController.h"
+#import "XWImageSettingsViewController.h"
 
 @interface XWSquareViewController ()
 
@@ -23,15 +25,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    XWSearchBar *searchBar = [XWSearchBar searchBar];
-    searchBar.frame = CGRectMake(0, 0, 300, 30);
-    self.navigationItem.titleView = searchBar;
     
     [self setupGroup0];
     [self setupGroup1];
     [self setupGroup2];
+    [self setupGroup3];
     
     [self addBottomLogoutBtn];
 
@@ -41,7 +39,7 @@
 {
     XWSettingGroup *group = [self addGroup];
     
-    XWSettingArrowItem *hot = [XWSettingArrowItem itemWithIcon:@"hot_status" title:@"消息通知" destVcClass:nil];
+    XWSettingArrowItem *hot = [XWSettingArrowItem itemWithIcon:@"hot_status" title:@"消息通知" destVcClass:[XWMessageManagementController class]];
     group.items = @[hot];
 }
 
@@ -51,7 +49,7 @@
     
     XWSettingArrowItem *gameCenter = [XWSettingArrowItem itemWithIcon:@"game_center" title:@"显示设置" destVcClass:nil];
     XWSettingArrowItem *near = [XWSettingArrowItem itemWithIcon:@"near" title:@"阅读设置" destVcClass:nil];
-    XWSettingArrowItem *app = [XWSettingArrowItem itemWithIcon:@"app" title:@"音效设置" destVcClass:nil];
+    XWSettingArrowItem *app = [XWSettingArrowItem itemWithIcon:@"app" title:@"音效设置" destVcClass:[XWMusicSettingViewController class]];
 
     group.items = @[gameCenter, near, app];
 }
@@ -60,11 +58,20 @@
 {
     XWSettingGroup *group = [self addGroup];
     
-    XWSettingArrowItem *video = [XWSettingArrowItem itemWithIcon:@"video" title:@"图片上传与保存" destVcClass:nil];
+    XWSettingArrowItem *video = [XWSettingArrowItem itemWithIcon:@"video" title:@"图片上传与保存" destVcClass:[XWImageSettingsViewController class]];
     XWSettingArrowItem *music = [XWSettingArrowItem itemWithIcon:@"music" title:@"存储与稍后读" destVcClass:nil];
     XWSettingArrowItem *movie = [XWSettingArrowItem itemWithIcon:@"movie" title:@"关于XWeiBo" destVcClass:nil];
     
     group.items = @[video, music, movie];
+}
+
+- (void)setupGroup3
+{
+    XWSettingGroup *group = [self addGroup];
+    XWSettingLabelItem *video = [XWSettingLabelItem itemWithIcon:@"video" title:@"清除缓存" destVcClass:nil];
+    video.defaultText = @"6.20M";
+    group.items = @[video];
+
 }
 
 - (void)addBottomLogoutBtn
@@ -95,12 +102,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark - 代理
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
-{
-    [self.view.window endEditing:YES];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
