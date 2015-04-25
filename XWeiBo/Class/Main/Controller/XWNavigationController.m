@@ -8,6 +8,7 @@
 
 #import "XWNavigationController.h"
 #import "UIBarButtonItem+DP.h"
+#import "MAThemeKit.h"
 
 @interface XWNavigationController () <UINavigationControllerDelegate>
 
@@ -87,7 +88,7 @@
      if (viewController != navigationController.viewControllers[0] && viewController.navigationItem.leftBarButtonItem == nil) {
          
          viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_back" highIcon:@"navigationbar_back_highlighted" target:self action: @selector(back)];
-         
+
      }
     
 }
@@ -104,11 +105,6 @@
     }
 }
 
-/**
- *  更多
- */
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -120,6 +116,26 @@
 //        self.interactivePopGestureRecognizer.delegate = nil;
 //
 //    }
+    
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTheme) name:themeChangeNotification object:nil];
+
+}
+
+- (void)changeTheme
+{
+    NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+    
+    if (color) {
+        self.navigationBar.barTintColor = color;
+    }
+
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 @end

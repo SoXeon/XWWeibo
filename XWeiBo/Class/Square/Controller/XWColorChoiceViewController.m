@@ -22,12 +22,19 @@
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor grayColor];
+    self.view.backgroundColor = [UIColor whiteColor];
+    
+    NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
     
     self.view.tintAdjustmentMode = UIViewTintAdjustmentModeNormal;
-    self.colorPickerView = [[HRColorPickerView alloc] initWithFrame:CGRectMake(0, 200, self.view.frame.size.width, self.view.frame.size.height - 200)];
+    self.colorPickerView = [[HRColorPickerView alloc] initWithFrame:CGRectMake(0, 65, self.view.frame.size.width, self.view.frame.size.height - 65)];
     
     [self.view addSubview:self.colorPickerView];
+    
+    if (color) {
+        self.colorPickerView.color = color;
+    }
     
     [self.colorPickerView addTarget:self
                              action:@selector(colorDidChanged:)

@@ -27,7 +27,7 @@
 
 //    [WeiboSDK enableDebugMode:YES];
     [WeiboSDK registerApp:kAppKey];
-    
+        
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     
     NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
