@@ -78,6 +78,7 @@
 		E28512C71AEB6EE700E985A6 /* UIView+BLKFlexibleHeightBarSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512C01AEB6EE600E985A6 /* UIView+BLKFlexibleHeightBarSubview.m */; };
 		E28512CA1AEB711B00E985A6 /* XWProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512C91AEB711B00E985A6 /* XWProfileHeaderView.m */; };
 		E28512CD1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512CC1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m */; };
+		E28512F71AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512F61AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m */; };
 		E29290AE1A8A377E00F0267D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29290AD1A8A377E00F0267D /* Reveal.framework */; };
 		E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E295936C1AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings */; };
 		E29593811AE8A62F00F71006 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E29593771AE8A62F00F71006 /* TOActivityChrome.m */; };
@@ -432,6 +433,8 @@
 		E28512C91AEB711B00E985A6 /* XWProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWProfileHeaderView.m; sourceTree = "<group>"; };
 		E28512CB1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWProfileHeaderViewBehaviorDefineer.h; sourceTree = "<group>"; };
 		E28512CC1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWProfileHeaderViewBehaviorDefineer.m; sourceTree = "<group>"; };
+		E28512F51AEB8C2C00E985A6 /* JDFPeekabooCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDFPeekabooCoordinator.h; sourceTree = "<group>"; };
+		E28512F61AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDFPeekabooCoordinator.m; sourceTree = "<group>"; };
 		E29290AD1A8A377E00F0267D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = XWeiBo/Reveal.framework; sourceTree = "<group>"; };
 		E295936D1AE8A62F00F71006 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E295936E1AE8A62F00F71006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = en.lproj/ru.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -1003,6 +1006,15 @@
 				E28512C01AEB6EE600E985A6 /* UIView+BLKFlexibleHeightBarSubview.m */,
 			);
 			path = BLKFlexibleHeightBar;
+			sourceTree = "<group>";
+		};
+		E28512F41AEB8C2C00E985A6 /* Peekaboo */ = {
+			isa = PBXGroup;
+			children = (
+				E28512F51AEB8C2C00E985A6 /* JDFPeekabooCoordinator.h */,
+				E28512F61AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m */,
+			);
+			path = Peekaboo;
 			sourceTree = "<group>";
 		};
 		E295936B1AE8A62F00F71006 /* TOWebViewController */ = {
@@ -1713,6 +1725,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E28512F41AEB8C2C00E985A6 /* Peekaboo */,
 				E28512B21AEB6EE600E985A6 /* BLKFlexibleHeightBar */,
 				E28512AE1AEA508700E985A6 /* ThemeKit */,
 				E28512921AEA4C9400E985A6 /* ColorPicker */,
@@ -2285,6 +2298,7 @@
 				E21CE1751A381B460031D6B8 /* AFJSONRequestOperation.m in Sources */,
 				E2CE0AEB1AD4103C00FE0451 /* XWEmotionToobar.m in Sources */,
 				E28512C51AEB6EE700E985A6 /* FacebookStyleBarBehaviorDefiner.m in Sources */,
+				E28512F71AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m in Sources */,
 				E2F072641A305DA700BDE434 /* XWUidParam.m in Sources */,
 				E28512891AEA27C600E985A6 /* XWReadingSettingViewController.m in Sources */,
 				E2F072471A30349700BDE434 /* XWGroupCell.m in Sources */,

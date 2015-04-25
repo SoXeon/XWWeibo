@@ -35,7 +35,7 @@
 #import "TOWebViewController.h"
 
 
-
+#import "JDFPeekabooCoordinator.h"
 
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
@@ -47,6 +47,7 @@
 @property (nonatomic, assign) CGFloat cellOriginY;
 @property (nonatomic, strong) XWIconView *userIconView;
 @property (nonatomic, assign) BOOL isSelectedLink;
+@property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
 @end
 
 @implementation XWHomeTableViewController
@@ -70,11 +71,31 @@
     
     [super viewDidLoad];
     
+    [self setAwesomeCoordinator];
+    
     [self buildUI];
     
     [self setupNavItem];
     
     [self addRefreshViews];
+    
+}
+
+- (void)setAwesomeCoordinator
+{
+    
+    /**
+     *  获取自定义的Tabbar
+     */
+    UIView *customTab = [self.parentViewController.parentViewController.view viewWithTag:22222];
+    
+    self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
+    self.scrollCoordinator.scrollView = self.tableView;
+    self.scrollCoordinator.topViewMinimisedHeight = 0;
+
+    self.scrollCoordinator.topView = self.navigationController.navigationBar;
+    self.scrollCoordinator.bottomView = customTab;
+    [self.navigationController.navigationBar setTranslucent:YES];
 }
 
 - (void)popToWebViewController:(NSNotification *)notification
@@ -140,6 +161,15 @@
 {
     [super viewDidAppear:animated];
     
+    [self.scrollCoordinator enable];
+    
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [self.scrollCoordinator disable];
 }
 
 #pragma mark 加载最新数据
@@ -268,7 +298,7 @@
 
 - (void)setupNavItem
 {
-    // 左边按钮
+    //左边按钮
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
         
     XWUserParam *userParam = [[XWUserParam alloc] init];
@@ -291,8 +321,7 @@
     } failure:^(NSError *error) {
         
     }];
-    
-    
+
 }
 
 - (void)titleClick:(XWTitleButton *)titleButton

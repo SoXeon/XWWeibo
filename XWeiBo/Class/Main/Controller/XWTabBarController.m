@@ -135,9 +135,10 @@
 - (void)setupTabbar
 {
     self.tabBar.backgroundColor = [UIColor clearColor];
-    YALFoldingTabBar *customTabBar = [[YALFoldingTabBar alloc] initWithFrame:CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y - 5, self.tabBar.frame.size.width, self.tabBar.frame.size.height) state:YALStateCollapsed];
+    YALFoldingTabBar *customTabBar = [[YALFoldingTabBar alloc] initWithFrame:CGRectMake(self.tabBar.frame.origin.x, self.tabBar.frame.origin.y, self.tabBar.frame.size.width, self.tabBar.frame.size.height) state:YALStateCollapsed];
     customTabBar.delegate = self;
     customTabBar.dataSource = self;
+    customTabBar.tag = 22222;
     
     NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
     UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
