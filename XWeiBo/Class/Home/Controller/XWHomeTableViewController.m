@@ -348,6 +348,8 @@
 - (NSArray *)leftButtons
 {
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+#warning 这里就不做颜色主题适配了，届时背景clearColor ，icon自己设计为暗色背景图片
     [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor greenColor] icon:[UIImage imageNamed:@"check.png"]];
 
     return leftUtilityButtons;

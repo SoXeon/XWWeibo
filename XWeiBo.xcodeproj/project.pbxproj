@@ -69,6 +69,15 @@
 		E28512AA1AEA4C9400E985A6 /* UIImage+CoreGraphics.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512A21AEA4C9400E985A6 /* UIImage+CoreGraphics.m */; };
 		E28512AD1AEA4D3500E985A6 /* XWColorChoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512AC1AEA4D3500E985A6 /* XWColorChoiceViewController.m */; };
 		E28512B11AEA508700E985A6 /* MAThemeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512B01AEA508700E985A6 /* MAThemeKit.m */; };
+		E28512C11AEB6EE700E985A6 /* BLKDelegateSplitter.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512B41AEB6EE600E985A6 /* BLKDelegateSplitter.m */; };
+		E28512C21AEB6EE700E985A6 /* BLKFlexibleHeightBar.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512B61AEB6EE600E985A6 /* BLKFlexibleHeightBar.m */; };
+		E28512C31AEB6EE700E985A6 /* BLKFlexibleHeightBarBehaviorDefiner.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512B81AEB6EE600E985A6 /* BLKFlexibleHeightBarBehaviorDefiner.m */; };
+		E28512C41AEB6EE700E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512BA1AEB6EE600E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.m */; };
+		E28512C51AEB6EE700E985A6 /* FacebookStyleBarBehaviorDefiner.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512BC1AEB6EE600E985A6 /* FacebookStyleBarBehaviorDefiner.m */; };
+		E28512C61AEB6EE700E985A6 /* SquareCashStyleBehaviorDefiner.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512BE1AEB6EE600E985A6 /* SquareCashStyleBehaviorDefiner.m */; };
+		E28512C71AEB6EE700E985A6 /* UIView+BLKFlexibleHeightBarSubview.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512C01AEB6EE600E985A6 /* UIView+BLKFlexibleHeightBarSubview.m */; };
+		E28512CA1AEB711B00E985A6 /* XWProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512C91AEB711B00E985A6 /* XWProfileHeaderView.m */; };
+		E28512CD1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512CC1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m */; };
 		E29290AE1A8A377E00F0267D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29290AD1A8A377E00F0267D /* Reveal.framework */; };
 		E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E295936C1AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings */; };
 		E29593811AE8A62F00F71006 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E29593771AE8A62F00F71006 /* TOActivityChrome.m */; };
@@ -405,6 +414,24 @@
 		E28512AC1AEA4D3500E985A6 /* XWColorChoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWColorChoiceViewController.m; sourceTree = "<group>"; };
 		E28512AF1AEA508700E985A6 /* MAThemeKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAThemeKit.h; sourceTree = "<group>"; };
 		E28512B01AEA508700E985A6 /* MAThemeKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAThemeKit.m; sourceTree = "<group>"; };
+		E28512B31AEB6EE600E985A6 /* BLKDelegateSplitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKDelegateSplitter.h; sourceTree = "<group>"; };
+		E28512B41AEB6EE600E985A6 /* BLKDelegateSplitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKDelegateSplitter.m; sourceTree = "<group>"; };
+		E28512B51AEB6EE600E985A6 /* BLKFlexibleHeightBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKFlexibleHeightBar.h; sourceTree = "<group>"; };
+		E28512B61AEB6EE600E985A6 /* BLKFlexibleHeightBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKFlexibleHeightBar.m; sourceTree = "<group>"; };
+		E28512B71AEB6EE600E985A6 /* BLKFlexibleHeightBarBehaviorDefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKFlexibleHeightBarBehaviorDefiner.h; sourceTree = "<group>"; };
+		E28512B81AEB6EE600E985A6 /* BLKFlexibleHeightBarBehaviorDefiner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKFlexibleHeightBarBehaviorDefiner.m; sourceTree = "<group>"; };
+		E28512B91AEB6EE600E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLKFlexibleHeightBarSubviewLayoutAttributes.h; sourceTree = "<group>"; };
+		E28512BA1AEB6EE600E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLKFlexibleHeightBarSubviewLayoutAttributes.m; sourceTree = "<group>"; };
+		E28512BB1AEB6EE600E985A6 /* FacebookStyleBarBehaviorDefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookStyleBarBehaviorDefiner.h; sourceTree = "<group>"; };
+		E28512BC1AEB6EE600E985A6 /* FacebookStyleBarBehaviorDefiner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookStyleBarBehaviorDefiner.m; sourceTree = "<group>"; };
+		E28512BD1AEB6EE600E985A6 /* SquareCashStyleBehaviorDefiner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SquareCashStyleBehaviorDefiner.h; sourceTree = "<group>"; };
+		E28512BE1AEB6EE600E985A6 /* SquareCashStyleBehaviorDefiner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SquareCashStyleBehaviorDefiner.m; sourceTree = "<group>"; };
+		E28512BF1AEB6EE600E985A6 /* UIView+BLKFlexibleHeightBarSubview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BLKFlexibleHeightBarSubview.h"; sourceTree = "<group>"; };
+		E28512C01AEB6EE600E985A6 /* UIView+BLKFlexibleHeightBarSubview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BLKFlexibleHeightBarSubview.m"; sourceTree = "<group>"; };
+		E28512C81AEB711B00E985A6 /* XWProfileHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWProfileHeaderView.h; sourceTree = "<group>"; };
+		E28512C91AEB711B00E985A6 /* XWProfileHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWProfileHeaderView.m; sourceTree = "<group>"; };
+		E28512CB1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWProfileHeaderViewBehaviorDefineer.h; sourceTree = "<group>"; };
+		E28512CC1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWProfileHeaderViewBehaviorDefineer.m; sourceTree = "<group>"; };
 		E29290AD1A8A377E00F0267D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = XWeiBo/Reveal.framework; sourceTree = "<group>"; };
 		E295936D1AE8A62F00F71006 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E295936E1AE8A62F00F71006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = en.lproj/ru.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -955,6 +982,27 @@
 				E28512B01AEA508700E985A6 /* MAThemeKit.m */,
 			);
 			path = ThemeKit;
+			sourceTree = "<group>";
+		};
+		E28512B21AEB6EE600E985A6 /* BLKFlexibleHeightBar */ = {
+			isa = PBXGroup;
+			children = (
+				E28512B31AEB6EE600E985A6 /* BLKDelegateSplitter.h */,
+				E28512B41AEB6EE600E985A6 /* BLKDelegateSplitter.m */,
+				E28512B51AEB6EE600E985A6 /* BLKFlexibleHeightBar.h */,
+				E28512B61AEB6EE600E985A6 /* BLKFlexibleHeightBar.m */,
+				E28512B71AEB6EE600E985A6 /* BLKFlexibleHeightBarBehaviorDefiner.h */,
+				E28512B81AEB6EE600E985A6 /* BLKFlexibleHeightBarBehaviorDefiner.m */,
+				E28512B91AEB6EE600E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.h */,
+				E28512BA1AEB6EE600E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.m */,
+				E28512BB1AEB6EE600E985A6 /* FacebookStyleBarBehaviorDefiner.h */,
+				E28512BC1AEB6EE600E985A6 /* FacebookStyleBarBehaviorDefiner.m */,
+				E28512BD1AEB6EE600E985A6 /* SquareCashStyleBehaviorDefiner.h */,
+				E28512BE1AEB6EE600E985A6 /* SquareCashStyleBehaviorDefiner.m */,
+				E28512BF1AEB6EE600E985A6 /* UIView+BLKFlexibleHeightBarSubview.h */,
+				E28512C01AEB6EE600E985A6 /* UIView+BLKFlexibleHeightBarSubview.m */,
+			);
+			path = BLKFlexibleHeightBar;
 			sourceTree = "<group>";
 		};
 		E295936B1AE8A62F00F71006 /* TOWebViewController */ = {
@@ -1561,6 +1609,10 @@
 				E2EF80ED1A309E5D003E9D9B /* IWProfileHeaderView.h */,
 				E2EF80EE1A309E5D003E9D9B /* IWProfileHeaderView.m */,
 				E2EF80EF1A309E5D003E9D9B /* IWProfileHeaderView.xib */,
+				E28512C81AEB711B00E985A6 /* XWProfileHeaderView.h */,
+				E28512C91AEB711B00E985A6 /* XWProfileHeaderView.m */,
+				E28512CB1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.h */,
+				E28512CC1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m */,
 				E2EF80E81A309AB1003E9D9B /* IWFriendshipCell.h */,
 				E2EF80E91A309AB1003E9D9B /* IWFriendshipCell.m */,
 				E2EF80EA1A309AB1003E9D9B /* IWFriendshipCell.xib */,
@@ -1661,6 +1713,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E28512B21AEB6EE600E985A6 /* BLKFlexibleHeightBar */,
 				E28512AE1AEA508700E985A6 /* ThemeKit */,
 				E28512921AEA4C9400E985A6 /* ColorPicker */,
 				E295936B1AE8A62F00F71006 /* TOWebViewController */,
@@ -2205,7 +2258,9 @@
 				E29593811AE8A62F00F71006 /* TOActivityChrome.m in Sources */,
 				E251680E1A31790300EB8E6F /* XWFollowersViewController.m in Sources */,
 				E2F0713A1A2DA98200BDE434 /* UIBarButtonItem+DP.m in Sources */,
+				E28512CA1AEB711B00E985A6 /* XWProfileHeaderView.m in Sources */,
 				E2C2FA601ADA407300474FDC /* XWEmotionPopView.m in Sources */,
+				E28512CD1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m in Sources */,
 				E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */,
 				E2F071431A2DD06800BDE434 /* XWSearchBar.m in Sources */,
 				E2F071401A2DB70F00BDE434 /* XWTitleButton.m in Sources */,
@@ -2229,6 +2284,7 @@
 				E2F072551A304FB100BDE434 /* XWPlaceholderTextView.m in Sources */,
 				E21CE1751A381B460031D6B8 /* AFJSONRequestOperation.m in Sources */,
 				E2CE0AEB1AD4103C00FE0451 /* XWEmotionToobar.m in Sources */,
+				E28512C51AEB6EE700E985A6 /* FacebookStyleBarBehaviorDefiner.m in Sources */,
 				E2F072641A305DA700BDE434 /* XWUidParam.m in Sources */,
 				E28512891AEA27C600E985A6 /* XWReadingSettingViewController.m in Sources */,
 				E2F072471A30349700BDE434 /* XWGroupCell.m in Sources */,
@@ -2254,6 +2310,7 @@
 				E21CE1781A381B460031D6B8 /* AFURLConnectionOperation.m in Sources */,
 				E2CAC7FF1AE100E500F35EF5 /* YALAnimatingTabBarConstants.m in Sources */,
 				E2EF80CA1A308811003E9D9B /* MJPhoto.m in Sources */,
+				E28512C31AEB6EE700E985A6 /* BLKFlexibleHeightBarBehaviorDefiner.m in Sources */,
 				E2C2FA571AD9844600474FDC /* XWEmotionGridView.m in Sources */,
 				E214DC3A1AE0FCCC008142A3 /* MASConstraint.m in Sources */,
 				E2F072261A2F24B900BDE434 /* XWRepostCellFrame.m in Sources */,
@@ -2277,6 +2334,7 @@
 				E28512831AE9FBE900E985A6 /* XWMusicSettingViewController.m in Sources */,
 				E2F0724A1A303D4200BDE434 /* XWAccountsTableViewController.m in Sources */,
 				E2F072191A2F228F00BDE434 /* XWStatusTool.m in Sources */,
+				E28512C11AEB6EE700E985A6 /* BLKDelegateSplitter.m in Sources */,
 				E2F071FA1A2EFE0B00BDE434 /* XWImageItemView.m in Sources */,
 				E215274C1A8B4C71005BECB2 /* SWTableViewCell.m in Sources */,
 				E2F071111A2D761600BDE434 /* XWHomeTableViewController.m in Sources */,
@@ -2287,6 +2345,7 @@
 				E2CE09241AD2DF7500FE0451 /* UIView+Extension.m in Sources */,
 				E2F072231A2F249000BDE434 /* XWCommentCellFrame.m in Sources */,
 				E2F071E51A2EF60F00BDE434 /* XWBaseModel.m in Sources */,
+				E28512C41AEB6EE700E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.m in Sources */,
 				E2F072671A305EC300BDE434 /* XWBaseTool.m in Sources */,
 				E2CBAB371AD417C300D812EC /* MJMember.m in Sources */,
 				E2F071CF1A2E16FE00BDE434 /* UIImageView+WebCache.m in Sources */,
@@ -2297,9 +2356,11 @@
 				E21CE17A1A381B460031D6B8 /* UIImageView+AFNetworking.m in Sources */,
 				E2F071C21A2E16FE00BDE434 /* MKAnnotationView+WebCache.m in Sources */,
 				E2EF80E11A309961003E9D9B /* XWProfileBtn.m in Sources */,
+				E28512C21AEB6EE700E985A6 /* BLKFlexibleHeightBar.m in Sources */,
 				E2F072511A304F6B00BDE434 /* IWComposeDock.m in Sources */,
 				E2F072581A30541300BDE434 /* XWBaseParam.m in Sources */,
 				E2EF80DB1A309751003E9D9B /* XWFriendshipResult.m in Sources */,
+				E28512C71AEB6EE700E985A6 /* UIView+BLKFlexibleHeightBarSubview.m in Sources */,
 				E2F0711C1A2D76F600BDE434 /* AppDelegate.m in Sources */,
 				E2EF80D21A308811003E9D9B /* UIImageView+MJWebCache.m in Sources */,
 				E2F0725B1A305C3A00BDE434 /* XWPageParam.m in Sources */,
@@ -2396,6 +2457,7 @@
 				E2EF80CC1A308811003E9D9B /* MJPhotoBrowser.m in Sources */,
 				E2F0728C1A3061C100BDE434 /* XWUploadParam.m in Sources */,
 				E2F2435A1ACE6529002F6003 /* MJRefreshComponent.m in Sources */,
+				E28512C61AEB6EE700E985A6 /* SquareCashStyleBehaviorDefiner.m in Sources */,
 				E2CAC7FE1AE100E500F35EF5 /* CATransaction+TransactionWithAnimationsAndCompletion.m in Sources */,
 				E2CAC7FD1AE100E500F35EF5 /* CAAnimation+YALTabBarViewAnimations.m in Sources */,
 				E2F071541A2DDCA800BDE434 /* XWSettingItem.m in Sources */,

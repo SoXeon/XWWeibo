@@ -16,18 +16,41 @@
 #import "XWStatusCellFrame.h"
 #import "XWStatusCell.h"
 
-@interface XWMeViewController ()
+#import "XWProfileHeaderView.h"
+#import "BLKDelegateSplitter.h"
+#import "XWProfileHeaderViewBehaviorDefineer.h"
+
+#import "XWUserTool.h"
+#import "XWUser.h"
+#import "HttpTool.h"
+
+@interface XWMeViewController () <UITableViewDelegate, UITableViewDataSource>
 {
-    IWProfileHeaderView *_header;
+//    IWProfileHeaderView *_header;
+    XWProfileHeaderView *_customHeader;
     UIImageView *_bgView;
     
     XWSingleStatusParam *_param;
     XWStatusResult *_result;
     NSMutableArray *_statusFrames;
 }
+
+@property (nonatomic) BLKDelegateSplitter *delegateSplitter;
+@property (nonatomic, strong) UITableView *tableView;
 @end
 
 @implementation XWMeViewController
+
+- (id)init
+{
+    self = [super init];
+    
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTheme) name:themeChangeNotification object:nil];
+    }
+    return self;
+
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,22 +62,80 @@
     [self loadNewStatus];
 
     // 1.添加背景图片
-    _bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profile_cover_background.jpg"]];
-    CGFloat bgW = self.view.frame.size.width;
-    _bgView.bounds = CGRectMake(0, 0, bgW, bgW);
-    _bgView.layer.position = CGPointMake(bgW * 0.5, - bgW / 4);
-    _bgView.layer.anchorPoint = CGPointMake(0.5, 0);
-    [self.tableView addSubview:_bgView];
+//    _bgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"profile_cover_background.jpg"]];
+//    CGFloat bgW = self.view.frame.size.width;
+//    _bgView.bounds = CGRectMake(0, 0, bgW, bgW);
+//    _bgView.layer.position = CGPointMake(bgW * 0.5, - bgW / 4);
+//    _bgView.layer.anchorPoint = CGPointMake(0.5, 0);
+//    [self.tableView addSubview:_bgView];
     
-    // 2.头部
-    _header = [IWProfileHeaderView header];
-    _header.param = [[XWUserParam alloc] init];
-    self.tableView.tableHeaderView = _header;
+//    // 2.头部
+//    _header = [IWProfileHeaderView header];
+//    _header.param = [[XWUserParam alloc] init];
+//    self.tableView.tableHeaderView = _header;
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+#warning 全部微博、粉丝、关注还没加上，回学校加上
+    
+    _customHeader = [[XWProfileHeaderView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), 100.0)];
+    
+    NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+
+    if (color) {
+        _customHeader.backgroundColor = color;
+    }
+    
+    XWProfileHeaderViewBehaviorDefineer *behaviorDefiner = [[XWProfileHeaderViewBehaviorDefineer alloc] init];
+    [behaviorDefiner addSnappingPositionProgress:0.0 forProgressRangeStart:0.0 end:0.5];
+    [behaviorDefiner addSnappingPositionProgress:1.0 forProgressRangeStart:0.5 end:1.0];
+    behaviorDefiner.snappingEnabled = YES;
+    behaviorDefiner.elasticMaximumHeightAtTop = YES;
+    _customHeader.behaviorDefiner = behaviorDefiner;
+    
+    self.delegateSplitter = [[BLKDelegateSplitter alloc] initWithFirstDelegate:behaviorDefiner secondDelegate:self];
+    self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+
+    self.tableView.delegate = (id<UITableViewDelegate>)self.delegateSplitter;
+    [self.view addSubview:_customHeader];
+    
+    
+    XWUserParam *userParam = [[XWUserParam alloc] init];
+    
+    [XWUserTool userWithParam:userParam success:^(XWUser *user) {
+
+        _customHeader.nameLabel.text = user.name;
+        
+        [HttpTool downloadImage:user.avatar_large place:[UIImage imageNamed:@"avatar_default_small.png"] imageView:_customHeader.profileImageView];
+
+    } failure:nil];
+    
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 3.注册
     [self.tableView registerClass:[XWBaseStatusCell class] forCellReuseIdentifier:@"Cell"];
+    self.tableView.contentInset = UIEdgeInsetsMake(_customHeader.maximumBarHeight, 0.0, 0.0, 0.0);
+
+
+    self.tableView.dataSource = self;
+    
+    [self.view insertSubview:self.tableView belowSubview:_customHeader];
+
     
 }
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
+}
+
+- (void)changeTheme
+{
+    NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
+    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
+    
+    _customHeader.backgroundColor = color;
+}
+
 
 - (void)loadNewStatus
 {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XWMeViewController : UITableViewController
+@interface XWMeViewController : UIViewController
 - (void)refreshContent:(BOOL)FromSelf;
 
 @end
