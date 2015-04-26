@@ -37,6 +37,7 @@
 
 #import "JDFPeekabooCoordinator.h"
 
+
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
     NSMutableArray *_statusFrames;
@@ -48,6 +49,8 @@
 @property (nonatomic, strong) XWIconView *userIconView;
 @property (nonatomic, assign) BOOL isSelectedLink;
 @property (nonatomic, strong) JDFPeekabooCoordinator *scrollCoordinator;
+
+
 @end
 
 @implementation XWHomeTableViewController
@@ -87,6 +90,7 @@
     /**
      *  获取自定义的Tabbar
      */
+    //TODO:Setting里面可以设置是否需要沉浸式
     UIView *customTab = [self.parentViewController.parentViewController.view viewWithTag:22222];
     
     self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
@@ -102,8 +106,6 @@
 {
     
     NSString *webUrl = notification.userInfo[kLinkText];
-
-    NSLog(@"webURL %@", webUrl);
     
     NSURL *url = [NSURL URLWithString:webUrl];
     

@@ -85,6 +85,14 @@
 		E29593821AE8A62F00F71006 /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = E29593791AE8A62F00F71006 /* TOActivitySafari.m */; };
 		E29593831AE8A62F00F71006 /* TOWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E295937B1AE8A62F00F71006 /* TOWebViewController.m */; };
 		E29593841AE8A62F00F71006 /* UIImage+TOWebViewControllerIcons.m in Sources */ = {isa = PBXBuildFile; fileRef = E295937D1AE8A62F00F71006 /* UIImage+TOWebViewControllerIcons.m */; };
+		E29D2CED1AED139A00649495 /* THPinInputCirclesView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CDE1AED139A00649495 /* THPinInputCirclesView.m */; };
+		E29D2CEE1AED139A00649495 /* THPinInputCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CE01AED139A00649495 /* THPinInputCircleView.m */; };
+		E29D2CEF1AED139A00649495 /* THPinNumButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CE21AED139A00649495 /* THPinNumButton.m */; };
+		E29D2CF01AED139A00649495 /* THPinNumPadView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CE41AED139A00649495 /* THPinNumPadView.m */; };
+		E29D2CF11AED139A00649495 /* THPinView.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CE61AED139A00649495 /* THPinView.m */; };
+		E29D2CF21AED139A00649495 /* THPinViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E29D2CE71AED139A00649495 /* THPinViewController.bundle */; };
+		E29D2CF31AED139A00649495 /* THPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CE91AED139A00649495 /* THPinViewController.m */; };
+		E29D2CF41AED139A00649495 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CEC1AED139A00649495 /* UIImage+ImageEffects.m */; };
 		E2C2AF961A8B95C700C23EA2 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */; };
 		E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF981A8BB0A800C23EA2 /* RepostViewController.m */; };
 		E2C2AF9B1A8BB0A800C23EA2 /* RepostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C2AF991A8BB0A800C23EA2 /* RepostViewController.xib */; };
@@ -455,6 +463,22 @@
 		E295937D1AE8A62F00F71006 /* UIImage+TOWebViewControllerIcons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+TOWebViewControllerIcons.m"; sourceTree = "<group>"; };
 		E295937E1AE8A62F00F71006 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/TOWebViewControllerLocalizable.strings"; sourceTree = "<group>"; };
 		E295937F1AE8A62F00F71006 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/TOWebViewControllerLocalizable.strings"; sourceTree = "<group>"; };
+		E29D2CDD1AED139A00649495 /* THPinInputCirclesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinInputCirclesView.h; sourceTree = "<group>"; };
+		E29D2CDE1AED139A00649495 /* THPinInputCirclesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinInputCirclesView.m; sourceTree = "<group>"; };
+		E29D2CDF1AED139A00649495 /* THPinInputCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinInputCircleView.h; sourceTree = "<group>"; };
+		E29D2CE01AED139A00649495 /* THPinInputCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinInputCircleView.m; sourceTree = "<group>"; };
+		E29D2CE11AED139A00649495 /* THPinNumButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinNumButton.h; sourceTree = "<group>"; };
+		E29D2CE21AED139A00649495 /* THPinNumButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinNumButton.m; sourceTree = "<group>"; };
+		E29D2CE31AED139A00649495 /* THPinNumPadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinNumPadView.h; sourceTree = "<group>"; };
+		E29D2CE41AED139A00649495 /* THPinNumPadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinNumPadView.m; sourceTree = "<group>"; };
+		E29D2CE51AED139A00649495 /* THPinView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinView.h; sourceTree = "<group>"; };
+		E29D2CE61AED139A00649495 /* THPinView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinView.m; sourceTree = "<group>"; };
+		E29D2CE71AED139A00649495 /* THPinViewController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = THPinViewController.bundle; sourceTree = "<group>"; };
+		E29D2CE81AED139A00649495 /* THPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinViewController.h; sourceTree = "<group>"; };
+		E29D2CE91AED139A00649495 /* THPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THPinViewController.m; sourceTree = "<group>"; };
+		E29D2CEA1AED139A00649495 /* THPinViewControllerMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinViewControllerMacros.h; sourceTree = "<group>"; };
+		E29D2CEB1AED139A00649495 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
+		E29D2CEC1AED139A00649495 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		E2C2AF941A8B95C700C23EA2 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		E2C2AF971A8BB0A800C23EA2 /* RepostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepostViewController.h; sourceTree = "<group>"; };
@@ -1031,6 +1055,29 @@
 				E295937D1AE8A62F00F71006 /* UIImage+TOWebViewControllerIcons.m */,
 			);
 			path = TOWebViewController;
+			sourceTree = "<group>";
+		};
+		E29D2CDC1AED139A00649495 /* THPinViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E29D2CDD1AED139A00649495 /* THPinInputCirclesView.h */,
+				E29D2CDE1AED139A00649495 /* THPinInputCirclesView.m */,
+				E29D2CDF1AED139A00649495 /* THPinInputCircleView.h */,
+				E29D2CE01AED139A00649495 /* THPinInputCircleView.m */,
+				E29D2CE11AED139A00649495 /* THPinNumButton.h */,
+				E29D2CE21AED139A00649495 /* THPinNumButton.m */,
+				E29D2CE31AED139A00649495 /* THPinNumPadView.h */,
+				E29D2CE41AED139A00649495 /* THPinNumPadView.m */,
+				E29D2CE51AED139A00649495 /* THPinView.h */,
+				E29D2CE61AED139A00649495 /* THPinView.m */,
+				E29D2CE71AED139A00649495 /* THPinViewController.bundle */,
+				E29D2CE81AED139A00649495 /* THPinViewController.h */,
+				E29D2CE91AED139A00649495 /* THPinViewController.m */,
+				E29D2CEA1AED139A00649495 /* THPinViewControllerMacros.h */,
+				E29D2CEB1AED139A00649495 /* UIImage+ImageEffects.h */,
+				E29D2CEC1AED139A00649495 /* UIImage+ImageEffects.m */,
+			);
+			path = THPinViewController;
 			sourceTree = "<group>";
 		};
 		E2C2AF931A8B95C700C23EA2 /* ModelTransitionStyle */ = {
@@ -1725,6 +1772,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E29D2CDC1AED139A00649495 /* THPinViewController */,
 				E28512F41AEB8C2C00E985A6 /* Peekaboo */,
 				E28512B21AEB6EE600E985A6 /* BLKFlexibleHeightBar */,
 				E28512AE1AEA508700E985A6 /* ThemeKit */,
@@ -2239,6 +2287,7 @@
 				E2F2433A1ACD6A06002F6003 /* timescroll_hourhand.png in Resources */,
 				E267CF051ACFA9F800A67888 /* WeiboSDK.bundle in Resources */,
 				E2F2433E1ACD6A06002F6003 /* timescroll_pointer.png in Resources */,
+				E29D2CF21AED139A00649495 /* THPinViewController.bundle in Resources */,
 				E2F072421A2F5DBE00BDE434 /* DetailHeader.xib in Resources */,
 				E2F072521A304F6B00BDE434 /* IWComposeDock.xib in Resources */,
 				E2F071211A2D775900BDE434 /* Info.plist in Resources */,
@@ -2276,6 +2325,7 @@
 				E28512CD1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m in Sources */,
 				E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */,
 				E2F071431A2DD06800BDE434 /* XWSearchBar.m in Sources */,
+				E29D2CF01AED139A00649495 /* THPinNumPadView.m in Sources */,
 				E2F071401A2DB70F00BDE434 /* XWTitleButton.m in Sources */,
 				E28512A91AEA4C9400E985A6 /* HRHSVColorUtil.m in Sources */,
 				E214DC3B1AE0FCCC008142A3 /* MASConstraintMaker.m in Sources */,
@@ -2332,6 +2382,7 @@
 				E21CE1731A381B460031D6B8 /* AFHTTPRequestOperation.m in Sources */,
 				E2F071601A2DDED200BDE434 /* XWSettingLabelItem.m in Sources */,
 				E215274A1A8B4C71005BECB2 /* SWCellScrollView.m in Sources */,
+				E29D2CEE1AED139A00649495 /* THPinInputCircleView.m in Sources */,
 				E2F071121A2D761600BDE434 /* XWTabBarController.m in Sources */,
 				E2EF80E71A3099E9003E9D9B /* IWNumberBtn.m in Sources */,
 				E2F071C61A2E16FE00BDE434 /* SDWebImageDecoder.m in Sources */,
@@ -2341,6 +2392,7 @@
 				E214DC401AE0FCCC008142A3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E2CAC7FC1AE100E500F35EF5 /* YALSpringAnimation.m in Sources */,
 				E2C2AFA31A8C8CDD00C23EA2 /* CommentViewController.m in Sources */,
+				E29D2CF41AED139A00649495 /* UIImage+ImageEffects.m in Sources */,
 				E2C2FA651ADA612100474FDC /* XWEmotionTool.m in Sources */,
 				E2C2AFE91A91E1DB00C23EA2 /* XWOwnComment.m in Sources */,
 				E2EF80CE1A308811003E9D9B /* MJPhotoProgressView.m in Sources */,
@@ -2385,6 +2437,7 @@
 				E2F071C41A2E16FE00BDE434 /* SDImageCache.m in Sources */,
 				E28512861AEA19B200E985A6 /* XWImageSettingsViewController.m in Sources */,
 				E2F0712E1A2D93EA00BDE434 /* XWTabBarButton.m in Sources */,
+				E29D2CF11AED139A00649495 /* THPinView.m in Sources */,
 				E2CAC8021AE100E500F35EF5 /* YALFoldingTabBar.m in Sources */,
 				E2EF80D81A3096FA003E9D9B /* XWFriendshipParam.m in Sources */,
 				E2F071CA1A2E16FE00BDE434 /* SDWebImagePrefetcher.m in Sources */,
@@ -2396,6 +2449,7 @@
 				E2F072921A30622300BDE434 /* XWUnreadResult.m in Sources */,
 				E2F0714A1A2DD46300BDE434 /* XWNewfeatureViewController.m in Sources */,
 				E2F072961A30627600BDE434 /* XWStatusParam.m in Sources */,
+				E29D2CF31AED139A00649495 /* THPinViewController.m in Sources */,
 				E29593821AE8A62F00F71006 /* TOActivitySafari.m in Sources */,
 				E28512A51AEA4C9400E985A6 /* HRColorCursor.m in Sources */,
 				E21D82761AE628F800343E3E /* XWSendMessageTableViewController.m in Sources */,
@@ -2412,6 +2466,7 @@
 				E2CBAB381AD417C300D812EC /* MJMethod.m in Sources */,
 				E2F0715D1A2DDE3F00BDE434 /* XWSettingSwitchItem.m in Sources */,
 				E2F2435F1ACE6529002F6003 /* MJRefreshHeader.m in Sources */,
+				E29D2CEF1AED139A00649495 /* THPinNumButton.m in Sources */,
 				E2D4BC9C1A9DC68000B02862 /* XWCommentDock.m in Sources */,
 				E2C2FA711ADA93D500474FDC /* XWEmotionAttachment.m in Sources */,
 				E2F0724D1A30483E00BDE434 /* XWComposeViewController.m in Sources */,
@@ -2497,6 +2552,7 @@
 				E2F071281A2D7DF500BDE434 /* UIImage+DP.m in Sources */,
 				E2F072991A3062D000BDE434 /* XWStatusResult.m in Sources */,
 				E2EF80D51A3096C0003E9D9B /* XWUserParam.m in Sources */,
+				E29D2CED1AED139A00649495 /* THPinInputCirclesView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

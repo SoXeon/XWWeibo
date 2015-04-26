@@ -50,6 +50,7 @@
     cell.delegate = self;
     
     return cell;
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

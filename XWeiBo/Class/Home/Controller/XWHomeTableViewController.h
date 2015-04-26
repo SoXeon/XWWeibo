@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XWHomeTableViewController : UITableViewController
-
+@interface XWHomeTableViewController : UITableViewController 
 - (void)refreshContent:(BOOL)FromSelf;
 
 @end
