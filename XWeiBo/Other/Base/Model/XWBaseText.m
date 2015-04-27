@@ -12,6 +12,14 @@
 #import "XWRegexResult.h"
 #import "XWEmotionAttachment.h"
 #import "XWEmotionTool.h"
+#import "XWStatusTool.h"
+#import "kLink.h"
+
+@interface XWBaseText()
+
+@property (nonatomic, strong) kLink *urlLink;
+
+@end
 
 @implementation XWBaseText
 
@@ -67,6 +75,7 @@
     _text = [text copy];
     
     //链接、@某人、#话题#
+    self.urlLink = [[kLink alloc] init];
     
     //拼配普通文字和表情
     NSArray *regexResults = [self regexResultsWithText:text];
@@ -122,7 +131,22 @@
                 [subStr addAttribute:kLinkText value:*capturedStrings range:*capturedRanges];
                 //TODO:分析当前联接（视频，音乐，活动，投票）
                 //响应对应的点击,全都跳转到WebView吧 Modal出来一个
+                
+                
+                [XWStatusTool fetchLongURLWithShortURL:*capturedStrings success:^(id JSON) {
+                    NSArray *wrapper= [NSJSONSerialization JSONObjectWithData:JSON options:0 error:nil];
+                    NSDictionary *avatars = [wrapper objectAtIndex:0];
+                    
+                    for (NSDictionary *avatar in avatars) {
+                        self.urlLink.urlDetailType = [avatar[@"type"] intValue];
+                    }
+                    
+                } failure:^(NSError *error) {
+                    
+                }];
+                
             }];
+            
             
             
             [attributeText appendAttributedString:subStr];

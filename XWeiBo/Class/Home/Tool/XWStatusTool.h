@@ -129,4 +129,9 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
 
 + (void)fetchFriendGroupWithSuccess:(HttpSuccessBlock)success
                             failure:(HttpFailureBlock)failure;
+
+
++ (void)fetchLongURLWithShortURL:(NSString *)shortURL
+                         success:(HttpSuccessBlock)success
+                         failure:(HttpFailureBlock)failure;
 @end

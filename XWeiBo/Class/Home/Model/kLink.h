@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    kNormalWebType,
+    kViedoType,
+    kMusicType,
+    kAvtivityType,
+    kVoteType
+} urlType;
+
+
 @interface kLink : NSObject
+
 
 /**
  *  链接文字
@@ -22,5 +32,10 @@
  *  链接的边框
  */
 @property (nonatomic, strong) NSArray *rects;
+
+/**
+ *  链接类型
+ */
+@property (nonatomic, assign) urlType urlDetailType;
 
 @end

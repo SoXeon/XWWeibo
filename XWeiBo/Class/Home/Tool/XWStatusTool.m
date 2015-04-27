@@ -202,6 +202,24 @@
 
 }
 
++ (void)fetchLongURLWithShortURL:(NSString *)shortURL
+                         success:(HttpSuccessBlock)success
+                         failure:(HttpFailureBlock)failure
+{
+    [HttpTool getWithpath:@"2/short_url/expand.json" params:@{@"url_short":shortURL} success:^(id JSON) {
+        if (success) {
+            
+            
+            success(JSON);
+        }
+    } failure:^(NSError *error) {
+        if (failure == nil) {
+            return;
+        }
+        failure(error);
+    }];
+}
+
 + (void)everyUserStatusesWithParams:(NSDictionary *)param success:(StatusSuccessBlock)success failure:(HttpFailureBlock)failure
 {
     
