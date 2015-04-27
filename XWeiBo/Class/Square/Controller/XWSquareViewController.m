@@ -71,7 +71,10 @@
     XWSettingGroup *group = [self addGroup];
     XWSettingLabelItem *video = [XWSettingLabelItem itemWithIcon:@"video" title:@"清除缓存" destVcClass:nil];
     video.defaultText = @"6.20M";
-    group.items = @[video];
+    
+    XWSettingArrowItem *pinSetting = [XWSettingArrowItem itemWithIcon:@"movie" title:@"密码锁定" destVcClass:nil];
+    pinSetting.subtitle = @"                               开启";
+    group.items = @[video, pinSetting];
 
 }
 

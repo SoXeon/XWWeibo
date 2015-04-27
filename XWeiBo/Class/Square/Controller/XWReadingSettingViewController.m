@@ -11,6 +11,7 @@
 #import "XWSettingGroup.h"
 #import "XWSettingCheckGroup.h"
 #import "XWSettingCheckItem.h"
+#import "XWSettingLabelItem.h"
 
 @implementation XWReadingSettingViewController
 
@@ -60,7 +61,12 @@
     
     XWSettingSwitchItem *fullScreenReading = [XWSettingSwitchItem itemWithTitle:@"首页全屏阅读"];
     
-    group.items = @[fullScreenReading];
+    XWSettingArrowItem *nightReadingModel = [XWSettingSwitchItem itemWithTitle:@"夜晚阅读模式"];
+    //TODO:设置夜晚阅读模式时间端
+    XWSettingLabelItem *timeSelectedModel = [XWSettingLabelItem itemWithIcon:@"video" title:@"清除缓存" destVcClass:nil];
+    timeSelectedModel.defaultText = @"20:00~23:00";
+    
+    group.items = @[fullScreenReading, nightReadingModel, timeSelectedModel];
 
 }
 
