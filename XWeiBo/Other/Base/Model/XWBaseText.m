@@ -125,27 +125,12 @@
             NSString *httpRegex = @"http(s)?://([a-zA-Z|\\d]+\\.)+[a-zA-Z|\\d]+(/[a-zA-Z|\\d|\\-|\\+|_./?%&=]*)?";
             [result.string enumerateStringsMatchedByRegex:httpRegex usingBlock:^(NSInteger captureCount, NSString *const __unsafe_unretained *capturedStrings, const NSRange *capturedRanges, volatile BOOL *const stop) {
                 
-                    [subStr addAttribute:NSForegroundColorAttributeName value:kStatusHighTextColor range:*capturedRanges];
+                [subStr addAttribute:NSForegroundColorAttributeName value:kStatusHighTextColor range:*capturedRanges];
                 
-
                 [subStr addAttribute:kLinkText value:*capturedStrings range:*capturedRanges];
-                //TODO:分析当前联接（视频，音乐，活动，投票）
-                //响应对应的点击,全都跳转到WebView吧 Modal出来一个
-                
-                
-                [XWStatusTool fetchLongURLWithShortURL:*capturedStrings success:^(id JSON) {
-                    NSArray *wrapper= [NSJSONSerialization JSONObjectWithData:JSON options:0 error:nil];
-                    NSDictionary *avatars = [wrapper objectAtIndex:0];
-                    
-                    for (NSDictionary *avatar in avatars) {
-                        self.urlLink.urlDetailType = [avatar[@"type"] intValue];
-                    }
-                    
-                } failure:^(NSError *error) {
-                    
-                }];
                 
             }];
+            
             
             
             

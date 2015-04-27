@@ -93,6 +93,7 @@
 		E29D2CF21AED139A00649495 /* THPinViewController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E29D2CE71AED139A00649495 /* THPinViewController.bundle */; };
 		E29D2CF31AED139A00649495 /* THPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CE91AED139A00649495 /* THPinViewController.m */; };
 		E29D2CF41AED139A00649495 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CEC1AED139A00649495 /* UIImage+ImageEffects.m */; };
+		E29D2CFA1AEE137B00649495 /* XWPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CF91AEE137B00649495 /* XWPinViewController.m */; };
 		E2C2AF961A8B95C700C23EA2 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */; };
 		E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF981A8BB0A800C23EA2 /* RepostViewController.m */; };
 		E2C2AF9B1A8BB0A800C23EA2 /* RepostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C2AF991A8BB0A800C23EA2 /* RepostViewController.xib */; };
@@ -142,6 +143,7 @@
 		E2D4BC981A9DC4C600B02862 /* XWRepeatCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D4BC971A9DC4C600B02862 /* XWRepeatCommentsViewController.m */; };
 		E2D4BC9C1A9DC68000B02862 /* XWCommentDock.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D4BC9B1A9DC68000B02862 /* XWCommentDock.m */; };
 		E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D4BC9D1A9DC6B100B02862 /* XWCommentDock.xib */; };
+		E2EA9D1B1AEE977E00FD3860 /* XWPinDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EA9D1A1AEE977E00FD3860 /* XWPinDetailController.m */; };
 		E2EC95851AE271A0007F8E57 /* XWStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EC95841AE271A0007F8E57 /* XWStatusLabel.m */; };
 		E2EF80CA1A308811003E9D9B /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF80BA1A308811003E9D9B /* MJPhoto.m */; };
 		E2EF80CB1A308811003E9D9B /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2EF80BB1A308811003E9D9B /* MJPhotoBrowser.bundle */; };
@@ -479,6 +481,8 @@
 		E29D2CEA1AED139A00649495 /* THPinViewControllerMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THPinViewControllerMacros.h; sourceTree = "<group>"; };
 		E29D2CEB1AED139A00649495 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageEffects.h"; sourceTree = "<group>"; };
 		E29D2CEC1AED139A00649495 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
+		E29D2CF81AEE137B00649495 /* XWPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPinViewController.h; sourceTree = "<group>"; };
+		E29D2CF91AEE137B00649495 /* XWPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPinViewController.m; sourceTree = "<group>"; };
 		E2C2AF941A8B95C700C23EA2 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		E2C2AF971A8BB0A800C23EA2 /* RepostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepostViewController.h; sourceTree = "<group>"; };
@@ -574,6 +578,8 @@
 		E2D4BC9A1A9DC68000B02862 /* XWCommentDock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWCommentDock.h; sourceTree = "<group>"; };
 		E2D4BC9B1A9DC68000B02862 /* XWCommentDock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWCommentDock.m; sourceTree = "<group>"; };
 		E2D4BC9D1A9DC6B100B02862 /* XWCommentDock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWCommentDock.xib; sourceTree = "<group>"; };
+		E2EA9D191AEE977E00FD3860 /* XWPinDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPinDetailController.h; sourceTree = "<group>"; };
+		E2EA9D1A1AEE977E00FD3860 /* XWPinDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPinDetailController.m; sourceTree = "<group>"; };
 		E2EC95831AE271A0007F8E57 /* XWStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWStatusLabel.h; sourceTree = "<group>"; };
 		E2EC95841AE271A0007F8E57 /* XWStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWStatusLabel.m; sourceTree = "<group>"; };
 		E2EF80B91A308811003E9D9B /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
@@ -1749,6 +1755,10 @@
 				E28512881AEA27C600E985A6 /* XWReadingSettingViewController.m */,
 				E28512AB1AEA4D3500E985A6 /* XWColorChoiceViewController.h */,
 				E28512AC1AEA4D3500E985A6 /* XWColorChoiceViewController.m */,
+				E29D2CF81AEE137B00649495 /* XWPinViewController.h */,
+				E29D2CF91AEE137B00649495 /* XWPinViewController.m */,
+				E2EA9D191AEE977E00FD3860 /* XWPinDetailController.h */,
+				E2EA9D1A1AEE977E00FD3860 /* XWPinDetailController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2334,6 +2344,7 @@
 				E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */,
 				E2C2FA6E1ADA87E200474FDC /* RegexKitLite.m in Sources */,
 				E2F071821A2E169600BDE434 /* HttpTool.m in Sources */,
+				E2EA9D1B1AEE977E00FD3860 /* XWPinDetailController.m in Sources */,
 				E2F0713D1A2DB51000BDE434 /* XWNavigationController.m in Sources */,
 				E2CBAB3C1AD417C300D812EC /* NSObject+MJKeyValue.m in Sources */,
 				E2C2AFB51A8E1B7A00C23EA2 /* UIColor+SLAddition.m in Sources */,
@@ -2351,6 +2362,7 @@
 				E28512F71AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m in Sources */,
 				E2F072641A305DA700BDE434 /* XWUidParam.m in Sources */,
 				E28512891AEA27C600E985A6 /* XWReadingSettingViewController.m in Sources */,
+				E29D2CFA1AEE137B00649495 /* XWPinViewController.m in Sources */,
 				E2F072471A30349700BDE434 /* XWGroupCell.m in Sources */,
 				E2F0729C1A3064E400BDE434 /* XWSingleStatusParam.m in Sources */,
 				E2F0722C1A2F270A00BDE434 /* XWStatusDetailController.m in Sources */,

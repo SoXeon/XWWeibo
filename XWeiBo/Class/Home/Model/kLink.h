@@ -36,6 +36,6 @@ typedef enum {
 /**
  *  链接类型
  */
-@property (nonatomic, assign) urlType urlDetailType;
+@property (nonatomic, assign) int urlDetailType;
 
 @end

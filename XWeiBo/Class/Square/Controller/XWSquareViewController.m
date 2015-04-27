@@ -16,6 +16,7 @@
 #import "XWImageSettingsViewController.h"
 #import "XWReadingSettingViewController.h"
 #import "XWColorChoiceViewController.h"
+#import "XWPinViewController.h"
 
 @interface XWSquareViewController ()
 
@@ -72,7 +73,7 @@
     XWSettingLabelItem *video = [XWSettingLabelItem itemWithIcon:@"video" title:@"清除缓存" destVcClass:nil];
     video.defaultText = @"6.20M";
     
-    XWSettingArrowItem *pinSetting = [XWSettingArrowItem itemWithIcon:@"movie" title:@"密码锁定" destVcClass:nil];
+    XWSettingArrowItem *pinSetting = [XWSettingArrowItem itemWithIcon:@"movie" title:@"密码锁定" destVcClass:[XWPinViewController class]];
     pinSetting.subtitle = @"                               开启";
     group.items = @[video, pinSetting];
 
