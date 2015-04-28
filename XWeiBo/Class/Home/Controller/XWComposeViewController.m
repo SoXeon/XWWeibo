@@ -22,6 +22,8 @@
 #import "XWUserParam.h"
 #import "XWUser.h"
 
+#import "CRToast.h"
+
 @interface XWComposeViewController () <UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 {
     IWComposeDock *_dock;
@@ -272,7 +274,38 @@
     [_textView resignFirstResponder];
     
     // 2.弹框
-    [MBProgressHUD showMessage:@"正在发送" toView:self.view.window];
+//    [MBProgressHUD showMessage:@"正在发送" toView:self.view.window];
+    
+    NSDictionary *options = @{
+                              kCRToastTextKey: @"正在发送...",
+                              kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
+                              kCRToastBackgroundColorKey: [UIColor yellowColor],
+                              kCRToastTextColorKey: [UIColor redColor],
+                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
+                              kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
+                              kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
+                              kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom),
+                              kCRToastAnimationInTimeIntervalKey : @(1.0)
+                              };
+    
+    [CRToastManager showNotificationWithOptions:options completionBlock:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSDictionary *options = @{
+                                  kCRToastTextKey: @"发送成功",
+                                  kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
+                                  kCRToastBackgroundColorKey: [UIColor yellowColor],
+                                  kCRToastTextColorKey: [UIColor redColor],
+                                  kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
+                                  kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
+                                  kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionBottom),
+                                  kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
+                                  kCRToastAnimationInTimeIntervalKey : @(1.0),
+                                  };
+        
+        [CRToastManager showNotificationWithOptions:options completionBlock:nil];
+
+    });
     
     if (self.imageView.image) {
         [self sendWithImage];
@@ -305,10 +338,10 @@
     
     AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+//        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
 
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+//        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
 
     }];
     
@@ -322,10 +355,10 @@
     XWUpdateParam *param = [[XWUpdateParam alloc] init];
     param.status = _textView.realText;
     [XWStatusTool updateWithParam:param success:^(XWStatus *status) {
-        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+//        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
         [self cancel];
     } failure:^(NSError *error) {
-        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
+//        [MBProgressHUD hideAllHUDsForView:self.view.window animated:YES];
     }];
 }
 

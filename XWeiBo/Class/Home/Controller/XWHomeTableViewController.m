@@ -282,7 +282,7 @@
     NSString *title = count?[NSString stringWithFormat:@"共有%d条新的微博", count]:@"没有新的微博";
     [btn setTitle:title forState:UIControlStateNormal];
     [self.navigationController.view insertSubview:btn belowSubview:self.navigationController.navigationBar];
-    
+        
     // 2.开始执行动画
     CGFloat duration = 0.5;
     

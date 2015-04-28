@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		750CA39D362D60F0A6AFD75B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FE8C04A18824D165DCF771 /* libPods.a */; };
+		E208422C1AEF6F0900031CCD /* CRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842221AEF6F0900031CCD /* CRToast.m */; };
+		E208422D1AEF6F0900031CCD /* CRToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842251AEF6F0900031CCD /* CRToastManager.m */; };
+		E208422E1AEF6F0900031CCD /* CRToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842271AEF6F0900031CCD /* CRToastView.m */; };
+		E208422F1AEF6F0900031CCD /* CRToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842291AEF6F0900031CCD /* CRToastViewController.m */; };
+		E20842301AEF6F0900031CCD /* CRToastWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E208422B1AEF6F0900031CCD /* CRToastWindow.m */; };
 		E214197C1A91EE030048A451 /* XWOwnCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197B1A91EE030048A451 /* XWOwnCommentCell.m */; };
 		E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197E1A91EE380048A451 /* XWOwnCommentsCellFrame.m */; };
 		E214DC381AE0FCCC008142A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E214DC201AE0FCCC008142A3 /* Info.plist */; };
@@ -303,6 +308,17 @@
 		68FE8C04A18824D165DCF771 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0485E74FA4607629E2385D9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E00A9A79B38A31DF22F7B686 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		E20842211AEF6F0900031CCD /* CRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToast.h; sourceTree = "<group>"; };
+		E20842221AEF6F0900031CCD /* CRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToast.m; sourceTree = "<group>"; };
+		E20842231AEF6F0900031CCD /* CRToastLayoutHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastLayoutHelpers.h; sourceTree = "<group>"; };
+		E20842241AEF6F0900031CCD /* CRToastManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastManager.h; sourceTree = "<group>"; };
+		E20842251AEF6F0900031CCD /* CRToastManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastManager.m; sourceTree = "<group>"; };
+		E20842261AEF6F0900031CCD /* CRToastView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastView.h; sourceTree = "<group>"; };
+		E20842271AEF6F0900031CCD /* CRToastView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastView.m; sourceTree = "<group>"; };
+		E20842281AEF6F0900031CCD /* CRToastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastViewController.h; sourceTree = "<group>"; };
+		E20842291AEF6F0900031CCD /* CRToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastViewController.m; sourceTree = "<group>"; };
+		E208422A1AEF6F0900031CCD /* CRToastWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastWindow.h; sourceTree = "<group>"; };
+		E208422B1AEF6F0900031CCD /* CRToastWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastWindow.m; sourceTree = "<group>"; };
 		E214197A1A91EE030048A451 /* XWOwnCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentCell.h; sourceTree = "<group>"; };
 		E214197B1A91EE030048A451 /* XWOwnCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWOwnCommentCell.m; sourceTree = "<group>"; };
 		E214197D1A91EE380048A451 /* XWOwnCommentsCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentsCellFrame.h; sourceTree = "<group>"; };
@@ -907,6 +923,24 @@
 				D0485E74FA4607629E2385D9 /* Pods.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		E20842201AEF6F0900031CCD /* CRToast */ = {
+			isa = PBXGroup;
+			children = (
+				E20842211AEF6F0900031CCD /* CRToast.h */,
+				E20842221AEF6F0900031CCD /* CRToast.m */,
+				E20842231AEF6F0900031CCD /* CRToastLayoutHelpers.h */,
+				E20842241AEF6F0900031CCD /* CRToastManager.h */,
+				E20842251AEF6F0900031CCD /* CRToastManager.m */,
+				E20842261AEF6F0900031CCD /* CRToastView.h */,
+				E20842271AEF6F0900031CCD /* CRToastView.m */,
+				E20842281AEF6F0900031CCD /* CRToastViewController.h */,
+				E20842291AEF6F0900031CCD /* CRToastViewController.m */,
+				E208422A1AEF6F0900031CCD /* CRToastWindow.h */,
+				E208422B1AEF6F0900031CCD /* CRToastWindow.m */,
+			);
+			path = CRToast;
 			sourceTree = "<group>";
 		};
 		E214DC1F1AE0FCCC008142A3 /* Masonry */ = {
@@ -1818,6 +1852,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E20842201AEF6F0900031CCD /* CRToast */,
 				E29D2CDC1AED139A00649495 /* THPinViewController */,
 				E28512F41AEB8C2C00E985A6 /* Peekaboo */,
 				E28512B21AEB6EE600E985A6 /* BLKFlexibleHeightBar */,
@@ -2427,12 +2462,14 @@
 				E2F072291A2F24E700BDE434 /* XWStatusDetailCellFrame.m in Sources */,
 				E2F0716C1A2DE6B000BDE434 /* XWSettingCell.m in Sources */,
 				E2F072551A304FB100BDE434 /* XWPlaceholderTextView.m in Sources */,
+				E208422C1AEF6F0900031CCD /* CRToast.m in Sources */,
 				E21CE1751A381B460031D6B8 /* AFJSONRequestOperation.m in Sources */,
 				E2CE0AEB1AD4103C00FE0451 /* XWEmotionToobar.m in Sources */,
 				E28512C51AEB6EE700E985A6 /* FacebookStyleBarBehaviorDefiner.m in Sources */,
 				E28512F71AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m in Sources */,
 				E2F072641A305DA700BDE434 /* XWUidParam.m in Sources */,
 				E28512891AEA27C600E985A6 /* XWReadingSettingViewController.m in Sources */,
+				E208422D1AEF6F0900031CCD /* CRToastManager.m in Sources */,
 				E29D2CFA1AEE137B00649495 /* XWPinViewController.m in Sources */,
 				E2F072471A30349700BDE434 /* XWGroupCell.m in Sources */,
 				E2F0729C1A3064E400BDE434 /* XWSingleStatusParam.m in Sources */,
@@ -2499,6 +2536,7 @@
 				E2F072671A305EC300BDE434 /* XWBaseTool.m in Sources */,
 				E2CBAB371AD417C300D812EC /* MJMember.m in Sources */,
 				E2F071CF1A2E16FE00BDE434 /* UIImageView+WebCache.m in Sources */,
+				E20842301AEF6F0900031CCD /* CRToastWindow.m in Sources */,
 				E2F071C91A2E16FE00BDE434 /* SDWebImageManager.m in Sources */,
 				E2C2AFBD1A8FB11000C23EA2 /* XWMentionsViewController.m in Sources */,
 				E2EF80EB1A309AB1003E9D9B /* IWFriendshipCell.m in Sources */,
@@ -2536,6 +2574,7 @@
 				E29D2CF31AED139A00649495 /* THPinViewController.m in Sources */,
 				E29593821AE8A62F00F71006 /* TOActivitySafari.m in Sources */,
 				E28512A51AEA4C9400E985A6 /* HRColorCursor.m in Sources */,
+				E208422E1AEF6F0900031CCD /* CRToastView.m in Sources */,
 				E21D82761AE628F800343E3E /* XWSendMessageTableViewController.m in Sources */,
 				E2F0712B1A2D8CC000BDE434 /* XWTabBar.m in Sources */,
 				E29593831AE8A62F00F71006 /* TOWebViewController.m in Sources */,
@@ -2582,6 +2621,7 @@
 				E2F0717E1A2E160F00BDE434 /* XWOAuthViewController.m in Sources */,
 				E2F0717A1A2E125E00BDE434 /* XWAccountTool.m in Sources */,
 				E2EF80D01A308811003E9D9B /* MJPhotoView.m in Sources */,
+				E208422F1AEF6F0900031CCD /* CRToastViewController.m in Sources */,
 				E2F34FC21AD9050B009A846B /* YSLScrollMenuView.m in Sources */,
 				E214DC3E1AE0FCCC008142A3 /* MASViewConstraint.m in Sources */,
 				E2F0716F1A2DFDCB00BDE434 /* XWAnyMoreViewController.m in Sources */,
