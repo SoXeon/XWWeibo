@@ -24,10 +24,13 @@
 #import "MJExtension.h"
 
 @implementation XWStatusTool
-+ (void)statusesWithSinceId:(long long)sinceId maxId:(long long)maxId success:(StatusSuccessBlock)success failure:(StatusFailureBlock)failure
++ (void)statusesWithSinceId:(long long)sinceId
+                      maxId:(long long)maxId
+                    success:(StatusSuccessBlock)success
+                    failure:(StatusFailureBlock)failure
 {
     [HttpTool getWithpath:@"2/statuses/home_timeline.json" params:@{
-                                                                    @"count" : @50,
+                                                                    @"count" : @20,
                                                                     @"since_id" : @(sinceId),
                                                                     @"max_id" : @(maxId)
                                                                     } success:^(id JSON) {
@@ -49,6 +52,39 @@
                                                                         
                                                                         failure(error);
                                                                     }];
+}
+
++ (void)publicStatusesWithSinceId:(long long)sinceId
+                            maxId:(long long)maxId
+                          success:(StatusSuccessBlock)success
+                          failure:(StatusFailureBlock)failure
+{
+    [HttpTool getWithpath:@"2/statuses/public_timeline.json" params:@{
+                                                                      @"count" : @20,
+                                                                      @"since_id" : @(sinceId),
+                                                                      @"max_id" : @(maxId)
+
+                                                                      } success:^(id JSON) {
+                                                                          if (success == nil) {
+                                                                              return;
+                                                                          }
+                                                                          NSMutableArray *statuses = [NSMutableArray array];
+
+                                                                          NSArray *array = JSON[@"statuses"];
+                                                                          
+                                                                          for (NSDictionary *dict in array) {
+                                                                              XWStatus *s = [[XWStatus alloc] initWithDict:dict];
+                                                                              [statuses addObject:s];
+                                                                          }
+                                                                          
+                                                                          success(statuses);
+                                                                      } failure:^(NSError *error) {
+                                                                          if (failure == nil) {
+                                                                              return;
+                                                                          }
+                                                                          
+                                                                          failure(error);
+                                                                      }];
 }
 
 + (void)repeatCommentsWithStatusID:(long long)statusID

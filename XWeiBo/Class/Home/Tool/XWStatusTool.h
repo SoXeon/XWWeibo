@@ -43,6 +43,11 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
                     success:(StatusSuccessBlock)success
                     failure:(StatusFailureBlock)failure;
 
++ (void)publicStatusesWithSinceId:(long long)sinceId
+                            maxId:(long long)maxId
+                          success:(StatusSuccessBlock)success
+                          failure:(StatusFailureBlock)failure;
+
 // 抓取@我的微博
 + (void)metionsWithSinceId:(long long)sinceId
                      maxId:(long long)maxId
