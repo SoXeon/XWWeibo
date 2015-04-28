@@ -14,6 +14,10 @@
 		E208422F1AEF6F0900031CCD /* CRToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842291AEF6F0900031CCD /* CRToastViewController.m */; };
 		E20842301AEF6F0900031CCD /* CRToastWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E208422B1AEF6F0900031CCD /* CRToastWindow.m */; };
 		E20842371AEFAC4C00031CCD /* XWHotTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842361AEFAC4C00031CCD /* XWHotTopic.m */; };
+		E208423F1AEFDC9500031CCD /* CBZRasterSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = E208423A1AEFDC9500031CCD /* CBZRasterSplashView.m */; };
+		E20842401AEFDC9500031CCD /* CBZSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = E208423C1AEFDC9500031CCD /* CBZSplashView.m */; };
+		E20842411AEFDC9500031CCD /* CBZVectorSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = E208423E1AEFDC9500031CCD /* CBZVectorSplashView.m */; };
+		E20842441AEFDFEA00031CCD /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842431AEFDFEA00031CCD /* UIColor+HexString.m */; };
 		E214197C1A91EE030048A451 /* XWOwnCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197B1A91EE030048A451 /* XWOwnCommentCell.m */; };
 		E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197E1A91EE380048A451 /* XWOwnCommentsCellFrame.m */; };
 		E214DC381AE0FCCC008142A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E214DC201AE0FCCC008142A3 /* Info.plist */; };
@@ -322,6 +326,14 @@
 		E208422B1AEF6F0900031CCD /* CRToastWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastWindow.m; sourceTree = "<group>"; };
 		E20842351AEFAC4C00031CCD /* XWHotTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWHotTopic.h; sourceTree = "<group>"; };
 		E20842361AEFAC4C00031CCD /* XWHotTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWHotTopic.m; sourceTree = "<group>"; };
+		E20842391AEFDC9500031CCD /* CBZRasterSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBZRasterSplashView.h; sourceTree = "<group>"; };
+		E208423A1AEFDC9500031CCD /* CBZRasterSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBZRasterSplashView.m; sourceTree = "<group>"; };
+		E208423B1AEFDC9500031CCD /* CBZSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBZSplashView.h; sourceTree = "<group>"; };
+		E208423C1AEFDC9500031CCD /* CBZSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBZSplashView.m; sourceTree = "<group>"; };
+		E208423D1AEFDC9500031CCD /* CBZVectorSplashView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBZVectorSplashView.h; sourceTree = "<group>"; };
+		E208423E1AEFDC9500031CCD /* CBZVectorSplashView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBZVectorSplashView.m; sourceTree = "<group>"; };
+		E20842421AEFDFEA00031CCD /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		E20842431AEFDFEA00031CCD /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		E214197A1A91EE030048A451 /* XWOwnCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentCell.h; sourceTree = "<group>"; };
 		E214197B1A91EE030048A451 /* XWOwnCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWOwnCommentCell.m; sourceTree = "<group>"; };
 		E214197D1A91EE380048A451 /* XWOwnCommentsCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentsCellFrame.h; sourceTree = "<group>"; };
@@ -944,6 +956,19 @@
 				E208422B1AEF6F0900031CCD /* CRToastWindow.m */,
 			);
 			path = CRToast;
+			sourceTree = "<group>";
+		};
+		E20842381AEFDC9500031CCD /* CBZasterSize */ = {
+			isa = PBXGroup;
+			children = (
+				E20842391AEFDC9500031CCD /* CBZRasterSplashView.h */,
+				E208423A1AEFDC9500031CCD /* CBZRasterSplashView.m */,
+				E208423B1AEFDC9500031CCD /* CBZSplashView.h */,
+				E208423C1AEFDC9500031CCD /* CBZSplashView.m */,
+				E208423D1AEFDC9500031CCD /* CBZVectorSplashView.h */,
+				E208423E1AEFDC9500031CCD /* CBZVectorSplashView.m */,
+			);
+			path = CBZasterSize;
 			sourceTree = "<group>";
 		};
 		E214DC1F1AE0FCCC008142A3 /* Masonry */ = {
@@ -1857,6 +1882,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E20842381AEFDC9500031CCD /* CBZasterSize */,
 				E20842201AEF6F0900031CCD /* CRToast */,
 				E29D2CDC1AED139A00649495 /* THPinViewController */,
 				E28512F41AEB8C2C00E985A6 /* Peekaboo */,
@@ -1905,6 +1931,8 @@
 		E2F071251A2D7DB600BDE434 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				E20842421AEFDFEA00031CCD /* UIColor+HexString.h */,
+				E20842431AEFDFEA00031CCD /* UIColor+HexString.m */,
 				E2CE09221AD2DF7500FE0451 /* UIView+Extension.h */,
 				E2CE09231AD2DF7500FE0451 /* UIView+Extension.m */,
 				E2F071261A2D7DF500BDE434 /* UIImage+DP.h */,
@@ -2471,10 +2499,12 @@
 				E21CE1751A381B460031D6B8 /* AFJSONRequestOperation.m in Sources */,
 				E2CE0AEB1AD4103C00FE0451 /* XWEmotionToobar.m in Sources */,
 				E28512C51AEB6EE700E985A6 /* FacebookStyleBarBehaviorDefiner.m in Sources */,
+				E20842401AEFDC9500031CCD /* CBZSplashView.m in Sources */,
 				E28512F71AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m in Sources */,
 				E2F072641A305DA700BDE434 /* XWUidParam.m in Sources */,
 				E28512891AEA27C600E985A6 /* XWReadingSettingViewController.m in Sources */,
 				E208422D1AEF6F0900031CCD /* CRToastManager.m in Sources */,
+				E20842441AEFDFEA00031CCD /* UIColor+HexString.m in Sources */,
 				E29D2CFA1AEE137B00649495 /* XWPinViewController.m in Sources */,
 				E2F072471A30349700BDE434 /* XWGroupCell.m in Sources */,
 				E2F0729C1A3064E400BDE434 /* XWSingleStatusParam.m in Sources */,
@@ -2639,6 +2669,7 @@
 				E2F243641ACE6529002F6003 /* UIView+MJExtension.m in Sources */,
 				E2CAC8001AE100E500F35EF5 /* YALFoldingTabBarController.m in Sources */,
 				E2CE0AEE1AD412B300FE0451 /* XWEmotion.m in Sources */,
+				E208423F1AEFDC9500031CCD /* CBZRasterSplashView.m in Sources */,
 				E2F071EB1A2EF77F00BDE434 /* XWUser.m in Sources */,
 				E25ED15D1A30691F00C5A023 /* MBProgressHUD.m in Sources */,
 				E2F0723A1A2F55A300BDE434 /* XWCommentCell.m in Sources */,
@@ -2681,6 +2712,7 @@
 				E2C2FA5A1AD9928D00474FDC /* NSString+Emoji.m in Sources */,
 				E214DC3F1AE0FCCC008142A3 /* NSArray+MASAdditions.m in Sources */,
 				E2F071281A2D7DF500BDE434 /* UIImage+DP.m in Sources */,
+				E20842411AEFDC9500031CCD /* CBZVectorSplashView.m in Sources */,
 				E2F072991A3062D000BDE434 /* XWStatusResult.m in Sources */,
 				E2EF80D51A3096C0003E9D9B /* XWUserParam.m in Sources */,
 				E29D2CED1AED139A00649495 /* THPinInputCirclesView.m in Sources */,

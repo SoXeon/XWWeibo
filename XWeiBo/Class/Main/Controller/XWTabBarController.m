@@ -31,6 +31,11 @@
 #import "YALTabBarItem.h"
 #import "YALAnimatingTabBarConstants.h"
 
+#import "CBZSplashView.h"
+#import "UIColor+HexString.h"
+static NSString * const kTwitterColor = @"4099FF";
+
+
 //XWTabBarDelegate
 
 @interface XWTabBarController () < YSLContainerViewControllerDelegate, YALTabBarViewDelegate, YALTabBarViewDataSource>
@@ -45,6 +50,8 @@
 @property (nonatomic, strong) XWMeViewController *meVC;
 @property (nonatomic, strong) XWMessageTableViewController *messageVC;
 @property (nonatomic, strong) XWSendMessageTableViewController *sendMessageVC;
+@property (nonatomic, strong) CBZSplashView *splashView;
+
 
 @end
 
@@ -65,15 +72,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setupTabbar];
-
-    [self setupAllChildVC];
+    UIImage *icon = [UIImage imageNamed:@"snapchatIcon"];
+    UIColor *color = [UIColor colorWithHexString:kTwitterColor];
     
+    CBZSplashView *splashView = [CBZSplashView splashViewWithIcon:icon backgroundColor:color];
+    
+    splashView.animationDuration = 1.4;
+    
+    [self.view addSubview:splashView];
+    
+    self.splashView = splashView;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self setupTabbar];
+        
+        [self setupAllChildVC];
+
+    });
+
     //定时器，定期请求未读数
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:30.0 target:self selector:@selector(getUnreadCount) userInfo:nil repeats:YES];
     
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    /* wait a beat before animating in */
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.splashView startAnimation];
+    });
+}
+
+
 
 - (void)getUnreadCount
 {
