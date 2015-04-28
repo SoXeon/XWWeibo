@@ -43,10 +43,17 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
                     success:(StatusSuccessBlock)success
                     failure:(StatusFailureBlock)failure;
 
+// 获取公共微博数据
 + (void)publicStatusesWithSinceId:(long long)sinceId
                             maxId:(long long)maxId
                           success:(StatusSuccessBlock)success
                           failure:(StatusFailureBlock)failure;
+
+// 获取好友圈的微博数据
++ (void)fetchFriendsLoopWithSinceID:(long long)sinceId
+                              maxId:(long long)maxId
+                            success:(StatusSuccessBlock)success
+                            failure:(StatusFailureBlock)failure;
 
 // 抓取@我的微博
 + (void)metionsWithSinceId:(long long)sinceId
