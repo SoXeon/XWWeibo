@@ -168,4 +168,19 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
  */
 + (void)fetchUserFavoritesSuccess:(StatusSuccessBlock)success
                           failure:(StatusFailureBlock)failure;
+
+
+/**
+ *  用户创建收藏
+ *  @paran WeiBoID 要添加收藏的微博ID
+ *  @param success 收藏成功Info
+ *  @param failure errorInfo
+ */
++ (void)userCreateFavoritesWithWeiBoID:(long long)WeiBoID
+                               success:(HttpSuccessBlock)success
+                               failure:(HttpFailureBlock)failure;
+
++ (void)userDeleteFavoritesWithWeiBoID:(long long)WeiBoID
+                               success:(HttpSuccessBlock)success
+                               failure:(HttpFailureBlock)failure;
 @end

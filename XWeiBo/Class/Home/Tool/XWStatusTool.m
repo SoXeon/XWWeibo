@@ -472,4 +472,36 @@
                                                        }];
 }
 
++ (void)userCreateFavoritesWithWeiBoID:(long long)WeiBoID
+                               success:(HttpSuccessBlock)success
+                               failure:(HttpFailureBlock)failure
+{
+    [HttpTool postWithpath:@"2/favorites/create.json" params:@{
+                                                               @"id" : @(WeiBoID)                                                          }success:^(id JSON) {
+                                                                   if (success) {
+                                                                       success(JSON);
+                                                                   }
+                                                               } failure:^(NSError *error) {
+                                                                   if (failure) {
+                                                                       failure(error);
+                                                                   }
+                                                               }];
+}
+
++ (void)userDeleteFavoritesWithWeiBoID:(long long)WeiBoID
+                               success:(HttpSuccessBlock)success
+                               failure:(HttpFailureBlock)failure
+{
+    [HttpTool postWithpath:@"2/favorites/destroy.json" params:@{
+                                                               @"id" : @(WeiBoID)                                                          }success:^(id JSON) {
+                                                                   if (success) {
+                                                                       success(JSON);
+                                                                   }
+                                                               } failure:^(NSError *error) {
+                                                                   if (failure) {
+                                                                       failure(error);
+                                                                   }
+                                                               }];
+
+}
 @end
