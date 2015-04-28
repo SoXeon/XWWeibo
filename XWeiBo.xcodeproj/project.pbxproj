@@ -144,6 +144,8 @@
 		E2D4BC9C1A9DC68000B02862 /* XWCommentDock.m in Sources */ = {isa = PBXBuildFile; fileRef = E2D4BC9B1A9DC68000B02862 /* XWCommentDock.m */; };
 		E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2D4BC9D1A9DC6B100B02862 /* XWCommentDock.xib */; };
 		E2EA9D1B1AEE977E00FD3860 /* XWPinDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EA9D1A1AEE977E00FD3860 /* XWPinDetailController.m */; };
+		E2EA9D1E1AEF25D700FD3860 /* XWSetPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EA9D1D1AEF25D700FD3860 /* XWSetPinViewController.m */; };
+		E2EA9D211AEF2F3500FD3860 /* XWSecSetPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EA9D201AEF2F3500FD3860 /* XWSecSetPinViewController.m */; };
 		E2EC95851AE271A0007F8E57 /* XWStatusLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EC95841AE271A0007F8E57 /* XWStatusLabel.m */; };
 		E2EF80CA1A308811003E9D9B /* MJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = E2EF80BA1A308811003E9D9B /* MJPhoto.m */; };
 		E2EF80CB1A308811003E9D9B /* MJPhotoBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2EF80BB1A308811003E9D9B /* MJPhotoBrowser.bundle */; };
@@ -580,6 +582,10 @@
 		E2D4BC9D1A9DC6B100B02862 /* XWCommentDock.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XWCommentDock.xib; sourceTree = "<group>"; };
 		E2EA9D191AEE977E00FD3860 /* XWPinDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPinDetailController.h; sourceTree = "<group>"; };
 		E2EA9D1A1AEE977E00FD3860 /* XWPinDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPinDetailController.m; sourceTree = "<group>"; };
+		E2EA9D1C1AEF25D700FD3860 /* XWSetPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSetPinViewController.h; sourceTree = "<group>"; };
+		E2EA9D1D1AEF25D700FD3860 /* XWSetPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSetPinViewController.m; sourceTree = "<group>"; };
+		E2EA9D1F1AEF2F3500FD3860 /* XWSecSetPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSecSetPinViewController.h; sourceTree = "<group>"; };
+		E2EA9D201AEF2F3500FD3860 /* XWSecSetPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSecSetPinViewController.m; sourceTree = "<group>"; };
 		E2EC95831AE271A0007F8E57 /* XWStatusLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWStatusLabel.h; sourceTree = "<group>"; };
 		E2EC95841AE271A0007F8E57 /* XWStatusLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWStatusLabel.m; sourceTree = "<group>"; };
 		E2EF80B91A308811003E9D9B /* MJPhoto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJPhoto.h; sourceTree = "<group>"; };
@@ -1759,6 +1765,10 @@
 				E29D2CF91AEE137B00649495 /* XWPinViewController.m */,
 				E2EA9D191AEE977E00FD3860 /* XWPinDetailController.h */,
 				E2EA9D1A1AEE977E00FD3860 /* XWPinDetailController.m */,
+				E2EA9D1C1AEF25D700FD3860 /* XWSetPinViewController.h */,
+				E2EA9D1D1AEF25D700FD3860 /* XWSetPinViewController.m */,
+				E2EA9D1F1AEF2F3500FD3860 /* XWSecSetPinViewController.h */,
+				E2EA9D201AEF2F3500FD3860 /* XWSecSetPinViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2408,6 +2418,7 @@
 				E2C2FA651ADA612100474FDC /* XWEmotionTool.m in Sources */,
 				E2C2AFE91A91E1DB00C23EA2 /* XWOwnComment.m in Sources */,
 				E2EF80CE1A308811003E9D9B /* MJPhotoProgressView.m in Sources */,
+				E2EA9D211AEF2F3500FD3860 /* XWSecSetPinViewController.m in Sources */,
 				E21527491A8B4C71005BECB2 /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				E28512831AE9FBE900E985A6 /* XWMusicSettingViewController.m in Sources */,
 				E2F0724A1A303D4200BDE434 /* XWAccountsTableViewController.m in Sources */,
@@ -2498,6 +2509,7 @@
 				E2EF80CF1A308811003E9D9B /* MJPhotoToolbar.m in Sources */,
 				E2F071CC1A2E16FE00BDE434 /* UIImage+GIF.m in Sources */,
 				E2F0720F1A2F1B8D00BDE434 /* XWStatusCellFrame.m in Sources */,
+				E2EA9D1E1AEF25D700FD3860 /* XWSetPinViewController.m in Sources */,
 				E2F071221A2D775900BDE434 /* main.m in Sources */,
 				E2F072061A2F15F100BDE434 /* XWTextCell.m in Sources */,
 				E2F243601ACE6529002F6003 /* MJRefreshLegendFooter.m in Sources */,

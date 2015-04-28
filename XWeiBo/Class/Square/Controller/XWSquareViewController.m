@@ -74,7 +74,16 @@
     video.defaultText = @"6.20M";
     
     XWSettingArrowItem *pinSetting = [XWSettingArrowItem itemWithIcon:@"movie" title:@"密码锁定" destVcClass:[XWPinViewController class]];
-    pinSetting.subtitle = @"                               开启";
+    
+    NSString *userPin = [XWUserDefaults objectForKey:kUserPin];
+    
+    if (userPin) {
+        pinSetting.subtitle = @"                               开启";
+    } else {
+        pinSetting.subtitle = @"                               关闭";
+
+    }
+    
     group.items = @[video, pinSetting];
 
 }

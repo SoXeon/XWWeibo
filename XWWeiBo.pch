@@ -151,3 +151,9 @@
 
 //全局主题颜色变换
 #define themeChangeNotification @"themeDidChangeNotification"
+
+//用户存储密码
+#define kUserPin @"userPin"
+#define kUserSetFirstPin @"setFirstPin"
+#define kUserSetSecPin @"setSecPin"
+#define kUserHasThePin @"UserHasSetThePin"

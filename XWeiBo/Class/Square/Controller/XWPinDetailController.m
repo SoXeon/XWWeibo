@@ -9,6 +9,7 @@
 #import "XWPinDetailController.h"
 #import "THPinViewController.h"
 
+
 @interface XWPinDetailController() <THPinViewControllerDelegate>
 
 @end
@@ -22,8 +23,10 @@ static const NSUInteger THNumberOfPinEntries = 6;
 {
     [super viewDidLoad];
     
+    self.view.backgroundColor = [UIColor greenColor];
+    
     self.locked = YES;
-    self.correctPin = @"1234";
+    self.correctPin =[XWUserDefaults objectForKey:kUserPin];
     [self showPinViewAnimated:YES];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidEnterBackground:)
                                                  name:UIApplicationDidEnterBackgroundNotification object:nil];
@@ -80,6 +83,7 @@ static const NSUInteger THNumberOfPinEntries = 6;
 
 - (BOOL)pinViewController:(THPinViewController *)pinViewController isPinValid:(NSString *)pin
 {
+    
     if ([pin isEqualToString:self.correctPin]) {
         return YES;
     } else {
