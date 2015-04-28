@@ -34,7 +34,6 @@
 #import "kLink.h"
 #import "TOWebViewController.h"
 
-
 #import "JDFPeekabooCoordinator.h"
 
 
@@ -181,30 +180,30 @@
     long long first = [f.status ID];
     
 //     2.获取微博数据
-    [XWStatusTool statusesWithSinceId:first maxId:0 success:^(NSArray *statues){
-        // 1.在拿到最新微博数据的同时计算它的frame
-        NSMutableArray *newFrames = [NSMutableArray array];
-        for (XWStatus *s in statues) {
-            XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
-            f.status = s;
-            [newFrames addObject:f];
-        }
+//    [XWStatusTool statusesWithSinceId:first maxId:0 success:^(NSArray *statues){
+//        // 1.在拿到最新微博数据的同时计算它的frame
+//        NSMutableArray *newFrames = [NSMutableArray array];
+//        for (XWStatus *s in statues) {
+//            XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
+//            f.status = s;
+//            [newFrames addObject:f];
+//        }
+//        
+//        // 2.将newFrames整体插入到旧数据的前面
+//        [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
+//        
+//        // 3.刷新表格
+//        [self.tableView reloadData];
+//        
+//        // 4.让刷新控件停止刷新状态
+//        [self.tableView.header endRefreshing];
+//        
+//        // 5.顶部展示最新微博的数目
+//        [self showNewStatusCount:(int)statues.count];
+//    } failure:^(NSError *error) {
+//        [self.tableView.header endRefreshing];
+//    }];
         
-        // 2.将newFrames整体插入到旧数据的前面
-        [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
-        
-        // 3.刷新表格
-        [self.tableView reloadData];
-        
-        // 4.让刷新控件停止刷新状态
-        [self.tableView.header endRefreshing];
-        
-        // 5.顶部展示最新微博的数目
-        [self showNewStatusCount:(int)statues.count];
-    } failure:^(NSError *error) {
-        [self.tableView.header endRefreshing];
-    }];
-    
 //    [XWStatusTool fetchUserFavoritesSuccess:^(NSArray *statues) {
 //                // 1.在拿到最新微博数据的同时计算它的frame
 //                NSMutableArray *newFrames = [NSMutableArray array];

@@ -13,6 +13,7 @@
 		E208422E1AEF6F0900031CCD /* CRToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842271AEF6F0900031CCD /* CRToastView.m */; };
 		E208422F1AEF6F0900031CCD /* CRToastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842291AEF6F0900031CCD /* CRToastViewController.m */; };
 		E20842301AEF6F0900031CCD /* CRToastWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E208422B1AEF6F0900031CCD /* CRToastWindow.m */; };
+		E20842371AEFAC4C00031CCD /* XWHotTopic.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842361AEFAC4C00031CCD /* XWHotTopic.m */; };
 		E214197C1A91EE030048A451 /* XWOwnCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197B1A91EE030048A451 /* XWOwnCommentCell.m */; };
 		E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197E1A91EE380048A451 /* XWOwnCommentsCellFrame.m */; };
 		E214DC381AE0FCCC008142A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E214DC201AE0FCCC008142A3 /* Info.plist */; };
@@ -319,6 +320,8 @@
 		E20842291AEF6F0900031CCD /* CRToastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastViewController.m; sourceTree = "<group>"; };
 		E208422A1AEF6F0900031CCD /* CRToastWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastWindow.h; sourceTree = "<group>"; };
 		E208422B1AEF6F0900031CCD /* CRToastWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToastWindow.m; sourceTree = "<group>"; };
+		E20842351AEFAC4C00031CCD /* XWHotTopic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWHotTopic.h; sourceTree = "<group>"; };
+		E20842361AEFAC4C00031CCD /* XWHotTopic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWHotTopic.m; sourceTree = "<group>"; };
 		E214197A1A91EE030048A451 /* XWOwnCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentCell.h; sourceTree = "<group>"; };
 		E214197B1A91EE030048A451 /* XWOwnCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWOwnCommentCell.m; sourceTree = "<group>"; };
 		E214197D1A91EE380048A451 /* XWOwnCommentsCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentsCellFrame.h; sourceTree = "<group>"; };
@@ -1603,6 +1606,8 @@
 				E2F0720E1A2F1B8D00BDE434 /* XWStatusCellFrame.m */,
 				E2816D091AE7A73700646035 /* kLink.h */,
 				E2816D0A1AE7A73700646035 /* kLink.m */,
+				E20842351AEFAC4C00031CCD /* XWHotTopic.h */,
+				E20842361AEFAC4C00031CCD /* XWHotTopic.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2509,6 +2514,7 @@
 				E2F071151A2D761600BDE434 /* XWSquareViewController.m in Sources */,
 				E2F072201A2F245700BDE434 /* XWComment.m in Sources */,
 				E2F071631A2DDF4700BDE434 /* XWSettingCheckGroup.m in Sources */,
+				E20842371AEFAC4C00031CCD /* XWHotTopic.m in Sources */,
 				E214DC401AE0FCCC008142A3 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				E2CAC7FC1AE100E500F35EF5 /* YALSpringAnimation.m in Sources */,
 				E2C2AFA31A8C8CDD00C23EA2 /* CommentViewController.m in Sources */,

@@ -36,6 +36,9 @@ typedef void (^UploadSuccess)(XWStatus *status);
 typedef void (^OwnCommentsSuccessBlock)(NSArray *ownComments);
 typedef void (^OwnCommentsFailureBloack)(NSError *error);
 
+typedef void (^TopicSuccessBlock)(NSArray *topices);
+typedef void (^TopicFailureBlock)(NSError *error);
+
 @interface XWStatusTool : XWBaseTool
 // 抓取微博数据
 + (void)statusesWithSinceId:(long long)sinceId
@@ -183,4 +186,7 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
 + (void)userDeleteFavoritesWithWeiBoID:(long long)WeiBoID
                                success:(HttpSuccessBlock)success
                                failure:(HttpFailureBlock)failure;
+
++ (void)fetchHotTopic:(TopicSuccessBlock)success
+              failure:(TopicFailureBlock)failure;
 @end

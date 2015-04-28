@@ -57,11 +57,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XWeiBo/Class/Home/Tool/XWStatusTool.m"
-            timestampString = "451905930.926786"
+            timestampString = "451915173.142221"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "282"
-            endingLineNumber = "282"
+            startingLineNumber = "283"
+            endingLineNumber = "283"
             landmarkName = "+fetchLongURLWithShortURL:success:failure:"
             landmarkType = "5">
          </BreakpointContent>

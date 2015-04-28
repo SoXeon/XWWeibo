@@ -12,6 +12,7 @@
 #import "XWStatus.h"
 #import "XWComment.h"
 #import "XWOwnComment.h"
+#import "XWHotTopic.h"
 
 #import "XWStatusParam.h"
 #import "XWStatusResult.h"
@@ -503,5 +504,40 @@
                                                                    }
                                                                }];
 
+}
+
++ (void)fetchHotTopic:(TopicSuccessBlock)success
+              failure:(TopicFailureBlock)failure
+{
+    
+    [HttpTool getWithpath:@"2/trends/weekly.json" params:nil success:^(id JSON) {
+        if (success == nil) {
+            return ;
+        }
+        NSDictionary *trends = JSON[@"trends"];
+        NSArray *trendsKey = trends.allKeys;
+        NSString *trendTime = [trendsKey objectAtIndex:0];
+        
+        NSArray  *trendsArray = [trends objectForKey:trendTime];
+        
+        NSMutableArray *totalTrendArray = [NSMutableArray array];
+        
+        for (NSDictionary *trendDetail in trendsArray) {
+            XWHotTopic *hotTopic = [[XWHotTopic alloc] init];
+            hotTopic.name = trendDetail[@"name"];
+            hotTopic.query = trendDetail[@"query"];
+            
+            [totalTrendArray addObject:hotTopic];
+        }
+        
+        success(totalTrendArray);
+        
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+
+    }];
+    
 }
 @end
