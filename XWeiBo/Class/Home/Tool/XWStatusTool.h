@@ -139,11 +139,33 @@ typedef void (^OwnCommentsFailureBloack)(NSError *error);
 + (void)fetchTagAboutUserWithSuccess:(HttpSuccessBlock)success
                              failure:(HttpFailureBlock)failure;
 
+/**
+ *  获取好友分组
+ *
+ *  @param success 分组信息
+ *  @param failure errorInfo
+ */
 + (void)fetchFriendGroupWithSuccess:(HttpSuccessBlock)success
                             failure:(HttpFailureBlock)failure;
 
 
+/**
+ *  短链接转长链接
+ *
+ *  @param shortURL 短连接URL
+ *  @param success  链接类型
+ *  @param failure  errorInfo
+ */
 + (void)fetchLongURLWithShortURL:(NSString *)shortURL
                          success:(HttpSuccessBlock)success
                          failure:(HttpFailureBlock)failure;
+
+/**
+ *  获取用户收藏
+ *
+ *  @param success 收藏Weibo信息
+ *  @param failure errorInfo
+ */
++ (void)fetchUserFavoritesSuccess:(StatusSuccessBlock)success
+                          failure:(StatusFailureBlock)failure;
 @end

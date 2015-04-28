@@ -438,4 +438,38 @@
     [self postWithURL:@"https://upload.api.weibo.com/2/statuses/upload.json" param:param success:success failure:failure resultClass:[XWStatus class]];
 }
 
++ (void)fetchUserFavoritesSuccess:(StatusSuccessBlock)success
+                          failure:(StatusFailureBlock)failure
+{
+    [HttpTool getWithpath:@"2/favorites.json" params:@{
+                                                       @"count" : @20
+                                                       }success:^(id JSON) {
+                                                           
+                                                           if (success == nil) {
+                                                               return;
+                                                           }
+                                                           
+                                                           NSMutableArray *statuses = [NSMutableArray array];
+                                                           
+                                                           NSArray *array = JSON[@"favorites"];
+                                                           
+                                                           for (NSDictionary *dict in array) {
+                                                               NSDictionary *detailDict = dict[@"status"];
+                                                               
+                                                               XWStatus *s = [[XWStatus alloc] initWithDict:detailDict];
+                                                               [statuses addObject:s];
+
+                                                               
+                                                           }
+                                                           
+                                                           success(statuses);
+                                                           
+                                                       } failure:^(NSError *error) {
+                                                           
+                                                           if (failure) {
+                                                               failure(error);
+                                                           }
+                                                       }];
+}
+
 @end
