@@ -35,10 +35,13 @@
 #import "UIColor+HexString.h"
 static NSString * const kTwitterColor = @"4099FF";
 
+#import "RESideMenu.h"
+#import "XWLeftMenuViewController.h"
+
 
 //XWTabBarDelegate
 
-@interface XWTabBarController () < YSLContainerViewControllerDelegate, YALTabBarViewDelegate, YALTabBarViewDataSource>
+@interface XWTabBarController () < YSLContainerViewControllerDelegate, YALTabBarViewDelegate, YALTabBarViewDataSource, RESideMenuDelegate>
 
 @property (nonatomic, weak) YALFoldingTabBar *customTabBar;
 
@@ -357,8 +360,40 @@ static NSString * const kTwitterColor = @"4099FF";
 
     XWNavigationController *nav = [[XWNavigationController alloc]initWithRootViewController:childVC];
     [nav.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:kLTFont size:18], NSFontAttributeName, nil]];
-    [self addChildViewController:nav];
+
     
+    if ([childVC isKindOfClass:[XWHomeTableViewController class]]) {
+        
+        XWLeftMenuViewController *leftVC = [XWLeftMenuViewController new];
+        
+        RESideMenu *sideMenuVC = [[RESideMenu alloc] initWithContentViewController:nav leftMenuViewController:leftVC rightMenuViewController:nil];
+        sideMenuVC.backgroundImage = [UIImage imageNamed:@"Stars"];
+        sideMenuVC.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
+        sideMenuVC.delegate = self;
+        sideMenuVC.contentViewShadowColor = [UIColor blackColor];
+        sideMenuVC.contentViewShadowOffset = CGSizeMake(0, 0);
+        sideMenuVC.contentViewShadowOpacity = 0.6;
+        sideMenuVC.contentViewShadowRadius = 12;
+        sideMenuVC.contentViewShadowEnabled = YES;
+        
+        [self addChildViewController:sideMenuVC];
+        
+    } else {
+        [self addChildViewController:nav];
+    }
+    
+
+}
+
+#pragma mark RESideMenu Delegate
+- (void)sideMenu:(RESideMenu *)sideMenu willShowMenuViewController:(UIViewController *)menuViewController
+{
+    [self hidenTabBar];
+}
+
+- (void)sideMenu:(RESideMenu *)sideMenu willHideMenuViewController:(UIViewController *)menuViewController
+{
+    [self showTabBar];
 }
 
 - (void)dealloc

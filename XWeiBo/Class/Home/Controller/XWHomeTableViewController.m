@@ -36,6 +36,8 @@
 
 #import "JDFPeekabooCoordinator.h"
 
+#import "RESideMenu.h"
+
 
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
@@ -384,7 +386,7 @@
 - (void)setupNavItem
 {
     //左边按钮
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(findFriend)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(presentLeftMenuViewController:)];
         
     XWUserParam *userParam = [[XWUserParam alloc] init];
     

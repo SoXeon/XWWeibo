@@ -28,6 +28,10 @@
 		E208426B1AF0658400031CCD /* UIView+TintColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E208425D1AF0658300031CCD /* UIView+TintColor.m */; };
 		E208426C1AF0658400031CCD /* UIButton+NightVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842611AF0658300031CCD /* UIButton+NightVersion.m */; };
 		E208426D1AF0658400031CCD /* UIButton+TitleColor.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842631AF0658300031CCD /* UIButton+TitleColor.m */; };
+		E20842751AF080CD00031CCD /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842701AF080CD00031CCD /* RECommonFunctions.m */; };
+		E20842761AF080CD00031CCD /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842721AF080CD00031CCD /* RESideMenu.m */; };
+		E20842771AF080CD00031CCD /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842741AF080CD00031CCD /* UIViewController+RESideMenu.m */; };
+		E208427A1AF0861E00031CCD /* XWLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842791AF0861E00031CCD /* XWLeftMenuViewController.m */; };
 		E214197C1A91EE030048A451 /* XWOwnCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197B1A91EE030048A451 /* XWOwnCommentCell.m */; };
 		E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197E1A91EE380048A451 /* XWOwnCommentsCellFrame.m */; };
 		E214DC381AE0FCCC008142A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E214DC201AE0FCCC008142A3 /* Info.plist */; };
@@ -366,6 +370,14 @@
 		E20842611AF0658300031CCD /* UIButton+NightVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+NightVersion.m"; sourceTree = "<group>"; };
 		E20842621AF0658300031CCD /* UIButton+TitleColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+TitleColor.h"; sourceTree = "<group>"; };
 		E20842631AF0658300031CCD /* UIButton+TitleColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+TitleColor.m"; sourceTree = "<group>"; };
+		E208426F1AF080CD00031CCD /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		E20842701AF080CD00031CCD /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		E20842711AF080CD00031CCD /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		E20842721AF080CD00031CCD /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		E20842731AF080CD00031CCD /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		E20842741AF080CD00031CCD /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		E20842781AF0861E00031CCD /* XWLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWLeftMenuViewController.h; sourceTree = "<group>"; };
+		E20842791AF0861E00031CCD /* XWLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLeftMenuViewController.m; sourceTree = "<group>"; };
 		E214197A1A91EE030048A451 /* XWOwnCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentCell.h; sourceTree = "<group>"; };
 		E214197B1A91EE030048A451 /* XWOwnCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWOwnCommentCell.m; sourceTree = "<group>"; };
 		E214197D1A91EE380048A451 /* XWOwnCommentsCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentsCellFrame.h; sourceTree = "<group>"; };
@@ -1096,6 +1108,19 @@
 			path = UIButton;
 			sourceTree = "<group>";
 		};
+		E208426E1AF080CD00031CCD /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				E208426F1AF080CD00031CCD /* RECommonFunctions.h */,
+				E20842701AF080CD00031CCD /* RECommonFunctions.m */,
+				E20842711AF080CD00031CCD /* RESideMenu.h */,
+				E20842721AF080CD00031CCD /* RESideMenu.m */,
+				E20842731AF080CD00031CCD /* UIViewController+RESideMenu.h */,
+				E20842741AF080CD00031CCD /* UIViewController+RESideMenu.m */,
+			);
+			path = RESideMenu;
+			sourceTree = "<group>";
+		};
 		E214DC1F1AE0FCCC008142A3 /* Masonry */ = {
 			isa = PBXGroup;
 			children = (
@@ -1730,6 +1755,8 @@
 			children = (
 				E2F070F51A2D761600BDE434 /* XWHomeTableViewController.h */,
 				E2F070F61A2D761600BDE434 /* XWHomeTableViewController.m */,
+				E20842781AF0861E00031CCD /* XWLeftMenuViewController.h */,
+				E20842791AF0861E00031CCD /* XWLeftMenuViewController.m */,
 				E2F0724B1A30483E00BDE434 /* XWComposeViewController.h */,
 				E2F0724C1A30483E00BDE434 /* XWComposeViewController.m */,
 				E2C2AF971A8BB0A800C23EA2 /* RepostViewController.h */,
@@ -2007,6 +2034,7 @@
 		E2F071161A2D76BB00BDE434 /* Vendors */ = {
 			isa = PBXGroup;
 			children = (
+				E208426E1AF080CD00031CCD /* RESideMenu */,
 				E20842451AF0658300031CCD /* DKNight */,
 				E20842381AEFDC9500031CCD /* CBZasterSize */,
 				E20842201AEF6F0900031CCD /* CRToast */,
@@ -2620,6 +2648,7 @@
 				E2F072121A2F1C0B00BDE434 /* XWStatusDock.m in Sources */,
 				E2F071F71A2EFD8F00BDE434 /* XWImageListView.m in Sources */,
 				E2F34FC11AD9050B009A846B /* YSLContainerViewController.m in Sources */,
+				E20842751AF080CD00031CCD /* RECommonFunctions.m in Sources */,
 				E2F072291A2F24E700BDE434 /* XWStatusDetailCellFrame.m in Sources */,
 				E2F0716C1A2DE6B000BDE434 /* XWSettingCell.m in Sources */,
 				E2F072551A304FB100BDE434 /* XWPlaceholderTextView.m in Sources */,
@@ -2761,6 +2790,7 @@
 				E2D4BC9C1A9DC68000B02862 /* XWCommentDock.m in Sources */,
 				E2C2FA711ADA93D500474FDC /* XWEmotionAttachment.m in Sources */,
 				E2F0724D1A30483E00BDE434 /* XWComposeViewController.m in Sources */,
+				E20842761AF080CD00031CCD /* RESideMenu.m in Sources */,
 				E25ED15B1A30691F00C5A023 /* MBProgressHUD+Add.m in Sources */,
 				E2C2AF9F1A8BB57B00C23EA2 /* UIViewController+MaryPopin.m in Sources */,
 				E2F071CE1A2E16FE00BDE434 /* UIImage+WebP.m in Sources */,
@@ -2788,6 +2818,7 @@
 				E2EF80F01A309E5D003E9D9B /* IWProfileHeaderView.m in Sources */,
 				E20842671AF0658400031CCD /* UINavigationBar+BarTintColor.m in Sources */,
 				E2F0717E1A2E160F00BDE434 /* XWOAuthViewController.m in Sources */,
+				E20842771AF080CD00031CCD /* UIViewController+RESideMenu.m in Sources */,
 				E2F0717A1A2E125E00BDE434 /* XWAccountTool.m in Sources */,
 				E2EF80D01A308811003E9D9B /* MJPhotoView.m in Sources */,
 				E208422F1AEF6F0900031CCD /* CRToastViewController.m in Sources */,
@@ -2797,6 +2828,7 @@
 				E2F0716F1A2DFDCB00BDE434 /* XWAnyMoreViewController.m in Sources */,
 				E2D4BC981A9DC4C600B02862 /* XWRepeatCommentsViewController.m in Sources */,
 				E2F071141A2D761600BDE434 /* XWMoreViewController.m in Sources */,
+				E208427A1AF0861E00031CCD /* XWLeftMenuViewController.m in Sources */,
 				E2CBAB391AD417C300D812EC /* MJType.m in Sources */,
 				E2F0723D1A2F55D300BDE434 /* XWRepostCell.m in Sources */,
 				E2F071C81A2E16FE00BDE434 /* SDWebImageDownloaderOperation.m in Sources */,
