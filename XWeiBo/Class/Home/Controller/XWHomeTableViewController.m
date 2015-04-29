@@ -166,6 +166,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+
     
     [self.scrollCoordinator enable];
     
@@ -386,6 +387,7 @@
 - (void)setupNavItem
 {
     //左边按钮
+    //TODO:太丑了，以后找个扁平化的
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(presentLeftMenuViewController:)];
         
     XWUserParam *userParam = [[XWUserParam alloc] init];

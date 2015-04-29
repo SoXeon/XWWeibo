@@ -32,6 +32,7 @@
 		E20842761AF080CD00031CCD /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842721AF080CD00031CCD /* RESideMenu.m */; };
 		E20842771AF080CD00031CCD /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842741AF080CD00031CCD /* UIViewController+RESideMenu.m */; };
 		E208427A1AF0861E00031CCD /* XWLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842791AF0861E00031CCD /* XWLeftMenuViewController.m */; };
+		E208427D1AF0BC5900031CCD /* PaperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E208427C1AF0BC5900031CCD /* PaperButton.m */; };
 		E214197C1A91EE030048A451 /* XWOwnCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197B1A91EE030048A451 /* XWOwnCommentCell.m */; };
 		E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197E1A91EE380048A451 /* XWOwnCommentsCellFrame.m */; };
 		E214DC381AE0FCCC008142A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E214DC201AE0FCCC008142A3 /* Info.plist */; };
@@ -378,6 +379,8 @@
 		E20842741AF080CD00031CCD /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 		E20842781AF0861E00031CCD /* XWLeftMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWLeftMenuViewController.h; sourceTree = "<group>"; };
 		E20842791AF0861E00031CCD /* XWLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLeftMenuViewController.m; sourceTree = "<group>"; };
+		E208427B1AF0BC5900031CCD /* PaperButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperButton.h; sourceTree = "<group>"; };
+		E208427C1AF0BC5900031CCD /* PaperButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperButton.m; sourceTree = "<group>"; };
 		E214197A1A91EE030048A451 /* XWOwnCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentCell.h; sourceTree = "<group>"; };
 		E214197B1A91EE030048A451 /* XWOwnCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWOwnCommentCell.m; sourceTree = "<group>"; };
 		E214197D1A91EE380048A451 /* XWOwnCommentsCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentsCellFrame.h; sourceTree = "<group>"; };
@@ -1792,6 +1795,8 @@
 		E2F070F81A2D761600BDE434 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E208427B1AF0BC5900031CCD /* PaperButton.h */,
+				E208427C1AF0BC5900031CCD /* PaperButton.m */,
 				E2F0713E1A2DB70F00BDE434 /* XWTitleButton.h */,
 				E2F0713F1A2DB70F00BDE434 /* XWTitleButton.m */,
 				E25167FA1A30B48000EB8E6F /* IWIconView.h */,
@@ -2649,6 +2654,7 @@
 				E2F071F71A2EFD8F00BDE434 /* XWImageListView.m in Sources */,
 				E2F34FC11AD9050B009A846B /* YSLContainerViewController.m in Sources */,
 				E20842751AF080CD00031CCD /* RECommonFunctions.m in Sources */,
+				E208427D1AF0BC5900031CCD /* PaperButton.m in Sources */,
 				E2F072291A2F24E700BDE434 /* XWStatusDetailCellFrame.m in Sources */,
 				E2F0716C1A2DE6B000BDE434 /* XWSettingCell.m in Sources */,
 				E2F072551A304FB100BDE434 /* XWPlaceholderTextView.m in Sources */,
