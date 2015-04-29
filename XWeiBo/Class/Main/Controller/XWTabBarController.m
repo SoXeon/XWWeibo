@@ -35,18 +35,17 @@
 #import "UIColor+HexString.h"
 static NSString * const kTwitterColor = @"4099FF";
 
+
 #import "RESideMenu.h"
 #import "XWLeftMenuViewController.h"
 
-
-//XWTabBarDelegate
 
 @interface XWTabBarController () < YSLContainerViewControllerDelegate, YALTabBarViewDelegate, YALTabBarViewDataSource, RESideMenuDelegate>
 
 @property (nonatomic, weak) YALFoldingTabBar *customTabBar;
 
 //Message页面的两个tableView
-@property (nonatomic, strong) XWMessageTableViewController *commentsTableViewController;
+//@property (nonatomic, strong) XWMessageTableViewController *commentsTableViewController;
 @property (nonatomic, strong) XWMentionsViewController *mentionsTableViewController;
 
 @property (nonatomic, strong) XWHomeTableViewController *homeVC;
@@ -189,6 +188,10 @@ static NSString * const kTwitterColor = @"4099FF";
     customTabBar.selectedTabBarItemIndex = 0;
     customTabBar.extraTabBarItemHeight = YALExtraTabBarItemsDefaultHeight;
     customTabBar.offsetForExtraTabBarItems = YALForExtraTabBarItemsDefaultOffset;
+    customTabBar.layer.shadowColor = [UIColor blackColor].CGColor;
+    customTabBar.layer.shadowOffset = CGSizeMake(0, 2);
+    customTabBar.layer.shadowOpacity = 0.6;
+    customTabBar.layer.shadowRadius = 3;
     [self.view addSubview:customTabBar];
     self.customTabBar = customTabBar;
 }
@@ -199,19 +202,12 @@ static NSString * const kTwitterColor = @"4099FF";
     
     NSData *colorData = [XWUserDefaults objectForKey:XWUserThemeColor];
     UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
-
     
     self.customTabBar.mainView.backgroundColor = color;
     self.customTabBar.extraLeftButton.backgroundColor = color;
     self.customTabBar.extraRightButton.backgroundColor = color;
+    
 }
-
-//- (void)tabBarDidClickPlusButton:(XWTabBar *)tabBar
-//{
-//    XWComposeViewController *compose = [[XWComposeViewController alloc] init];
-//    XWNavigationController *nav = [[XWNavigationController alloc] initWithRootViewController:compose];
-//    [self presentViewController:nav animated:YES completion:nil];
-//}
 
 
 - (void)setupAllChildVC
@@ -225,16 +221,16 @@ static NSString * const kTwitterColor = @"4099FF";
     self.meVC = XWMe;
     
     XWMentionsViewController *mentionVC = [[XWMentionsViewController alloc] init];
-    mentionVC.title = @"metions";
+    mentionVC.title = @"@我";
     self.mentionsTableViewController = mentionVC;
     
     XWMessageTableViewController *message = [[XWMessageTableViewController alloc] init];
-    message.title = @"message";
+    message.title = @"收到的评论";
     self.messageVC = message;
 
 
     XWSendMessageTableViewController *recviceVC = [[XWSendMessageTableViewController alloc] init];
-    recviceVC.title = @"revice";
+    recviceVC.title = @"发出的评论";
     self.sendMessageVC = recviceVC;
     
     UIViewController *containVC = [[UIViewController alloc]init];
@@ -247,49 +243,17 @@ static NSString * const kTwitterColor = @"4099FF";
     YSLContainerViewController *yslVC = [[YSLContainerViewController alloc] initWithControllers:@[self.messageVC, self.sendMessageVC, self.mentionsTableViewController] topBarHeight:66 parentViewController:containVC];
     yslVC.delegate = self;
     yslVC.menuItemFont = [UIFont fontWithName:@"Futura-Medium" size:16];
-    yslVC.menuItemTitleColor = [UIColor whiteColor];
+    yslVC.menuItemTitleColor = [UIColor blackColor];
     yslVC.menuItemSelectedTitleColor = [UIColor redColor];
     yslVC.menuIndicatorColor = [UIColor yellowColor];
-    yslVC.menuBackGroudColor = [UIColor purpleColor];
+    yslVC.menuBackGroudColor = [UIColor whiteColor];
     
     [containVC.view addSubview:yslVC.view];
-
-    
-//    UIViewController *settingVC = [[UIViewController alloc] init];
-//    [self setupChildViewController:settingVC title:@"settings"];
-    
-//    XWMoreViewController *more = [[XWMoreViewController alloc] init];
-//    more.view.backgroundColor = [UIColor whiteColor];
-//    [self setupChildViewController:more title:@"setting"];
     
     XWSquareViewController *quare = [[XWSquareViewController alloc] init];
     [self setupChildViewController:quare title:@"setting"];
     
 }
-
-//- (void)addMessageViewController
-//{
-//    XWMentionsViewController *mentionVC = [[XWMentionsViewController alloc] init];
-//    
-//    self.mentionsTableViewController = mentionVC;
-//    
-//    [self setupChildViewController:self.mentionsTableViewController
-//                             title:@"@我"
-//                         imageName:@"tabbar_message_center"
-//                 selectedImageName:@"tabbar_message_center_selected"];
-//
-//}
-
-//- (XWMessageTableViewController *)createCommentsTableView
-//{
-//    
-//    XWMessageTableViewController *messageVC = [[XWMessageTableViewController alloc] init];
-//    
-//    self.commentsTableViewController = messageVC;
-//    
-//    return self.commentsTableViewController;
-//}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
