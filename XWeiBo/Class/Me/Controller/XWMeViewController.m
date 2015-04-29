@@ -27,7 +27,7 @@
 @interface XWMeViewController () <UITableViewDelegate, UITableViewDataSource>
 {
 //    IWProfileHeaderView *_header;
-    XWProfileHeaderView *_customHeader;
+//    XWProfileHeaderView *_customHeader;
     UIImageView *_bgView;
     
     XWSingleStatusParam *_param;
@@ -37,6 +37,8 @@
 
 @property (nonatomic) BLKDelegateSplitter *delegateSplitter;
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) XWUser *currentUser;
+@property (nonatomic, strong) XWProfileHeaderView *customHeader;
 @end
 
 @implementation XWMeViewController
@@ -93,6 +95,10 @@
     behaviorDefiner.elasticMaximumHeightAtTop = YES;
     _customHeader.behaviorDefiner = behaviorDefiner;
     
+    XWUserParam *userParam = [[XWUserParam alloc] init];
+
+    _customHeader.param = userParam;
+    
     self.delegateSplitter = [[BLKDelegateSplitter alloc] initWithFirstDelegate:behaviorDefiner secondDelegate:self];
     self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
 
@@ -100,21 +106,12 @@
     [self.view addSubview:_customHeader];
     
     
-    XWUserParam *userParam = [[XWUserParam alloc] init];
     
-    [XWUserTool userWithParam:userParam success:^(XWUser *user) {
-
-        _customHeader.nameLabel.text = user.name;
-        
-        [HttpTool downloadImage:user.avatar_large place:[UIImage imageNamed:@"avatar_default_small.png"] imageView:_customHeader.profileImageView];
-
-    } failure:nil];
     
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 3.注册
     [self.tableView registerClass:[XWBaseStatusCell class] forCellReuseIdentifier:@"Cell"];
     self.tableView.contentInset = UIEdgeInsetsMake(_customHeader.maximumBarHeight, 0.0, 0.0, 0.0);
-
 
     self.tableView.dataSource = self;
     

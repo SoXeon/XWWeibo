@@ -7,14 +7,9 @@
 //
 
 #import "BLKFlexibleHeightBar.h"
-@class IWNumberBtn;
-
+@class XWUserParam;
 @interface XWProfileHeaderView : BLKFlexibleHeightBar
 
-@property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UIImageView *profileImageView;
-@property (nonatomic, strong) IWNumberBtn *allStatusBtn;
-@property (nonatomic, strong) IWNumberBtn *followersBtn;
-@property (nonatomic, strong) IWNumberBtn *friendsBtn;
+@property (nonatomic, strong) XWUserParam *param;
 
 @end

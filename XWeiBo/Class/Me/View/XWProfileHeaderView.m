@@ -8,6 +8,23 @@
 
 #import "XWProfileHeaderView.h"
 #import "IWNumberBtn.h"
+#import "IWNumberBtn.h"
+#import "XWUser.h"
+#import "XWUserTool.h"
+#import "XWUserParam.h"
+#import "XWStatusDetailController.h"
+#import "HttpTool.h"
+
+@interface XWProfileHeaderView()
+
+@property (nonatomic, strong) UILabel *nameLabel;
+@property (nonatomic, strong) UIImageView *profileImageView;
+@property (nonatomic, strong) IWNumberBtn *statusCount;
+@property (nonatomic, strong) IWNumberBtn *friendsCount;
+@property (nonatomic, strong) IWNumberBtn *fansCount;
+
+
+@end
 
 @implementation XWProfileHeaderView
 
@@ -19,6 +36,37 @@
     return self;
 }
 
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    [_nameLabel sizeToFit];
+}
+
+
+- (void)setParam:(XWUserParam *)param
+{
+    _param = param;
+    
+    [XWUserTool userWithParam:param success:^(XWUser *user) {
+        
+        [HttpTool downloadImage:user.avatar_large place:[UIImage imageNamed:@"avatar_default_small.png"] imageView:_profileImageView];
+        // 3.2.设置数量
+        _statusCount.number = user.statuses_count;
+        _friendsCount.number = user.friends_count;
+        _fansCount.number = user.followers_count;
+        
+        // 3.4.昵称
+        _nameLabel.text = user.name;
+        _nameLabel.font = kTextFont;
+        [_nameLabel sizeToFit];
+        
+    } failure:^(NSError *error) {
+        
+    }];
+}
+
+
 - (void)configureBar
 {
     self.maximumBarHeight = 200.0;
@@ -28,19 +76,18 @@
     self.nameLabel = [UILabel new];
     self.nameLabel.font = kTextFont;
     self.nameLabel.textColor =[UIColor whiteColor];
-    self.nameLabel.text = @"盛夏SoXeon";
     
     BLKFlexibleHeightBarSubviewLayoutAttributes *initialNameLabelLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] init];
     initialNameLabelLayoutAttributes.size = [_nameLabel sizeThatFits:CGSizeZero];
-    initialNameLabelLayoutAttributes.center = CGPointMake(self.frame.size.width*0.5, self.maximumBarHeight-50.0);
+    initialNameLabelLayoutAttributes.center = CGPointMake(self.frame.size.width*0.5 - 50, self.maximumBarHeight-50.0);
     [_nameLabel addLayoutAttributes:initialNameLabelLayoutAttributes forProgress:0.0];
     
     BLKFlexibleHeightBarSubviewLayoutAttributes *midwayNameLabelLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] initWithExistingLayoutAttributes:initialNameLabelLayoutAttributes];
-    midwayNameLabelLayoutAttributes.center = CGPointMake(self.frame.size.width*0.5, (self.maximumBarHeight-self.minimumBarHeight)*0.4+self.minimumBarHeight-50.0);
+    midwayNameLabelLayoutAttributes.center = CGPointMake(self.frame.size.width*0.5 - 50, (self.maximumBarHeight-self.minimumBarHeight)*0.4+self.minimumBarHeight-50.0);
     [_nameLabel addLayoutAttributes:midwayNameLabelLayoutAttributes forProgress:0.6];
     
     BLKFlexibleHeightBarSubviewLayoutAttributes *finalNameLabelLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] initWithExistingLayoutAttributes:midwayNameLabelLayoutAttributes];
-    finalNameLabelLayoutAttributes.center = CGPointMake(self.frame.size.width*0.5, self.minimumBarHeight-25.0);
+    finalNameLabelLayoutAttributes.center = CGPointMake(self.frame.size.width*0.5 - 50, self.minimumBarHeight-25.0);
     [_nameLabel addLayoutAttributes:finalNameLabelLayoutAttributes forProgress:1.0];
     
     [self addSubview:self.nameLabel];
