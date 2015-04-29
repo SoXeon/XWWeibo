@@ -13,6 +13,8 @@
 #import "XWSettingCheckItem.h"
 #import "XWSettingLabelItem.h"
 
+#import "DKNightVersion.h"
+
 @implementation XWReadingSettingViewController
 
 - (void)viewDidLoad
