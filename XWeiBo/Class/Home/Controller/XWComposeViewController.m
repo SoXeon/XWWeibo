@@ -208,8 +208,6 @@
 - (void)textDidChange:(NSNotification *)note
 {
     self.navigationItem.rightBarButtonItem.enabled = _textView.text.length != 0;
-    XWLog(@"%@",self.textView.realText);
-
 }
 
 

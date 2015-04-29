@@ -30,6 +30,7 @@
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.scrollEnabled = YES;
         scrollView.delegate = self;
+        scrollView.pagingEnabled = YES;
         self.scrollView = scrollView;
         [self addSubview:self.scrollView];
         
