@@ -24,6 +24,24 @@
     [self setupGroup0];
     [self setupGroup1];
     [self setupGroup2];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchChanged:) name:@"switchItemChanged" object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)switchChanged:(NSNotification *)notification
+{
+    NSString *itemTitle = notification.userInfo[@"switchItemTitle"];
+    
+    if ([itemTitle isEqualToString:@"首页全屏阅读"]) {
+        if ([XWUserDefaults objectForKey:@"首页全屏阅读"]) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"allScreenReading" object:nil];
+        }
+    }
 }
 
 - (void)setupGroup0

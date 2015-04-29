@@ -77,6 +77,9 @@
 {
     XWSettingSwitchItem *switchItem = (XWSettingSwitchItem *)self.item;
     switchItem.on = self.switchView.isOn;
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"switchItemChanged" object:nil userInfo:@{@"switchItemTitle": switchItem.title}];
+
 }
 
 + (instancetype)cellWithTableView:(UITableView *)tableView

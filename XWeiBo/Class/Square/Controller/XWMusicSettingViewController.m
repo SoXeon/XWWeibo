@@ -19,6 +19,17 @@
     [self setupGroup0];
     [self setupGroup1];
 
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(switchChanged:) name:@"switchItemChanged" object:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)switchChanged:(NSNotification *)notification
+{
+    
 }
 
 - (void)setupGroup0
@@ -26,6 +37,7 @@
     XWSettingGroup *group = [self addGroup];
     
     XWSettingSwitchItem *stopMusic = [XWSettingSwitchItem itemWithIcon:@"hot_status" title:@"全部静音"];
+  
     group.items = @[stopMusic];
 
 }
@@ -35,6 +47,7 @@
     XWSettingGroup *group = [self addGroup];
     
     XWSettingSwitchItem *timeLineMusic = [XWSettingSwitchItem itemWithIcon:@"game_center" title:@"时间线刷新音效"];
+    
     XWSettingSwitchItem *newMessageMusic = [XWSettingSwitchItem itemWithIcon:@"near" title:@"新消息提醒音效"];
     XWSettingSwitchItem *touchMusic = [XWSettingSwitchItem itemWithIcon:@"app" title:@"点击音效"];
     XWSettingSwitchItem *messageSendMusic = [XWSettingSwitchItem itemWithIcon:@"video" title:@"信息发送音效"];

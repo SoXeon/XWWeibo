@@ -65,8 +65,15 @@
     if (self) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(popToWebViewController:) name:kLinkDidSelectedNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableCellSelected) name:kLinkWillSelectedNotification object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeReadingModel) name:@"allScreenReading" object:nil];
     }
     return self;
+}
+
+- (void)changeReadingModel
+{
+    [self.scrollCoordinator disable];
 }
 
 - (void)dealloc
@@ -95,7 +102,7 @@
      *  获取自定义的Tabbar
      */
     //TODO:Setting里面可以设置是否需要沉浸式
-    UIView *customTab = [self.parentViewController.parentViewController.view viewWithTag:22222];
+    UIView *customTab = [self.parentViewController.parentViewController.parentViewController.view viewWithTag:22222];
     
     self.scrollCoordinator = [[JDFPeekabooCoordinator alloc] init];
     self.scrollCoordinator.scrollView = self.tableView;
@@ -168,7 +175,10 @@
     [super viewDidAppear:animated];
 
     
-    [self.scrollCoordinator enable];
+    if ([[XWUserDefaults objectForKey:@"首页全屏阅读"] intValue] == 1) {
+        [self.scrollCoordinator enable];
+    }
+    
     
 }
 
