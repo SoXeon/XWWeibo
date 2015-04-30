@@ -30,6 +30,8 @@
     NSString *numStr = [NSString stringWithFormat:@"%d", number];
     NSString *original = [NSString stringWithFormat:@"%@\n%@", numStr, _title];
     NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:original];
+    self.titleLabel.font = kTimeFont;
+    self.titleLabel.text = original;
     [str addAttribute:NSForegroundColorAttributeName value:XWColor(64, 105, 159) range:NSMakeRange(0, numStr.length)];
     [self setAttributedTitle:str forState:UIControlStateNormal];
 

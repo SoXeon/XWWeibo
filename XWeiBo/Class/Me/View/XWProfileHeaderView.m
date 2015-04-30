@@ -12,16 +12,16 @@
 #import "XWUser.h"
 #import "XWUserTool.h"
 #import "XWUserParam.h"
-#import "XWStatusDetailController.h"
+#import "XWStatusListViewController.h"
 #import "HttpTool.h"
 
 @interface XWProfileHeaderView()
 
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UIImageView *profileImageView;
-@property (nonatomic, strong) IWNumberBtn *statusCount;
-@property (nonatomic, strong) IWNumberBtn *friendsCount;
-@property (nonatomic, strong) IWNumberBtn *fansCount;
+@property (nonatomic, strong) UIButton *statusCount;
+@property (nonatomic, strong) UIButton *friendsCount;
+@property (nonatomic, strong) UIButton *fansCount;
 
 
 @end
@@ -52,9 +52,15 @@
         
         [HttpTool downloadImage:user.avatar_large place:[UIImage imageNamed:@"avatar_default_small.png"] imageView:_profileImageView];
         // 3.2.设置数量
-        _statusCount.number = user.statuses_count;
-        _friendsCount.number = user.friends_count;
-        _fansCount.number = user.followers_count;
+        [_statusCount setTitle:[NSString stringWithFormat:@"%d",user.statuses_count] forState:UIControlStateNormal];
+        [_statusCount setImage:[UIImage imageNamed:@"cast"] forState:UIControlStateNormal];
+        
+        [_friendsCount setTitle:[NSString stringWithFormat:@"%d", user.friends_count] forState:UIControlStateNormal];
+        [_friendsCount setImage:[UIImage imageNamed:@"hot_status"] forState:UIControlStateNormal];
+        
+        [_fansCount setTitle:[NSString stringWithFormat:@"%d", user.followers_count] forState:UIControlStateNormal];
+        [_fansCount setImage:[UIImage imageNamed:@"near"] forState:UIControlStateNormal];
+         
         
         // 3.4.昵称
         _nameLabel.text = user.name;
@@ -92,6 +98,46 @@
     
     [self addSubview:self.nameLabel];
     
+    CGSize btnSize = CGSizeMake(150, 30);
+    
+    self.statusCount = [[UIButton alloc] init];
+    [self.statusCount addTarget:self action:@selector(openDetailStatus) forControlEvents:UIControlEventTouchUpInside];
+    BLKFlexibleHeightBarSubviewLayoutAttributes *statusBtnStartLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] init];
+    statusBtnStartLayoutAttributes.size = btnSize;
+    statusBtnStartLayoutAttributes.center = CGPointMake(self.frame.size.width * 0.15, 185);
+    [self.statusCount addLayoutAttributes:statusBtnStartLayoutAttributes forProgress:0.0];
+    
+    BLKFlexibleHeightBarSubviewLayoutAttributes *statusBtnMidLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] initWithExistingLayoutAttributes:statusBtnStartLayoutAttributes];
+    statusBtnMidLayoutAttributes.center = CGPointMake(self.frame.size.width * 0.15, 150);
+    statusBtnMidLayoutAttributes.alpha = 0.0;
+    [self.statusCount addLayoutAttributes:statusBtnMidLayoutAttributes forProgress:0.3];
+    
+    [self addSubview:self.statusCount];
+    
+    self.friendsCount = [[UIButton alloc] init];
+    BLKFlexibleHeightBarSubviewLayoutAttributes *friendBtnStartLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] init];
+    friendBtnStartLayoutAttributes.size = btnSize;
+    friendBtnStartLayoutAttributes.center = CGPointMake(self.frame.size.width * 0.5, 185);
+    [self.friendsCount addLayoutAttributes:friendBtnStartLayoutAttributes forProgress:0.0];
+    
+    BLKFlexibleHeightBarSubviewLayoutAttributes *friendBtnMidLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] initWithExistingLayoutAttributes:friendBtnStartLayoutAttributes];
+    friendBtnMidLayoutAttributes.center = CGPointMake(self.frame.size.width * 0.5, 150);
+    friendBtnMidLayoutAttributes.alpha = 0.0;
+    [self.friendsCount addLayoutAttributes:friendBtnMidLayoutAttributes forProgress:0.3];
+    [self addSubview:self.friendsCount];
+    
+    self.fansCount = [[UIButton alloc] init];
+    BLKFlexibleHeightBarSubviewLayoutAttributes *fanBtnStartLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] init];
+    fanBtnStartLayoutAttributes.size = btnSize;
+    fanBtnStartLayoutAttributes.center = CGPointMake(self.frame.size.width * 0.85, 185);
+    [self.fansCount addLayoutAttributes:fanBtnStartLayoutAttributes forProgress:0.0];
+    
+    BLKFlexibleHeightBarSubviewLayoutAttributes *fanBtnMidLayoutAttributes = [[BLKFlexibleHeightBarSubviewLayoutAttributes alloc] initWithExistingLayoutAttributes:fanBtnStartLayoutAttributes];
+    fanBtnMidLayoutAttributes.center = CGPointMake(self.frame.size.width * 0.85, 150);
+    fanBtnMidLayoutAttributes.alpha = 0.0;
+    [self.fansCount addLayoutAttributes:fanBtnMidLayoutAttributes forProgress:0.3];
+    [self addSubview:self.fansCount];
+    
     self.profileImageView = [UIImageView new];
     self.profileImageView.contentMode = UIViewContentModeScaleToFill;
     self.profileImageView.clipsToBounds = YES;
@@ -117,6 +163,14 @@
     
     [self addSubview:self.profileImageView];
     
+}
+
+- (void)openDetailStatus
+{
+    UITabBarController *root = (UITabBarController *)self.window.rootViewController;
+    UINavigationController *nav = (UINavigationController *)root.selectedViewController;
+    XWStatusListViewController *vc = [[XWStatusListViewController alloc] init];
+    [nav pushViewController:vc animated:YES];
 }
 
 @end
