@@ -14,6 +14,7 @@
 #import "XWUserParam.h"
 #import "XWStatusListViewController.h"
 #import "HttpTool.h"
+#import "UIButton+backgroundMusic.h"
 
 @interface XWProfileHeaderView()
 
@@ -112,6 +113,7 @@
     statusBtnMidLayoutAttributes.alpha = 0.0;
     [self.statusCount addLayoutAttributes:statusBtnMidLayoutAttributes forProgress:0.3];
     
+    
     [self addSubview:self.statusCount];
     
     self.friendsCount = [[UIButton alloc] init];
@@ -171,6 +173,9 @@
     UINavigationController *nav = (UINavigationController *)root.selectedViewController;
     XWStatusListViewController *vc = [[XWStatusListViewController alloc] init];
     [nav pushViewController:vc animated:YES];
+    
+    [self.statusCount addRandomMusicForButton:nil];
+
 }
 
 @end

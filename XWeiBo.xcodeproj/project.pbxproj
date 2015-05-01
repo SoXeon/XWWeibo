@@ -81,6 +81,23 @@
 		E267CF051ACFA9F800A67888 /* WeiboSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E267CF011ACFA9F800A67888 /* WeiboSDK.bundle */; };
 		E267CF071ACFB73500A67888 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E267CF061ACFB73500A67888 /* libWeiboSDK.a */; };
 		E2816D0B1AE7A73700646035 /* kLink.m in Sources */ = {isa = PBXBuildFile; fileRef = E2816D0A1AE7A73700646035 /* kLink.m */; };
+		E28270B01AF3AC4B00509D80 /* UIButton+backgroundMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = E28270AF1AF3AC4B00509D80 /* UIButton+backgroundMusic.m */; };
+		E28270C21AF3BB8700509D80 /* sharing 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B21AF3BB8700509D80 /* sharing 1.wav */; };
+		E28270C31AF3BB8700509D80 /* sharing 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B31AF3BB8700509D80 /* sharing 10.wav */; };
+		E28270C41AF3BB8700509D80 /* sharing 11.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B41AF3BB8700509D80 /* sharing 11.wav */; };
+		E28270C51AF3BB8700509D80 /* sharing 12.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B51AF3BB8700509D80 /* sharing 12.wav */; };
+		E28270C61AF3BB8700509D80 /* sharing 13.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B61AF3BB8700509D80 /* sharing 13.wav */; };
+		E28270C71AF3BB8700509D80 /* sharing 14.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B71AF3BB8700509D80 /* sharing 14.wav */; };
+		E28270C81AF3BB8700509D80 /* sharing 15.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B81AF3BB8700509D80 /* sharing 15.wav */; };
+		E28270C91AF3BB8700509D80 /* sharing 16.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B91AF3BB8700509D80 /* sharing 16.wav */; };
+		E28270CA1AF3BB8700509D80 /* sharing 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BA1AF3BB8700509D80 /* sharing 2.wav */; };
+		E28270CB1AF3BB8700509D80 /* sharing 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BB1AF3BB8700509D80 /* sharing 3.wav */; };
+		E28270CC1AF3BB8700509D80 /* sharing 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BC1AF3BB8700509D80 /* sharing 4.wav */; };
+		E28270CD1AF3BB8700509D80 /* sharing 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BD1AF3BB8700509D80 /* sharing 5.wav */; };
+		E28270CE1AF3BB8700509D80 /* sharing 6.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BE1AF3BB8700509D80 /* sharing 6.wav */; };
+		E28270CF1AF3BB8700509D80 /* sharing 7.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BF1AF3BB8700509D80 /* sharing 7.wav */; };
+		E28270D01AF3BB8700509D80 /* sharing 8.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270C01AF3BB8700509D80 /* sharing 8.wav */; };
+		E28270D11AF3BB8700509D80 /* sharing 9.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270C11AF3BB8700509D80 /* sharing 9.wav */; };
 		E28512801AE9EF0000E985A6 /* XWMessageManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = E285127F1AE9EF0000E985A6 /* XWMessageManagementController.m */; };
 		E28512831AE9FBE900E985A6 /* XWMusicSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512821AE9FBE900E985A6 /* XWMusicSettingViewController.m */; };
 		E28512861AEA19B200E985A6 /* XWImageSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */; };
@@ -481,6 +498,24 @@
 		E267CF061ACFB73500A67888 /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
 		E2816D091AE7A73700646035 /* kLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kLink.h; sourceTree = "<group>"; };
 		E2816D0A1AE7A73700646035 /* kLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kLink.m; sourceTree = "<group>"; };
+		E28270AE1AF3AC4B00509D80 /* UIButton+backgroundMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+backgroundMusic.h"; sourceTree = "<group>"; };
+		E28270AF1AF3AC4B00509D80 /* UIButton+backgroundMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+backgroundMusic.m"; sourceTree = "<group>"; };
+		E28270B21AF3BB8700509D80 /* sharing 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 1.wav"; sourceTree = "<group>"; };
+		E28270B31AF3BB8700509D80 /* sharing 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 10.wav"; sourceTree = "<group>"; };
+		E28270B41AF3BB8700509D80 /* sharing 11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 11.wav"; sourceTree = "<group>"; };
+		E28270B51AF3BB8700509D80 /* sharing 12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 12.wav"; sourceTree = "<group>"; };
+		E28270B61AF3BB8700509D80 /* sharing 13.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 13.wav"; sourceTree = "<group>"; };
+		E28270B71AF3BB8700509D80 /* sharing 14.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 14.wav"; sourceTree = "<group>"; };
+		E28270B81AF3BB8700509D80 /* sharing 15.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 15.wav"; sourceTree = "<group>"; };
+		E28270B91AF3BB8700509D80 /* sharing 16.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 16.wav"; sourceTree = "<group>"; };
+		E28270BA1AF3BB8700509D80 /* sharing 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 2.wav"; sourceTree = "<group>"; };
+		E28270BB1AF3BB8700509D80 /* sharing 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 3.wav"; sourceTree = "<group>"; };
+		E28270BC1AF3BB8700509D80 /* sharing 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 4.wav"; sourceTree = "<group>"; };
+		E28270BD1AF3BB8700509D80 /* sharing 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 5.wav"; sourceTree = "<group>"; };
+		E28270BE1AF3BB8700509D80 /* sharing 6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 6.wav"; sourceTree = "<group>"; };
+		E28270BF1AF3BB8700509D80 /* sharing 7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 7.wav"; sourceTree = "<group>"; };
+		E28270C01AF3BB8700509D80 /* sharing 8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 8.wav"; sourceTree = "<group>"; };
+		E28270C11AF3BB8700509D80 /* sharing 9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 9.wav"; sourceTree = "<group>"; };
 		E285127E1AE9EF0000E985A6 /* XWMessageManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMessageManagementController.h; sourceTree = "<group>"; };
 		E285127F1AE9EF0000E985A6 /* XWMessageManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMessageManagementController.m; sourceTree = "<group>"; };
 		E28512811AE9FBE900E985A6 /* XWMusicSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMusicSettingViewController.h; sourceTree = "<group>"; };
@@ -1230,6 +1265,29 @@
 			path = libWeiboSDK;
 			sourceTree = "<group>";
 		};
+		E28270B11AF3BB8600509D80 /* btnMusic */ = {
+			isa = PBXGroup;
+			children = (
+				E28270B21AF3BB8700509D80 /* sharing 1.wav */,
+				E28270B31AF3BB8700509D80 /* sharing 10.wav */,
+				E28270B41AF3BB8700509D80 /* sharing 11.wav */,
+				E28270B51AF3BB8700509D80 /* sharing 12.wav */,
+				E28270B61AF3BB8700509D80 /* sharing 13.wav */,
+				E28270B71AF3BB8700509D80 /* sharing 14.wav */,
+				E28270B81AF3BB8700509D80 /* sharing 15.wav */,
+				E28270B91AF3BB8700509D80 /* sharing 16.wav */,
+				E28270BA1AF3BB8700509D80 /* sharing 2.wav */,
+				E28270BB1AF3BB8700509D80 /* sharing 3.wav */,
+				E28270BC1AF3BB8700509D80 /* sharing 4.wav */,
+				E28270BD1AF3BB8700509D80 /* sharing 5.wav */,
+				E28270BE1AF3BB8700509D80 /* sharing 6.wav */,
+				E28270BF1AF3BB8700509D80 /* sharing 7.wav */,
+				E28270C01AF3BB8700509D80 /* sharing 8.wav */,
+				E28270C11AF3BB8700509D80 /* sharing 9.wav */,
+			);
+			path = btnMusic;
+			sourceTree = "<group>";
+		};
 		E28512921AEA4C9400E985A6 /* ColorPicker */ = {
 			isa = PBXGroup;
 			children = (
@@ -1660,6 +1718,7 @@
 		E2F070B11A2D6BCD00BDE434 = {
 			isa = PBXGroup;
 			children = (
+				E28270B11AF3BB8600509D80 /* btnMusic */,
 				E21C8CAD1AE524D100963A4A /* Lantinghei.ttc */,
 				E2C2FA691ADA879900474FDC /* libicucore.dylib */,
 				E29290AD1A8A377E00F0267D /* Reveal.framework */,
@@ -2102,6 +2161,8 @@
 				E2F072141A2F1CBB00BDE434 /* NSString+DP.m */,
 				E25167FD1A30B4AF00EB8E6F /* UIImageView+DP.h */,
 				E25167FE1A30B4AF00EB8E6F /* UIImageView+DP.m */,
+				E28270AE1AF3AC4B00509D80 /* UIButton+backgroundMusic.h */,
+				E28270AF1AF3AC4B00509D80 /* UIButton+backgroundMusic.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -2545,8 +2606,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E28270CF1AF3BB8700509D80 /* sharing 7.wav in Resources */,
 				E2C2AFA41A8C8CDD00C23EA2 /* CommentViewController.xib in Resources */,
+				E28270C31AF3BB8700509D80 /* sharing 10.wav in Resources */,
+				E28270C41AF3BB8700509D80 /* sharing 11.wav in Resources */,
 				E2C2FA621ADA408C00474FDC /* XWEmotionPopView.xib in Resources */,
+				E28270C21AF3BB8700509D80 /* sharing 1.wav in Resources */,
 				E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */,
 				E2F072441A30295100BDE434 /* More.plist in Resources */,
 				E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */,
@@ -2554,24 +2619,36 @@
 				E2C2AF9B1A8BB0A800C23EA2 /* RepostViewController.xib in Resources */,
 				E2F2433C1ACD6A06002F6003 /* timescroll_minutehand.png in Resources */,
 				E2EF80F11A309E5D003E9D9B /* IWProfileHeaderView.xib in Resources */,
+				E28270C91AF3BB8700509D80 /* sharing 16.wav in Resources */,
 				E214DC381AE0FCCC008142A3 /* Info.plist in Resources */,
 				E2F070CB1A2D6BCD00BDE434 /* Images.xcassets in Resources */,
 				E2EF80CB1A308811003E9D9B /* MJPhotoBrowser.bundle in Resources */,
 				E21C8CAE1AE524D100963A4A /* Lantinghei.ttc in Resources */,
+				E28270C81AF3BB8700509D80 /* sharing 15.wav in Resources */,
 				E2EF80EC1A309AB1003E9D9B /* IWFriendshipCell.xib in Resources */,
+				E28270CE1AF3BB8700509D80 /* sharing 6.wav in Resources */,
 				E2F2433A1ACD6A06002F6003 /* timescroll_hourhand.png in Resources */,
 				E267CF051ACFA9F800A67888 /* WeiboSDK.bundle in Resources */,
+				E28270D01AF3BB8700509D80 /* sharing 8.wav in Resources */,
+				E28270C51AF3BB8700509D80 /* sharing 12.wav in Resources */,
+				E28270C71AF3BB8700509D80 /* sharing 14.wav in Resources */,
+				E28270D11AF3BB8700509D80 /* sharing 9.wav in Resources */,
+				E28270CC1AF3BB8700509D80 /* sharing 4.wav in Resources */,
 				E2F2433E1ACD6A06002F6003 /* timescroll_pointer.png in Resources */,
 				E29D2CF21AED139A00649495 /* THPinViewController.bundle in Resources */,
 				E2F072421A2F5DBE00BDE434 /* DetailHeader.xib in Resources */,
 				E2F072521A304F6B00BDE434 /* IWComposeDock.xib in Resources */,
 				E2F071211A2D775900BDE434 /* Info.plist in Resources */,
 				E2F2433B1ACD6A06002F6003 /* timescroll_hourhand@2x.png in Resources */,
+				E28270CB1AF3BB8700509D80 /* sharing 3.wav in Resources */,
+				E28270C61AF3BB8700509D80 /* sharing 13.wav in Resources */,
 				E25226561AD420D50073734A /* EmotionIcons in Resources */,
 				E2C2AFB41A8E1B7A00C23EA2 /* .gitignore in Resources */,
 				E25ED15C1A30691F00C5A023 /* MBProgressHUD.bundle in Resources */,
+				E28270CD1AF3BB8700509D80 /* sharing 5.wav in Resources */,
 				E2F243591ACE6529002F6003 /* MJRefresh.bundle in Resources */,
 				E2F2433D1ACD6A06002F6003 /* timescroll_minutehand@2x.png in Resources */,
+				E28270CA1AF3BB8700509D80 /* sharing 2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2810,6 +2887,7 @@
 				E2F243631ACE6529002F6003 /* UIScrollView+MJRefresh.m in Sources */,
 				E28512A61AEA4C9400E985A6 /* HRColorInfoView.m in Sources */,
 				E2F072891A30618E00BDE434 /* XWUpdateParam.m in Sources */,
+				E28270B01AF3AC4B00509D80 /* UIButton+backgroundMusic.m in Sources */,
 				E2EF80CF1A308811003E9D9B /* MJPhotoToolbar.m in Sources */,
 				E2F071CC1A2E16FE00BDE434 /* UIImage+GIF.m in Sources */,
 				E2F0720F1A2F1B8D00BDE434 /* XWStatusCellFrame.m in Sources */,

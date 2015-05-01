@@ -24,6 +24,8 @@
 #import "XWUser.h"
 #import "HttpTool.h"
 
+#import "UIButton+backgroundMusic.h"
+
 @interface XWMeViewController () <UITableViewDelegate, UITableViewDataSource>
 {
 //    IWProfileHeaderView *_header;
