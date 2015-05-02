@@ -28,8 +28,17 @@
 
 - (void)addCertainMusicWithName:(NSString *)name forButton:(UIButton *)btn
 {
+    SystemSoundID ID;
     
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:name ofType:@"wav"];
+
+    NSURL *fileURL = [[NSURL alloc] initFileURLWithPath:filePath];
+    
+    AudioServicesCreateSystemSoundID((__bridge CFURLRef)(fileURL), &ID);
+    
+    AudioServicesPlaySystemSound(ID);
+
 }
-                          
+
 
 @end

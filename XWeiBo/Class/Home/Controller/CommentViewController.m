@@ -12,7 +12,7 @@
 #import "XWStatusTool.h"
 #import "XWAccountTool.h"
 #import "NSString+DP.h"
-
+#import "UIButton+backgroundMusic.h"
 
 static BOOL firstComment = YES;
 
@@ -52,6 +52,7 @@ static BOOL firstComment = YES;
     [self.presentingPopinViewController dismissCurrentPopinControllerAnimated:YES completion:^{
         NSLog(@"Popin dismissed !");
     }];
+    [self.cancelBtn addCertainMusicWithName:@"sharing 10" forButton:nil];
 }
 
 - (IBAction)commentAction:(id)sender {
@@ -70,6 +71,8 @@ static BOOL firstComment = YES;
                                                               } failure:^(NSError *error) {
                                                                   
                                                               }];
+    
+    [self.commentBtn addCertainMusicWithName:@"sharing 10" forButton:nil];
 }
 
 #pragma mark textView Delegate

@@ -174,7 +174,7 @@
     XWStatusListViewController *vc = [[XWStatusListViewController alloc] init];
     [nav pushViewController:vc animated:YES];
     
-    [self.statusCount addRandomMusicForButton:nil];
+    [self.statusCount addCertainMusicWithName:@"sharing 10" forButton:nil];
 
 }
 

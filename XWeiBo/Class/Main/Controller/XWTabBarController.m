@@ -38,6 +38,7 @@ static NSString * const kTwitterColor = @"4099FF";
 
 #import "RESideMenu.h"
 #import "XWLeftMenuViewController.h"
+#import "UIButton+backgroundMusic.h"
 
 
 @interface XWTabBarController () < YSLContainerViewControllerDelegate, YALTabBarViewDelegate, YALTabBarViewDataSource, RESideMenuDelegate>
