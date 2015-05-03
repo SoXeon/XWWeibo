@@ -434,16 +434,6 @@
     }
 }
 
-- (void)findFriend
-{
-    XWLog(@"findFriend");
-}
-
-- (void)pop
-{
-    XWLog(@"pop");
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
