@@ -10,6 +10,7 @@
 #import "THPinViewControllerMacros.h"
 
 @class THPinView;
+@class THPinInputCirclesView;
 
 @protocol THPinViewDelegate <NSObject>
 
@@ -29,6 +30,9 @@
 @property (nonatomic, strong) UIColor *promptColor;
 @property (nonatomic, assign) BOOL hideLetters;
 @property (nonatomic, assign) BOOL disableCancel;
+
+@property (nonatomic, strong) THPinInputCirclesView *inputCirclesView;
+@property (nonatomic, strong) NSMutableString *input;
 
 - (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 

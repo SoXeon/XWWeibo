@@ -137,6 +137,7 @@
 		E29D2CF31AED139A00649495 /* THPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CE91AED139A00649495 /* THPinViewController.m */; };
 		E29D2CF41AED139A00649495 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CEC1AED139A00649495 /* UIImage+ImageEffects.m */; };
 		E29D2CFA1AEE137B00649495 /* XWPinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29D2CF91AEE137B00649495 /* XWPinViewController.m */; };
+		E2A331DF1AFB850B008FC194 /* XWPasswordWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A331DE1AFB850B008FC194 /* XWPasswordWindow.m */; };
 		E2C2AF961A8B95C700C23EA2 /* ZFModalTransitionAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */; };
 		E2C2AF9A1A8BB0A800C23EA2 /* RepostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2AF981A8BB0A800C23EA2 /* RepostViewController.m */; };
 		E2C2AF9B1A8BB0A800C23EA2 /* RepostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2C2AF991A8BB0A800C23EA2 /* RepostViewController.xib */; };
@@ -602,6 +603,8 @@
 		E29D2CEC1AED139A00649495 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		E29D2CF81AEE137B00649495 /* XWPinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPinViewController.h; sourceTree = "<group>"; };
 		E29D2CF91AEE137B00649495 /* XWPinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPinViewController.m; sourceTree = "<group>"; };
+		E2A331DD1AFB850B008FC194 /* XWPasswordWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWPasswordWindow.h; sourceTree = "<group>"; };
+		E2A331DE1AFB850B008FC194 /* XWPasswordWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWPasswordWindow.m; sourceTree = "<group>"; };
 		E2C2AF941A8B95C700C23EA2 /* ZFModalTransitionAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZFModalTransitionAnimator.h; sourceTree = "<group>"; };
 		E2C2AF951A8B95C700C23EA2 /* ZFModalTransitionAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZFModalTransitionAnimator.m; sourceTree = "<group>"; };
 		E2C2AF971A8BB0A800C23EA2 /* RepostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RepostViewController.h; sourceTree = "<group>"; };
@@ -2075,6 +2078,8 @@
 				E2EA9D1D1AEF25D700FD3860 /* XWSetPinViewController.m */,
 				E2EA9D1F1AEF2F3500FD3860 /* XWSecSetPinViewController.h */,
 				E2EA9D201AEF2F3500FD3860 /* XWSecSetPinViewController.m */,
+				E2A331DD1AFB850B008FC194 /* XWPasswordWindow.h */,
+				E2A331DE1AFB850B008FC194 /* XWPasswordWindow.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -2876,6 +2881,7 @@
 				E20842761AF080CD00031CCD /* RESideMenu.m in Sources */,
 				E25ED15B1A30691F00C5A023 /* MBProgressHUD+Add.m in Sources */,
 				E2C2AF9F1A8BB57B00C23EA2 /* UIViewController+MaryPopin.m in Sources */,
+				E2A331DF1AFB850B008FC194 /* XWPasswordWindow.m in Sources */,
 				E2F071CE1A2E16FE00BDE434 /* UIImage+WebP.m in Sources */,
 				E28512A81AEA4C9400E985A6 /* HRColorPickerView.m in Sources */,
 				E25168051A30B87B00EB8E6F /* XWBaseStatusListViewController.m in Sources */,

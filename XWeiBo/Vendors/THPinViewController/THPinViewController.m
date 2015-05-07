@@ -12,7 +12,6 @@
 
 @interface THPinViewController () <THPinViewDelegate>
 
-@property (nonatomic, strong) THPinView *pinView;
 @property (nonatomic, strong) UIView *blurView;
 @property (nonatomic, strong) NSArray *blurViewContraints;
 

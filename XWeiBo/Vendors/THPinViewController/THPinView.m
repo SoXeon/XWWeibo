@@ -14,7 +14,6 @@
 @interface THPinView () <THPinNumPadViewDelegate>
 
 @property (nonatomic, strong) UILabel *promptLabel;
-@property (nonatomic, strong) THPinInputCirclesView *inputCirclesView;
 @property (nonatomic, strong) THPinNumPadView *numPadView;
 @property (nonatomic, strong) UIButton *bottomButton;
 
@@ -22,7 +21,6 @@
 @property (nonatomic, assign) CGFloat paddingBetweenInputCirclesAndNumPad;
 @property (nonatomic, assign) CGFloat paddingBetweenNumPadAndBottomButton;
 
-@property (nonatomic, strong) NSMutableString *input;
 
 @end
 
