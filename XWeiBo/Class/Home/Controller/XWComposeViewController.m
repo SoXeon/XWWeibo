@@ -79,10 +79,20 @@
 
 - (void)addCamera
 {
-    UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
-    ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
-    ipc.delegate = self;
-    [self presentViewController:ipc animated:YES completion:nil];
+    
+    if ([UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear] ||[UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceFront]) {
+        
+        UIImagePickerController *ipc = [[UIImagePickerController alloc] init];
+        ipc.sourceType = UIImagePickerControllerSourceTypeCamera;
+        ipc.delegate = self;
+
+        [self presentViewController:ipc animated:YES completion:nil];
+        
+    } else {
+        
+        return;
+    }
+    
 
 }
 
