@@ -12,6 +12,7 @@
 @interface XWLeftMenuViewController()
 
 @property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSArray *objects;
 
 @end
 
@@ -20,6 +21,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.objects = @[@{@"name":@"所有微博",@"image":@"IconHome"},
+                     @{@"name":@"个人收藏",@"image":@"IconProfile"},
+                     @{@"name":@"好友圈",@"image":@"IconCalendar"},
+                     @{@"name":@"公共微博",@"image":@"IconSettings"}];
+    
+    
     self.tableView = ({
         UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, (self.view.frame.size.height - 54 * 4) / 2.0f, self.view.frame.size.width, 54 * 4) style:UITableViewStylePlain];
         tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleWidth;
@@ -96,10 +104,9 @@
         cell.selectedBackgroundView = [[UIView alloc] init];
     }
     
-    NSArray *titles = @[@"所有微博", @"个人收藏",  @"好友圈",  @"公共微博"];
-    NSArray *images = @[@"IconHome", @"IconProfile",  @"IconCalendar", @"IconSettings" ];
-    cell.textLabel.text = titles[indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:images[indexPath.row]];
+    
+    cell.textLabel.text = self.objects[indexPath.row][@"name"];
+    cell.imageView.image = [UIImage imageNamed:self.objects[indexPath.row][@"image"]];
     
     return cell;
 }
