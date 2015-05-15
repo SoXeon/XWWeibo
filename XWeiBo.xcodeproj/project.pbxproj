@@ -62,6 +62,8 @@
 		E21CE1791A381B460031D6B8 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE16F1A381B460031D6B8 /* AFXMLRequestOperation.m */; };
 		E21CE17A1A381B460031D6B8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1711A381B460031D6B8 /* UIImageView+AFNetworking.m */; };
 		E21D82761AE628F800343E3E /* XWSendMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D82751AE628F800343E3E /* XWSendMessageTableViewController.m */; };
+		E234438E1B05AB7700775771 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = E234438C1B05AB7700775771 /* pop.wav */; };
+		E234438F1B05AB7700775771 /* psst2.wav in Resources */ = {isa = PBXBuildFile; fileRef = E234438D1B05AB7700775771 /* psst2.wav */; };
 		E248A08C1ACFD78800A92B73 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08B1ACFD78800A92B73 /* ImageIO.framework */; };
 		E248A08E1ACFD79A00A92B73 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08D1ACFD79A00A92B73 /* Security.framework */; };
 		E248A0901ACFD7A500A92B73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08F1ACFD7A500A92B73 /* QuartzCore.framework */; };
@@ -461,6 +463,8 @@
 		E21CE1711A381B460031D6B8 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		E21D82741AE628F800343E3E /* XWSendMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSendMessageTableViewController.h; sourceTree = "<group>"; };
 		E21D82751AE628F800343E3E /* XWSendMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSendMessageTableViewController.m; sourceTree = "<group>"; };
+		E234438C1B05AB7700775771 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
+		E234438D1B05AB7700775771 /* psst2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst2.wav; sourceTree = "<group>"; };
 		E248A08B1ACFD78800A92B73 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E248A08D1ACFD79A00A92B73 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E248A08F1ACFD7A500A92B73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -1271,6 +1275,8 @@
 		E28270B11AF3BB8600509D80 /* btnMusic */ = {
 			isa = PBXGroup;
 			children = (
+				E234438C1B05AB7700775771 /* pop.wav */,
+				E234438D1B05AB7700775771 /* psst2.wav */,
 				E28270B21AF3BB8700509D80 /* sharing 1.wav */,
 				E28270B31AF3BB8700509D80 /* sharing 10.wav */,
 				E28270B41AF3BB8700509D80 /* sharing 11.wav */,
@@ -2616,11 +2622,13 @@
 				E28270C31AF3BB8700509D80 /* sharing 10.wav in Resources */,
 				E28270C41AF3BB8700509D80 /* sharing 11.wav in Resources */,
 				E2C2FA621ADA408C00474FDC /* XWEmotionPopView.xib in Resources */,
+				E234438F1B05AB7700775771 /* psst2.wav in Resources */,
 				E28270C21AF3BB8700509D80 /* sharing 1.wav in Resources */,
 				E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */,
 				E2F072441A30295100BDE434 /* More.plist in Resources */,
 				E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */,
 				E2F2433F1ACD6A06002F6003 /* timescroll_pointer@2x.png in Resources */,
+				E234438E1B05AB7700775771 /* pop.wav in Resources */,
 				E2C2AF9B1A8BB0A800C23EA2 /* RepostViewController.xib in Resources */,
 				E2F2433C1ACD6A06002F6003 /* timescroll_minutehand.png in Resources */,
 				E2EF80F11A309E5D003E9D9B /* IWProfileHeaderView.xib in Resources */,

@@ -139,6 +139,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.contentInset = UIEdgeInsetsMake(0, 0, kTableBorderWidth, 0);
+    self.tableView.backgroundColor = [UIColor whiteColor];
     
     _timeScroller = [[ACTimeScroller alloc] initWithDelegate:self];
 }
@@ -398,7 +399,7 @@
 {
     //左边按钮
     //TODO:太丑了，以后找个扁平化的
-    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"navigationbar_friendsearch" highIcon:@"navigationbar_friendsearch_highlighted" target:self action:@selector(presentLeftMenuViewController:)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"icn_nav_bar_filter" highIcon:@"icn_nav_bar_filter" target:self action:@selector(presentLeftMenuViewController:)];
         
     XWUserParam *userParam = [[XWUserParam alloc] init];
     
@@ -467,8 +468,7 @@
 {
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     
-#warning 这里就不做颜色主题适配了，届时背景clearColor ，icon自己设计为暗色背景图片
-    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor greenColor] icon:[UIImage imageNamed:@"check.png"]];
+    [leftUtilityButtons sw_addUtilityButtonWithColor:[UIColor whiteColor] icon:[UIImage imageNamed:@"icn_nav_bar_compose_tweet"]];
 
     return leftUtilityButtons;
 }
@@ -476,7 +476,7 @@
 - (NSArray *)rightButtons
 {
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
-    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor greenColor] icon:[UIImage imageNamed:@"list.png"]];
+    [rightUtilityButtons sw_addUtilityButtonWithColor:[UIColor whiteColor] icon:[UIImage imageNamed:@"icn_nav_bar_compose_dm"]];
     return rightUtilityButtons;
 }
 

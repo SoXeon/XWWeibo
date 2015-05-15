@@ -37,10 +37,10 @@
         self.image = [UIImage resizedImage:@"timeline_card_bottom.png"];
         
         // 1.添加3个按钮
-        _repost = [self addBtn:@"转发" icon:@"timeline_icon_retweet.png" bg:@"timeline_card_leftbottom.png" index:0];
+        _repost = [self addBtn:@"转发" icon:@"icn_gallery_tweet_action_inline_retweet_off.png" bg:@"timeline_card_leftbottom.png" index:0];
         
-        _comment = [self addBtn:@"评论" icon:@"timeline_icon_comment.png" bg:@"timeline_card_middlebottom.png" index:1];
-        _attitude = [self addBtn:@"赞" icon:@"timeline_icon_unlike.png" bg:@"timeline_card_rightbottom.png" index:2];
+        _comment = [self addBtn:@"评论" icon:@"icn_gallery_tweet_action_inline_reply_off.png" bg:@"timeline_card_middlebottom.png" index:1];
+        _attitude = [self addBtn:@"赞" icon:@"icn_gallery_tweet_action_inline_favorite_off.png" bg:@"timeline_card_rightbottom.png" index:2];
     }
     return self;
 }
