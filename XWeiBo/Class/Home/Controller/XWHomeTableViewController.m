@@ -38,6 +38,8 @@
 
 #import "RESideMenu.h"
 
+static NSInteger dataSourceModel = 1;
+
 
 @interface XWHomeTableViewController () <SWTableViewCellDelegate, ACTimeScrollerDelegate, UIScrollViewDelegate>
 {
@@ -67,8 +69,36 @@
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(disableCellSelected) name:kLinkWillSelectedNotification object:nil];
         
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeReadingModel) name:@"allScreenReading" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCollectionMode) name:@"personalCollection" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeFriendLoopfriendsLoopMode) name:@"friendsLoop" object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changePublicWeiboLoopMode) name:@"pulicWeibo" object:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeAllWeiBo) name:@"allWeiBo" object:nil];
+        
     }
     return self;
+}
+
+- (void)changeAllWeiBo
+{
+    dataSourceModel = 1;
+
+}
+
+- (void)changeCollectionMode
+{
+    dataSourceModel = 2;
+}
+
+- (void)changeFriendLoopfriendsLoopMode
+{
+    dataSourceModel = 3;
+}
+
+- (void)changePublicWeiboLoopMode
+{
+    dataSourceModel = 4;
 }
 
 - (void)changeReadingModel
@@ -164,7 +194,7 @@
     [self.tableView addLegendFooterWithRefreshingBlock:^{
         __strong typeof(&*self) strongSelf = weakSelf;
 
-        if (strongSelf) {
+        if (strongSelf && (dataSourceModel == 1)) {
             [strongSelf loadMoreData];
         }
     }];
@@ -196,110 +226,137 @@
     XWStatusCellFrame *f = _statusFrames.count?_statusFrames[0]:nil;
     long long first = [f.status ID];
     
-//     2.获取微博数据
-    [XWStatusTool statusesWithSinceId:first maxId:0 success:^(NSArray *statues){
-        // 1.在拿到最新微博数据的同时计算它的frame
-        NSMutableArray *newFrames = [NSMutableArray array];
-        for (XWStatus *s in statues) {
-            XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
-            f.status = s;
-            [newFrames addObject:f];
+    
+    switch (dataSourceModel) {
+        case 1:
+        {
+            [XWStatusTool statusesWithSinceId:first maxId:0 success:^(NSArray *statues){
+                // 1.在拿到最新微博数据的同时计算它的frame
+                NSMutableArray *newFrames = [NSMutableArray array];
+                for (XWStatus *s in statues) {
+                    XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
+                    f.status = s;
+                    [newFrames addObject:f];
+                }
+                
+                // 2.将newFrames整体插入到旧数据的前面
+                [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
+                
+                // 3.刷新表格
+                [self.tableView reloadData];
+                
+                // 4.让刷新控件停止刷新状态
+                [self.tableView.header endRefreshing];
+                
+                // 5.顶部展示最新微博的数目
+                [self showNewStatusCount:(int)statues.count];
+            } failure:^(NSError *error) {
+                [self.tableView.header endRefreshing];
+            }];
+
         }
-        
-        // 2.将newFrames整体插入到旧数据的前面
-        [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
-        
-        // 3.刷新表格
-        [self.tableView reloadData];
-        
-        // 4.让刷新控件停止刷新状态
-        [self.tableView.header endRefreshing];
-        
-        // 5.顶部展示最新微博的数目
-        [self showNewStatusCount:(int)statues.count];
-    } failure:^(NSError *error) {
-        [self.tableView.header endRefreshing];
-    }];
-    
-//    [XWStatusTool fetchUserFavoritesSuccess:^(NSArray *statues) {
-//                // 1.在拿到最新微博数据的同时计算它的frame
-//                NSMutableArray *newFrames = [NSMutableArray array];
-//                for (XWStatus *s in statues) {
-//                    XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
-//                    f.status = s;
-//                    [newFrames addObject:f];
-//                }
-//        
-//                // 2.将newFrames整体插入到旧数据的前面
-//                [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
-//        
-//                // 3.刷新表格
-//                [self.tableView reloadData];
-//        
-//                // 4.让刷新控件停止刷新状态
-//                [self.tableView.header endRefreshing];
-//                
-//                // 5.顶部展示最新微博的数目
-//                [self showNewStatusCount:(int)statues.count];
-//
-//    } failure:^(NSError *error) {
-//        [self.tableView.header endRefreshing];
-//
-//    }];
-    
-//    [XWStatusTool fetchFriendsLoopWithSinceID:first maxId:0 success:^(NSArray *statues) {
-//        
-//        // 1.在拿到最新微博数据的同时计算它的frame
-//        NSMutableArray *newFrames = [NSMutableArray array];
-//        for (XWStatus *s in statues) {
-//            XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
-//            f.status = s;
-//            [newFrames addObject:f];
-//        }
-//        
-//        // 2.将newFrames整体插入到旧数据的前面
-//        [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
-//        
-//        // 3.刷新表格
-//        [self.tableView reloadData];
-//        
-//        // 4.让刷新控件停止刷新状态
-//        [self.tableView.header endRefreshing];
-//        
-//        // 5.顶部展示最新微博的数目
-//        [self showNewStatusCount:(int)statues.count];
-//
-//        
-//    } failure:^(NSError *error) {
-//        
-//        [self.tableView.header endRefreshing];
-//
-//    }];
-    
-//    [XWStatusTool publicStatusesWithSinceId:first maxId:0 success:^(NSArray *statues) {
-//        NSMutableArray *newFrames = [NSMutableArray array];
-//        for (XWStatus *s in statues) {
-//            XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
-//            f.status = s;
-//            [newFrames addObject:f];
-//        }
-//        
-//        // 2.将newFrames整体插入到旧数据的前面
-//        [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
-//        
-//        // 3.刷新表格
-//        [self.tableView reloadData];
-//        
-//        // 4.让刷新控件停止刷新状态
-//        [self.tableView.header endRefreshing];
-//        
-//        // 5.顶部展示最新微博的数目
-//        [self showNewStatusCount:(int)statues.count];
-//
-//    } failure:^(NSError *error) {
-//        [self.tableView.header endRefreshing];
-//
-//    }];
+            break;
+            
+            
+        case 2:
+        {
+            [XWStatusTool fetchUserFavoritesSuccess:^(NSArray *statues) {
+                // 1.在拿到最新微博数据的同时计算它的frame
+                NSMutableArray *newFrames = [NSMutableArray array];
+                for (XWStatus *s in statues) {
+                    XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
+                    f.status = s;
+                    [newFrames addObject:f];
+                }
+                
+                // 2.将newFrames整体插入到旧数据的前面
+                [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
+                
+                // 3.刷新表格
+                [self.tableView reloadData];
+                
+                // 4.让刷新控件停止刷新状态
+                [self.tableView.header endRefreshing];
+                
+                // 5.顶部展示最新微博的数目
+                [self showNewStatusCount:(int)statues.count];
+                
+            } failure:^(NSError *error) {
+                [self.tableView.header endRefreshing];
+                
+            }];
+
+        }
+            break;
+
+        case 3:
+        {
+            [XWStatusTool fetchFriendsLoopWithSinceID:first maxId:0 success:^(NSArray *statues) {
+                
+                // 1.在拿到最新微博数据的同时计算它的frame
+                NSMutableArray *newFrames = [NSMutableArray array];
+                for (XWStatus *s in statues) {
+                    XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
+                    f.status = s;
+                    [newFrames addObject:f];
+                }
+                
+                // 2.将newFrames整体插入到旧数据的前面
+                [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
+                
+                // 3.刷新表格
+                [self.tableView reloadData];
+                
+                // 4.让刷新控件停止刷新状态
+                [self.tableView.header endRefreshing];
+                
+                // 5.顶部展示最新微博的数目
+                [self showNewStatusCount:(int)statues.count];
+                
+                
+            } failure:^(NSError *error) {
+                
+                [self.tableView.header endRefreshing];
+                
+            }];
+
+        }
+            break;
+
+        case 4:
+        {
+            [XWStatusTool publicStatusesWithSinceId:first maxId:0 success:^(NSArray *statues) {
+                NSMutableArray *newFrames = [NSMutableArray array];
+                for (XWStatus *s in statues) {
+                    XWStatusCellFrame *f = [[XWStatusCellFrame alloc] init];
+                    f.status = s;
+                    [newFrames addObject:f];
+                }
+                
+                // 2.将newFrames整体插入到旧数据的前面
+                [_statusFrames insertObjects:newFrames atIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(0, newFrames.count)]];
+                
+                // 3.刷新表格
+                [self.tableView reloadData];
+                
+                // 4.让刷新控件停止刷新状态
+                [self.tableView.header endRefreshing];
+                
+                // 5.顶部展示最新微博的数目
+                [self showNewStatusCount:(int)statues.count];
+                
+            } failure:^(NSError *error) {
+                [self.tableView.header endRefreshing];
+                
+            }];
+
+        }
+            break;
+
+            
+        default:
+            break;
+    }
     
     //TODO:MLGB的API限制，我先去实现其他功能区
     NSDictionary *paramsDict = @{@"source": kAppKey, @"uid": [XWAccountTool sharedXWAccountTool].currentAccount.uid};
@@ -397,8 +454,6 @@
 
 - (void)setupNavItem
 {
-    //左边按钮
-    //TODO:太丑了，以后找个扁平化的
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithIcon:@"icn_nav_bar_filter" highIcon:@"icn_nav_bar_filter" target:self action:@selector(presentLeftMenuViewController:)];
         
     XWUserParam *userParam = [[XWUserParam alloc] init];

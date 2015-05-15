@@ -39,26 +39,25 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    //TODO:四种不同数据源的HomeViewController
-    //能否抽象出来公共类
-    UIViewController *newhaha = [UIViewController new];
-    newhaha.view.backgroundColor = [UIColor yellowColor];
-    
     switch (indexPath.row) {
         case 0:
             [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[XWHomeTableViewController new]]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"allWeiBo" object:nil];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 1:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:newhaha]];
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[XWHomeTableViewController new]]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"personalCollection" object:nil];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 2:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:newhaha]];
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[XWHomeTableViewController new]]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"friendsLoop" object:nil];
             [self.sideMenuViewController hideMenuViewController];
             break;
         case 3:
-            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:newhaha]];
+            [self.sideMenuViewController setContentViewController:[[UINavigationController alloc] initWithRootViewController:[XWHomeTableViewController new]]];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"pulicWeibo" object:nil];
             [self.sideMenuViewController hideMenuViewController];
             break;
 
