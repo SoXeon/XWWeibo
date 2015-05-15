@@ -62,11 +62,37 @@
     
     [self setupImageView];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addCamera) name:@"cameraClick" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addAlbum) name:@"albumClick" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addEmotion) name:@"emotionClick" object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidSelected:) name:kXWEmotionDidSelectedNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidDeleted:) name:kXWEmotionDidDeletedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addCamera) name:@"cameraClick" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addAlbum) name:@"albumClick" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addEmotion) name:@"emotionClick" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidSelected:) name:kXWEmotionDidSelectedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(emotionDidDeleted:) name:kXWEmotionDidDeletedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addTopic) name:@"topicClick" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(addAt) name:@"atClick" object:nil];
+}
+
+- (void)addTopic
+{
+    NSString * tex = self.textView.text;
+    
+    tex = [tex stringByAppendingString: @"##"];
+    
+    self.textView.text = tex;
+    
+    NSRange range;
+    range.location = self.textView.text.length - 1;
+    range.length = 0;
+    self.textView.selectedRange = range;
+    
+}
+
+- (void)addAt
+{
+    NSString *tex = self.textView.text;
+    
+    tex = [tex stringByAppendingString: @"@"];
+    
+    self.textView.text = tex;
 }
 
 - (void)setupImageView

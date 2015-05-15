@@ -49,11 +49,12 @@
 }
 
 - (IBAction)atClick {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"atClick" object:self];
+
 }
 
 - (IBAction)topicClick {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"topicClick" object:self];
 }
 
 - (IBAction)emotionClick {
