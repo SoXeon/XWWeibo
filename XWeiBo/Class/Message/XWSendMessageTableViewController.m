@@ -17,6 +17,7 @@
 #import "MJRefresh.h"
 #import "UIImage+DP.h"
 
+
 @interface XWSendMessageTableViewController() <XWCommentsCellDelegate>
 {
     NSMutableArray *_commentsFrames;
@@ -27,6 +28,7 @@
 
 - (void)viewDidLoad
 {
+    
     [super viewDidLoad];
     
     [self buildUI];

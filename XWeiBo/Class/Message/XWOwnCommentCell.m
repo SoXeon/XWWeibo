@@ -129,13 +129,14 @@
     
     
     //回复按钮
-    _commentsBtn.frame = CGRectMake(self.frame.size.width - 40 - 10, CGRectGetMinY(_screenName.frame), 40, 30);
-    [_commentsBtn setTitle:@"回复" forState:UIControlStateNormal];
-    [_commentsBtn setTitleColor:[UIColor orangeColor]forState:UIControlStateNormal];
-    _commentsBtn.layer.cornerRadius = 5.0;
-    _commentsBtn.layer.masksToBounds = YES;
-    _commentsBtn.layer.borderWidth = 1.0;
-    _commentsBtn.layer.borderColor = [UIColor orangeColor].CGColor;
+    _commentsBtn.frame = CGRectMake(self.frame.size.width - 40, CGRectGetMinY(_screenName.frame) + 3, 25, 25);
+//    [_commentsBtn setTitle:@"回复" forState:UIControlStateNormal];
+    [_commentsBtn setBackgroundImage:[UIImage imageNamed:@"icn_nav_bar_compose_tweet"] forState:UIControlStateNormal];
+//    [_commentsBtn setTitleColor:[UIColor orangeColor]forState:UIControlStateNormal];
+//    _commentsBtn.layer.cornerRadius = 5.0;
+//    _commentsBtn.layer.masksToBounds = YES;
+//    _commentsBtn.layer.borderWidth = 1.0;
+//    _commentsBtn.layer.borderColor = [UIColor orangeColor].CGColor;
     
     [_commentsBtn addTarget:self action:@selector(commentsWithOthers) forControlEvents:UIControlEventTouchUpInside];
     

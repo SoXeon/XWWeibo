@@ -319,7 +319,7 @@
                               kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
                               kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
                               kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom),
-                              kCRToastAnimationInTimeIntervalKey : @(1.0)
+                              kCRToastAnimationInTimeIntervalKey : @(0.5)
                               };
     
     [CRToastManager showNotificationWithOptions:options completionBlock:nil];
@@ -334,7 +334,7 @@
                                   kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
                                   kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionBottom),
                                   kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
-                                  kCRToastAnimationInTimeIntervalKey : @(1.0),
+                                  kCRToastAnimationInTimeIntervalKey : @(0.5),
                                   };
         
         [CRToastManager showNotificationWithOptions:options completionBlock:nil];

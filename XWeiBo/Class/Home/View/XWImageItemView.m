@@ -31,7 +31,7 @@
 - (void)setUrl:(NSString *)url
 {
     _url = url;
-    
+#warning gif图片重叠好多
     [HttpTool downloadImage:url place:[UIImage imageNamed:@"timeline_image_loading.png"] imageView:self];
     
     _gifView.hidden = ![url.lowercaseString hasSuffix:@"gif"];

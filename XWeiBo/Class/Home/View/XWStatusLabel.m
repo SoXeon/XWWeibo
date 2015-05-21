@@ -68,7 +68,8 @@
         textView.scrollEnabled = NO;
         textView.userInteractionEnabled = NO;
         
-        textView.textContainerInset = UIEdgeInsetsMake(0, -5, 0, -5);
+        textView.textContainerInset = UIEdgeInsetsMake(0, -5, -5, -5);
+        
         textView.backgroundColor = [UIColor clearColor];
         [self addSubview:textView];
         self.textView = textView;

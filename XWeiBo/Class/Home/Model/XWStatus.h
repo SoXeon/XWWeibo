@@ -8,7 +8,7 @@
 
 #import "XWBaseText.h"
 
-@interface XWStatus : XWBaseText
+@interface XWStatus : XWBaseText <NSCoding>
 
 @property (nonatomic, strong) NSArray *picUrls; // 微博配图
 @property (nonatomic, strong) XWStatus *retweetedStatus; // 被转发的微博
