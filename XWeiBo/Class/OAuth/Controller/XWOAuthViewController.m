@@ -39,6 +39,8 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
+    [_webView reload];
+    
     [_webView loadRequest:request];
     
     //2.设置代理方法
@@ -64,6 +66,8 @@
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    
+#warning 有缓存作用，必须要定时定时清理，还是如何实现呢
     NSString *urlStr = request.URL.absoluteString;
     
     NSRange range = [urlStr rangeOfString:@"code="];

@@ -18,6 +18,8 @@
 #import "XWColorChoiceViewController.h"
 #import "XWPinViewController.h"
 
+#import "XWOAuthViewController.h"
+
 @interface XWSquareViewController ()
 
 @property (nonatomic, strong) UIButton *logoutBtn;
@@ -110,7 +112,9 @@
 
 - (void)logoutAction
 {
-
+    XWOAuthViewController *oauthVC = [XWOAuthViewController new];
+    
+    [self.navigationController pushViewController:oauthVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
