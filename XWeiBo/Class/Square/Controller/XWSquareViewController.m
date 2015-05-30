@@ -20,6 +20,12 @@
 
 #import "XWOAuthViewController.h"
 
+#import "XWAboutViewController.h"
+#import "MBProgressHUD.h"
+
+#import "UIImageView+WebCache.h"
+
+
 @interface XWSquareViewController ()
 
 @property (nonatomic, strong) UIButton *logoutBtn;
@@ -64,7 +70,7 @@
     XWSettingGroup *group = [self addGroup];
     
     XWSettingArrowItem *video = [XWSettingArrowItem itemWithIcon:@"video" title:@"图片上传与保存" destVcClass:[XWImageSettingsViewController class]];
-    XWSettingArrowItem *movie = [XWSettingArrowItem itemWithIcon:@"movie" title:@"关于XWeiBo" destVcClass:nil];
+    XWSettingArrowItem *movie = [XWSettingArrowItem itemWithIcon:@"movie" title:@"关于XWeiBo" destVcClass:[XWAboutViewController class]];
     
     group.items = @[video, movie];
 }
@@ -73,7 +79,21 @@
 {
     XWSettingGroup *group = [self addGroup];
     XWSettingLabelItem *video = [XWSettingLabelItem itemWithIcon:@"video" title:@"清除缓存" destVcClass:nil];
-    video.defaultText = @"6.20M";
+//    video.defaultText = @"6.20M";
+    video.option = ^{
+        
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"正在清理...";
+        hud.dimBackground = YES;
+        [hud hide:YES afterDelay:1.0];
+        
+        //停止所有下载
+        [[SDWebImageManager sharedManager] cancelAll];
+        //清除内存中的缓存
+        [[SDWebImageManager sharedManager].imageCache clearMemory];
+
+    };
+    
     
     XWSettingArrowItem *pinSetting = [XWSettingArrowItem itemWithIcon:@"movie" title:@"密码锁定" destVcClass:[XWPinViewController class]];
     

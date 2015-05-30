@@ -57,7 +57,7 @@
         footerLabel.frame = CGRectMake(8, 0, tableView.frame.size.width - 15, 80);
         footerLabel.userInteractionEnabled = NO;
         footerLabel.backgroundColor = [UIColor clearColor];
-        footerLabel.text = @"你可以通过设置XXXXX\n你可以通过设置XXXXX\n你可以通过设置XXXXX";
+        footerLabel.text = @"你可以通过系统设置调整通知样式\n如果没有设置通知会导致无法接受对应通知\n你可能会遗留其他用户的消息";
         footerLabel.font = kSourceFont;
         
         UIView *footerView = [UIView new];

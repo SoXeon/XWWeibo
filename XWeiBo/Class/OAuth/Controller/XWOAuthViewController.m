@@ -67,7 +67,8 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     
-#warning 有缓存作用，必须要定时定时清理，还是如何实现呢
+#warning 有缓存作用，必须要定时定时清理，还是如何实现呢,应用退出以后在进入就可以重新输入了
+    
     NSString *urlStr = request.URL.absoluteString;
     
     NSRange range = [urlStr rangeOfString:@"code="];

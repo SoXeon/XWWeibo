@@ -52,6 +52,7 @@
 		E215274D1A8B4C71005BECB2 /* SWUtilityButtonTapGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E21527461A8B4C71005BECB2 /* SWUtilityButtonTapGestureRecognizer.m */; };
 		E215274E1A8B4C71005BECB2 /* SWUtilityButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = E21527481A8B4C71005BECB2 /* SWUtilityButtonView.m */; };
 		E21B96B91B0F401700F2BA87 /* RKNotificationHub.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B96B81B0F401700F2BA87 /* RKNotificationHub.m */; };
+		E21B96D51B19D36C00F2BA87 /* XWAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B96D41B19D36C00F2BA87 /* XWAboutViewController.m */; };
 		E21C8CAE1AE524D100963A4A /* Lantinghei.ttc in Resources */ = {isa = PBXBuildFile; fileRef = E21C8CAD1AE524D100963A4A /* Lantinghei.ttc */; };
 		E21CE1721A381B460031D6B8 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1601A381B460031D6B8 /* AFHTTPClient.m */; };
 		E21CE1731A381B460031D6B8 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1621A381B460031D6B8 /* AFHTTPRequestOperation.m */; };
@@ -444,6 +445,8 @@
 		E21527481A8B4C71005BECB2 /* SWUtilityButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWUtilityButtonView.m; sourceTree = "<group>"; };
 		E21B96B71B0F401700F2BA87 /* RKNotificationHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RKNotificationHub.h; sourceTree = "<group>"; };
 		E21B96B81B0F401700F2BA87 /* RKNotificationHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RKNotificationHub.m; sourceTree = "<group>"; };
+		E21B96D31B19D36C00F2BA87 /* XWAboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWAboutViewController.h; sourceTree = "<group>"; };
+		E21B96D41B19D36C00F2BA87 /* XWAboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWAboutViewController.m; sourceTree = "<group>"; };
 		E21C8CAD1AE524D100963A4A /* Lantinghei.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lantinghei.ttc; sourceTree = "<group>"; };
 		E21CE15F1A381B460031D6B8 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		E21CE1601A381B460031D6B8 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
@@ -2088,6 +2091,8 @@
 				E28512881AEA27C600E985A6 /* XWReadingSettingViewController.m */,
 				E28512AB1AEA4D3500E985A6 /* XWColorChoiceViewController.h */,
 				E28512AC1AEA4D3500E985A6 /* XWColorChoiceViewController.m */,
+				E21B96D31B19D36C00F2BA87 /* XWAboutViewController.h */,
+				E21B96D41B19D36C00F2BA87 /* XWAboutViewController.m */,
 				E29D2CF81AEE137B00649495 /* XWPinViewController.h */,
 				E29D2CF91AEE137B00649495 /* XWPinViewController.m */,
 				E2EA9D191AEE977E00FD3860 /* XWPinDetailController.h */,
@@ -2928,6 +2933,7 @@
 				E2F071771A2E11FE00BDE434 /* XWAccount.m in Sources */,
 				E2F071C31A2E16FE00BDE434 /* NSData+GIF.m in Sources */,
 				E2EF80F01A309E5D003E9D9B /* IWProfileHeaderView.m in Sources */,
+				E21B96D51B19D36C00F2BA87 /* XWAboutViewController.m in Sources */,
 				E20842671AF0658400031CCD /* UINavigationBar+BarTintColor.m in Sources */,
 				E2F0717E1A2E160F00BDE434 /* XWOAuthViewController.m in Sources */,
 				E20842771AF080CD00031CCD /* UIViewController+RESideMenu.m in Sources */,
