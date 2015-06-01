@@ -416,7 +416,7 @@
     CGPoint point = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMidY(self.frame));
     point = [_scrollBar convertPoint:point toView:_tableView];
     
-    UITableViewCell* cell= (UITableViewCell *)[_tableView cellForRowAtIndexPath:[_tableView indexPathForRowAtPoint:point]];
+    XWStatusCell* cell= (XWStatusCell *)[_tableView cellForRowAtIndexPath:[_tableView indexPathForRowAtPoint:point]];
     if (cell) {
         [self updateDisplayWithCell:cell];
         if (![self alpha])
