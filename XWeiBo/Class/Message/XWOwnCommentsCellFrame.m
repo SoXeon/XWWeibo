@@ -42,7 +42,7 @@
     
     // 3.时间
     CGFloat timeX = screenNameX;
-    CGFloat timeWidth = 80.0;
+    CGFloat timeWidth = 95.0;
     CGFloat timeY = CGRectGetMaxY(_screenNameFrame) + kCellBorderWidth;
     CGSize timeSize = CGSizeMake(timeWidth, kTimeFont.lineHeight);
     _timeFrame = (CGRect){{timeX, timeY}, timeSize};

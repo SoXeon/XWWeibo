@@ -64,8 +64,6 @@
 		E21CE1791A381B460031D6B8 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE16F1A381B460031D6B8 /* AFXMLRequestOperation.m */; };
 		E21CE17A1A381B460031D6B8 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = E21CE1711A381B460031D6B8 /* UIImageView+AFNetworking.m */; };
 		E21D82761AE628F800343E3E /* XWSendMessageTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21D82751AE628F800343E3E /* XWSendMessageTableViewController.m */; };
-		E234438E1B05AB7700775771 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = E234438C1B05AB7700775771 /* pop.wav */; };
-		E234438F1B05AB7700775771 /* psst2.wav in Resources */ = {isa = PBXBuildFile; fileRef = E234438D1B05AB7700775771 /* psst2.wav */; };
 		E248A08C1ACFD78800A92B73 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08B1ACFD78800A92B73 /* ImageIO.framework */; };
 		E248A08E1ACFD79A00A92B73 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08D1ACFD79A00A92B73 /* Security.framework */; };
 		E248A0901ACFD7A500A92B73 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E248A08F1ACFD7A500A92B73 /* QuartzCore.framework */; };
@@ -86,22 +84,6 @@
 		E267CF071ACFB73500A67888 /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E267CF061ACFB73500A67888 /* libWeiboSDK.a */; };
 		E2816D0B1AE7A73700646035 /* kLink.m in Sources */ = {isa = PBXBuildFile; fileRef = E2816D0A1AE7A73700646035 /* kLink.m */; };
 		E28270B01AF3AC4B00509D80 /* UIButton+backgroundMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = E28270AF1AF3AC4B00509D80 /* UIButton+backgroundMusic.m */; };
-		E28270C21AF3BB8700509D80 /* sharing 1.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B21AF3BB8700509D80 /* sharing 1.wav */; };
-		E28270C31AF3BB8700509D80 /* sharing 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B31AF3BB8700509D80 /* sharing 10.wav */; };
-		E28270C41AF3BB8700509D80 /* sharing 11.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B41AF3BB8700509D80 /* sharing 11.wav */; };
-		E28270C51AF3BB8700509D80 /* sharing 12.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B51AF3BB8700509D80 /* sharing 12.wav */; };
-		E28270C61AF3BB8700509D80 /* sharing 13.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B61AF3BB8700509D80 /* sharing 13.wav */; };
-		E28270C71AF3BB8700509D80 /* sharing 14.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B71AF3BB8700509D80 /* sharing 14.wav */; };
-		E28270C81AF3BB8700509D80 /* sharing 15.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B81AF3BB8700509D80 /* sharing 15.wav */; };
-		E28270C91AF3BB8700509D80 /* sharing 16.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270B91AF3BB8700509D80 /* sharing 16.wav */; };
-		E28270CA1AF3BB8700509D80 /* sharing 2.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BA1AF3BB8700509D80 /* sharing 2.wav */; };
-		E28270CB1AF3BB8700509D80 /* sharing 3.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BB1AF3BB8700509D80 /* sharing 3.wav */; };
-		E28270CC1AF3BB8700509D80 /* sharing 4.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BC1AF3BB8700509D80 /* sharing 4.wav */; };
-		E28270CD1AF3BB8700509D80 /* sharing 5.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BD1AF3BB8700509D80 /* sharing 5.wav */; };
-		E28270CE1AF3BB8700509D80 /* sharing 6.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BE1AF3BB8700509D80 /* sharing 6.wav */; };
-		E28270CF1AF3BB8700509D80 /* sharing 7.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270BF1AF3BB8700509D80 /* sharing 7.wav */; };
-		E28270D01AF3BB8700509D80 /* sharing 8.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270C01AF3BB8700509D80 /* sharing 8.wav */; };
-		E28270D11AF3BB8700509D80 /* sharing 9.wav in Resources */ = {isa = PBXBuildFile; fileRef = E28270C11AF3BB8700509D80 /* sharing 9.wav */; };
 		E28512801AE9EF0000E985A6 /* XWMessageManagementController.m in Sources */ = {isa = PBXBuildFile; fileRef = E285127F1AE9EF0000E985A6 /* XWMessageManagementController.m */; };
 		E28512831AE9FBE900E985A6 /* XWMusicSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512821AE9FBE900E985A6 /* XWMusicSettingViewController.m */; };
 		E28512861AEA19B200E985A6 /* XWImageSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512851AEA19B200E985A6 /* XWImageSettingsViewController.m */; };
@@ -127,6 +109,7 @@
 		E28512CD1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512CC1AEB762300E985A6 /* XWProfileHeaderViewBehaviorDefineer.m */; };
 		E28512F71AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m in Sources */ = {isa = PBXBuildFile; fileRef = E28512F61AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m */; };
 		E29290AE1A8A377E00F0267D /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E29290AD1A8A377E00F0267D /* Reveal.framework */; };
+		E295231C1B1F005C00D2285E /* sharing 10.wav in Resources */ = {isa = PBXBuildFile; fileRef = E295231B1B1F005C00D2285E /* sharing 10.wav */; };
 		E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E295936C1AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings */; };
 		E29593811AE8A62F00F71006 /* TOActivityChrome.m in Sources */ = {isa = PBXBuildFile; fileRef = E29593771AE8A62F00F71006 /* TOActivityChrome.m */; };
 		E29593821AE8A62F00F71006 /* TOActivitySafari.m in Sources */ = {isa = PBXBuildFile; fileRef = E29593791AE8A62F00F71006 /* TOActivitySafari.m */; };
@@ -469,8 +452,6 @@
 		E21CE1711A381B460031D6B8 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		E21D82741AE628F800343E3E /* XWSendMessageTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWSendMessageTableViewController.h; sourceTree = "<group>"; };
 		E21D82751AE628F800343E3E /* XWSendMessageTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWSendMessageTableViewController.m; sourceTree = "<group>"; };
-		E234438C1B05AB7700775771 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
-		E234438D1B05AB7700775771 /* psst2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = psst2.wav; sourceTree = "<group>"; };
 		E248A08B1ACFD78800A92B73 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 		E248A08D1ACFD79A00A92B73 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E248A08F1ACFD7A500A92B73 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -511,22 +492,6 @@
 		E2816D0A1AE7A73700646035 /* kLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = kLink.m; sourceTree = "<group>"; };
 		E28270AE1AF3AC4B00509D80 /* UIButton+backgroundMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+backgroundMusic.h"; sourceTree = "<group>"; };
 		E28270AF1AF3AC4B00509D80 /* UIButton+backgroundMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+backgroundMusic.m"; sourceTree = "<group>"; };
-		E28270B21AF3BB8700509D80 /* sharing 1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 1.wav"; sourceTree = "<group>"; };
-		E28270B31AF3BB8700509D80 /* sharing 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 10.wav"; sourceTree = "<group>"; };
-		E28270B41AF3BB8700509D80 /* sharing 11.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 11.wav"; sourceTree = "<group>"; };
-		E28270B51AF3BB8700509D80 /* sharing 12.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 12.wav"; sourceTree = "<group>"; };
-		E28270B61AF3BB8700509D80 /* sharing 13.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 13.wav"; sourceTree = "<group>"; };
-		E28270B71AF3BB8700509D80 /* sharing 14.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 14.wav"; sourceTree = "<group>"; };
-		E28270B81AF3BB8700509D80 /* sharing 15.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 15.wav"; sourceTree = "<group>"; };
-		E28270B91AF3BB8700509D80 /* sharing 16.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 16.wav"; sourceTree = "<group>"; };
-		E28270BA1AF3BB8700509D80 /* sharing 2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 2.wav"; sourceTree = "<group>"; };
-		E28270BB1AF3BB8700509D80 /* sharing 3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 3.wav"; sourceTree = "<group>"; };
-		E28270BC1AF3BB8700509D80 /* sharing 4.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 4.wav"; sourceTree = "<group>"; };
-		E28270BD1AF3BB8700509D80 /* sharing 5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 5.wav"; sourceTree = "<group>"; };
-		E28270BE1AF3BB8700509D80 /* sharing 6.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 6.wav"; sourceTree = "<group>"; };
-		E28270BF1AF3BB8700509D80 /* sharing 7.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 7.wav"; sourceTree = "<group>"; };
-		E28270C01AF3BB8700509D80 /* sharing 8.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 8.wav"; sourceTree = "<group>"; };
-		E28270C11AF3BB8700509D80 /* sharing 9.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 9.wav"; sourceTree = "<group>"; };
 		E285127E1AE9EF0000E985A6 /* XWMessageManagementController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMessageManagementController.h; sourceTree = "<group>"; };
 		E285127F1AE9EF0000E985A6 /* XWMessageManagementController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWMessageManagementController.m; sourceTree = "<group>"; };
 		E28512811AE9FBE900E985A6 /* XWMusicSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWMusicSettingViewController.h; sourceTree = "<group>"; };
@@ -576,6 +541,7 @@
 		E28512F51AEB8C2C00E985A6 /* JDFPeekabooCoordinator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDFPeekabooCoordinator.h; sourceTree = "<group>"; };
 		E28512F61AEB8C2C00E985A6 /* JDFPeekabooCoordinator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDFPeekabooCoordinator.m; sourceTree = "<group>"; };
 		E29290AD1A8A377E00F0267D /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reveal.framework; path = XWeiBo/Reveal.framework; sourceTree = "<group>"; };
+		E295231B1B1F005C00D2285E /* sharing 10.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "sharing 10.wav"; sourceTree = "<group>"; };
 		E295936D1AE8A62F00F71006 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E295936E1AE8A62F00F71006 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = en.lproj/ru.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		E295936F1AE8A62F00F71006 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/TOWebViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -1290,24 +1256,7 @@
 		E28270B11AF3BB8600509D80 /* btnMusic */ = {
 			isa = PBXGroup;
 			children = (
-				E234438C1B05AB7700775771 /* pop.wav */,
-				E234438D1B05AB7700775771 /* psst2.wav */,
-				E28270B21AF3BB8700509D80 /* sharing 1.wav */,
-				E28270B31AF3BB8700509D80 /* sharing 10.wav */,
-				E28270B41AF3BB8700509D80 /* sharing 11.wav */,
-				E28270B51AF3BB8700509D80 /* sharing 12.wav */,
-				E28270B61AF3BB8700509D80 /* sharing 13.wav */,
-				E28270B71AF3BB8700509D80 /* sharing 14.wav */,
-				E28270B81AF3BB8700509D80 /* sharing 15.wav */,
-				E28270B91AF3BB8700509D80 /* sharing 16.wav */,
-				E28270BA1AF3BB8700509D80 /* sharing 2.wav */,
-				E28270BB1AF3BB8700509D80 /* sharing 3.wav */,
-				E28270BC1AF3BB8700509D80 /* sharing 4.wav */,
-				E28270BD1AF3BB8700509D80 /* sharing 5.wav */,
-				E28270BE1AF3BB8700509D80 /* sharing 6.wav */,
-				E28270BF1AF3BB8700509D80 /* sharing 7.wav */,
-				E28270C01AF3BB8700509D80 /* sharing 8.wav */,
-				E28270C11AF3BB8700509D80 /* sharing 9.wav */,
+				E295231B1B1F005C00D2285E /* sharing 10.wav */,
 			);
 			path = btnMusic;
 			sourceTree = "<group>";
@@ -2635,51 +2584,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E28270CF1AF3BB8700509D80 /* sharing 7.wav in Resources */,
 				E2C2AFA41A8C8CDD00C23EA2 /* CommentViewController.xib in Resources */,
-				E28270C31AF3BB8700509D80 /* sharing 10.wav in Resources */,
-				E28270C41AF3BB8700509D80 /* sharing 11.wav in Resources */,
 				E2C2FA621ADA408C00474FDC /* XWEmotionPopView.xib in Resources */,
-				E234438F1B05AB7700775771 /* psst2.wav in Resources */,
-				E28270C21AF3BB8700509D80 /* sharing 1.wav in Resources */,
 				E29593801AE8A62F00F71006 /* TOWebViewControllerLocalizable.strings in Resources */,
 				E2F072441A30295100BDE434 /* More.plist in Resources */,
 				E2D4BC9E1A9DC6B100B02862 /* XWCommentDock.xib in Resources */,
 				E2F2433F1ACD6A06002F6003 /* timescroll_pointer@2x.png in Resources */,
-				E234438E1B05AB7700775771 /* pop.wav in Resources */,
 				E2C2AF9B1A8BB0A800C23EA2 /* RepostViewController.xib in Resources */,
 				E2F2433C1ACD6A06002F6003 /* timescroll_minutehand.png in Resources */,
 				E2EF80F11A309E5D003E9D9B /* IWProfileHeaderView.xib in Resources */,
-				E28270C91AF3BB8700509D80 /* sharing 16.wav in Resources */,
 				E214DC381AE0FCCC008142A3 /* Info.plist in Resources */,
 				E2F070CB1A2D6BCD00BDE434 /* Images.xcassets in Resources */,
 				E2EF80CB1A308811003E9D9B /* MJPhotoBrowser.bundle in Resources */,
 				E21C8CAE1AE524D100963A4A /* Lantinghei.ttc in Resources */,
-				E28270C81AF3BB8700509D80 /* sharing 15.wav in Resources */,
 				E2EF80EC1A309AB1003E9D9B /* IWFriendshipCell.xib in Resources */,
-				E28270CE1AF3BB8700509D80 /* sharing 6.wav in Resources */,
 				E2F2433A1ACD6A06002F6003 /* timescroll_hourhand.png in Resources */,
+				E295231C1B1F005C00D2285E /* sharing 10.wav in Resources */,
 				E267CF051ACFA9F800A67888 /* WeiboSDK.bundle in Resources */,
-				E28270D01AF3BB8700509D80 /* sharing 8.wav in Resources */,
-				E28270C51AF3BB8700509D80 /* sharing 12.wav in Resources */,
-				E28270C71AF3BB8700509D80 /* sharing 14.wav in Resources */,
-				E28270D11AF3BB8700509D80 /* sharing 9.wav in Resources */,
-				E28270CC1AF3BB8700509D80 /* sharing 4.wav in Resources */,
 				E2F2433E1ACD6A06002F6003 /* timescroll_pointer.png in Resources */,
 				E29D2CF21AED139A00649495 /* THPinViewController.bundle in Resources */,
 				E2F072421A2F5DBE00BDE434 /* DetailHeader.xib in Resources */,
 				E2F072521A304F6B00BDE434 /* IWComposeDock.xib in Resources */,
 				E2F071211A2D775900BDE434 /* Info.plist in Resources */,
 				E2F2433B1ACD6A06002F6003 /* timescroll_hourhand@2x.png in Resources */,
-				E28270CB1AF3BB8700509D80 /* sharing 3.wav in Resources */,
-				E28270C61AF3BB8700509D80 /* sharing 13.wav in Resources */,
 				E25226561AD420D50073734A /* EmotionIcons in Resources */,
 				E2C2AFB41A8E1B7A00C23EA2 /* .gitignore in Resources */,
 				E25ED15C1A30691F00C5A023 /* MBProgressHUD.bundle in Resources */,
-				E28270CD1AF3BB8700509D80 /* sharing 5.wav in Resources */,
 				E2F243591ACE6529002F6003 /* MJRefresh.bundle in Resources */,
 				E2F2433D1ACD6A06002F6003 /* timescroll_minutehand@2x.png in Resources */,
-				E28270CA1AF3BB8700509D80 /* sharing 2.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

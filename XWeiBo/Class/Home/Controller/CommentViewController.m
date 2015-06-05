@@ -53,6 +53,7 @@ static BOOL firstComment = YES;
     [self.presentingPopinViewController dismissCurrentPopinControllerAnimated:YES completion:^{
         NSLog(@"Popin dismissed !");
     }];
+    
     [self.cancelBtn addCertainMusicWithName:@"sharing 10" forButton:nil];
 }
 
