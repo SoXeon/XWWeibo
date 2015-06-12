@@ -83,7 +83,7 @@
     
     XWSettingArrowItem *nightReadingModel = [XWSettingSwitchItem itemWithTitle:@"夜晚阅读模式"];
     //TODO:设置夜晚阅读模式时间端
-    XWSettingLabelItem *timeSelectedModel = [XWSettingLabelItem itemWithIcon:@"video" title:@"清除缓存" destVcClass:nil];
+    XWSettingLabelItem *timeSelectedModel = [XWSettingLabelItem itemWithIcon:@"video" title:@"时间设置" destVcClass:nil];
     timeSelectedModel.defaultText = @"20:00~23:00";
     
     group.items = @[fullScreenReading, nightReadingModel, timeSelectedModel];

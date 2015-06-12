@@ -13,6 +13,8 @@
 #import "XWStatusCell.h"
 #import "XWStatusTool.h"
 #import "HttpTool.h"
+#import "CRToast.h"
+
 @implementation XWBaseStatusListViewController
 
 
@@ -92,13 +94,51 @@
             } failure:^(NSError *error) {
                 
             }];
-
+            
+            
+            [self showNotifLabel];
         }
             
             break;
         default:
             break;
     }
+
+}
+
+- (void)showNotifLabel
+{
+    
+    NSDictionary *options = @{
+                              kCRToastTextKey: @"正在删除...",
+                              kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
+                              kCRToastBackgroundColorKey: [UIColor yellowColor],
+                              kCRToastTextColorKey: [UIColor redColor],
+                              kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
+                              kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
+                              kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionTop),
+                              kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionBottom),
+                              kCRToastAnimationInTimeIntervalKey : @(0.5)
+                              };
+    
+    [CRToastManager showNotificationWithOptions:options completionBlock:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        NSDictionary *options = @{
+                                  kCRToastTextKey: @"删除成功",
+                                  kCRToastTextAlignmentKey : @(NSTextAlignmentCenter),
+                                  kCRToastBackgroundColorKey: [UIColor yellowColor],
+                                  kCRToastTextColorKey: [UIColor redColor],
+                                  kCRToastAnimationInTypeKey : @(CRToastAnimationTypeLinear),
+                                  kCRToastAnimationOutTypeKey : @(CRToastAnimationTypeLinear),
+                                  kCRToastAnimationInDirectionKey : @(CRToastAnimationDirectionBottom),
+                                  kCRToastAnimationOutDirectionKey : @(CRToastAnimationDirectionTop),
+                                  kCRToastAnimationInTimeIntervalKey : @(0.5),
+                                  };
+        
+        [CRToastManager showNotificationWithOptions:options completionBlock:nil];
+        
+    });
 
 }
 

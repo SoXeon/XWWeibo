@@ -38,10 +38,11 @@
 }
 
 - (IBAction)clickRepeatAtion:(id)sender {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"atClick" object:nil];
 }
 
 - (IBAction)clickTopicAction:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"topicClick" object:nil];
 }
 
 - (IBAction)clickEmjoyAction:(id)sender {

@@ -16,6 +16,8 @@
 #import "MJRefresh.h"
 #import "XWStatusDetailController.h"
 
+#import "CRToast.h"
+
 @interface XWStatusListViewController()
 
 @end
@@ -51,14 +53,14 @@
     
     [self.tableView.header beginRefreshing];
     
-    [self.tableView addLegendFooterWithRefreshingBlock:^{
-        
-        __strong typeof(&*self) strongSelf = weakSelf;
-
-        if (strongSelf) {
-            [strongSelf loadMoreStatuses];
-        }
-    }];
+//    [self.tableView addLegendFooterWithRefreshingBlock:^{
+//        
+//        __strong typeof(&*self) strongSelf = weakSelf;
+//#warning 此接口只返回5条数据
+//        if (strongSelf) {
+////            [strongSelf loadMoreStatuses];
+//        }
+//    }];
 
 }
 
@@ -71,8 +73,10 @@
     }
     
     [XWStatusTool everyUserStatusesWithParams:@{
-                                                @"uid" : _param.uid
-                                                
+                                                @"uid" : _param.uid,
+                                                @"count": @5
+            
+
                                                 }
                                       success:^(NSArray *statues) {
                                           NSMutableArray *newFrames = [NSMutableArray array];
@@ -102,7 +106,6 @@
 
     [XWStatusTool everyUserStatusesWithParams:@{
                                                 @"uid" : _param.uid
-                                                
                                                 }
                                       success:^(NSArray *statues) {
                                           NSMutableArray *newFrames = [NSMutableArray array];

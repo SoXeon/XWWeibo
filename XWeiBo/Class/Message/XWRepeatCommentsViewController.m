@@ -91,12 +91,38 @@
     [center addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [center addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [center addObserver:self selector:@selector(textDidChange:) name:UITextViewTextDidChangeNotification object:textView];
+    [center addObserver:self selector:@selector(addEmotion) name:@"emotionClick" object:nil];
+    [center addObserver:self selector:@selector(addTopic) name:@"topicClick" object:nil];
+    [center addObserver:self selector:@selector(addAt) name:@"atClick" object:nil];
     
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(addEmotion) name:@"emotionClick" object:nil];
-    
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidSelected:) name:kXWEmotionDidSelectedNotification object:nil];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(emotionDidDeleted:) name:kXWEmotionDidDeletedNotification object:nil];
+    [center addObserver:self selector:@selector(emotionDidSelected:) name:kXWEmotionDidSelectedNotification object:nil];
+    [center addObserver:self selector:@selector(emotionDidDeleted:) name:kXWEmotionDidDeletedNotification object:nil];
 }
+
+- (void)addTopic
+{
+    NSString * tex = self.textView.text;
+    
+    tex = [tex stringByAppendingString: @"##"];
+    
+    self.textView.text = tex;
+    
+    NSRange range;
+    range.location = self.textView.text.length - 1;
+    range.length = 0;
+    self.textView.selectedRange = range;
+    
+}
+
+- (void)addAt
+{
+    NSString *tex = self.textView.text;
+    
+    tex = [tex stringByAppendingString: @"@"];
+    
+    self.textView.text = tex;
+}
+
 
 #pragma mark 表情的选中与删除
 - (void)emotionDidSelected:(NSNotification *)note

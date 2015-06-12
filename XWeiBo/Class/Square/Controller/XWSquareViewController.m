@@ -97,9 +97,7 @@
     
     XWSettingArrowItem *pinSetting = [XWSettingArrowItem itemWithIcon:@"movie" title:@"密码锁定" destVcClass:[XWPinViewController class]];
     
-    NSString *userPin = [XWUserDefaults objectForKey:kUserPin];
-    
-    if (userPin) {
+    if ([XWUserDefaults objectForKey:kUserPin]) {
         pinSetting.subtitle = @"                               开启";
     } else {
         pinSetting.subtitle = @"                               关闭";

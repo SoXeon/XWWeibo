@@ -33,6 +33,10 @@
 		E20842771AF080CD00031CCD /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842741AF080CD00031CCD /* UIViewController+RESideMenu.m */; };
 		E208427A1AF0861E00031CCD /* XWLeftMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842791AF0861E00031CCD /* XWLeftMenuViewController.m */; };
 		E208427D1AF0BC5900031CCD /* PaperButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E208427C1AF0BC5900031CCD /* PaperButton.m */; };
+		E20887F01B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E20887EE1B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodeld */; };
+		E20887F21B2AA5F0009C7DB5 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E20887F11B2AA5F0009C7DB5 /* CoreData.framework */; };
+		E20887F51B2AAC1F009C7DB5 /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = E20887F41B2AAC1F009C7DB5 /* Card.m */; };
+		E20887F81B2AAC20009C7DB5 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = E20887F71B2AAC20009C7DB5 /* Person.m */; };
 		E214197C1A91EE030048A451 /* XWOwnCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197B1A91EE030048A451 /* XWOwnCommentCell.m */; };
 		E214197F1A91EE380048A451 /* XWOwnCommentsCellFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = E214197E1A91EE380048A451 /* XWOwnCommentsCellFrame.m */; };
 		E214DC381AE0FCCC008142A3 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E214DC201AE0FCCC008142A3 /* Info.plist */; };
@@ -386,6 +390,12 @@
 		E20842791AF0861E00031CCD /* XWLeftMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWLeftMenuViewController.m; sourceTree = "<group>"; };
 		E208427B1AF0BC5900031CCD /* PaperButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaperButton.h; sourceTree = "<group>"; };
 		E208427C1AF0BC5900031CCD /* PaperButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaperButton.m; sourceTree = "<group>"; };
+		E20887EF1B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PersonDataModel.xcdatamodel; sourceTree = "<group>"; };
+		E20887F11B2AA5F0009C7DB5 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		E20887F31B2AAC1F009C7DB5 /* Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Card.h; sourceTree = "<group>"; };
+		E20887F41B2AAC1F009C7DB5 /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
+		E20887F61B2AAC20009C7DB5 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		E20887F71B2AAC20009C7DB5 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		E214197A1A91EE030048A451 /* XWOwnCommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentCell.h; sourceTree = "<group>"; };
 		E214197B1A91EE030048A451 /* XWOwnCommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XWOwnCommentCell.m; sourceTree = "<group>"; };
 		E214197D1A91EE380048A451 /* XWOwnCommentsCellFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XWOwnCommentsCellFrame.h; sourceTree = "<group>"; };
@@ -961,6 +971,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E20887F21B2AA5F0009C7DB5 /* CoreData.framework in Frameworks */,
 				E2C2FA6A1ADA879900474FDC /* libicucore.dylib in Frameworks */,
 				E248A0941ACFD7BC00A92B73 /* CoreGraphics.framework in Frameworks */,
 				E248A0921ACFD7B300A92B73 /* SystemConfiguration.framework in Frameworks */,
@@ -986,6 +997,7 @@
 		72A148355228A73EDF8D26B5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E20887F11B2AA5F0009C7DB5 /* CoreData.framework */,
 				E2E18B021AEF639D003EB85E /* libPods-pop.a */,
 				68FE8C04A18824D165DCF771 /* libPods.a */,
 			);
@@ -2120,6 +2132,11 @@
 				E2F071181A2D76F600BDE434 /* AppDelegate.h */,
 				E2F071191A2D76F600BDE434 /* AppDelegate.m */,
 				E2F072431A30295100BDE434 /* More.plist */,
+				E20887EE1B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodeld */,
+				E20887F61B2AAC20009C7DB5 /* Person.h */,
+				E20887F71B2AAC20009C7DB5 /* Person.m */,
+				E20887F31B2AAC1F009C7DB5 /* Card.h */,
+				E20887F41B2AAC1F009C7DB5 /* Card.m */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -2727,6 +2744,7 @@
 				E20842681AF0658400031CCD /* UINavigationBar+NightVersion.m in Sources */,
 				E28512A71AEA4C9400E985A6 /* HRColorMapView.m in Sources */,
 				E2F071691A2DE19A00BDE434 /* XWBgCell.m in Sources */,
+				E20887F51B2AAC1F009C7DB5 /* Card.m in Sources */,
 				E2F072031A2F144200BDE434 /* XWBaseWordCell.m in Sources */,
 				E2F071EE1A2EF8E400BDE434 /* XWBaseStatusCellFrame.m in Sources */,
 				E2F071CB1A2E16FE00BDE434 /* UIButton+WebCache.m in Sources */,
@@ -2754,6 +2772,7 @@
 				E2CAC7FC1AE100E500F35EF5 /* YALSpringAnimation.m in Sources */,
 				E2C2AFA31A8C8CDD00C23EA2 /* CommentViewController.m in Sources */,
 				E29D2CF41AED139A00649495 /* UIImage+ImageEffects.m in Sources */,
+				E20887F01B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodeld in Sources */,
 				E2C2FA651ADA612100474FDC /* XWEmotionTool.m in Sources */,
 				E2C2AFE91A91E1DB00C23EA2 /* XWOwnComment.m in Sources */,
 				E2EF80CE1A308811003E9D9B /* MJPhotoProgressView.m in Sources */,
@@ -2772,6 +2791,7 @@
 				E21CE1761A381B460031D6B8 /* AFNetworkActivityIndicatorManager.m in Sources */,
 				E2CE09241AD2DF7500FE0451 /* UIView+Extension.m in Sources */,
 				E2F072231A2F249000BDE434 /* XWCommentCellFrame.m in Sources */,
+				E20887F81B2AAC20009C7DB5 /* Person.m in Sources */,
 				E2F071E51A2EF60F00BDE434 /* XWBaseModel.m in Sources */,
 				E28512C41AEB6EE700E985A6 /* BLKFlexibleHeightBarSubviewLayoutAttributes.m in Sources */,
 				E2F072671A305EC300BDE434 /* XWBaseTool.m in Sources */,
@@ -3193,6 +3213,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E20887EE1B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E20887EF1B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodel */,
+			);
+			currentVersion = E20887EF1B2AA0DF009C7DB5 /* PersonDataModel.xcdatamodel */;
+			path = PersonDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E2F070B21A2D6BCD00BDE434 /* Project object */;
 }
