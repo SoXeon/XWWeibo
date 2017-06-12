@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		750CA39D362D60F0A6AFD75B /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 68FE8C04A18824D165DCF771 /* libPods.a */; };
+		D808281A3781B5F948733E07 /* libPods-XWeiBo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A95D2AC7C9F0206C8931C3BA /* libPods-XWeiBo.a */; };
 		E208422C1AEF6F0900031CCD /* CRToast.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842221AEF6F0900031CCD /* CRToast.m */; };
 		E208422D1AEF6F0900031CCD /* CRToastManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842251AEF6F0900031CCD /* CRToastManager.m */; };
 		E208422E1AEF6F0900031CCD /* CRToastView.m in Sources */ = {isa = PBXBuildFile; fileRef = E20842271AEF6F0900031CCD /* CRToastView.m */; };
@@ -334,9 +334,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		68FE8C04A18824D165DCF771 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D0485E74FA4607629E2385D9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		E00A9A79B38A31DF22F7B686 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		58640B01199A10AE15CDD4D6 /* Pods-XWeiBo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XWeiBo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XWeiBo/Pods-XWeiBo.debug.xcconfig"; sourceTree = "<group>"; };
+		66F976EE732EF0F42A6F140A /* Pods-XWeiBo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XWeiBo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XWeiBo/Pods-XWeiBo.release.xcconfig"; sourceTree = "<group>"; };
+		A95D2AC7C9F0206C8931C3BA /* libPods-XWeiBo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XWeiBo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E20842211AEF6F0900031CCD /* CRToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToast.h; sourceTree = "<group>"; };
 		E20842221AEF6F0900031CCD /* CRToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CRToast.m; sourceTree = "<group>"; };
 		E20842231AEF6F0900031CCD /* CRToastLayoutHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CRToastLayoutHelpers.h; sourceTree = "<group>"; };
@@ -980,7 +980,7 @@
 				E248A08C1ACFD78800A92B73 /* ImageIO.framework in Frameworks */,
 				E29290AE1A8A377E00F0267D /* Reveal.framework in Frameworks */,
 				E267CF071ACFB73500A67888 /* libWeiboSDK.a in Frameworks */,
-				750CA39D362D60F0A6AFD75B /* libPods.a in Frameworks */,
+				D808281A3781B5F948733E07 /* libPods-XWeiBo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -999,16 +999,16 @@
 			children = (
 				E20887F11B2AA5F0009C7DB5 /* CoreData.framework */,
 				E2E18B021AEF639D003EB85E /* libPods-pop.a */,
-				68FE8C04A18824D165DCF771 /* libPods.a */,
+				A95D2AC7C9F0206C8931C3BA /* libPods-XWeiBo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		BEE131148D217A1D13BBAE91 /* Pods */ = {
+		BEB8432E8C60148D14041608 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E00A9A79B38A31DF22F7B686 /* Pods.debug.xcconfig */,
-				D0485E74FA4607629E2385D9 /* Pods.release.xcconfig */,
+				58640B01199A10AE15CDD4D6 /* Pods-XWeiBo.debug.xcconfig */,
+				66F976EE732EF0F42A6F140A /* Pods-XWeiBo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1715,8 +1715,8 @@
 				E2F070BC1A2D6BCD00BDE434 /* XWeiBo */,
 				E2F070D61A2D6BCE00BDE434 /* XWeiBoTests */,
 				E2F070BB1A2D6BCD00BDE434 /* Products */,
-				BEE131148D217A1D13BBAE91 /* Pods */,
 				72A148355228A73EDF8D26B5 /* Frameworks */,
+				BEB8432E8C60148D14041608 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2515,11 +2515,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E2F070DD1A2D6BCE00BDE434 /* Build configuration list for PBXNativeTarget "XWeiBo" */;
 			buildPhases = (
-				1478148E12497B6407B8B9E2 /* Check Pods Manifest.lock */,
+				E27941504E4CE22EEDB91EF7 /* [CP] Check Pods Manifest.lock */,
 				E2F070B61A2D6BCD00BDE434 /* Sources */,
 				E2F070B71A2D6BCD00BDE434 /* Frameworks */,
 				E2F070B81A2D6BCD00BDE434 /* Resources */,
-				72436411A14F00EA6DF2BB23 /* Copy Pods Resources */,
+				281E45102D1A251219691906 /* [CP] Embed Pods Frameworks */,
+				BFBA93FD2F03F05AA7B42082 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2642,34 +2643,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1478148E12497B6407B8B9E2 /* Check Pods Manifest.lock */ = {
+		281E45102D1A251219691906 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XWeiBo/Pods-XWeiBo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		72436411A14F00EA6DF2BB23 /* Copy Pods Resources */ = {
+		BFBA93FD2F03F05AA7B42082 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XWeiBo/Pods-XWeiBo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E27941504E4CE22EEDB91EF7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3077,7 +3093,7 @@
 		};
 		E2F070DE1A2D6BCE00BDE434 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E00A9A79B38A31DF22F7B686 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 58640B01199A10AE15CDD4D6 /* Pods-XWeiBo.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -3114,7 +3130,7 @@
 		};
 		E2F070DF1A2D6BCE00BDE434 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D0485E74FA4607629E2385D9 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 66F976EE732EF0F42A6F140A /* Pods-XWeiBo.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
